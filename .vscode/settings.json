@@ -1,0 +1,16 @@
+{
+  "prettier.enable": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "files.associations": {
+    "*.css": "postcss"
+  },
+  "editor.formatOnSave": false,
+  "css.validate": false,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#401963",
+    "titleBar.activeBackground": "#20648b",
+    "titleBar.activeForeground": "#FCFAFE"
+  }
+}
