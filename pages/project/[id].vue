@@ -20,6 +20,14 @@ if (!project.value) {
     fatal: true,
   })
 }
+useHead({
+  title: project.value.name,
+})
+useSeoMeta({
+  ogTitle: project.value.name,
+  ogDescription: project.value.description,
+  ogImage: project.value?.logos?.at(0)?.url ?? '',
+})
 </script>
 
 <template>
