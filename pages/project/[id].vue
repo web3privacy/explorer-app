@@ -26,7 +26,7 @@ useHead({
 useSeoMeta({
   ogTitle: project.value.name,
   ogDescription: project.value.description,
-  ogImage: project.logos?.at(0)?.url,
+  ogImage: project.value?.logos?.at(0)?.url ?? '',
 })
 </script>
 
