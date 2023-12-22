@@ -1,8 +1,11 @@
 <script setup lang="ts">
 useHead({
-  title: 'Web 3 Privacy',
+  titleTemplate: (titleChunk) => {
+    return titleChunk
+      ? `${titleChunk} - Web3-Privacy`
+      : 'Web3-Privacy'
+  },
 })
-
 const { fetchData } = useData()
 
 await fetchData()
