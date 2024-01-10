@@ -14,7 +14,9 @@ const { switcher } = storeToRefs(useData())
     flex w-full gap-16px hover:bg="#121212" transition-all
   >
     <div relative max-w="96px lg:200px" w-full h="96px lg:200px" :class="switcher ? '' : 'lg:max-w-full! lg:w-full '">
-      <NuxtImg :src="project?.image || '/no-image-1-1.svg'" class="w-full h-full" z-10 object-cover />
+      <div flex items-center justify-center w-full my-auto h-full>
+        <NuxtImg :src="project?.image || '/no-image-1-1.svg'" class="w-full h-auto" max-h="md:196px 96px" self-center z-10 object-fit bg="#121212" />
+      </div>
       <ClientOnly>
         <Badge
           v-if="project.percentage"
