@@ -20,13 +20,13 @@ watch(y, (newY, oldY) => {
 
 <template>
   <div v-if="showMenu" w-full flex flex-col items-center>
-    <NuxtLink to="https://beta.web3privacy.info/" bg-black hover:bg-white w-full text-center justify-center py-14px cursor-pointer text-app-text-grey class="hover:text-black" hover:underline underline-offset-1 text-16px font-400 uppercase>
+    <NuxtLink to="https://web3privacy.info/" bg-black hover:bg-white w-full text-center justify-center py-14px cursor-pointer text-app-text-grey class="hover:text-black" hover:underline underline-offset-1 text-16px font-400 uppercase>
       HOME
     </NuxtLink>
     <NuxtLink bg-black hover:bg-white w-full text-center justify-center py-14px cursor-pointer text-white class="hover:text-black" hover:underline underline-offset-1 text-16px font-400 to="/">
       PROJECTS
     </NuxtLink>
-    <NuxtLink to="https://beta.web3privacy.info/events/" bg-black hover:bg-white w-full text-center justify-center py-14px cursor-pointer text-app-text-grey class="hover:text-black" hover:underline underline-offset-1 text-16px font-400 uppercase>
+    <NuxtLink to="https://web3privacy.info/events/" bg-black hover:bg-white w-full text-center justify-center py-14px cursor-pointer text-app-text-grey class="hover:text-black" hover:underline underline-offset-1 text-16px font-400 uppercase>
       EVENTS
     </NuxtLink>
     <NuxtLink bg-black hover:bg-white w-full justify-center to="https://mirror.xyz/0x0f1F3DAf416B74DB3DE55Eb4D7513a80F4841073/" flex items-center py-14px cursor-pointer text-app-text-grey class="hover:text-black" hover:underline underline-offset-1 text-16px font-400 uppercase>
@@ -52,13 +52,13 @@ watch(y, (newY, oldY) => {
         <NuxtImg max-w-160px w-full src="/logo.svg" cursor-pointer @click="navigateTo('/')" />
       </div>
       <div hidden lg:flex items-center justify-center>
-        <NuxtLink to="https://beta.web3privacy.info/" py-2 px-4 cursor-pointer text-app-text-grey class="hover:text-[#c2c2c2]" hover:underline underline-offset-1 text-16px font-400 uppercase>
+        <NuxtLink to="https://web3privacy.info/" py-2 px-4 cursor-pointer text-app-text-grey class="hover:text-[#c2c2c2]" hover:underline underline-offset-1 text-16px font-400 uppercase>
           HOME
         </NuxtLink>
         <NuxtLink py-2 px-4 cursor-pointer text-white class="hover:text-[#c2c2c2]" hover:underline underline-offset-1 text-16px font-400 to="/">
           DASHBOARD
         </NuxtLink>
-        <NuxtLink to="https://beta.web3privacy.info/events/" py-2 px-4 cursor-pointer text-app-text-grey class="hover:text-[#c2c2c2]" hover:underline underline-offset-1 text-16px font-400 uppercase>
+        <NuxtLink to="https://web3privacy.info/events/" py-2 px-4 cursor-pointer text-app-text-grey class="hover:text-[#c2c2c2]" hover:underline underline-offset-1 text-16px font-400 uppercase>
           EVENTS
         </NuxtLink>
         <NuxtLink to="https://mirror.xyz/0x0f1F3DAf416B74DB3DE55Eb4D7513a80F4841073/" flex items-center py-2 px-4 cursor-pointer text-app-text-grey class="hover:text-[#c2c2c2]" hover:underline underline-offset-1 text-16px font-400 uppercase>

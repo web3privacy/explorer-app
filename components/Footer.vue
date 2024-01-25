@@ -39,7 +39,7 @@
       <NuxtLink to="https://github.com/web3privacy/grants" opacity-50 hover:underline>
         {{ 'Grants /  Support Us' }}
       </NuxtLink>
-      <NuxtLink to="https://beta.web3privacy.info/events" opacity-50 hover:underline>
+      <NuxtLink to="https://web3privacy.info/events" opacity-50 hover:underline>
         {{ 'Events' }}
       </NuxtLink>
       <NuxtLink to="https://mirror.xyz/0x0f1F3DAf416B74DB3DE55Eb4D7513a80F4841073/" opacity-50 hover:underline>
