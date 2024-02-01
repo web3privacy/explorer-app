@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router'
 const route = useRoute()
 
 const githubProjectUrl = computed(() => {
-  return `https://github.com/web3privacy/data/blob/main/src/projects/${route.params.id}/index.yaml`
+  return `https://github.com/web3privacy/explorer-data/blob/main/src/projects/${route.params.id}/index.yaml`
 })
 </script>
 
