@@ -45,10 +45,11 @@ export const useData = defineStore('data', () => {
   const projectToShallow = (project: Project): ProjectShallow => {
     const availableSupport = () => {
       const filteredKeys = ['forum', 'discord', 'twitter', 'lens', 'farcaster', 'telegram']
-      if (typeof project.links === 'object' && (project.links !== null || project.links !== undefined))
-        return Object.keys(project.links).filter(key => filteredKeys.includes(key)).length
+      // if (typeof project.links === 'object' && (project.links !== null || project.links !== undefined))
+      if (project.links == null || project.links == undefined) return 0;
 
-      return 0
+      if (typeof project.links === 'object' && Object.keys(project.links).length > 0)
+        return Object.keys(project.links).filter(key => filteredKeys.includes(key)).length
     }
 
     return {
@@ -96,8 +97,8 @@ export const useData = defineStore('data', () => {
       .filter((project) => {
         return (
           project
-        && project.title1
-        && project.title1.toLowerCase().includes(query)
+          && project.title1
+          && project.title1.toLowerCase().includes(query)
         )
       }).filter((project) => {
         if (filter.sortby === 'anonymity')
