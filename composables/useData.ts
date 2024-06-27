@@ -46,7 +46,8 @@ export const useData = defineStore('data', () => {
     const availableSupport = () => {
       const filteredKeys = ['forum', 'discord', 'twitter', 'lens', 'farcaster', 'telegram']
       // if (typeof project.links === 'object' && (project.links !== null || project.links !== undefined))
-      if (project.links == null || project.links == undefined) return 0;
+      if (project.links === null || project.links === undefined)
+        return 0
 
       if (typeof project.links === 'object' && Object.keys(project.links).length > 0)
         return Object.keys(project.links).filter(key => filteredKeys.includes(key)).length
