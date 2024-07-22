@@ -13,7 +13,6 @@ const availableSupport = computed(() => {
   return 0
 })
 
-
 /**
  * From data points
   - product readiness
@@ -22,52 +21,53 @@ const availableSupport = computed(() => {
   - team: anon / public
   - audit: yes / no
  */
-const calculateScore = computed(() => {
-  const criterias: { value: string, key?: string }[] = [
+const calculateScore: number = computed(() => {
+  const criterias: { value: string; key?: string }[] = [
     { value: 'product_readiness' },
-    { value: "github", key: 'links' },
-    { value: "docs", key: 'links' },
+    { value: 'github', key: 'links' },
+    { value: 'docs', key: 'links' },
     { value: 'team' },
-    { value: 'audits' }
-  ];
+    { value: 'audits' },
+  ]
 
-  let matched = 0;
+  let matched = 0
   for (let i = 0; i < criterias.length; i++) {
-    let value;
+    let value
     if (criterias[i].key) {
-      if(props.project[criterias[i].key] === null || props.project[criterias[i].key] === undefined) continue;
-      value = props.project[criterias[i].key][criterias[i].value];
-      // console.log(props.project[criterias[i].key] == null);
-    } else {
-      value = props.project[criterias[i].value];
+      if (props.project[criterias[i].key] === null || props.project[criterias[i].key] === undefined)
+        continue
+      value = props.project[criterias[i].key][criterias[i].value]
+    }
+    else {
+      if (props.project[criterias[i].value] === null || props.project[criterias[i].value] === undefined)
+        continue
+      value = props.project[criterias[i].value]
     }
     // console.log(value);
+    // console.log(Object.keys(props.project["team"]).length);
 
-    if (fulfilled(value)) {
-      matched++;
+    if (fulfilled(value))
+      matched++
       // console.log('matched', matched);
-    }
   }
 
-  return 100 / criterias.length * matched;
+  return 100 / criterias.length * matched
 })
 
 function fulfilled(value: any): boolean {
-  const type = typeof value;
+  const type = typeof value
   switch (type) {
     case 'string':
-      if (value !== '') return true;
-      break;
-    case 'array':
-      if (value.length > 0) return true;
-      break;
+      if (value !== '')
+        return true
+      break
     case 'object':
-      if (Object.keys(value).length > 0) return true;
-      break;
+      if (Object.keys(value).length > 0)
+        return true
+      break
 
     default:
-      return false;
-      break;
+      return false
   }
 }
 
@@ -76,13 +76,17 @@ const logo = props.project?.logos?.at(0)?.url
 
 <template>
   <div lg:flex lg:gap-32px>
-    <NuxtImg lg:max-w-320px lg:max-h-320px shrink :src="logo ?? '/no-image-1-1.svg'"
-      class="bg-app-bg-grey object-cover max-w-full h-full vertical-align[middle] block border-0 w-full h-[300px]" />
+    <NuxtImg
+      lg:max-w-320px lg:max-h-320px shrink :src="logo ?? '/no-image-1-1.svg'"
+      class="bg-app-bg-grey object-cover max-w-full h-full vertical-align[middle] block border-0 w-full h-[300px]"
+    />
     <div grow>
       <div flex flex-col justify-between gap-32px lg:flex-row lg:items-center>
         <div mt-24px>
-          <NuxtLink :to="project.links?.web" target="_blank" flex items-center gap-12px hover:underline
-            underline-offset-3>
+          <NuxtLink
+            :to="project.links?.web" target="_blank" flex items-center gap-12px hover:underline
+            underline-offset-3
+          >
             <h1 text="24px sm:32px app-white" leading-32px font-700>
               {{ project.name }}
             </h1>
@@ -92,8 +96,10 @@ const logo = props.project?.logos?.at(0)?.url
             {{ project.project_type ?? '---' }}
           </h2>
         </div>
-        <div border-2px class="border-app-black bg-app-white text-app-black" flex items-center justify-center px-32px
-          py-16px text-32px font-700 leading-40px cursor-pointer>
+        <div
+          border-2px class="border-app-black bg-app-white text-app-black" flex items-center justify-center px-32px
+          py-16px text-32px font-700 leading-40px cursor-pointer
+        >
           {{ calculateScore }}
         </div>
       </div>
@@ -104,8 +110,10 @@ const logo = props.project?.logos?.at(0)?.url
           </template>
           {{ project.links?.github ? 'YES' : 'NO' }}
         </ProjectInfoItem>
-        <ProjectInfoItem :check-undefined="project.project_status?.version" title="Product readyness" bold
-          text-size="18px">
+        <ProjectInfoItem
+          :check-undefined="project.project_status?.version" title="Product readyness" bold
+          text-size="18px"
+        >
           <template #prefix>
             <UnoIcon i-web-cube />
           </template>
@@ -137,8 +145,10 @@ const logo = props.project?.logos?.at(0)?.url
         </ProjectInfoItem>
       </div>
       <div grid grid-cols-2 gap-16px my-32px lg:grid-cols-4>
-        <ProjectInfoItem :check-undefined="project.blockchain_features?.network" tooltip-link="/" title="Ecosystem"
-          bold>
+        <ProjectInfoItem
+          :check-undefined="project.blockchain_features?.network" tooltip-link="/" title="Ecosystem"
+          bold
+        >
           {{ project.blockchain_features?.network }}
         </ProjectInfoItem>
         <ProjectInfoItem invisible title="Last update" bold>
