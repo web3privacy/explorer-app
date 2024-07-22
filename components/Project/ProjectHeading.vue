@@ -99,7 +99,7 @@ const logo = props.project?.logos?.at(0)?.url
           border-2px class="border-app-black bg-app-white text-app-black" flex items-center justify-center px-32px
           py-16px text-32px font-700 leading-40px cursor-pointer
         >
-          {{ calculateScore }}
+          {{ `${calculateScore}%` }}
         </div>
       </div>
       <div grid grid-cols-2 gap-16px my-32px lg:grid-cols-4>
