@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Project } from '~/types'
+import type { Project, ProjectIndexable } from '~/types'
 
 const props = defineProps<{
   project: Project
@@ -21,34 +21,33 @@ const availableSupport = computed(() => {
   - team: anon / public
   - audit: yes / no
  */
-const calculateScore: number = computed(() => {
-  const criterias: { value: string; key?: string }[] = [
-    { value: 'product_readiness' },
+const calculateScore = computed(() => {
+  const criterias: { value: string; key: string }[] = [
+    { value: 'product_readiness', key: '' },
     { value: 'github', key: 'links' },
     { value: 'docs', key: 'links' },
-    { value: 'team' },
-    { value: 'audits' },
+    { value: 'team', key: '' },
+    { value: 'audits', key: '' },
   ]
 
   let matched = 0
   for (let i = 0; i < criterias.length; i++) {
     let value
-    if (criterias[i].key) {
-      if (props.project[criterias[i].key] === null || props.project[criterias[i].key] === undefined)
-        continue
-      value = props.project[criterias[i].key][criterias[i].value]
-    }
-    else {
-      if (props.project[criterias[i].value] === null || props.project[criterias[i].value] === undefined)
-        continue
-      value = props.project[criterias[i].value]
-    }
-    // console.log(value);
-    // console.log(Object.keys(props.project["team"]).length);
+    // value = ((criterias[i].key ?? props.project[criterias[i].value as keyof typeof props.project]) ?? null === null) ? null : (props.project as ProjectIndexable)[criterias[i].key][criterias[i].value]
+
+    const indexableProject = (props.project as ProjectIndexable)
+    if (criterias[i].key !== '')
+      value = indexableProject?.[criterias[i].key]?.[criterias[i].value]
+    else
+      value = indexableProject?.[criterias[i].value]
+
+    // console.log(props.project?.links?.github);
+    // console.log(Object.keys(props.indexableProject["team"]).length);
+    if (value === null || value === undefined)
+      continue
 
     if (fulfilled(value))
       matched++
-      // console.log('matched', matched);
   }
 
   return 100 / criterias.length * matched
@@ -65,10 +64,10 @@ function fulfilled(value: any): boolean {
       if (Object.keys(value).length > 0)
         return true
       break
-
     default:
       return false
   }
+  return false
 }
 
 const logo = props.project?.logos?.at(0)?.url

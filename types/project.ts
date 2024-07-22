@@ -143,3 +143,7 @@ export interface ProjectShallow {
   support?: number | undefined
   anonymity?: boolean | undefined
 }
+
+export interface ProjectIndexable extends Project {
+  [key: string]: any
+}
