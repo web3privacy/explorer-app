@@ -48,11 +48,11 @@
       <NuxtLink to="https://docs.web3privacy.info/events/" opacity-50 hover:underline>
         {{ 'Talks' }}
       </NuxtLink>
-      <NuxtLink to="https://docs.web3privacy.info/projects/db" opacity-50 hover:underline>
+      <NuxtLink to="https://docs.web3privacy.info/projects/privacy-explorer/" opacity-50 hover:underline>
         {{ 'Privacy Explorer' }}
       </NuxtLink>
-      <NuxtLink to="https://docs.web3privacy.info/projects/usecase-db" opacity-50 hover:underline>
-        {{ 'Privacy use-cases database' }}
+      <NuxtLink to="https://github.com/web3privacy/web3privacy" opacity-50 hover:underline>
+        {{ 'Privacy database' }}
       </NuxtLink>
     </div>
     <hr block sm:hidden border-t-2px border-white opacity-10 w-full>
