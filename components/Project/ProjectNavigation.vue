@@ -9,16 +9,63 @@ const githubProjectUrl = computed(() => {
 </script>
 
 <template>
-  <div app-container w-full flex items-center justify-between md:bg-transparent px-8px>
-    <NavigationButton w-230px @click="$router.back()">
-      <span block md:hidden>{{ 'BACK' }}</span>
-      <span hidden whitespace-nowrap md:block>{{ 'BACK TO LIST' }}</span>
+  <div
+    app-container
+    w-full
+    flex
+    items-center
+    justify-between
+    md:bg-transparent
+    px-8px
+  >
+    <NavigationButton
+      w-230px
+      @click="$router.back()"
+    >
+      <span
+        block
+        md:hidden
+      >{{ 'BACK' }}</span>
+      <span
+        hidden
+        whitespace-nowrap
+        md:block
+      >{{ 'BACK TO LIST' }}</span>
     </NavigationButton>
-    <hr hidden md:block border-t-2px border-white w-full>
-    <div flex gap-16px>
-      <EditButton px-16px py-8px hover:bg-white hover:text-black :to="githubProjectUrl">
-        <span text-16px whitespace-nowrap font-400 leading-24px hidden md:block>{{ 'EDIT RESEARCH' }}</span>
-        <span text-16px whitespace-nowrap font-400 leading-24px block md:hidden>{{ 'EDIT' }}</span>
+    <hr
+      hidden
+      md:block
+      border-t-2px
+      border-white
+      w-full
+    >
+    <div
+      flex
+      gap-16px
+    >
+      <EditButton
+        px-16px
+        py-8px
+        hover:bg-white
+        hover:text-black
+        :to="githubProjectUrl"
+      >
+        <span
+          text-16px
+          whitespace-nowrap
+          font-400
+          leading-24px
+          hidden
+          md:block
+        >{{ 'EDIT RESEARCH' }}</span>
+        <span
+          text-16px
+          whitespace-nowrap
+          font-400
+          leading-24px
+          block
+          md:hidden
+        >{{ 'EDIT' }}</span>
       </EditButton>
       <!-- <ShareButton>
         <span text-16px font-400 hidden md:block>{{ 'SHARE' }}</span>

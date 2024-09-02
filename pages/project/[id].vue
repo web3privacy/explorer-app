@@ -33,7 +33,12 @@ useSeoMeta({
 <template>
   <div v-if="project">
     <div app-container>
-      <div flex flex-col gap-48px mt-54px>
+      <div
+        flex
+        flex-col
+        gap-48px
+        mt-54px
+      >
         <div>
           <div>
             <ProjectHeading :project="project" />
