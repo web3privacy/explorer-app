@@ -145,5 +145,5 @@ export interface ProjectShallow {
 }
 
 export interface ProjectIndexable extends Project {
-  [key: string]: any
+  [key: string]: unknown
 }

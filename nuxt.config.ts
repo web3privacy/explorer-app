@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
+    '@nuxt/eslint',
     '@vueuse/nuxt',
     '@unocss/nuxt',
     '@pinia/nuxt',
@@ -21,8 +22,6 @@ export default defineNuxtConfig({
     // when using generate, payload js assets included in sw precache manifest
     // but missing on offline, disabling extraction it until fixed
     payloadExtraction: false,
-    inlineSSRStyles: false,
-    reactivityTransform: true,
     // typedPages: true,
     componentIslands: true,
   },
@@ -31,6 +30,11 @@ export default defineNuxtConfig({
   ],
   colorMode: {
     classSuffix: '',
+  },
+  eslint: {
+    config: {
+      stylistic: true,
+    },
   },
   nitro: {
     preset: 'vercel',

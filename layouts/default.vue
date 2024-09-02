@@ -14,7 +14,7 @@ const selectedCategory = computed(() => {
 
 const sortedFilteredCategories = computed(() => ([
   categories.value.find(c => c.id === 'defi')!,
-  ...categories.value.sort((a, b) => a.name.localeCompare(b.name)).filter(c => c.id !== 'defi'),
+  ...[...categories.value].sort((a, b) => a.name.localeCompare(b.name)).filter(c => c.id !== 'defi'),
 ]))
 
 const { showBar } = storeToRefs(useNavigaiton())
@@ -38,39 +38,95 @@ watch([scrollY, top, y], (newValues, oldValues) => {
 </script>
 
 <template>
-  <div ref="swipeEl" flex flex-col min-h-100vh h-full w-full>
+  <div
+    ref="swipeEl"
+    flex
+    flex-col
+    min-h-100vh
+    h-full
+    w-full
+  >
     <Navigation />
-    <div app-container mt-32px>
-      <div flex w-full xl:gap-32px>
+    <div
+      app-container
+      mt-32px
+    >
+      <div
+        flex
+        w-full
+        xl:gap-32px
+      >
         <div w-fit>
           <div
             ref="scrollEl"
             class="no-scrollbar"
-            h-100vh overflow-y-auto sticky top-32px hidden xl:block min-w-234px pb-48px
+            h-100vh
+            overflow-y-auto
+            sticky
+            top-32px
+            hidden
+            xl:block
+            min-w-234px
+            pb-48px
           >
             <Category
               v-for="category in sortedFilteredCategories"
-              :key="category.id" :title="category.name"
-              :count="category.projectsCount" :selected="selectedCategoryId === category.id"
+              :key="category.id"
+              :title="category.name"
+              :count="category.projectsCount"
+              :selected="selectedCategoryId === category.id"
               @click="[navigateTo(`/category/${category.id}`), selectedCategoryId = category.id]"
             />
           </div>
         </div>
         <div w-full>
-          <div flex flex-col gap-16px w-full>
-            <div xl:hidden block>
-              <h2 text-14px font-700>
+          <div
+            flex
+            flex-col
+            gap-16px
+            w-full
+          >
+            <div
+              xl:hidden
+              block
+            >
+              <h2
+                text-14px
+                font-700
+              >
                 Choose category
               </h2>
-              <CategorySelectBox v-model="selectedCategoryId" :options="extendedOptions" w-full @selected="selectedCategoryId === 'all' ? navigateTo(`/`) : navigateTo(`/category/${selectedCategoryId}`)" />
+              <CategorySelectBox
+                v-model="selectedCategoryId"
+                :options="extendedOptions"
+                w-full
+                @selected="selectedCategoryId === 'all' ? navigateTo(`/`) : navigateTo(`/category/${selectedCategoryId}`)"
+              />
             </div>
             <SearchBox />
           </div>
-          <div flex gap-28px items-center my-24px mt-28px>
-            <h2 v-if="selectedCategoryId" w-max font-700 text-18px sm:text-28px whitespace-nowrap>
+          <div
+            flex
+            gap-28px
+            items-center
+            my-24px
+            mt-28px
+          >
+            <h2
+              v-if="selectedCategoryId"
+              w-max
+              font-700
+              text-18px
+              sm:text-28px
+              whitespace-nowrap
+            >
               {{ selectedCategoryId === 'all' ? `${filteredProjectsCount} All Projects` : `${filteredProjectsCount ?? 0} ${selectedCategory?.name}` }}
             </h2>
-            <div h-2px w="full" bg-white />
+            <div
+              h-2px
+              w="full"
+              bg-white
+            />
           </div>
           <slot />
         </div>

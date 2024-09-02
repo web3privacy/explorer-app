@@ -7,26 +7,39 @@ const options: InputOption[] = [
 
 const loremIpsum: string = 'Description just text Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tempus nulla quis enim vulputate semper. Duis varius nibh sed magna tincidunt pellentesque.'
 
-const cardData = {
-  image: 'https://ctrlv.cz/Epud',
-  title1: 'title1',
-  title2: 'title2',
-  percentage: 84,
-  anonymity: true,
-  decentralized: true,
-  opensource: true,
-  license: 'MIT',
-  datatracking: true,
-  compliance: true,
-}
+// const cardData = {
+//   image: 'https://ctrlv.cz/Epud',
+//   title1: 'title1',
+//   title2: 'title2',
+//   percentage: 84,
+//   anonymity: true,
+//   decentralized: true,
+//   opensource: true,
+//   license: 'MIT',
+//   datatracking: true,
+//   compliance: true,
+// }
 
 const selectedOption = ref('all')
 </script>
 
 <template>
-  <div flex flex-col items-start justify-start gap-8px>
-    <Category title="All Projects" :count="503" />
-    <Category title="All Projects" :count="503" selected />
+  <div
+    flex
+    flex-col
+    items-start
+    justify-start
+    gap-8px
+  >
+    <Category
+      title="All Projects"
+      :count="503"
+    />
+    <Category
+      title="All Projects"
+      :count="503"
+      selected
+    />
     <Button mt-16px>
       <template #prefix>
         <UnoIcon i-heroicons-solid-pencil />
@@ -36,19 +49,39 @@ const selectedOption = ref('all')
     <Button>
       Save Research
     </Button>
-    <MenuItem title="Dashboard" mt-16px />
-    <MenuItem title="Dashboard" selected />
+    <MenuItem
+      title="Dashboard"
+      mt-16px
+    />
+    <MenuItem
+      title="Dashboard"
+      selected
+    />
     <Badge text="84%" />
-    <Badge text="84%" inverted />
-    <SelectBox v-model="selectedOption" mt-16px :options="options" />
-    <h1 custom-link mt-16px>
+    <Badge
+      text="84%"
+      inverted
+    />
+    <SelectBox
+      v-model="selectedOption"
+      mt-16px
+      :options="options"
+    />
+    <h1
+      custom-link
+      mt-16px
+    >
       Custom Link
     </h1>
     <Helper :info="loremIpsum" />
     <NavigationButton @click="$router.back()">
       Back
     </NavigationButton>
-    <Tabs v-model="selectedOption" mt-16px :options="options" />
+    <Tabs
+      v-model="selectedOption"
+      mt-16px
+      :options="options"
+    />
   <!--   <Card
       v-if="cardData"
       id="test"

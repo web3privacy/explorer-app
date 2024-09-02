@@ -12,7 +12,11 @@ watch(y, (newY, oldY) => {
 </script>
 
 <template>
-  <div ref="swipeEl" h-full w-full>
+  <div
+    ref="swipeEl"
+    h-full
+    w-full
+  >
     <Navigation />
     <slot />
   </div>
