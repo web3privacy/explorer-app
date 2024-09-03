@@ -5,6 +5,7 @@ const props = defineProps<{
   options: InputOption[]
   modelValue: string
   count?: number
+  titleShowCount?: boolean
 }>()
 
 const emits = defineEmits(['update:modelValue', 'selected'])
@@ -23,15 +24,18 @@ function onOptionSelected(value: string) {
     v-model="selectedValue"
     as="div"
   >
-    <div class="relative mt-2 font-700 font-24px">
+    <div class="relative font-700 font-24px">
       <HeadlessListboxButton
-        class="relative w-full cursor-pointer py-8px p-16px text-left border-2px text-app-white sm:text-sm sm:leading-6"
+        class="relative cursor-pointer py-6px px-14px text-left border-2px bg-app-white text-app-black sm:text-sm sm:leading-6"
       >
-        <span class="block truncate mr-8px">{{ isOptionSelected?.label }} <span opacity-50>({{ isOptionSelected?.count }})</span></span>
+        <span class="block truncate mr-8px font">{{ isOptionSelected?.label }} <span
+          v-if="titleShowCount"
+          opacity-50
+        >({{ isOptionSelected?.count }})</span></span>
         <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
           <UnoIcon
             i-heroicons-solid-chevron-down
-            text-app-white
+            text-app-black
           />
         </span>
       </HeadlessListboxButton>
@@ -42,7 +46,7 @@ function onOptionSelected(value: string) {
         leave-to-class="opacity-0"
       >
         <HeadlessListboxOptions
-          class="absolute z-100 max-h-60 w-full divide-y-2px border-2px border-t-0 overflow-auto bg-app-black text-app-white focus:outline-none sm:text-sm"
+          class="absolute z-100 max-h-60 w-auto border-2px border-t-0 overflow-auto bg-app-black text-app-white focus:outline-none sm:text-sm"
         >
           <HeadlessListboxOption
             v-for="option in props.options"
@@ -53,15 +57,15 @@ function onOptionSelected(value: string) {
             @click="onOptionSelected(option.value)"
           >
             <li
-              class="w-full relative cursor-pointer select-none py-8px p-16px"
-              :class="[active ? 'bg-#ffffff1a' : 'text-white']"
+              class="w-full relative cursor-pointer select-none py-8px p-16px bg-app-black text-app-white"
+              :class="[active ? 'text-app-white' : 'text-app-white']"
             >
               <span
                 class="block truncate"
                 :class="[selected ? 'font-semibold' : 'font-normal']"
               >
                 {{ option.label }}
-                <span opacity-50>({{ option.count }})</span>
+                <span v-if="titleShowCount" opacity-50>({{ option.count }})</span>
               </span>
             </li>
           </HeadlessListboxOption>

@@ -3,8 +3,14 @@ import type { InputOption } from '~/types'
 
 const { categories, filteredProjectsCount, selectedCategoryId } = storeToRefs(useData())
 
+const selectedUsecaseId = ref('usecase')
+const selectedEcosystemId = ref('ecosystem')
+const selectedAssetsUsedId = ref('assetsUsed')
+const selectedFeaturesId = ref('features')
+
 const categoriesOptions = ref(categories.value ? categories.value.map(c => ({ label: c.name, value: c.id, count: c.projectsCount })) : [])
 const extendedOptions: InputOption[] = [
+  { label: 'Category', value: 'all' },
   ...categoriesOptions.value,
 ]
 
@@ -56,77 +62,58 @@ watch([scrollY, top, y], (newValues, oldValues) => {
         w-full
         xl:gap-32px
       >
-        <div w-fit>
-          <div
-            ref="scrollEl"
-            class="no-scrollbar"
-            h-100vh
-            overflow-y-auto
-            sticky
-            top-32px
-            hidden
-            xl:block
-            min-w-234px
-            pb-48px
-          >
-            <Category
-              v-for="category in sortedFilteredCategories"
-              :key="category.id"
-              :title="category.name"
-              :count="category.projectsCount"
-              :selected="selectedCategoryId === category.id"
-              @click="[navigateTo(`/category/${category.id}`), selectedCategoryId = category.id]"
-            />
-          </div>
-        </div>
-        <div w-full>
+        <div
+          flex
+          flex-col
+          w-full
+        >
           <div
             flex
             flex-col
+            md:flex-row
+            md:justify-between
+            md:items-center
             gap-16px
-            w-full
+            mb="16px md:32px"
           >
+            <SearchBox
+              flex-1
+              :placeholder="`Search in ${filteredProjectsCount} Projects`"
+            />
             <div
-              xl:hidden
-              block
+              md:flex-2
+              flex
+              items-center
+              gap-16px
+              overflow-x-auto
             >
-              <h2
-                text-14px
-                font-700
-              >
-                Choose category
-              </h2>
               <CategorySelectBox
                 v-model="selectedCategoryId"
                 :options="extendedOptions"
                 w-full
                 @selected="selectedCategoryId === 'all' ? navigateTo(`/`) : navigateTo(`/category/${selectedCategoryId}`)"
               />
+              <CategorySelectBox
+                v-model="selectedUsecaseId"
+                :options="[{ label: 'Usecase', value: 'usecase' }]"
+                w-full
+              />
+              <CategorySelectBox
+                v-model="selectedEcosystemId"
+                :options="[{ label: 'Ecosystem', value: 'ecosystem' }]"
+                w-full
+              />
+              <CategorySelectBox
+                v-model="selectedAssetsUsedId"
+                :options="[{ label: 'Assets used', value: 'assetsUsed' }]"
+                w-full
+              />
+              <CategorySelectBox
+                v-model="selectedFeaturesId"
+                :options="[{ label: 'Features', value: 'features' }]"
+                w-full
+              />
             </div>
-            <SearchBox />
-          </div>
-          <div
-            flex
-            gap-28px
-            items-center
-            my-24px
-            mt-28px
-          >
-            <h2
-              v-if="selectedCategoryId"
-              w-max
-              font-700
-              text-18px
-              sm:text-28px
-              whitespace-nowrap
-            >
-              {{ selectedCategoryId === 'all' ? `${filteredProjectsCount} All Projects` : `${filteredProjectsCount ?? 0} ${selectedCategory?.name}` }}
-            </h2>
-            <div
-              h-2px
-              w="full"
-              bg-white
-            />
           </div>
           <slot />
         </div>

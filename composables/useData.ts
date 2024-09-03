@@ -3,7 +3,7 @@ import type { Category, Project, ProjectShallow } from '~/types'
 export const useData = defineStore('data', () => {
   const categories = useState<Category[]>('categories')
   const projects = useState<Project[]>('projects')
-  const selectedCategoryId = useState(() => 'defi')
+  const selectedCategoryId = useState(() => 'all')
   const filter = reactive({
     query: '',
     sortby: 'atoz',
