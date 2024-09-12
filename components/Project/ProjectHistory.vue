@@ -29,7 +29,7 @@ defineProps<{
         :check-undefined="project.history?.time"
         title="Date of creation"
       >
-        {{ formatDate(project.history?.time) }}
+        {{ formatDate(project.history!.time!) }}
       </ProjectInfoItem>
     </div>
   </ProjectDetailContainer>

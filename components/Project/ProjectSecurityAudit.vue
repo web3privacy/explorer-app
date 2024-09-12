@@ -13,11 +13,13 @@ defineProps<{
     lg:grid
     lg:grid-cols-2
     rounded-full
-    py-12px px-16px
+    py-12px
+    px-16px
     bg-app-bg-audits-card
   >
     <div
-      grid grid-cols-3
+      grid
+      grid-cols-3
       w-full
     >
       <h2
@@ -48,7 +50,7 @@ defineProps<{
         text-14px
         leading-20px
       >
-        {{ formatDate(date) }}
+        {{ date ? formatDate(date) : 'N/A' }}
       </h2>
       <NuxtLink
         flex

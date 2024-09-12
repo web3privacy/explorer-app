@@ -301,8 +301,8 @@ defineProps<{
       </div>
     </div>
     <ProjectOpenessTeamMembers
-      v-if="projcet?.team"
-      :members="project.team.teammembers"
+      v-if="project?.team"
+      :members="project.team"
       mt-24px
     />
     <div mt-32px>
@@ -313,7 +313,8 @@ defineProps<{
         Funding
       </h3>
       <div
-        v-if="project.funding"
+        v-for="funding of project.funding"
+        :key="funding.name"
         flex
         items-center
         justify-between
@@ -329,10 +330,10 @@ defineProps<{
           leading="20px lg:24px"
           font-700
         >
-          {{ project.funding.name }}
+          {{ funding.name }}
         </h3>
         <NuxtLink
-          :to="project.funding.link"
+          :to="funding.link"
           external
           target="_blank"
         >
@@ -343,7 +344,7 @@ defineProps<{
         </NuxtLink>
       </div>
       <h3
-        v-else
+        v-if="!project.funding?.length"
         text="app-text-grey 14px lg:16px"
         leading-24px
       >

@@ -220,7 +220,12 @@ const logo = props.project?.logos?.at(0)?.url
               lg:flex-row
               items-center
             >
-              <p text="12px lg:16px" leading="16px lg:24px">Openess:</p>
+              <p
+                text="12px lg:16px"
+                leading="16px lg:24px"
+              >
+                Openess:
+              </p>
               <ProjectRating
                 :rating="project.ratings.openess"
                 type="openess"
@@ -234,7 +239,12 @@ const logo = props.project?.logos?.at(0)?.url
               lg:flex-row
               items-center
             >
-              <p text="12px lg:16px" leading="16px lg:24px">Technology:</p>
+              <p
+                text="12px lg:16px"
+                leading="16px lg:24px"
+              >
+                Technology:
+              </p>
               <ProjectRating
                 :rating="project.ratings.technology"
                 type="technology"
@@ -248,7 +258,12 @@ const logo = props.project?.logos?.at(0)?.url
               lg:flex-row
               items-center
             >
-              <p text="12px lg:16px" leading="16px lg:24px">Privacy:</p>
+              <p
+                text="12px lg:16px"
+                leading="16px lg:24px"
+              >
+                Privacy:
+              </p>
               <ProjectRating
                 :rating="project.ratings.privacy"
                 type="privacy"
@@ -263,7 +278,8 @@ const logo = props.project?.logos?.at(0)?.url
             justify-end
             w-full
             gap-16px
-            mt--8px lg:mt-0
+            mt--8px
+            lg:mt-0
           >
             <h2
               hidden

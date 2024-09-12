@@ -65,7 +65,10 @@ function onOptionSelected(value: string) {
                 :class="[selected ? 'font-semibold' : 'font-normal']"
               >
                 {{ option.label }}
-                <span v-if="titleShowCount" opacity-50>({{ option.count }})</span>
+                <span
+                  v-if="titleShowCount"
+                  opacity-50
+                >({{ option.count }})</span>
               </span>
             </li>
           </HeadlessListboxOption>

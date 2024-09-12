@@ -35,6 +35,7 @@ export interface Project {
     telegram?: string
     discord?: string
     blog?: string
+    governance?: string
     facebook?: string
     block_explorer?: string
     whitepaper?: string

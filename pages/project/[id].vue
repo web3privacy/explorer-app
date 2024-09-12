@@ -32,7 +32,10 @@ useSeoMeta({
 
 <template>
   <div v-if="project">
-    <div app-container px-16px>
+    <div
+      app-container
+      px-16px
+    >
       <div
         flex
         flex-col

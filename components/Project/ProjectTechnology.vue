@@ -54,7 +54,7 @@ defineProps<{
         title="Technology type"
         bold
       >
-        {{ project.technology.type.toUpperCase() }}
+        {{ project.technology?.type.toUpperCase() }}
       </ProjectInfoItem>
       <ProjectInfoItem
         :check-undefined="project.blockchain_features?.p2p"

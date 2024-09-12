@@ -43,8 +43,20 @@ const props = defineProps<{
                 :alt="member.name"
               />
             </template> -->
-            <div flex items-center justify-center text-black w="40px lg:48px" h="40px lg:48px" rounded-full bg-app-bg-team-grey>
-              <div i-heroicons-solid-user text-24px></div>
+            <div
+              flex
+              items-center
+              justify-center
+              text-black
+              w="40px lg:48px"
+              h="40px lg:48px"
+              rounded-full
+              bg-app-bg-team-grey
+            >
+              <div
+                i-heroicons-solid-user
+                text-24px
+              />
             </div>
             <div
               flex

@@ -25,7 +25,11 @@ defineProps<{
       >
         Audits
       </h2>
-      <div flex flex-col gap="12px lg:16px">
+      <div
+        flex
+        flex-col
+        gap="12px lg:16px"
+      >
         <template
           v-for="audit in project.audits"
           :key="audit.name"
