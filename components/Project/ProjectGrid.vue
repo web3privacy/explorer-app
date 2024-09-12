@@ -148,7 +148,7 @@ const cardTitles = ref< { label: string, togglable?: boolean, toggled?: boolean 
         text-white
         w-full
       >
-        <NewCard
+        <Card
           v-for="project in group.projects"
           :key="project.id"
           :project="project"
