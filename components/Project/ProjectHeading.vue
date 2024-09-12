@@ -5,13 +5,13 @@ const props = defineProps<{
   project: Project
 }>()
 
-const availableSupport = computed(() => {
-  const filteredKeys = ['forum', 'discord', 'twitter', 'lens', 'farcaster', 'telegram']
-  if (typeof props.project.links === 'object' && (props.project.links !== null || props.project.links !== undefined))
-    return Object.keys(props.project.links).filter(key => filteredKeys.includes(key)).length
+// const availableSupport = computed(() => {
+//   const filteredKeys = ['forum', 'discord', 'twitter', 'lens', 'farcaster', 'telegram']
+//   if (typeof props.project.links === 'object' && (props.project.links !== null || props.project.links !== undefined))
+//     return Object.keys(props.project.links).filter(key => filteredKeys.includes(key)).length
 
-  return 0
-})
+//   return 0
+// })
 
 /**
  * From data points
