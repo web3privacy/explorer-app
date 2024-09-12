@@ -121,6 +121,11 @@ export interface Project {
     url?: string
     [k: string]: unknown
   }[]
+  ratings: {
+    openess: OpenessRating
+    technology: TechnologyRating
+    privacy: PrivacyRating
+  }
 }
 
 export interface ProjectShallow {
@@ -129,6 +134,7 @@ export interface ProjectShallow {
   title1: string
   description: string
   percentage: number
+  categories: string[]
   forum?: string | undefined
   github?: string | undefined
   website?: string | undefined
@@ -142,8 +148,36 @@ export interface ProjectShallow {
   audits?: Audit[] | undefined
   support?: number | undefined
   anonymity?: boolean | undefined
+  ratings: {
+    openess: OpenessRating
+    technology: TechnologyRating
+    privacy: PrivacyRating
+  }
 }
 
 export interface ProjectIndexable extends Project {
   [key: string]: unknown
+}
+
+export interface OpenessRating {
+  documentation: string
+  github: string
+  socials: string
+  whitepaper: string
+  team: number
+  funding: number
+}
+export interface TechnologyRating {
+  mainnet: boolean
+  opensource: boolean
+  assets: boolean
+  no_pgradability: boolean
+  audits: number
+}
+
+export interface PrivacyRating {
+  policy: string
+  no_kyc: boolean
+  no_compliance: boolean
+  default_privacy: boolean
 }

@@ -1,7 +1,15 @@
 import type { Category, Project, ProjectShallow } from '~/types'
+import type { Asset } from '~/types/asset'
+import type { Ecosystem } from '~/types/ecosystem'
+import type { Feature } from '~/types/feature'
+import type { Usecase } from '~/types/usecase'
 
 export const useData = defineStore('data', () => {
   const categories = useState<Category[]>('categories')
+  const usecases = useState<Usecase[]>('usecases')
+  const features = useState<Feature[]>('features')
+  const assets = useState<Asset[]>('assets')
+  const ecosystems = useState<Ecosystem[]>('ecosystems')
   const projects = useState<Project[]>('projects')
   const selectedCategoryId = useState(() => 'all')
   const filter = reactive({
@@ -25,14 +33,47 @@ export const useData = defineStore('data', () => {
       const data = await $fetch<{
         categories: Category[]
         projects: Project[]
+        usecases: Usecase[]
+        ecosystems: Ecosystem[]
+        assets: Asset[]
+        features: Feature[]
       }>('/api/data')
-      projects.value = data.projects.filter(p => p.name)
+      projects.value = data.projects.map(project => ({
+        ...project,
+        ratings: {
+          openess: {
+            documentation: 'Link',
+            funding: 0,
+            github: 'Link',
+            socials: '',
+            team: 1,
+            whitepaper: '',
+          },
+          technology: {
+            mainnet: true,
+            opensource: true,
+            assets: false,
+            audits: 0,
+            no_pgradability: true,
+          },
+          privacy: {
+            no_kyc: true,
+            no_compliance: true,
+            default_privacy: false,
+            policy: 'Link',
+          },
+        },
+      })).filter(p => p.name)
       categories.value = data.categories.map((c) => {
         c.projectsCount = projects.value.filter(p =>
           p.categories?.includes(c.id),
         ).length
         return c
       }).filter(c => c.projectsCount > 0)
+      usecases.value = data.usecases
+      ecosystems.value = data.ecosystems
+      assets.value = data.assets
+      features.value = data.features
     }
     catch (e) {
       console.error(e)
@@ -72,6 +113,30 @@ export const useData = defineStore('data', () => {
       support: availableSupport(),
       image: project.logos?.[0]?.url ?? '',
       anonymity: true,
+      categories: project.categories,
+      ratings: {
+        openess: {
+          documentation: 'Link',
+          funding: 0,
+          github: 'Link',
+          socials: '',
+          team: 1,
+          whitepaper: '',
+        },
+        technology: {
+          mainnet: true,
+          opensource: true,
+          assets: false,
+          audits: 0,
+          no_pgradability: true,
+        },
+        privacy: {
+          no_kyc: true,
+          no_compliance: true,
+          default_privacy: false,
+          policy: 'Link',
+        },
+      },
     }
   }
   const shallowProjects = computed(() => projects.value.map(project => projectToShallow(project)))
@@ -114,8 +179,23 @@ export const useData = defineStore('data', () => {
         else
           return 0
       })
-
     return filteredShallowProjects
+  })
+
+  const groupedProjectsPerCategory = computed(() => {
+    const groupedProjects = categories.value.map((category) => {
+      // Find all projects that include this category
+      const projectsInCategory = filteredProjects.value.filter(project =>
+        project.categories.includes(category.id),
+      )
+
+      return {
+        title: category.name,
+        projects: projectsInCategory,
+      }
+    }).sort((a, b) => b.projects.length - a.projects.length)
+
+    return groupedProjects
   })
 
   const filteredProjectsCount = computed(() => filteredProjects.value.length)
@@ -125,8 +205,13 @@ export const useData = defineStore('data', () => {
     filter,
     switcher,
     categories,
+    usecases,
+    features,
+    ecosystems,
+    assets,
     projects,
     shallowProjects,
+    groupedProjectsPerCategory,
     filteredProjectsCount,
     fetchData,
     getProjectById,
