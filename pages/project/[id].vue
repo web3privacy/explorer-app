@@ -32,7 +32,7 @@ useSeoMeta({
 
 <template>
   <div v-if="project">
-    <div app-container>
+    <div app-container px-16px>
       <div
         flex
         flex-col
@@ -46,6 +46,7 @@ useSeoMeta({
             <ProjectTechnology :project="project" />
             <ProjectPrivacy :project="project" />
             <ProjectSecurity :project="project" />
+            <ProjectHistory :project="project" />
             <!-- <ProjectActivity :project="project" />
             <ProjectMarket /> -->
           </div>

@@ -20,9 +20,6 @@ defineProps<{
       gap-8px
       text-16px
       font-700
-      lg:max-w-320px
-      lg:w-full
-      lg:justify-end
     >
       <slot />
       {{ title }}

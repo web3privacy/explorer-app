@@ -6,8 +6,6 @@
     <div
       hidden
       w-full
-      max-w-320px
-      lg:block
     />
     <div w-full>
       <slot />
