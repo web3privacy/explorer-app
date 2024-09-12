@@ -34,7 +34,7 @@ function onOptionSelected(value: string) {
         >({{ isOptionSelected?.count }})</span></span>
         <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
           <UnoIcon
-            i-heroicons-solid-chevron-down
+            i-ic-baseline-arrow-drop-down
             text-app-black
           />
         </span>

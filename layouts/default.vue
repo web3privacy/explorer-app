@@ -1,27 +1,26 @@
 <script lang="ts" setup>
 import type { InputOption } from '~/types'
 
-const { categories, filteredProjectsCount, selectedCategoryId } = storeToRefs(useData())
+const { categories, usecases, ecosystems, assets, features, filteredProjectsCount, selectedCategoryId } = storeToRefs(useData())
 
-const selectedUsecaseId = ref('usecase')
-const selectedEcosystemId = ref('ecosystem')
-const selectedAssetsUsedId = ref('assetsUsed')
-const selectedFeaturesId = ref('features')
+const selectedUsecaseId = ref('all')
+const selectedEcosystemId = ref('all')
+const selectedAssetsUsedId = ref('all')
+const selectedFeaturesId = ref('all')
 
-const categoriesOptions = ref(categories.value ? categories.value.map(c => ({ label: c.name, value: c.id, count: c.projectsCount })) : [])
-const extendedOptions: InputOption[] = [
-  { label: 'Category', value: 'all' },
-  ...categoriesOptions.value,
-]
+const categoryOptions = ref<InputOption>(categories.value ? [{ label: 'Category', value: 'all' }, ...categories.value.map(c => ({ label: c.name, value: c.id, count: c.projectsCount }))] : [])
+const usecaseOptions = ref<InputOption>(usecases.value ? [{ label: 'Usecase', value: 'all' }, ...usecases.value.map(u => ({ label: u.name, value: u.id }))] : [])
+const ecosystemOptions = ref<InputOption>(ecosystems.value ? [{ label: 'Ecosystem', value: 'all' }, ...ecosystems.value.map(e => ({ label: e.name, value: e.id }))] : [])
+const assetOptions = ref<InputOption>(assets.value ? [{ label: 'Asset used', value: 'all' }, ...assets.value.map(a => ({ label: a.name, value: a.id }))] : [])
+const featureOptions = ref<InputOption>(features.value ? [{ label: 'Feature', value: 'all' }, ...features.value.map(f => ({ label: f.name, value: f.id }))] : [])
+// const selectedCategory = computed(() => {
+//   return categories.value.find(c => c.id === selectedCategoryId.value)
+// })
 
-const selectedCategory = computed(() => {
-  return categories.value.find(c => c.id === selectedCategoryId.value)
-})
-
-const sortedFilteredCategories = computed(() => ([
-  categories.value.find(c => c.id === 'defi')!,
-  ...[...categories.value].sort((a, b) => a.name.localeCompare(b.name)).filter(c => c.id !== 'defi'),
-]))
+// const sortedFilteredCategories = computed(() => ([
+//   categories.value.find(c => c.id === 'defi')!,
+//   ...[...categories.value].sort((a, b) => a.name.localeCompare(b.name)).filter(c => c.id !== 'defi'),
+// ]))
 
 const { showBar } = storeToRefs(useNavigaiton())
 const swipeEl = ref()
@@ -78,6 +77,7 @@ watch([scrollY, top, y], (newValues, oldValues) => {
           >
             <SearchBox
               flex-1
+              placeholder:text-app-text-grey
               :placeholder="`Search in ${filteredProjectsCount} Projects`"
             />
             <div
@@ -85,32 +85,40 @@ watch([scrollY, top, y], (newValues, oldValues) => {
               flex
               items-center
               gap-16px
-              overflow-x-auto
             >
               <CategorySelectBox
                 v-model="selectedCategoryId"
-                :options="extendedOptions"
+                :options="categoryOptions"
+                name="categorySelect"
                 w-full
                 @selected="selectedCategoryId === 'all' ? navigateTo(`/`) : navigateTo(`/category/${selectedCategoryId}`)"
               />
               <CategorySelectBox
+                v-if="usecases.length"
                 v-model="selectedUsecaseId"
-                :options="[{ label: 'Usecase', value: 'usecase' }]"
+                name="usecaseSelect"
+                :options="usecaseOptions"
                 w-full
               />
               <CategorySelectBox
+                v-if="ecosystems.length"
                 v-model="selectedEcosystemId"
-                :options="[{ label: 'Ecosystem', value: 'ecosystem' }]"
+                name="ecosystemSelect"
+                :options="ecosystemOptions"
                 w-full
               />
               <CategorySelectBox
+                v-if="assets.length"
                 v-model="selectedAssetsUsedId"
-                :options="[{ label: 'Assets used', value: 'assetsUsed' }]"
+                name="assetsUsedSelect"
+                :options="assetOptions"
                 w-full
               />
               <CategorySelectBox
+                v-if="features.length"
                 v-model="selectedFeaturesId"
-                :options="[{ label: 'Features', value: 'features' }]"
+                name="featuresSelect"
+                :options="featureOptions"
                 w-full
               />
             </div>

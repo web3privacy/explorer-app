@@ -1,10 +1,12 @@
 <script lang="ts" setup>
 import type { ProjectShallow } from '~/types'
 
-defineProps<{
+const props = defineProps<{
   project: ProjectShallow
 }>()
 const { switcher } = storeToRefs(useData())
+
+const projectItems = ['Swap,Mixer', { label: 'Openess', rating: props.project.ratings.openess, type: 'openess' }, { label: 'Technology', rating: props.project.ratings.technology, type: 'technology' }, { label: 'Privacy', rating: props.project.ratings.privacy, type: 'privacy' }, 'Ecosystem', 'Links']
 </script>
 
 <template>
@@ -18,230 +20,119 @@ const { switcher } = storeToRefs(useData())
     transition-all
   >
     <div
-      relative
-      max-w="96px lg:200px"
+      grid
+      grid-cols="2 lg:10"
       w-full
-      h="96px lg:200px"
-      :class="switcher ? '' : 'lg:max-w-full! lg:w-full '"
     >
+
       <div
+        col-span="1 lg:3"
         flex
         items-center
-        justify-center
+        gap="12px lg:16px"
+        relative
         w-full
-        my-auto
         h-full
+        h="48px lg:64px"
+        :class="switcher ? '' : 'lg:max-w-full! lg:w-full '"
       >
         <NuxtImg
           :src="project?.image || '/no-image-1-1.svg'"
           class="w-full h-auto"
-          max-h="md:196px 96px"
+          max-h="md:64px 48px"
+          max-w="md:64px 48px"
           self-center
           z-10
           object-fit
           bg="#121212"
         />
-      </div>
-      <ClientOnly>
-        <Badge
-          v-if="project.percentage"
-          absolute
-          bottom-0.5
-          lg:bottom-0
-          right-0.5
-          lg:right-0
-          mr-2px
-          mb-2px
-          :text="`${project.percentage}%`"
-          class="leading-12px! text-12px! lg:text-18px! border-0!"
-          px="4px! lg:16px!"
-          py="4px! lg:8px!"
-        />
-      </ClientOnly>
-    </div>
-    <div
-      h="96px lg:200px"
-      lg:py-24px
-      lg:pr-24px
-      flex
-      flex-col
-      justify-center
-      lg:justify-between
-      lg:gap-24px
-      w-full
-      text-white
-      :class="switcher ? '' : 'lg:p-16px! lg:py-16px!'"
-    >
-      <div
-        w-full
-        h-fit
-        flex
-        flex-col
-        gap-8px
-      >
         <div
-          w-fit
+          flex
+          flex-col
+          gap-y-4px
+          lg:flex-row
+          justify-center
+        >
+          <div
+            w-fit
+            flex
+            items-center
+            gap-8px
+            @click.prevent="navigateTo(project.website, { external: true, open: { target: '_blank' } })"
+          >
+            <h1
+              text="14px app-white"
+              font-700
+              line-clamp-1
+              hover:underline
+              underline-offset-3
+              leading="20px lg:32px"
+            >
+              {{ project.title1 }}
+            </h1>
+          </div>
+          <p
+            text-12px
+            leading-16px
+            lg:hidden
+          >
+            Usecases
+          </p>
+        </div>
+      </div>
+      <div
+        v-for="(projectItem, index) of projectItems"
+        :key="projectItem.toString()"
+        hidden
+        lg:flex
+        items-center
+        justify-start
+        text-14px
+        leading-24px
+      >
+        <p
+          v-if="typeof projectItem === 'string'"
+          text-app-text-grey
+        >
+          {{ projectItem }}
+        </p>
+        <ProjectRating
+          v-else
+          :score="index"
+          :rating="projectItem.rating"
+          :type="projectItem.type"
+        />
+      </div>
+      <div
+        flex
+        items-center
+        justify-end
+        w-full
+        gap-16px
+      >
+        <UnoIcon
+          block
+          lg:hidden
+          i-iconoir-internet
+          text="24px"
+        />
+        <div
           flex
           items-center
-          gap-8px
-          @click.prevent="navigateTo(project.website, { external: true, open: { target: '_blank' } })"
-        >
-          <h1
-            text="18px lg:24px app-white"
-            font-700
-            line-clamp-1
-            hover:underline
-            underline-offset-3
-          >
-            {{ project.title1 }}
-          </h1>
-          <UnoIcon
-            i-web-open
-            text-16px
-          />
-        </div>
-        <h2
-          text="14px app-text-grey"
-          overflow-hidden
-          text-ellipsis
-          line-clamp-2
-          lg:line-clamp-2
-        >
-          {{ project.description }}
-        </h2>
-      </div>
-      <div
-        w-full
-        flex
-        justify-between
-      >
-        <div
+          justify-center
+          border="2px app-white"
+          text="14px md:18px"
+          leading="24px md:32px"
+          max-h-="28px md:32px"
+          max-w="48px md:56px"
           w-full
-          max-w-692px
-          grid
+          font-700
           whitespace-nowrap
-          :class="switcher ? 'grid-cols-5' : 'grid-cols-3'"
-          gap-24px
-          lg:grid
-          hidden
         >
-          <ProjectInfoItem
-            :check-undefined="project?.github"
-            :link="project?.github"
-            title="Github"
-            bold
-            text-size="18px"
-          >
-            <div
-              flex
-              items-center
-              gap-8px
-            >
-              <UnoIcon
-                i-web-github
-                text-16px
-              />
-              <span>{{ project?.github ? 'YES' : 'NO' }}</span>
-            </div>
-          </ProjectInfoItem>
-          <ProjectInfoItem
-            :check-undefined="project.readyness"
-            title="Readyness"
-            text-size="18px"
-          >
-            <div
-              flex
-              items-center
-              gap-12px
-            >
-              <UnoIcon
-                i-web-live
-                text-10px
-                :class="(project.readyness === 'Mainnet') ? 'color-#18FF2F' : (project.readyness === 'Testnet') ? 'color-#FFA800' : (project.readyness === 'Alpha') ? 'color-#FF0000' : ''"
-              />
-              <span :class="(project.readyness === 'Alpha') ? 'color-#FFA800' : 'color-white'">{{ project.readyness }}</span>
-            </div>
-          </ProjectInfoItem>
-          <ProjectInfoItem
-            :check-undefined="true"
-            title="Team"
-            text-size="18px"
-          >
-            <span v-if="project.team?.length">{{ `${project.team?.length} members` }}</span>
-            <span
-              v-else
-              color="#FF0000"
-            >{{ 'Anonymous' }}</span>
-          </ProjectInfoItem>
-          <ProjectInfoItem
-            :check-undefined="project?.docs"
-            :link="project?.docs"
-            :color="project?.docs ? '#18FF2F' : '#FF0000'"
-            title="Docs"
-            bold
-            text-size="18px"
-          >
-            {{ project?.docs ? 'YES' : 'NO' }}
-          </ProjectInfoItem>
-          <ProjectInfoItem
-            :check-undefined="project.audits"
-            :link="project?.audits?.[0]?.link ?? undefined"
-            :color="project?.audits ? '#18FF2F' : '#FF0000'"
-            title="Audit"
-            bold
-            text-size="18px"
-          >
-            {{ project.audits ? 'YES' : 'NO' }}
-          </ProjectInfoItem>
-        </div>
-        <div
-          hidden
-          lg:flex
-          items-center
-          gap-16px
-        >
-          <UnoIcon
-            v-if="project.forum"
-            i-web-forum
-            text-28px
-            opacity-50
-            hover:opacity-100
-            @click.prevent="navigateTo(project.forum, { external: true, open: { target: '_blank' } })"
-          />
-          <UnoIcon
-            v-if="project.explorer"
-            i-web-explorer
-            text-32px
-            opacity-50
-            hover:opacity-100
-            @click.prevent="navigateTo(project.explorer, { external: true, open: { target: '_blank' } })"
-          />
-          <UnoIcon
-            v-if="project.twitter"
-            i-web-twitter_x
-            text-22px
-            opacity-50
-            hover:opacity-100
-            @click.prevent="navigateTo(project.twitter, { external: true, open: { target: '_blank' } })"
-          />
-          <UnoIcon
-            v-if="project.coingecko"
-            i-web-coingecko
-            text-24px
-            opacity-50
-            hover:opacity-100
-            @click.prevent="navigateTo(project.coingecko, { external: true, open: { target: '_blank' } })"
-          />
-          <UnoIcon
-            v-if="project.newsletter"
-            i-web-news
-            text-28px
-            opacity-50
-            hover:opacity-100
-            @click.prevent="navigateTo(project.newsletter, { external: true, open: { target: '_blank' } })"
-          />
+          {{ project.percentage }} %
         </div>
       </div>
     </div>
+
   </NuxtLink>
 </template>

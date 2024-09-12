@@ -2,7 +2,7 @@
 import type { ProjectShallow } from '~/types'
 
 const props = defineProps<{
-  projects: ProjectShallow[]
+  projects: { title: string, projects: ProjectShallow[] }[]
 }>()
 const { switcher } = storeToRefs(useData())
 
@@ -29,77 +29,102 @@ const cardTitles = ref< { label: string, togglable?: boolean, toggled?: boolean 
     flex-col
     items-start
   >
-    <div
-      v-if="displayedProjects.length"
-      flex
-      items-center
-      gap-x-12px
-      w-full
-      mb="8px md:16px"
-    >
-      <h2
-        text="app-white 16px md:24px"
-        font-700
-        leading="24px md:32px"
-        whitespace-nowrap
-      >
-        24 Defi
-      </h2>
-      <div
-        h-2px
-        w-full
-        bg-app-white
-      />
-      <button
-        type="button"
-        i-heroicons-solid-chevron-down
-        text="app-white 24px"
-      />
-    </div>
-    <div
-      v-if="displayedProjects.length"
-      flex
-      items-center
-      justify-between
-      w-full
-      mb-16px
+    <template
+      v-for="group in projects"
+      :key="group.title"
     >
       <div
+
         flex
         items-center
-        gap-4px
+        gap-x-12px
+        w-full
+        mb="8px lg:16px"
+        mt-22px
       >
-        <p
-          text="12px md:14px"
-          leading="16px md:24px"
+        <h2
+          text="app-white 16px lg:24px"
+          font-700
+          leading="24px lg:32px"
           whitespace-nowrap
         >
-          Project name
-        </p>
+          {{ group.projects.length }} {{ group.title }}
+        </h2>
+        <div
+          h-2px
+          w-full
+          bg-app-text-grey
+        />
         <button
           type="button"
-          i-heroicons-solid-chevron-down
-          text="app-white 20px"
+          i-ic-baseline-arrow-drop-down
+          text="app-text-grey 24px"
         />
       </div>
       <div
-        hidden
-        md:flex
-        items-center
-        justify-end
-        gap-48px
+        grid
+        grid-cols="2 lg:10"
         w-full
+        mb-16px
       >
         <div
-          v-for="title in cardTitles"
-          :key="title.label"
           flex
           items-center
           gap-4px
+          col-span="1 lg:3"
         >
           <p
-            text="12px md:14px"
-            leading="16px md:24px"
+            text="12px lg:14px app-text-grey"
+            leading="16px lg:24px"
+            whitespace-nowrap
+          >
+            Project name
+          </p>
+          <button
+            type="button"
+            i-ic-baseline-arrow-drop-down
+            text="app-text-grey 20px"
+          />
+        </div>
+        <div
+          flex
+          items-center
+          justify-end
+          gap-4px
+          lg:hidden
+        >
+          <p
+            text="12px lg:14px app-text-grey"
+            leading="16px lg:24px"
+          >
+            Sort by:
+          </p>
+          <p
+            text="12px lg:14px"
+            leading="16px lg:24px"
+            font-700
+          >
+            Score
+          </p>
+          <button
+            type="button"
+            i-ic-baseline-arrow-drop-down
+            text="app-text-grey 20px"
+          />
+        </div>
+        <div
+          v-for="title in cardTitles"
+          :key="title.label"
+          lg:flex
+          items-center
+          justify-start
+          last:justify-end
+          gap-4px
+          hidden
+        >
+          <p
+            text="12px lg:14px app-text-grey"
+            leading="16px lg:24px"
             whitespace-nowrap
           >
             {{ title.label }}
@@ -108,69 +133,44 @@ const cardTitles = ref< { label: string, togglable?: boolean, toggled?: boolean 
             v-if="title.togglable"
             type="button"
             :class="[title.toggled
-              ? 'i-heroicons-solid-chevron-up'
-              : 'i-heroicons-solid-chevron-down']"
-            text="app-white 20px"
+              ? 'i-ic-baseline-arrow-drop-up'
+              : 'i-ic-baseline-arrow-drop-down']"
+            text="app-text-grey 20px"
             @click="title.toggled = !title.toggled"
           />
         </div>
       </div>
       <div
-        flex
-        items-center
-        gap-4px
-        md:hidden
+        v-if="displayedProjects.length"
+        grid
+        :class="switcher ? 'grid-cols-1 lg:grid-cols-1' : 'xl:grid-cols-3 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1'"
+        gap-16px
+        text-white
+        w-full
       >
-        <p
-          text="12px md:14px"
-          leading="16px md:24px"
-        >
-          Sort by:
-        </p>
-        <p
-          text="12px md:14px"
-          leading="16px md:24px"
-          font-700
-        >
-          Score
-        </p>
-        <button
-          type="button"
-          i-heroicons-solid-chevron-down
-          text="app-white 20px"
+        <NewCard
+          v-for="project in group.projects"
+          :key="project.id"
+          :project="project"
         />
       </div>
-    </div>
-    <div
-      v-if="displayedProjects.length"
-      grid
-      :class="switcher ? 'grid-cols-1 lg:grid-cols-1' : 'xl:grid-cols-3 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1'"
-      gap-16px
-      text-white
-      w-full
-    >
-      <Card
-        v-for="project in displayedProjects"
-        :key="project.id"
-        :project="project"
-      />
-    </div>
-    <div v-else>
-      <h3>No Projects found...</h3>
-    </div>
-    <button
-      v-if="displayedProjects.length < projects.length"
-      mt-29px
-      text="14px"
-      leading-24px
-      font-700
-      px-12px
-      py-4px
-      border-2px
-      border-app-white
-      @click="showMoreProjects"
-    >
-      Load more projects
-    </button>
+      <div v-else>
+        <h3>No Projects found...</h3>
+      </div>
+      <button
+        v-if="displayedProjects.length < projects.length"
+        mt-29px
+        text="14px"
+        leading-24px
+        font-700
+        px-12px
+        py-4px
+        border-2px
+        border-app-white
+        @click="showMoreProjects"
+      >
+        Load more projects
+      </button>
+    </template>
   </div>
 </template>

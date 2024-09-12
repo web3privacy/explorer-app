@@ -7,9 +7,11 @@ useSeoMeta({
   ogDescription: 'There are challenges in finding crucial technical details and comparing various privacy-focused projects.',
   ogImage: '/web3privacy_eye.webp',
 })
-const { filteredProjects } = storeToRefs(useData())
+const { groupedProjectsPerCategory } = storeToRefs(useData())
 </script>
 
 <template>
-  <ProjectGrid :projects="filteredProjects" />
+  <div>
+    <ProjectGrid :projects="groupedProjectsPerCategory" />
+  </div>
 </template>
