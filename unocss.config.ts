@@ -47,6 +47,7 @@ export default defineConfig({
         black: '#000',
         green: '#B5E26B',
         red: '#FF5252',
+        danger: '#FF0000',
         bg: {
           grey: '#ffffff33',
           dark_grey: '#161616',

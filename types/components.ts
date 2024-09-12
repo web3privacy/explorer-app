@@ -1,5 +1,5 @@
 export interface InputOption {
   label: string
-  value: string
+  value: string | number
   count?: number
 }

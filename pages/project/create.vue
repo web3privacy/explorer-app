@@ -1,0 +1,319 @@
+<script setup lang="ts">
+import ProjectCreateCategoriesBasicInfo from '~/components/Project/Create/Categories/BasicInfo.vue'
+import ProjectCreateCategoriesAssets from '~/components/Project/Create/Categories/Assets.vue'
+import ProjectCreateCategoriesLinks from '~/components/Project/Create/Categories/Links.vue'
+import ProjectCreateCategoriesTechnology from '~/components/Project/Create/Categories/Technology.vue'
+import ProjectCreateCategoriesPrivacy from '~/components/Project/Create/Categories/Privacy.vue'
+import ProjectCreateCategoriesSecurity from '~/components/Project/Create/Categories/Security.vue'
+import ProjectCreateCategoriesTeam from '~/components/Project/Create/Categories/Team.vue'
+import ProjectCreateCategoriesFunding from '~/components/Project/Create/Categories/Funding.vue'
+import ProjectCreateCategoriesHistory from '~/components/Project/Create/Categories/History.vue'
+
+definePageMeta({
+  layout: 'create',
+})
+
+const tabs = reactive([
+  { label: 'Basic Info', value: 'basic_info', component: ProjectCreateCategoriesBasicInfo },
+  { label: 'Assets', value: 'assets', component: ProjectCreateCategoriesAssets },
+  { label: 'Links', value: 'links', component: ProjectCreateCategoriesLinks },
+  { label: 'Technology', value: 'technology', component: ProjectCreateCategoriesTechnology },
+  { label: 'Privacy', value: 'privacy', component: ProjectCreateCategoriesPrivacy },
+  { label: 'Security', value: 'security', component: ProjectCreateCategoriesSecurity },
+  { label: 'Team', value: 'team', component: ProjectCreateCategoriesTeam },
+  { label: 'Funding', value: 'funding', component: ProjectCreateCategoriesFunding },
+  { label: 'History', value: 'history', component: ProjectCreateCategoriesHistory },
+])
+
+const selectedTab = ref(tabs[0].value)
+
+function getCurrentComponent() {
+  const tab = tabs.find(t => t.value === selectedTab.value) || tabs[0]
+  return tab.component || null
+}
+
+const currentComponent = ref()
+
+const { open, onChange } = useFileDialog({
+  accept: 'image/*', // Set to accept only image files
+})
+
+const logoSrc = ref('/no-image-1-1.svg')
+
+onChange((files) => {
+  if (!files?.[0]) return
+  const file = files[0]
+  const reader = new FileReader()
+  reader.onload = (e) => {
+    logoSrc.value = e.target?.result as string
+  }
+  reader.readAsDataURL(file)
+
+  saveProjectImage(file)
+})
+
+const projectNameInput = ref<HTMLInputElement | null>(null)
+function useProjectName() {
+  const isEditing = ref(false)
+  const name = ref('Untitled')
+
+  function toggleEdit() {
+    isEditing.value = !isEditing.value
+    if (isEditing.value) {
+      setTimeout(() => {
+        projectNameInput.value?.focus()
+      }, 0)
+    }
+  }
+
+  return {
+    isEditing,
+    name,
+    toggleEdit,
+  }
+}
+
+const { isEditing, name, toggleEdit } = useProjectName()
+
+const { useProject } = useData()
+const { saveProject, publishProject, saveProjectImage } = useProject()
+
+function save() {
+  saveProject({
+    name: name.value,
+  })
+}
+
+function next() {
+  if (selectedTab.value === 'basic_info') {
+    if (!currentComponent.value.isFormValid())
+      return
+    else save()
+  }
+
+  currentComponent.value.save()
+
+  const currentIndex = tabs.findIndex(tab => tab.value === selectedTab.value)
+  const nextTab = tabs[currentIndex + 1] || tabs[0]
+  selectedTab.value = nextTab.value
+}
+</script>
+
+<template>
+  <div w-full>
+    <div
+      bg-app-bg-dark_grey
+      px-16px
+      py-24px
+      lg="pb-0px mb--1px"
+    >
+      <div app-container>
+        <div
+          flex
+          items-center
+          gap-16px
+        >
+          <div
+            relative
+            class="parent"
+          >
+            <NuxtImg
+              lg="w-100px h-100px"
+              w-64px
+              h-64px
+              bg-app-bg-grey
+              object-cover
+              border-2
+              class="border-app-white/30"
+              opacity-30
+              :src="logoSrc ?? '/no-image-1-1.svg'"
+            />
+            <button
+              h-24px
+              hidden
+              parent-hover:flex
+              absolute
+              bottom-0
+              w-full
+              border-t-0
+              border-2
+              border-black
+              border-opacity-80
+              h-fit
+              justify-center
+              text="12px"
+              font-700
+              bg-app-white
+              text-app-black
+              @click="open()"
+            >
+              Upload Logo
+            </button>
+          </div>
+          <div
+            flex
+            flex-col
+            gap-8px
+          >
+            <h3
+              font-400
+              text="14px app-white/50"
+              leading-20px
+            >
+              {{ 'Project Name' }}
+            </h3>
+            <div
+              flex
+              items-center
+              gap-12px
+            >
+              <input
+                v-if="isEditing"
+                ref="projectNameInput"
+                v-model="name"
+                w-fit
+                onkeydown="this.style.width = 0; this.style.width = this.scrollWidth + 2 + 'px';"
+                type="text"
+                font-700
+                text-20px
+                leading-28px
+                bg-app-bg-dark_grey
+                onfocus="this.style.width = 0; this.style.width = this.scrollWidth + 2 + 'px';"
+              >
+              <h2
+                v-else
+                font-700
+                text-20px
+                leading-28px
+              >
+                {{ name }}
+              </h2>
+              <button @click="toggleEdit()">
+                <UnoIcon
+                  v-if="isEditing"
+                  text-24px
+                  class="text-app-white/30"
+                  hover:text-app-white
+                  i-heroicons-solid-check
+                />
+                <UnoIcon
+                  v-else
+                  text-20px
+                  class="text-app-white/30"
+                  hover:text-app-white
+                  i-heroicons-solid-pencil
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          flex
+          w-full
+          gap-46px
+          lg="mt-24px"
+        >
+          <SelectBox
+            v-model="selectedTab"
+            label="Choose category"
+            :options="tabs.map(t => ({ label: t.label, value: t.value }))"
+            :border-opacity="30"
+            w-full
+            lg:hidden
+            block
+            mt-16px
+          />
+          <button
+            v-for="tab in tabs"
+            :key="tab.value"
+            lg:block
+            hidden
+            pb-8px
+            leading-40px
+            :class="selectedTab === tab.value ? 'font-bold border-b-4 border-app-white' : ''"
+            @click="selectedTab = tab.value"
+          >
+            {{ tab.label }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      border-t-2
+      class="border-app-white/30"
+      px-16px
+      py-24px
+    >
+      <div
+        app-container
+        mb-55px
+      >
+        <component
+          :is="getCurrentComponent()"
+          ref="currentComponent"
+          w-full
+          flex
+          flex-col
+          gap-24px
+        />
+        <Button
+          v-if="selectedTab !== tabs[tabs.length - 1].value"
+          class="hidden!"
+          mt-48px
+          lg="w-fit flex!"
+          border
+          @click="next()"
+        >
+          <span px-24px>NEXT SECTION</span>
+        </Button>
+      </div>
+    </div>
+    <div
+      flex
+      flex-col
+      gap-16px
+      justify-center
+      text-center
+      absolute
+      bottom-0
+      w-full
+      bg-app-bg-dark_grey
+      class="border-app-white/30"
+      lg="bg-app-black w-fit border-l-2 border-t-2 right-0 border-app-white"
+      p-12px
+    >
+      <Button
+        v-if="selectedTab !== tabs[tabs.length - 1].value"
+        flex
+        lg="w-fit hidden!"
+        border
+        @click="next()"
+      >
+        <span px-24px>NEXT SECTION</span>
+      </Button>
+      <span
+        v-if="selectedTab !== tabs[tabs.length - 1].value"
+        lg="hidden"
+        block
+        text="12px italic app-white/50"
+      >or you can submit changes by publishing them</span>
+      <div flex>
+        <Button
+          w-full
+          lg="w-fit"
+          border
+        >
+          <span px-24px>CANCEL</span>
+        </Button>
+        <Button
+          w-full
+          lg="w-fit"
+          inverted-color
+          @click="publishProject()"
+        >
+          <span px-24px>PUBLISH</span>
+        </Button>
+      </div>
+    </div>
+  </div>
+</template>

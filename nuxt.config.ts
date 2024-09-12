@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     'nuxt-lodash',
     'nuxt-headlessui',
     '@nuxt/image',
+    '@vee-validate/nuxt',
   ],
   sourcemap: {
     server: true,

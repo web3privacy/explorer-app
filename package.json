@@ -26,16 +26,20 @@
     "@nuxtjs/color-mode": "^3.4.4",
     "@pinia/nuxt": "^0.5.4",
     "@unocss/nuxt": "^0.62.3",
+    "@vee-validate/nuxt": "^4.13.2",
     "@vueuse/nuxt": "^11.0.3",
     "eslint": "^9.9.1",
     "nuxt": "^3.13.0",
     "nuxt-headlessui": "^1.2.0",
     "nuxt-lodash": "^2.5.3",
+    "octokit": "^4.0.2",
     "pinia": "^2.2.2",
     "taze": "^0.16.7",
     "typescript": "^5.5.4",
     "vitest": "^2.0.5",
-    "vue-tsc": "^2.1.4"
+    "vue-tsc": "^2.1.4",
+    "yaml": "^2.5.1",
+    "yup": "^1.4.0"
   },
   "overrides": {
     "vue": "latest"

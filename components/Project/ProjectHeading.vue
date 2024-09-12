@@ -41,8 +41,6 @@ const calculateScore = computed(() => {
     else
       value = indexableProject?.[criterias[i].value]
 
-    // console.log(props.project?.links?.github);
-    // console.log(Object.keys(props.indexableProject["team"]).length);
     if (value === null || value === undefined)
       continue
 

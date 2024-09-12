@@ -16185,5 +16185,47 @@
       "id": "other",
       "name": "Other"
     }
+  ],
+  "project_phase": [
+    {
+      "id": "mainnet",
+      "name": "Mainnet"
+    },
+    {
+      "id": "testnet",
+      "name": "Testnet"
+    },
+    {
+      "id": "alpha",
+      "name": "Alpha"
+    },
+    {
+      "id": "beta",
+      "name": "Beta"
+    },
+    {
+      "id": "mvp",
+      "name": "MVP"
+    }
+  ],
+  "asset_custody_type": [
+    {
+      "id": "non-custody",
+      "name": "Non-custody"
+    }
+  ],
+  "sign_in_type_requirments": [
+    {
+      "id": "wallet",
+      "name": "Wallet"
+    },
+    {
+      "id": "email",
+      "name": "Email"
+    },
+    {
+      "id": "seed",
+      "name": "Seed"
+    }
   ]
 }

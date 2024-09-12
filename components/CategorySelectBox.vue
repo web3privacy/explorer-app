@@ -27,7 +27,7 @@ function onOptionSelected(value: string) {
       <HeadlessListboxButton
         class="relative w-full cursor-pointer py-8px p-16px text-left border-2px text-app-white sm:text-sm sm:leading-6"
       >
-        <span class="block truncate mr-8px">{{ isOptionSelected?.label }} <span opacity-50>({{ isOptionSelected?.count }})</span></span>
+        <span class="block truncate mr-8px">{{ isOptionSelected?.label }} <span v-if="isOptionSelected?.count" opacity-50>({{ isOptionSelected?.count }})</span></span>
         <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
           <UnoIcon
             i-heroicons-solid-chevron-down
@@ -61,7 +61,7 @@ function onOptionSelected(value: string) {
                 :class="[selected ? 'font-semibold' : 'font-normal']"
               >
                 {{ option.label }}
-                <span opacity-50>({{ option.count }})</span>
+                <span v-if="option.count" opacity-50>({{ option.count }})</span>
               </span>
             </li>
           </HeadlessListboxOption>

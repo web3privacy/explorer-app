@@ -1,6 +1,16 @@
+import { Buffer } from 'buffer'
 import type { Category, Project, ProjectShallow } from '~/types'
 
 export const useData = defineStore('data', () => {
+  const assetsData = useState<{ id: string, name: string }[]>('assetsData')
+  const categoriesData = useState<{ id: string, name: string }[]>('categoriesData')
+  const featuresData = useState<{ id: string, name: string }[]>('featuresData')
+  const ecosystemsData = useState<{ id: string, name: string }[]>('ecosystemsData')
+  const usecasesData = useState<{ id: string, name: string }[]>('usecasesData')
+  const projectPhaseData = useState<{ id: string, name: string }[]>('projectPhaseData')
+  const assetCustodyData = useState<{ id: string, name: string }[]>('assetCustodyData')
+  const signInRequirmentsData = useState<{ id: string, name: string }[]>('signInRequirmenetsData')
+
   const categories = useState<Category[]>('categories')
   const projects = useState<Project[]>('projects')
   const selectedCategoryId = useState(() => 'defi')
@@ -25,6 +35,13 @@ export const useData = defineStore('data', () => {
       const data = await $fetch<{
         categories: Category[]
         projects: Project[]
+        assets: { id: string, name: string }[]
+        features: { id: string, name: string }[]
+        ecosystems: { id: string, name: string }[]
+        usecases: { id: string, name: string }[]
+        project_phase: { id: string, name: string }[]
+        asset_custody_type: { id: string, name: string }[]
+        sign_in_type_requirments: { id: string, name: string }[]
       }>('/api/data')
       projects.value = data.projects.filter(p => p.name)
       categories.value = data.categories.map((c) => {
@@ -33,6 +50,15 @@ export const useData = defineStore('data', () => {
         ).length
         return c
       }).filter(c => c.projectsCount > 0)
+
+      assetsData.value = data.assets.map(a => ({ id: a.id.toLowerCase(), name: a.name }))
+      categoriesData.value = data.categories.map(c => ({ id: c.id.toLowerCase(), name: c.name }))
+      featuresData.value = data.features.map(f => ({ id: f.id.toLowerCase(), name: f.name }))
+      ecosystemsData.value = data.ecosystems.map(e => ({ id: e.id.toLowerCase(), name: e.name }))
+      usecasesData.value = data.usecases.map(u => ({ id: u.id.toLowerCase(), name: u.name }))
+      projectPhaseData.value = data.project_phase.map(p => ({ id: p.id.toLowerCase(), name: p.name }))
+      assetCustodyData.value = data.asset_custody_type.map(a => ({ id: a.id.toLowerCase(), name: a.name }))
+      signInRequirmentsData.value = data.sign_in_type_requirments.map(s => ({ id: s.id.toLowerCase(), name: s.name }))
     }
     catch (e) {
       console.error(e)
@@ -120,11 +146,74 @@ export const useData = defineStore('data', () => {
 
   const filteredProjectsCount = computed(() => filteredProjects.value.length)
 
+  function useProject() {
+    const project = ref<Partial<Project>>()
+    const projectImage = ref<File>()
+
+    function setProject(id: string) {
+      project.value = getProjectById(id, { shallow: false }) as Project
+    }
+
+    function clearProject() {
+      project.value = undefined
+    }
+
+    function saveProject(data: Partial<Project>) {
+      project.value = {
+        ...project.value,
+        ...data,
+      }
+    }
+
+    function saveProjectImage(image: File) {
+      projectImage.value = image
+    }
+
+    async function publishProject() {
+      try {
+        const imageArrayBuffer = await projectImage.value?.arrayBuffer()
+        let imageBuffer: Buffer | undefined
+        if (imageArrayBuffer)
+          imageBuffer = Buffer.from(imageArrayBuffer)
+        await $fetch(`/api/data`, {
+          method: 'POST',
+          body: {
+            project: project.value,
+            image: {
+              type: projectImage.value?.type,
+              data: imageBuffer?.toString('base64'),
+            },
+          },
+        })
+      }
+      catch (e) {
+        console.error(e)
+      }
+    }
+
+    return {
+      project,
+      setProject,
+      clearProject,
+      saveProject,
+      saveProjectImage,
+      publishProject,
+    }
+  }
+
   return {
     selectedCategoryId,
     filter,
     switcher,
     categories,
+    assetsData,
+    categoriesData,
+    featuresData,
+    ecosystemsData,
+    usecasesData,
+    projectPhaseData,
+    assetCustodyData,
+    signInRequirmentsData,
     projects,
     shallowProjects,
     filteredProjectsCount,
@@ -133,5 +222,6 @@ export const useData = defineStore('data', () => {
     getProjectsByCategory,
     filteredProjects,
     projectToShallow,
+    useProject,
   }
 })
