@@ -76,7 +76,7 @@ function useProjectName() {
 const { isEditing, name, toggleEdit } = useProjectName()
 
 const { useProject } = useData()
-const { saveProject, publishProject, saveProjectImage } = useProject()
+const { saveProject, publishProject, saveProjectImage, isPublishing } = useProject()
 
 function save() {
   saveProject({
@@ -309,9 +309,19 @@ function next() {
           w-full
           lg="w-fit"
           inverted-color
-          @click="publishProject()"
+          @click="isPublishing ? () => null : publishProject()"
         >
-          <span px-24px>PUBLISH</span>
+          <UnoIcon
+            v-if="isPublishing"
+            w-108px
+            i-eos-icons-loading
+            text-black
+            text-18px
+          />
+          <span
+            v-else
+            px-24px
+          >PUBLISH</span>
         </Button>
       </div>
     </div>

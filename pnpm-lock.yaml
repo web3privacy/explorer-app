@@ -11,6 +11,9 @@ importers:
       '@formkit/auto-animate':
         specifier: ^0.8.2
         version: 0.8.2
+      '@iconify-json/eos-icons':
+        specifier: ^1.1.10
+        version: 1.2.0
       '@iconify-json/heroicons-outline':
         specifier: ^1.2.0
         version: 1.2.0
@@ -1099,6 +1102,9 @@ packages:
   '@humanwhocodes/retry@0.3.0':
     resolution: {integrity: sha512-d2CGZR2o7fS6sWB7DG/3a95bGKQyHMACZ5aW8qGkkqQpUoZV6C0X7Pc7l4ZNMZkfNBf4VWNe9E1jRsf0G146Ew==}
     engines: {node: '>=18.18'}
+
+  '@iconify-json/eos-icons@1.2.0':
+    resolution: {integrity: sha512-grdfoS20Z4gWAzNPza7ytguNBWeTOkx4Y6aZHs149t2Z6AhW7zG3VWkkq6M+YuL2G8ugHnBw7ZxgazZ6oiMnIQ==}
 
   '@iconify-json/heroicons-outline@1.2.0':
     resolution: {integrity: sha512-Qy1sRmQYqih6xRxwCtnX0hXJ4252t83C0CnNWAP3gF0fH0Qmp9RY66LMB0moYGxQxUhsTFIl2nNceSVSBUo8Tg==}
@@ -6575,6 +6581,10 @@ snapshots:
   '@humanwhocodes/module-importer@1.0.1': {}
 
   '@humanwhocodes/retry@0.3.0': {}
+
+  '@iconify-json/eos-icons@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
 
   '@iconify-json/heroicons-outline@1.2.0':
     dependencies:

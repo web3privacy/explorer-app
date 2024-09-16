@@ -19,6 +19,7 @@
     "@formkit/auto-animate": "^0.8.2",
     "@iconify-json/heroicons-outline": "^1.2.0",
     "@iconify-json/heroicons-solid": "^1.2.0",
+    "@iconify-json/eos-icons": "^1.1.10",
     "@nuxt/devtools": "^1.4.1",
     "@nuxt/eslint": "0.5.5",
     "@nuxt/image": "^1.8.0",

@@ -19,7 +19,7 @@ export default defineEventHandler(async (event) => {
   const owner = 'develit-io'
   const repo = 'test-repo'
   const baseBranch = 'main'
-  const newBranchName = `${id}-project-update`
+  const newBranchName = `${id}-project-update-${Date.now()}`
   const commitMessage = `${body.project.id ? `Updating the project: ${body.project.name}` : `Initiating the creation of project: ${body.project.name}`}`
 
   const files = [
@@ -55,7 +55,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  async function commitChangesToNewBranch(owner: string, repo: string, newBranch: string, message: string, files: { path: string, content: string }[]) {
+  async function commitChangesToNewBranch(owner: string, repo: string, newBranch: string, message: string, files: { path: string, content: string, encoding: string }[]) {
     const { data: latestCommit } = await octokit.rest.repos.getCommit({
       owner,
       repo,
@@ -68,18 +68,26 @@ export default defineEventHandler(async (event) => {
       tree_sha: latestCommit.commit.tree.sha,
     })
 
-    const tree = files.map(file => ({
-      path: file.path,
-      mode: '100644' as const,
-      type: 'blob' as const,
-      content: file.content,
+    const blobs = await Promise.all(files.map(async (file) => {
+      const { data: blob } = await octokit.rest.git.createBlob({
+        owner,
+        repo,
+        content: file.content,
+        encoding: file.encoding,
+      })
+      return {
+        path: file.path,
+        mode: '100644' as const,
+        type: 'blob' as const,
+        sha: blob.sha,
+      }
     }))
 
     const { data: newTree } = await octokit.rest.git.createTree({
       owner,
       repo,
       base_tree: baseTree.sha,
-      tree,
+      tree: blobs,
     })
 
     const { data: newCommit } = await octokit.rest.git.createCommit({
