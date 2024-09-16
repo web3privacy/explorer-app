@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import * as yup from 'yup'
 import ProjectCreateCategoriesBasicInfo from '~/components/Project/Create/Categories/BasicInfo.vue'
 import ProjectCreateCategoriesAssets from '~/components/Project/Create/Categories/Assets.vue'
 import ProjectCreateCategoriesLinks from '~/components/Project/Create/Categories/Links.vue'
@@ -12,6 +13,9 @@ import ProjectCreateCategoriesHistory from '~/components/Project/Create/Categori
 definePageMeta({
   layout: 'create',
 })
+
+const { saveProject, publishProject, saveProjectImage } = useProject()
+const { project, isPublishing } = storeToRefs(useProject())
 
 const tabs = reactive([
   { label: 'Basic Info', value: 'basic_info', component: ProjectCreateCategoriesBasicInfo },
@@ -55,7 +59,9 @@ onChange((files) => {
 const projectNameInput = ref<HTMLInputElement | null>(null)
 function useProjectName() {
   const isEditing = ref(false)
-  const name = ref('Untitled')
+  // const name = ref('Untitled')
+  const { value: name, errorMessage: nameError } = useField<string>('name', yup.string().required().notOneOf(['Untitled', 'Undefined']))
+  name.value = project.value?.name || 'Untitled'
 
   function toggleEdit() {
     isEditing.value = !isEditing.value
@@ -69,17 +75,16 @@ function useProjectName() {
   return {
     isEditing,
     name,
+    nameError,
     toggleEdit,
   }
 }
 
-const { isEditing, name, toggleEdit } = useProjectName()
-
-const { useProject } = useData()
-const { saveProject, publishProject, saveProjectImage, isPublishing } = useProject()
+const { isEditing, name, nameError, toggleEdit } = useProjectName()
 
 function save() {
   saveProject({
+    ...project.value,
     name: name.value,
   })
 }
@@ -96,6 +101,31 @@ function next() {
   const currentIndex = tabs.findIndex(tab => tab.value === selectedTab.value)
   const nextTab = tabs[currentIndex + 1] || tabs[0]
   selectedTab.value = nextTab.value
+}
+
+async function publish() {
+  if (selectedTab.value === 'basic_info') {
+    if (!currentComponent.value.isFormValid())
+      return
+  }
+  else if (isPublishing) {
+    return
+  }
+
+  await publishProject()
+  navigateTo(`/project/${project.value?.id || project.value?.name?.toLowerCase().replace(/\s+/g, '-')}`)
+}
+
+function jumpTo(tab: string) {
+  if (selectedTab.value === 'basic_info') {
+    if (!currentComponent.value.isFormValid())
+      return
+    else save()
+  }
+
+  currentComponent.value.save()
+
+  selectedTab.value = tab
 }
 </script>
 
@@ -214,7 +244,7 @@ function next() {
           lg="mt-24px"
         >
           <SelectBox
-            v-model="selectedTab"
+            :model-value="selectedTab"
             label="Choose category"
             :options="tabs.map(t => ({ label: t.label, value: t.value }))"
             :border-opacity="30"
@@ -222,6 +252,7 @@ function next() {
             lg:hidden
             block
             mt-16px
+            @update:model-value="$event => jumpTo($event)"
           />
           <button
             v-for="tab in tabs"
@@ -235,6 +266,16 @@ function next() {
           >
             {{ tab.label }}
           </button>
+          <span
+            v-if="nameError"
+            text-nowrap
+            text-app-danger
+            text-12px
+            absolute
+            lg:bottom--24px
+            bottom--16px
+            select-none
+          >Invalid project name</span>
         </div>
       </div>
     </div>
@@ -246,7 +287,8 @@ function next() {
     >
       <div
         app-container
-        mb-55px
+        mb-170px
+        lg="mb-55px"
       >
         <component
           :is="getCurrentComponent()"
@@ -274,7 +316,7 @@ function next() {
       gap-16px
       justify-center
       text-center
-      absolute
+      fixed
       bottom-0
       w-full
       bg-app-bg-dark_grey
@@ -302,6 +344,7 @@ function next() {
           w-full
           lg="w-fit"
           border
+          @click="navigateTo('/')"
         >
           <span px-24px>CANCEL</span>
         </Button>
@@ -309,7 +352,7 @@ function next() {
           w-full
           lg="w-fit"
           inverted-color
-          @click="isPublishing ? () => null : publishProject()"
+          @click="publish()"
         >
           <UnoIcon
             v-if="isPublishing"

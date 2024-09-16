@@ -6,7 +6,7 @@ const props = defineProps<{
   project?: Partial<Project>
 }>()
 
-const { useProject, categoriesData, usecasesData, ecosystemsData } = useData()
+const { categoriesData, usecasesData, ecosystemsData } = useData()
 const { saveProject } = useProject()
 
 const validationSchema = yup.object().shape({
@@ -31,8 +31,8 @@ const isDead = ref(props.project?.sunset || false)
 
 resetForm({
   values: {
-    categories: props.project?.categories?.map(c => c.toLowerCase()) || [],
-    usecases: props.project?.usecases?.map(u => u.toLowerCase()) || [],
+    categories: Array.isArray(props.project?.categories) ? props.project?.categories?.map(c => c.toLowerCase()) : [],
+    usecases: Array.isArray(props.project?.usecases) ? props.project?.usecases?.map(u => u.toLowerCase()) : [],
     ecosystems: Array.isArray(props.project?.ecosystem) ? props.project?.ecosystem?.map(e => e.toLowerCase()) : [],
     description: props.project?.description || '',
   },
@@ -55,7 +55,7 @@ function save() {
     usecases: usecases.value,
     ecosystem: ecosystems.value,
     description: description.value,
-    product_launch_day: new Date(year.value, month.value, day.value).toISOString(),
+    product_launch_day: (year.value && month.value && day.value) ? new Date(year.value, month.value, day.value).toISOString() : undefined,
     sunset: isDead.value,
   })
 }

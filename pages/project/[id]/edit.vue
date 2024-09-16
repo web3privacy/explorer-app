@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import * as yup from 'yup'
 import ProjectCreateCategoriesBasicInfo from '~/components/Project/Create/Categories/BasicInfo.vue'
 import ProjectCreateCategoriesAssets from '~/components/Project/Create/Categories/Assets.vue'
 import ProjectCreateCategoriesLinks from '~/components/Project/Create/Categories/Links.vue'
@@ -13,8 +14,9 @@ definePageMeta({
   layout: 'create',
 })
 
-const { useProject, projects } = useData()
-const { saveProject, setProject, project, publishProject, saveProjectImage, isPublishing } = useProject()
+const { projects } = useData()
+const { saveProject, setProject, publishProject, saveProjectImage } = useProject()
+const { project, isPublishing } = storeToRefs(useProject())
 
 const route = useRoute()
 await until(projects).toMatch(p => p?.length > 0)
@@ -70,7 +72,9 @@ onChange((files) => {
 const projectNameInput = ref<HTMLInputElement | null>(null)
 function useProjectName() {
   const isEditing = ref(false)
-  const name = ref('Untitled')
+  // const name = ref('Untitled')
+  const { value: name, errorMessage: nameError } = useField<string>('name', yup.string().required().notOneOf(['Untitled', 'Undefined']))
+  name.value = project.value?.name || 'Untitled'
 
   function toggleEdit() {
     isEditing.value = !isEditing.value
@@ -84,11 +88,12 @@ function useProjectName() {
   return {
     isEditing,
     name,
+    nameError,
     toggleEdit,
   }
 }
 
-const { isEditing, name, toggleEdit } = useProjectName()
+const { isEditing, name, nameError, toggleEdit } = useProjectName()
 name.value = project.value?.name || 'Untitled'
 
 function save() {
@@ -97,7 +102,10 @@ function save() {
   })
 }
 
-function next() {
+async function next() {
+  if (nameError.value)
+    return
+
   if (selectedTab.value === 'basic_info') {
     if (!currentComponent.value.isFormValid())
       return
@@ -109,6 +117,31 @@ function next() {
   const currentIndex = tabs.findIndex(tab => tab.value === selectedTab.value)
   const nextTab = tabs[currentIndex + 1] || tabs[0]
   selectedTab.value = nextTab.value
+}
+
+async function publish() {
+  if (selectedTab.value === 'basic_info') {
+    if (!currentComponent.value.isFormValid())
+      return
+  }
+  else if (isPublishing) {
+    return
+  }
+
+  await publishProject()
+  navigateTo(`/project/${project.value?.id || project.value?.name?.toLowerCase().replace(/\s+/g, '-')}`)
+}
+
+function jumpTo(tab: string) {
+  if (selectedTab.value === 'basic_info') {
+    if (!currentComponent.value.isFormValid())
+      return
+    else save()
+  }
+
+  currentComponent.value.save()
+
+  selectedTab.value = tab
 }
 </script>
 
@@ -178,6 +211,7 @@ function next() {
               flex
               items-center
               gap-12px
+              relative
             >
               <input
                 v-if="isEditing"
@@ -216,6 +250,16 @@ function next() {
                   i-heroicons-solid-pencil
                 />
               </button>
+              <span
+                v-if="nameError"
+                text-nowrap
+                text-app-danger
+                text-12px
+                absolute
+                lg:bottom--24px
+                bottom--16px
+                select-none
+              >Invalid project name</span>
             </div>
           </div>
         </div>
@@ -226,7 +270,7 @@ function next() {
           lg="mt-24px"
         >
           <SelectBox
-            v-model="selectedTab"
+            :model-value="selectedTab"
             label="Choose category"
             :options="tabs.map(t => ({ label: t.label, value: t.value }))"
             :border-opacity="30"
@@ -234,6 +278,7 @@ function next() {
             lg:hidden
             block
             mt-16px
+            @update:model-value="$event => jumpTo($event)"
           />
           <button
             v-for="tab in tabs"
@@ -243,7 +288,7 @@ function next() {
             pb-8px
             leading-40px
             :class="selectedTab === tab.value ? 'font-bold border-b-4 border-app-white' : ''"
-            @click="selectedTab = tab.value"
+            @click="jumpTo(tab.value)"
           >
             {{ tab.label }}
           </button>
@@ -258,7 +303,8 @@ function next() {
     >
       <div
         app-container
-        mb-55px
+        mb-170px
+        lg="mb-55px"
       >
         <component
           :is="getCurrentComponent()"
@@ -288,7 +334,7 @@ function next() {
       gap-16px
       justify-center
       text-center
-      absolute
+      fixed
       bottom-0
       w-full
       bg-app-bg-dark_grey
@@ -316,6 +362,7 @@ function next() {
           w-full
           lg="w-fit"
           border
+          @click="navigateTo(`/project/${route.params.id}`)"
         >
           <span px-24px>CANCEL</span>
         </Button>
@@ -323,7 +370,7 @@ function next() {
           w-full
           lg="w-fit"
           inverted-color
-          @click="isPublishing ? () => null : publishProject()"
+          @click="publish()"
         >
           <UnoIcon
             v-if="isPublishing"

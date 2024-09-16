@@ -39,7 +39,6 @@ function useMembers(project?: Partial<Project>) {
 
 const { members, newMember, addMember, removeMember } = useMembers(props.project)
 
-const { useProject } = useData()
 const { saveProject } = useProject()
 
 function save() {

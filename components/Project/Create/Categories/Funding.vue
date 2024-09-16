@@ -37,7 +37,6 @@ function useFundings(project?: Partial<Project>) {
 
 const { fundings, newFunding, addFunding, removeFunding } = useFundings(props.project)
 
-const { useProject } = useData()
 const { saveProject } = useProject()
 
 function save() {

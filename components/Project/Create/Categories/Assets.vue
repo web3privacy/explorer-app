@@ -44,7 +44,7 @@ function useTokens(project?: Partial<Project>) {
 const { tokens, newToken, addToken, removeToken } = useTokens(props.project)
 const assetsUsed = ref<string[]>(Array.isArray(props.project?.assets_used) ? props.project?.assets_used.map(a => a.toLowerCase()) : [])
 
-const { useProject, assetsData } = useData()
+const { assetsData } = useData()
 const { saveProject } = useProject()
 
 function save() {

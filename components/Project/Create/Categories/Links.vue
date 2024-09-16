@@ -19,7 +19,6 @@ const telegram = ref<string>(props.project?.links?.telegram || '')
 const lens = ref<string>(props.project?.links?.lens || '')
 const farcaster = ref<string>(props.project?.links?.farcaster || '')
 
-const { useProject } = useData()
 const { saveProject } = useProject()
 
 function save() {

@@ -72,7 +72,6 @@ function formatDate(date: string) {
   return `${day}/${month}/${year}`
 }
 
-const { useProject } = useData()
 const { saveProject } = useProject()
 
 function save() {

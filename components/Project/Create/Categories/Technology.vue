@@ -13,7 +13,7 @@ const encryption = ref(props.project?.blockchain_features?.encryption || '')
 const peerToPeer = ref(props.project?.blockchain_features?.p2p)
 const decentralizedStorage = ref(props.project?.storage?.decentralized)
 
-const { useProject, projectPhaseData, assetCustodyData } = useData()
+const { projectPhaseData, assetCustodyData } = useData()
 const { saveProject } = useProject()
 
 function save() {

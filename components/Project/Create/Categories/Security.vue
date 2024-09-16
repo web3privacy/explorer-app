@@ -73,7 +73,6 @@ const thirdPartyDep = ref(props.project?.third_party_dependency || '')
 const socialTrust = ref(props.project?.social_trust || '')
 const spof = ref(props.project?.technical_spof || '')
 
-const { useProject } = useData()
 const { saveProject } = useProject()
 
 function save() {
