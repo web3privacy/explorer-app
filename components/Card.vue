@@ -1,12 +1,14 @@
 <script lang="ts" setup>
-import type { ProjectShallow } from '~/types'
+import type { ProjectRating, ProjectShallow } from '~/types'
 
 const props = defineProps<{
   project: ProjectShallow
 }>()
-const { switcher } = storeToRefs(useData())
+const { switcher, ecosystems } = storeToRefs(useData())
 
-const projectItems = ['Swap,Mixer', { label: 'Openess', rating: props.project.ratings.openess, type: 'openess' }, { label: 'Technology', rating: props.project.ratings.technology, type: 'technology' }, { label: 'Privacy', rating: props.project.ratings.privacy, type: 'privacy' }, 'Ecosystem', 'Links']
+const ratings: { label: string, type: string, rating: ProjectRating }[] = (props.project.ratings || []).map(rating => ({ label: rating.name, type: 'rating', rating: rating }))
+const ecosystem: { label: string[], type: string } = { label: ecosystems.value.filter(e => (props.project.ecosystem || []).includes(e.id)).map(e => e.icon!), type: 'ecosystem' }
+const projectItems: { label: string | string[], type: string, rating?: ProjectRating }[] = [{ label: props.project.usecases || [], type: 'array' }, ...ratings, ecosystem, { label: ['Links'], type: 'array' }]
 </script>
 
 <template>
@@ -26,7 +28,7 @@ const projectItems = ['Swap,Mixer', { label: 'Openess', rating: props.project.ra
     >
 
       <div
-        col-span="1 lg:3"
+        col-span="1 lg:2"
         flex
         items-center
         gap="12px lg:16px"
@@ -76,62 +78,80 @@ const projectItems = ['Swap,Mixer', { label: 'Openess', rating: props.project.ra
             leading-16px
             lg:hidden
           >
-            Usecases
+            {{ project.usecases?.join(', ') }}
           </p>
         </div>
       </div>
-      <div
-        v-for="(projectItem, index) of projectItems"
-        :key="projectItem.toString()"
-        hidden
-        lg:flex
-        items-center
-        justify-start
-        text-14px
-        leading-24px
-      >
-        <p
-          v-if="typeof projectItem === 'string'"
-          text-app-text-grey
+      <ClientOnly>
+        <div
+          v-for="(projectItem, index) of projectItems"
+          :key="projectItem.label.toString()"
+          hidden
+          lg:flex
+          items-center
+          text-14px
+          leading-24px
+          :class="{ 'col-span-1 lg:col-span-2': index === 0 }"
         >
-          {{ projectItem }}
-        </p>
-        <ProjectRating
-          v-else
-          :score="index"
-          :rating="projectItem.rating"
-          :type="projectItem.type"
-        />
-      </div>
-      <div
-        flex
-        items-center
-        justify-end
-        w-full
-        gap-16px
-      >
-        <UnoIcon
-          block
-          lg:hidden
-          i-iconoir-internet
-          text="24px"
-        />
+          <p
+            v-if="projectItem.type === 'array'"
+            text-app-text-grey
+          >
+            {{ (projectItem.label as string[] || []).join(', ') }}
+          </p>
+          <div
+            v-if="projectItem.type === 'ecosystem'"
+            flex
+            items-center
+            justify-start
+            gap-2px
+          >
+            <NuxtImg
+              v-for="ecosystem of projectItem.label"
+              :key="ecosystem"
+              :src="ecosystem"
+              w-24px
+              h-24px
+              rounded-full
+            />
+          </div>
+          <ProjectRating
+            v-if="projectItem.type! === 'rating' && projectItem.rating"
+            :percentage="projectItem.rating.points"
+            :rating="projectItem.rating"
+            :type="projectItem.rating.type"
+          />
+        </div>
         <div
           flex
           items-center
-          justify-center
-          border="2px app-white"
-          text="14px md:18px"
-          leading="24px md:32px"
-          max-h-="28px md:32px"
-          max-w="48px md:56px"
+          justify-end
           w-full
-          font-700
-          whitespace-nowrap
+          gap-16px
         >
-          {{ project.percentage }} %
+          <UnoIcon
+            block
+            lg:hidden
+            i-iconoir-internet
+            text="24px"
+          />
+          <div
+            flex
+            items-center
+            justify-center
+            border="2px app-white"
+            text="14px md:18px"
+            leading="24px md:32px"
+            max-h-="28px md:32px"
+            max-w="48px md:56px"
+            w-full
+            font-700
+            whitespace-nowrap
+          >
+            {{ project.percentage }} %
+          </div>
         </div>
-      </div>
+      </ClientOnly>
     </div>
 
   </NuxtLink>
