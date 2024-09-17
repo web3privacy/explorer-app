@@ -112,7 +112,7 @@ const hidePopover = () => {
             {{ item.label }}
           </div>
           <NuxtLink
-            v-if="item.positive === 'Link'"
+            v-if="item.isValid && item.positive === 'Link'"
             :to="item.value"
             target="_blank"
             external

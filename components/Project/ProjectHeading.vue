@@ -40,7 +40,7 @@ const logo = props.project?.logos?.at(0)?.url
       shrink
       border="1px app-text-grey"
       :src="logo ?? '/no-image-1-1.svg'"
-      class="bg-app-bg-grey object-cover h-full vertical-align[middle] block w-full h-[300px]"
+      class="bg-app-bg-grey object-cover h-full vertical-align[middle] block w-full h-[300px] "
     />
     <div
       grow
