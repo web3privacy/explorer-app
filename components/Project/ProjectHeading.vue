@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { Project, ProjectIndexable } from '~/types'
+import type { Project } from '~/types'
 
 const props = defineProps<{
   project: Project
@@ -21,54 +21,6 @@ const props = defineProps<{
   - team: anon / public
   - audit: yes / no
  */
-const calculateScore = computed(() => {
-  const criterias: { value: keyof ProjectIndexable, key: keyof ProjectIndexable | '' }[] = [
-    { value: 'product_readiness', key: '' },
-    { value: 'github', key: 'links' },
-    { value: 'docs', key: 'links' },
-    { value: 'team', key: '' },
-    { value: 'audits', key: '' },
-  ]
-
-  let matched = 0
-  for (let i = 0; i < criterias.length; i++) {
-    let value
-    // value = ((criterias[i].key ?? props.project[criterias[i].value as keyof typeof props.project]) ?? null === null) ? null : (props.project as ProjectIndexable)[criterias[i].key][criterias[i].value]
-
-    const indexableProject = props.project as ProjectIndexable
-    if (criterias[i].key !== '')
-      value = (indexableProject[criterias[i].key] as any)?.[criterias[i].value]
-    else
-      value = indexableProject?.[criterias[i].value]
-
-    // console.log(props.project?.links?.github);
-    // console.log(Object.keys(props.indexableProject["team"]).length);
-    if (value === null || value === undefined)
-      continue
-
-    if (fulfilled(value))
-      matched++
-  }
-
-  return 100 / criterias.length * matched
-})
-
-function fulfilled(value: any): boolean {
-  const type = typeof value
-  switch (type) {
-    case 'string':
-      if (value !== '')
-        return true
-      break
-    case 'object':
-      if (Object.keys(value!).length > 0)
-        return true
-      break
-    default:
-      return false
-  }
-  return false
-}
 
 const logo = props.project?.logos?.at(0)?.url
 </script>
@@ -215,6 +167,8 @@ const logo = props.project?.logos?.at(0)?.url
             col-span-3
           >
             <div
+              v-for="rating of project.ratings"
+              :key="rating.name"
               flex
               flex-col
               lg:flex-row
@@ -224,50 +178,11 @@ const logo = props.project?.logos?.at(0)?.url
                 text="12px lg:16px"
                 leading="16px lg:24px"
               >
-                Openess:
+                {{ rating.name }}:
               </p>
               <ProjectRating
-                :rating="project.ratings.openess"
-                type="openess"
-                :score="1"
-                compact
-              />
-            </div>
-            <div
-              flex
-              flex-col
-              lg:flex-row
-              items-center
-            >
-              <p
-                text="12px lg:16px"
-                leading="16px lg:24px"
-              >
-                Technology:
-              </p>
-              <ProjectRating
-                :rating="project.ratings.technology"
-                type="technology"
-                :score="2"
-                compact
-              />
-            </div>
-            <div
-              flex
-              flex-col
-              lg:flex-row
-              items-center
-            >
-              <p
-                text="12px lg:16px"
-                leading="16px lg:24px"
-              >
-                Privacy:
-              </p>
-              <ProjectRating
-                :rating="project.ratings.privacy"
-                type="privacy"
-                :score="3"
+                :rating="rating"
+                :percentage="rating.points"
                 compact
               />
             </div>
@@ -303,7 +218,7 @@ const logo = props.project?.logos?.at(0)?.url
               py="2px lg:8px"
               lg:py-4px
             >
-              {{ calculateScore }} %
+              {{ calculateScore(project) }} %
             </div>
           </div>
         </div>

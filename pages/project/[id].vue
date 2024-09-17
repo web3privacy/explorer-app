@@ -50,8 +50,6 @@ useSeoMeta({
             <ProjectPrivacy :project="project" />
             <ProjectSecurity :project="project" />
             <ProjectHistory :project="project" />
-            <!-- <ProjectActivity :project="project" />
-            <ProjectMarket /> -->
           </div>
         </div>
       </div>

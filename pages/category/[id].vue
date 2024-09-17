@@ -9,7 +9,7 @@ onMounted(() => {
     selectedCategoryId.value = route.params.id as string
 })
 
-const group = [{ title: categories.value.find(c => c.id === selectedCategoryId.value)!.name, projects: filteredProjects.value }]
+const group = computed(() => [{ title: categories.value.find(c => c.id === selectedCategoryId.value)?.name || '', projects: filteredProjects.value }])
 </script>
 
 <template>
