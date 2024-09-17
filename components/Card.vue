@@ -8,7 +8,7 @@ const { switcher, ecosystems } = storeToRefs(useData())
 
 const ratings: { label: string, type: string, rating: ProjectRating }[] = (props.project.ratings || []).map(rating => ({ label: rating.name, type: 'rating', rating: rating }))
 const ecosystem: { label: string[], type: string } = { label: ecosystems.value.filter(e => (props.project.ecosystem || []).includes(e.id)).map(e => e.icon!), type: 'ecosystem' }
-const projectItems: { label: string | string[], type: string, rating?: ProjectRating }[] = [{ label: props.project.usecases || [], type: 'array' }, ...ratings, ecosystem, { label: ['Links'], type: 'array' }]
+const projectItems: { label: string | string[], type: string, rating?: ProjectRating }[] = [{ label: props.project.usecases || [], type: 'array' }, ...ratings, ecosystem, { label: [props.project.website || '', props.project.github || '', props.project.twitter || ''], type: 'links' }]
 </script>
 
 <template>
@@ -99,6 +99,48 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
           >
             {{ (projectItem.label as string[] || []).join(', ') }}
           </p>
+          <div
+            v-if="projectItem.type === 'links'"
+            flex
+            items-center
+            justify-start
+            gap-16px
+          >
+            <NuxtLink
+              v-if="projectItem.label[1]"
+              :to="projectItem.label[1]"
+              external
+              target="_blank"
+            >
+              <UnoIcon
+                i-ic-baseline-language
+                text="24px app-text-grey"
+              />
+            </NuxtLink>
+            <NuxtLink
+              v-if="projectItem.label[2]"
+              :to="projectItem.label[2]"
+              external
+              target="_blank"
+            >
+              <UnoIcon
+                i-mdi-github
+                text="24px app-text-grey"
+                text-27px
+              />
+            </NuxtLink>
+            <NuxtLink
+              v-if="projectItem.label[0]"
+              :to="projectItem.label[0]"
+              external
+              target="_blank"
+            >
+              <UnoIcon
+                i-bi-twitter-x
+                text="24px app-text-grey"
+              />
+            </NuxtLink>
+          </div>
           <div
             v-if="projectItem.type === 'ecosystem'"
             flex
