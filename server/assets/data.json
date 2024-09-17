@@ -16198,9 +16198,11 @@
       "references": [
         {
           "field": "team.teammembers",
-          "label": "Team",
-          "positive": "Member",
-          "negative": "Anonymous",
+          "label": {
+            "name": "Team",
+            "positive": "Member",
+            "negative": "Anonymous"
+          },
           "condition": {
             "minLength": 1
           },
@@ -16208,9 +16210,11 @@
         },
         {
           "field": "links.docs",
-          "label": "Documentation",
-          "positive": "Link",
-          "negative": "Not available",
+          "label": {
+            "name": "Documentation",
+            "positive": "Link",
+            "negative": "Not available"
+          },
           "condition": {
             "exists": true
           },
@@ -16218,9 +16222,11 @@
         },
         {
           "field": "links.github",
-          "label": "Github",
-          "positive": "Link",
-          "negative": "Not available",
+          "label": {
+            "name": "Github",
+            "positive": "Link",
+            "negative": "Not available"
+          },
           "condition": {
             "exists": true
           },
@@ -16228,9 +16234,11 @@
         },
         {
           "field": "links.twitter",
-          "label": "Twitter",
-          "positive": "Link",
-          "negative": "Not available",
+          "label": {
+            "name": "Twitter",
+            "positive": "Link",
+            "negative": "Not available"
+          },
           "condition": {
             "exists": true
           },
@@ -16238,9 +16246,11 @@
         },
         {
           "field": "links.telegram",
-          "label": "Telegram",
-          "positive": "Link",
-          "negative": "Not available",
+          "label": {
+            "name": "Twitter",
+            "positive": "Link",
+            "negative": "Not available"
+          },
           "condition": {
             "exists": true
           },
@@ -16248,9 +16258,11 @@
         },
         {
           "field": "links.discord",
-          "label": "Discord",
-          "positive": "Link",
-          "negative": "Not available",
+          "label": {
+            "name": "Discord",
+            "positive": "Link",
+            "negative": "Not available"
+          },
           "condition": {
             "exists": true
           },
@@ -16258,9 +16270,11 @@
         },
         {
           "field": "links.lens",
-          "label": "Lens",
-          "positive": "Link",
-          "negative": "Not available",
+          "label": {
+            "name": "Lens",
+            "positive": "Link",
+            "negative": "Not available"
+          },
           "condition": {
             "exists": true
           },
@@ -16268,9 +16282,11 @@
         },
         {
           "field": "links.farcaster",
-          "label": "Farcaster",
-          "positive": "Link",
-          "negative": "Not available",
+          "label": {
+            "name": "Farcaster",
+            "positive": "Link",
+            "negative": "Not available"
+          },
           "condition": {
             "exists": true
           },
@@ -16278,9 +16294,11 @@
         },
         {
           "field": "links.whitepaper",
-          "label": "Whitepaper",
-          "positive": "Link",
-          "negative": "Not available",
+          "label": {
+            "name": "Whitepaper",
+            "positive": "Link",
+            "negative": "Not available"
+          },
           "condition": {
             "exists": true
           },
@@ -16288,9 +16306,11 @@
         },
         {
           "field": "funding.value",
-          "label": "Funding",
-          "positive": "Investment",
-          "negative": "Not available",
+          "label": {
+            "name": "Funding",
+            "positive": "Investment",
+            "negative": "Not available"
+          },
           "condition": {
             "exists": true
           },
@@ -16304,9 +16324,11 @@
       "references": [
         {
           "field": "project_status.mainnet",
-          "label": "Mainnet",
-          "positive": "Yes",
-          "negative": "No",
+          "label": {
+            "name": "Mainnet",
+            "positive": "Yes",
+            "negative": "No"
+          },
           "condition": {
             "exists": true
           },
@@ -16314,9 +16336,11 @@
         },
         {
           "field": "blockchain_features.opensource",
-          "label": "Open Source",
-          "positive": "Yes",
-          "negative": "No",
+          "label": {
+            "name": "Open Source",
+            "positive": "Yes",
+            "negative": "No"
+          },
           "condition": {
             "equals": true
           },
@@ -16324,9 +16348,11 @@
         },
         {
           "field": "blockchain_features.asset_custody_type",
-          "label": "Non Custody",
-          "positive": "None",
-          "negative": "Custodial",
+          "label": {
+            "name": "Non Custody",
+            "positive": "None",
+            "negative": "Custodial"
+          },
           "condition": {
             "equals": "non-custody"
           },
@@ -16334,9 +16360,11 @@
         },
         {
           "field": "blockchain_features.upgradability.enabled",
-          "label": "Upgradability",
-          "positive": "Disabled",
-          "negative": "Enabled",
+          "label": {
+            "name": "Upgradability",
+            "positive": "Disabled",
+            "negative": "Enabled"
+          },
           "condition": {
             "equals": false
           },
@@ -16344,9 +16372,11 @@
         },
         {
           "field": "audits",
-          "label": "Audits",
-          "positive": "Audit",
-          "negative": "None",
+          "label": {
+            "name": "Audits",
+            "positive": "Audit",
+            "negative": "None"
+          },
           "condition": {
             "minLength": 1
           },
@@ -16360,9 +16390,11 @@
       "references": [
         {
           "field": "privacy_policy.link",
-          "label": "Privacy Policy",
-          "positive": "Link",
-          "negative": "Not available",
+          "label": {
+            "name": "Privacy Policy",
+            "positive": "Link",
+            "negative": "Not available"
+          },
           "condition": {
             "exists": true
           },
@@ -16370,9 +16402,11 @@
         },
         {
           "field": "traceability.kyc",
-          "label": "KYC",
-          "positive": "No",
-          "negative": "Yes",
+          "label": {
+            "name": "KYC",
+            "positive": "No",
+            "negative": "Yes"
+          },
           "condition": {
             "equals": false
           },
@@ -16380,9 +16414,11 @@
         },
         {
           "field": "compliance",
-          "label": "Compliance",
-          "positive": "No",
-          "negative": "OFAC",
+          "label": {
+            "name": "Compliance",
+            "positive": "No",
+            "negative": "OFAC"
+          },
           "condition": {
             "equals": true
           },
@@ -16390,9 +16426,11 @@
         },
         {
           "field": "default_privacy",
-          "label": "Default Privacy",
-          "positive": "YES",
-          "negative": "No",
+          "label": {
+            "name": "Default Privacy",
+            "positive": "YES",
+            "negative": "No"
+          },
           "condition": {
             "equals": true
           },

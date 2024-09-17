@@ -97,7 +97,7 @@ const hidePopover = () => {
           text-12px
           font-700
           leading-20px
-          :class="{ 'text-app-text-rating-negative': !item.isValid }"
+          :class="[item.isValid ? 'text-app-white': 'text-app-text-rating-negative']"
         >
           <div
             flex
