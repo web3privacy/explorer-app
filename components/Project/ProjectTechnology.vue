@@ -12,7 +12,7 @@ defineProps<{
     badge-text="3/10"
   >
     <UnoIcon
-      i-web-code_v2
+      i-material-symbols-deployed-code-outline
       text-24px
     />
   </ProjectDetailCategoryDivider>
@@ -21,100 +21,54 @@ defineProps<{
       grid
       grid-cols-2
       items-start
-      mt-32px
+      mt-24px
       gap-y-16px
       lg:grid-cols-4
     >
+      <ProjectInfoItem
+        :check-undefined="project.blockchain_features?.opensource"
+        title="Opensource"
+        bold
+        :color="project.blockchain_features?.opensource ? '#18FF2F' : '#FF0000'"
+      >
+        {{ project.blockchain_features?.opensource ? 'YES' : 'NO' }}
+      </ProjectInfoItem>
+      <ProjectInfoItem
+        :check-undefined="project.blockchain_features?.asset_custody_type"
+        title="Asset custody"
+        :color="project.blockchain_features?.asset_custody_type === 'non-custody' ? '#18FF2F' : project.blockchain_features?.asset_custody_type === 'multisig' ? '#FFB800' : '#FF0000'"
+        bold
+      >
+        {{ project.blockchain_features?.asset_custody_type.toUpperCase() }}
+      </ProjectInfoItem>
+      <ProjectInfoItem
+        title="Upgradability"
+        bold
+        :check-undefined="project.blockchain_features?.upgradability"
+        :color="project.blockchain_features?.upgradability ? '#FF0000' : '#18FF2F' "
+      >
+        {{ project.blockchain_features?.upgradability ? 'YES' : 'NO' }}
+      </ProjectInfoItem>
       <ProjectInfoItem
         :check-undefined="project.technology?.type"
         title="Technology type"
         bold
       >
-        {{ project.technology?.type }}
+        {{ project.technology?.type.toUpperCase() }}
       </ProjectInfoItem>
       <ProjectInfoItem
-        :check-undefined="project.blockchain_features?.encryption"
-        title="Encryption"
+        :check-undefined="project.blockchain_features?.p2p"
+        title="Peer to Peer (P2P)"
         bold
       >
-        {{ project.blockchain_features?.encryption }}
+        {{ project.blockchain_features?.p2p ? 'YES' : 'NO' }}
       </ProjectInfoItem>
       <ProjectInfoItem
-        title="License"
-        bold
-        :check-undefined="project.licences"
-      >
-        {{ project.licences }}
-      </ProjectInfoItem>
-      <ProjectInfoItem
-        :check-undefined="project.links?.whitepaper"
-        title="Whitepaper"
-        bold
-        :link="project.links?.whitepaper"
-      >
-        {{ project.links?.whitepaper ? 'YES' : 'NO' }}
-      </ProjectInfoItem>
-    </div>
-    <div
-      grid
-      grid-cols-1
-      items-start
-      mt-16px
-      gap-y-16px
-      lg:grid-cols-4
-    >
-      <ProjectInfoItem
-        :check-undefined="project.project_status"
-        title="Version"
+        :check-undefined="project.storage?.decentralized"
+        title="Decentralized storage"
         bold
       >
-        <div
-          v-if="project.project_status?.live_status"
-          flex
-          items-center
-          gap-12px
-        >
-          <UnoIcon
-            i-web-live
-            text-10px
-            class="color-#B5E26B"
-          />
-          <span>{{ `Live on ${project.project_status.version}` }}</span>
-        </div>
-        <div
-          v-else
-          flex
-          items-center
-          gap-12px
-        >
-          <UnoIcon
-            i-web-live
-            text-10px
-            class="color-#e26b6b"
-          />
-          <span>{{ 'Offline' }}</span>
-        </div>
-      </ProjectInfoItem>
-      <ProjectInfoItem
-        :check-undefined="project.technology?.features"
-        title="Features"
-        bold
-      >
-        {{ project.technology?.features.join(', ') }}
-      </ProjectInfoItem>
-      <ProjectInfoItem
-        :check-undefined="project.client_diversability"
-        title="Client diversability"
-        bold
-      >
-        <template
-          v-for="item in project.client_diversability"
-          :key="item.name"
-        >
-          <NuxtLink :to="item.link">
-            {{ item.name }}
-          </NuxtLink><br>
-        </template>
+        {{ project.storage?.decentralized ? 'YES' : 'NO' }}
       </ProjectInfoItem>
     </div>
   </ProjectDetailContainer>

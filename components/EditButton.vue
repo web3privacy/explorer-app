@@ -13,6 +13,7 @@ defineProps<{
   >
     <UnoIcon
       i-heroicons-solid-pencil
+      text-app-text-grey
       text-24px
     />
     <slot />

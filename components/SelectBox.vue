@@ -33,7 +33,7 @@ const selectedValue = useVModel(props, 'modelValue', emits)
         <span class="block truncate mr-8px">{{ props.options.find(option => option.value === selectedValue)?.label }}</span>
         <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
           <UnoIcon
-            i-heroicons-solid-chevron-down
+            i-ic-baseline-arrow-drop-down
             :class="[blackAndWhite ? ' text-app-white' : 'text-app-black']"
           />
         </span>

@@ -1,4 +1,77 @@
 {
+  "categories": [
+    {
+      "id": "infrastructure",
+      "name": "Infrastructure",
+      "usecases": [
+        "node",
+        "rpc-provider",
+        "infrastructure",
+        "eth-layer-2",
+        "research-and-development",
+        "computing",
+        "storage",
+        "data-management",
+        "other"
+      ]
+    },
+    {
+      "id": "social-and-communications",
+      "name": "Social & Communications",
+      "usecases": [
+        "dao",
+        "nft-community",
+        "alliances",
+        "messaging",
+        "events",
+        "other"
+      ]
+    },
+    {
+      "id": "hardware",
+      "name": "Hardware",
+      "usecases": [
+        "wallets",
+        "node",
+        "other"
+      ]
+    },
+    {
+      "id": "applications",
+      "name": "Applications",
+      "usecases": [
+        "browser",
+        "vpn",
+        "did",
+        "operation-systems",
+        "dapps",
+        "wallets",
+        "ai",
+        "kyc-solution",
+        "other"
+      ]
+    },
+    {
+      "id": "defi",
+      "name": "Defi",
+      "usecases": [
+        "bridge",
+        "defi",
+        "mixing-service",
+        "mixing-management",
+        "currency",
+        "other"
+      ]
+    },
+    {
+      "id": "archived-projects",
+      "name": "Archived projects",
+      "usecases": [
+        "legacy-projects",
+        "deprecated-systems"
+      ]
+    }
+  ],
   "projects": [
     {
       "id": "01-labs",
@@ -15885,181 +15958,6 @@
       ]
     }
   ],
-  "assets": [
-    {
-      "id": "eth",
-      "name": "Ethereum"
-    },
-    {
-      "id": "btc",
-      "name": "Bitcoin"
-    },
-    {
-      "id": "usdc",
-      "name": "Coinbase stable"
-    },
-    {
-      "id": "usdt",
-      "name": "Tether"
-    },
-    {
-      "id": "dai",
-      "name": "MakerDAO stable"
-    },
-    {
-      "id": "atom",
-      "name": "Cosmos"
-    },
-    {
-      "id": "scrt",
-      "name": "Secret Network"
-    },
-    {
-      "id": "dot",
-      "name": "Polkadot"
-    },
-    {
-      "id": "sol",
-      "name": "Solana"
-    },
-    {
-      "id": "zcash",
-      "name": "Zcash"
-    },
-    {
-      "id": "xmr",
-      "name": "Monero"
-    },
-    {
-      "id": "other",
-      "name": "Other"
-    }
-  ],
-  "categories": [
-    {
-      "id": "infrastructure",
-      "name": "Infrastructure",
-      "usecases": [
-        "node",
-        "rpc-provider",
-        "infrastructure",
-        "eth-layer-2",
-        "research-and-development",
-        "computing",
-        "storage",
-        "data-management",
-        "other"
-      ]
-    },
-    {
-      "id": "social-and-communications",
-      "name": "Social & Communications",
-      "usecases": [
-        "dao",
-        "nft-community",
-        "alliances",
-        "messaging",
-        "events",
-        "other"
-      ]
-    },
-    {
-      "id": "hardware",
-      "name": "Hardware",
-      "usecases": [
-        "wallets",
-        "node",
-        "other"
-      ]
-    },
-    {
-      "id": "applications",
-      "name": "Applications",
-      "usecases": [
-        "browser",
-        "vpn",
-        "did",
-        "operation-systems",
-        "dapps",
-        "wallets",
-        "ai",
-        "kyc-solution",
-        "other"
-      ]
-    },
-    {
-      "id": "defi",
-      "name": "Defi",
-      "usecases": [
-        "bridge",
-        "defi",
-        "mixing-service",
-        "mixing-management",
-        "currency",
-        "other"
-      ]
-    },
-    {
-      "id": "archived-projects",
-      "name": "Archived projects",
-      "usecases": [
-        "legacy-projects",
-        "deprecated-systems"
-      ]
-    }
-  ],
-  "ecosystems": [
-    {
-      "id": "ethereum",
-      "name": "Ethereum"
-    },
-    {
-      "id": "bitcoin",
-      "name": "Bitcoin"
-    },
-    {
-      "id": "solana",
-      "name": "Solana"
-    },
-    {
-      "id": "cosmos",
-      "name": "Cosmos"
-    },
-    {
-      "id": "monero",
-      "name": "Monero"
-    },
-    {
-      "id": "other",
-      "name": "Other"
-    }
-  ],
-  "features": [
-    {
-      "id": "no-compliance",
-      "name": "No compliance"
-    },
-    {
-      "id": "non-kyc",
-      "name": "Non-KYC"
-    },
-    {
-      "id": "private-by-default",
-      "name": "Private by default"
-    },
-    {
-      "id": "non-custodial",
-      "name": "Non custodial"
-    },
-    {
-      "id": "opensource",
-      "name": "Opensource"
-    },
-    {
-      "id": "live-on-mainnet",
-      "name": "Live on Mainnet"
-    }
-  ],
   "usecases": [
     {
       "id": "wallets",
@@ -16184,6 +16082,361 @@
     {
       "id": "other",
       "name": "Other"
+    }
+  ],
+  "assets": [
+    {
+      "id": "eth",
+      "name": "Ethereum"
+    },
+    {
+      "id": "btc",
+      "name": "Bitcoin"
+    },
+    {
+      "id": "usdc",
+      "name": "Coinbase stable"
+    },
+    {
+      "id": "usdt",
+      "name": "Tether"
+    },
+    {
+      "id": "dai",
+      "name": "MakerDAO stable"
+    },
+    {
+      "id": "atom",
+      "name": "Cosmos"
+    },
+    {
+      "id": "scrt",
+      "name": "Secret Network"
+    },
+    {
+      "id": "dot",
+      "name": "Polkadot"
+    },
+    {
+      "id": "sol",
+      "name": "Solana"
+    },
+    {
+      "id": "zcash",
+      "name": "Zcash"
+    },
+    {
+      "id": "xmr",
+      "name": "Monero"
+    },
+    {
+      "id": "other",
+      "name": "Other"
+    }
+  ],
+  "features": [
+    {
+      "id": "no-compliance",
+      "name": "No compliance"
+    },
+    {
+      "id": "non-kyc",
+      "name": "Non-KYC"
+    },
+    {
+      "id": "private-by-default",
+      "name": "Private by default"
+    },
+    {
+      "id": "non-custodial",
+      "name": "Non custodial"
+    },
+    {
+      "id": "opensource",
+      "name": "Opensource"
+    },
+    {
+      "id": "live-on-mainnet",
+      "name": "Live on Mainnet"
+    }
+  ],
+  "ecosystems": [
+    {
+      "id": "ethereum",
+      "name": "Ethereum",
+      "icon": "https://assets.coingecko.com/coins/images/279/standard/ethereum.png?1696501628"
+    },
+    {
+      "id": "bitcoin",
+      "name": "Bitcoin",
+      "icon": "https://assets.coingecko.com/coins/images/1/standard/bitcoin.png?1696501400"
+    },
+    {
+      "id": "solana",
+      "name": "Solana",
+      "icon": "https://assets.coingecko.com/coins/images/4128/standard/solana.png?1718769756"
+    },
+    {
+      "id": "cosmos",
+      "name": "Cosmos",
+      "icon": "https://assets.coingecko.com/coins/images/1481/standard/cosmos_hub.png?1696502525"
+    },
+    {
+      "id": "monero",
+      "name": "Monero",
+      "icon": "https://assets.coingecko.com/coins/images/69/standard/monero_logo.png?1696501460"
+    },
+    {
+      "id": "other",
+      "name": "Other"
+    }
+  ],
+  "ranks": [
+    {
+      "id": "openess",
+      "name": "Openess",
+      "references": [
+        {
+          "field": "team.teammembers",
+          "label": {
+            "name": "Team",
+            "positive": "Member",
+            "negative": "Anonymous"
+          },
+          "condition": {
+            "minLength": 1
+          },
+          "points": 10
+        },
+        {
+          "field": "links.docs",
+          "label": {
+            "name": "Documentation",
+            "positive": "Link",
+            "negative": "Not available"
+          },
+          "condition": {
+            "exists": true
+          },
+          "points": 10
+        },
+        {
+          "field": "links.github",
+          "label": {
+            "name": "Github",
+            "positive": "Link",
+            "negative": "Not available"
+          },
+          "condition": {
+            "exists": true
+          },
+          "points": 10
+        },
+        {
+          "field": "links.twitter",
+          "label": {
+            "name": "Twitter",
+            "positive": "Link",
+            "negative": "Not available"
+          },
+          "condition": {
+            "exists": true
+          },
+          "points": 1
+        },
+        {
+          "field": "links.telegram",
+          "label": {
+            "name": "Twitter",
+            "positive": "Link",
+            "negative": "Not available"
+          },
+          "condition": {
+            "exists": true
+          },
+          "points": 1
+        },
+        {
+          "field": "links.discord",
+          "label": {
+            "name": "Discord",
+            "positive": "Link",
+            "negative": "Not available"
+          },
+          "condition": {
+            "exists": true
+          },
+          "points": 1
+        },
+        {
+          "field": "links.lens",
+          "label": {
+            "name": "Lens",
+            "positive": "Link",
+            "negative": "Not available"
+          },
+          "condition": {
+            "exists": true
+          },
+          "points": 1
+        },
+        {
+          "field": "links.farcaster",
+          "label": {
+            "name": "Farcaster",
+            "positive": "Link",
+            "negative": "Not available"
+          },
+          "condition": {
+            "exists": true
+          },
+          "points": 1
+        },
+        {
+          "field": "links.whitepaper",
+          "label": {
+            "name": "Whitepaper",
+            "positive": "Link",
+            "negative": "Not available"
+          },
+          "condition": {
+            "exists": true
+          },
+          "points": 10
+        },
+        {
+          "field": "funding.value",
+          "label": {
+            "name": "Funding",
+            "positive": "Investment",
+            "negative": "Not available"
+          },
+          "condition": {
+            "exists": true
+          },
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "technology",
+      "name": "Technology",
+      "references": [
+        {
+          "field": "project_status.mainnet",
+          "label": {
+            "name": "Mainnet",
+            "positive": "Yes",
+            "negative": "No"
+          },
+          "condition": {
+            "exists": true
+          },
+          "points": 10
+        },
+        {
+          "field": "blockchain_features.opensource",
+          "label": {
+            "name": "Open Source",
+            "positive": "Yes",
+            "negative": "No"
+          },
+          "condition": {
+            "equals": true
+          },
+          "points": 20
+        },
+        {
+          "field": "blockchain_features.asset_custody_type",
+          "label": {
+            "name": "Non Custody",
+            "positive": "None",
+            "negative": "Custodial"
+          },
+          "condition": {
+            "equals": "non-custody"
+          },
+          "points": 10
+        },
+        {
+          "field": "blockchain_features.upgradability.enabled",
+          "label": {
+            "name": "Upgradability",
+            "positive": "Disabled",
+            "negative": "Enabled"
+          },
+          "condition": {
+            "equals": false
+          },
+          "points": 10
+        },
+        {
+          "field": "audits",
+          "label": {
+            "name": "Audits",
+            "positive": "Audit",
+            "negative": "None"
+          },
+          "condition": {
+            "minLength": 1
+          },
+          "points": 10
+        }
+      ]
+    },
+    {
+      "id": "privacy",
+      "name": "Privacy",
+      "references": [
+        {
+          "field": "privacy_policy.link",
+          "label": {
+            "name": "Privacy Policy",
+            "positive": "Link",
+            "negative": "Not available"
+          },
+          "condition": {
+            "exists": true
+          },
+          "points": 10
+        },
+        {
+          "field": "traceability.kyc",
+          "label": {
+            "name": "KYC",
+            "positive": "No",
+            "negative": "Yes"
+          },
+          "condition": {
+            "equals": false
+          },
+          "points": 10
+        },
+        {
+          "field": "compliance",
+          "label": {
+            "name": "Compliance",
+            "positive": "No",
+            "negative": "OFAC"
+          },
+          "condition": {
+            "equals": true
+          },
+          "points": 5
+        },
+        {
+          "field": "default_privacy",
+          "label": {
+            "name": "Default Privacy",
+            "positive": "YES",
+            "negative": "No"
+          },
+          "condition": {
+            "equals": true
+          },
+          "points": 10
+        }
+      ]
     }
   ]
 }

@@ -12,7 +12,7 @@ defineProps<{
     badge-text="3/10"
   >
     <UnoIcon
-      i-web-code_v2
+      i-bi-code-square
       text-24px
     />
   </ProjectDetailCategoryDivider>
@@ -23,25 +23,98 @@ defineProps<{
       leading-24px
       font-400
     >
-      <h3 text-app-text-grey>
-        {{ 'Project Description' }}
+      <h3
+        text-app-text-grey
+        mb-8px
+      >
+        Project Description
       </h3>
-      <span
+      <p
         text="14px sm:16px"
         leading-20px
-      >{{ project.description ?? '---' }}</span>
+      >
+        {{ project.description ?? '---' }}
+      </p>
+    </div>
+    <div
+      grid
+      grid-cols="2 lg:4"
+      mt="24px lg:32px"
+      text="14px lg:16px"
+      gap-y-16px
+    >
+      <div>
+        <h3
+          text-app-text-grey
+          leading-20px
+          mb="4px lg:8px"
+        >
+          Project Phase
+        </h3>
+        <div
+          flex
+          items-center
+          gap-8px
+        >
+          <div
+            h-10px
+            w-10px
+            rounded-full
+            bg-green
+          /><p leading="20px lg:24px">
+            Mainnet
+          </p>
+        </div>
+      </div>
+      <div>
+        <h3
+          text-app-text-grey
+          leading-20px
+          mb="4px lg:8px"
+        >
+          Assets used
+        </h3>
+        <p leading="20px lg:24px">
+          ETH, DAI, USDC, FRAX
+        </p>
+      </div>
+      <div>
+        <h3
+          text-app-text-grey
+          leading-20px
+          mb="4px lg:8px"
+        >
+          Native token
+        </h3>
+        <p leading="20px lg:24px">
+          SCRT
+        </p>
+      </div>
+      <div>
+        <h3
+          text-app-text-grey
+          leading-20px
+          mb="4px lg:8px"
+        >
+          Project launch day
+        </h3>
+        <p leading="20px lg:24px">
+          06/2017
+        </p>
+      </div>
     </div>
     <div mt-24px>
       <h3
         text="14px sm:16px app-text-grey"
         leading-20px
       >
-        {{ 'Infrastructure links' }}
+        Infrastructure links:
       </h3>
       <div
         grid
         grid-cols-2
-        gap-16px
+        gap-x-16px
+        gap-y-12px
         mt-8px
         lg:grid-cols-4
       >
@@ -50,18 +123,12 @@ defineProps<{
           :to="project.links?.web"
         >
           <template #prefix>
-            <UnoIcon i-web-website />
+            <UnoIcon
+              i-ic-baseline-language
+              text="24px app-text-grey"
+            />
           </template>
-          {{ 'Website' }}
-        </ProjectOpenessLink>
-        <ProjectOpenessLink
-          v-if="project.links?.blog"
-          :to="project.links.blog"
-        >
-          <template #prefix>
-            <UnoIcon i-web-website />
-          </template>
-          {{ 'Blog' }}
+          Website
         </ProjectOpenessLink>
         <ProjectOpenessLink
           v-if="project.links?.github"
@@ -69,12 +136,25 @@ defineProps<{
         >
           <template #prefix>
             <UnoIcon
-              i-web-github
-              opacity-30
+              i-mdi-github
+              text="24px app-text-grey"
               text-27px
             />
           </template>
-          {{ 'Github' }}
+          Github
+        </ProjectOpenessLink>
+        <ProjectOpenessLink
+          v-if="project.links?.whitepaper"
+          :to="project.links?.whitepaper"
+        >
+          <template #prefix>
+            <UnoIcon
+              i-material-symbols-description
+              text="24px app-text-grey"
+              text-27px
+            />
+          </template>
+          Whitepaper
         </ProjectOpenessLink>
         <ProjectOpenessLink
           v-if="project.links?.docs"
@@ -82,11 +162,38 @@ defineProps<{
         >
           <template #prefix>
             <UnoIcon
-              i-web-documents
-              text-24px
+              i-material-symbols-contract
+              text="24px app-text-grey"
+              text-27px
             />
           </template>
-          {{ 'Docs' }}
+          Docs
+        </ProjectOpenessLink>
+        <ProjectOpenessLink
+          v-if="project.links?.blog"
+          :to="project.links.blog"
+        >
+          <template #prefix>
+            <UnoIcon
+              i-material-symbols-newsmode
+              text="24px app-text-grey"
+              text-27px
+            />
+          </template>
+          Blog
+        </ProjectOpenessLink>
+        <ProjectOpenessLink
+          v-if="project.links?.forum"
+          :to="project.links.forum"
+        >
+          <template #prefix>
+            <UnoIcon
+              i-material-symbols-forum-outline
+              text="24px app-text-grey"
+              text-27px
+            />
+          </template>
+          Forum
         </ProjectOpenessLink>
         <ProjectOpenessLink
           v-if="project.links?.block_explorer"
@@ -94,48 +201,25 @@ defineProps<{
         >
           <template #prefix>
             <UnoIcon
-              i-web-explorer
-              opacity-30
+              i-material-symbols-explore-outline
+              text="24px app-text-grey"
+              text-27px
             />
           </template>
-          {{ 'Explorer' }}
+          Explorer
         </ProjectOpenessLink>
         <ProjectOpenessLink
-          v-if="project.links?.snapshot"
-          :to="project.links.snapshot"
+          v-if="project.links?.governance"
+          :to="project.links.governance"
         >
           <template #prefix>
             <UnoIcon
-              i-web-snapshot
-              text-32px
+              i-material-symbols-how-to-vote-outline
+              text="24px app-text-grey"
+              text-27px
             />
           </template>
-          {{ 'Snapshot' }}
-        </ProjectOpenessLink>
-        <ProjectOpenessLink
-          v-if="project.links?.token"
-          :to="project.links.token"
-        >
-          <template #prefix>
-            <UnoIcon
-              i-web-token
-              text-28px
-            />
-          </template>
-          {{ 'Token' }}
-        </ProjectOpenessLink>
-        <ProjectOpenessLink
-          v-if="project.links?.coingecko"
-          :to="project.links.coingecko"
-        >
-          <template #prefix>
-            <UnoIcon
-              i-web-coingecko
-              opacity-30
-              text-24px
-            />
-          </template>
-          {{ 'Coingecko' }}
+          Governance
         </ProjectOpenessLink>
       </div>
     </div>
@@ -149,22 +233,22 @@ defineProps<{
       <div
         grid
         grid-cols-2
-        gap-16px
+        gap-x-16px
+        gap-y-12px
         mt-8px
         lg:grid-cols-4
       >
         <ProjectOpenessLink
-          v-if="project.links?.forum"
-          :to="project.links.forum"
+          v-if="project.links?.twitter"
+          :to="project.links.twitter"
         >
           <template #prefix>
             <UnoIcon
-              i-web-forum
-              opacity-30
-              text-28px
+              i-bi-twitter-x
+              text="24px app-text-grey"
             />
           </template>
-          {{ 'Forum' }}
+          Twitter
         </ProjectOpenessLink>
         <ProjectOpenessLink
           v-if="project.links?.discord"
@@ -172,24 +256,23 @@ defineProps<{
         >
           <template #prefix>
             <UnoIcon
-              i-web-discord
-              text-27px
+              i-ic-baseline-discord
+              text="24px app-text-grey"
             />
           </template>
-          {{ 'Discord' }}
+          Discord
         </ProjectOpenessLink>
         <ProjectOpenessLink
-          v-if="project.links?.twitter"
-          :to="project.links.twitter"
+          v-if="project.links?.telegram"
+          :to="project.links.telegram"
         >
           <template #prefix>
             <UnoIcon
-              i-web-twitter_x
-              opacity-30
-              text-22px
+              i-mdi-telegram
+              text="24px app-text-grey"
             />
           </template>
-          {{ 'Twitter' }}
+          Telegram
         </ProjectOpenessLink>
         <ProjectOpenessLink
           v-if="project.links?.lens"
@@ -198,10 +281,10 @@ defineProps<{
           <template #prefix>
             <UnoIcon
               i-web-lens
-              text-32px
+              text="24px app-text-grey"
             />
           </template>
-          {{ 'Lens' }}
+          Lens
         </ProjectOpenessLink>
         <ProjectOpenessLink
           v-if="project.links?.farcaster"
@@ -210,89 +293,63 @@ defineProps<{
           <template #prefix>
             <UnoIcon
               i-web-farcaster
-              text-26px
+              text="24px app-text-grey"
             />
           </template>
-          {{ 'Farcaster' }}
-        </ProjectOpenessLink>
-        <ProjectOpenessLink
-          v-if="project.links?.telegram"
-          :to="project.links.telegram"
-        >
-          <template #prefix>
-            <UnoIcon
-              i-web-telegram
-              opacity-30
-              text-22px
-            />
-          </template>
-          {{ 'Telegram' }}
+          Farcaster
         </ProjectOpenessLink>
       </div>
     </div>
-    <div mt-24px>
-      <ProjectOpenessTeamMembers :members="project.team" />
-    </div>
-    <div
-      grid
-      grid-cols-2
-      items-start
-      mt-32px
-      gap-y-26px
-      lg:grid-cols-4
-    >
-      <ProjectInfoItem
-        :check-undefined="project.product_launch_day"
-        title="Product launch day"
+    <ProjectOpenessTeamMembers
+      v-if="project?.team"
+      :members="project.team"
+      mt-24px
+    />
+    <div mt-32px>
+      <h3
+        text="app-text-grey 14px lg:16px"
+        leading-24px
       >
-        {{ project.product_launch_day }}
-      </ProjectInfoItem>
-      <ProjectInfoItem
-        title="Opensource"
-        bold
-        :check-undefined="project.blockchain_features?.opensource"
-        :color=" project.blockchain_features?.opensource ? '#A8FF18' : '#FF0000'"
-      >
-        {{ project.blockchain_features?.opensource ? 'Yes' : 'No' }}
-      </ProjectInfoItem>
-    </div>
-    <div
-      mt-32px
-      w-full
-    >
-      <ProjectInfoItem
-        :check-undefined="project.funding"
-        title="Funding"
-        bold
+        Funding
+      </h3>
+      <div
+        v-for="funding of project.funding"
+        :key="funding.name"
+        flex
+        items-center
+        justify-between
+        rounded-full
         w-full
+        bg-app-bg-funding-card
+        px-24px
+        py-12px
+        mt-12px
       >
-        <template
-          v-for="fund in project.funding"
-          :key="fund.name"
+        <h3
+          text="14px lg:16px"
+          leading="20px lg:24px"
+          font-700
         >
-          <div
-            mt-16px
-            grid
-            grid-cols-2
-            sm:grid-cols-4
-          >
-            <span v-if="fund.name">{{ fund.name }}</span>
-            <span
-              v-if="fund.time"
-              font-400
-            >{{ fund.time }}</span>
-            <span
-              v-if="fund.time"
-              font-400
-              text-app-text-grey
-            >{{ fund.type }}</span>
-            <span
-              v-if="fund.time"
-              font-400
-            >{{ fund.value }}</span>
-          </div>
-        </template>
-      </ProjectInfoItem>
+          {{ funding.name }}
+        </h3>
+        <NuxtLink
+          :to="funding.link"
+          external
+          target="_blank"
+        >
+          <UnoIcon
+            i-ic-twotone-open-in-new
+            text="22px app-text-grey"
+          />
+        </NuxtLink>
+      </div>
+      <h3
+        v-if="!project.funding?.length"
+        text="app-text-grey 14px lg:16px"
+        leading-24px
+      >
+        N/A
+      </h3>
     </div>
   </ProjectDetailContainer>
 </template>
