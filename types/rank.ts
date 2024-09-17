@@ -8,9 +8,11 @@ export interface Rank {
 
 interface Reference {
   field: keyof Project
-  label: string
-  positive: string
-  negative: string
+  label: {
+    name: string
+    positive: string
+    negative: string
+  }
   condition: Condition
   points: number
 }

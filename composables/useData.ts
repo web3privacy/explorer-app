@@ -224,7 +224,7 @@ export const useData = defineStore('data', () => {
           value = (field as any[])?.length
           if (value) {
             isValid = value >= ref.condition.minLength
-            positive = `${value} ${ref.positive}${value > 1 ? 's' : ''}`
+            positive = `${value} ${ref.label.positive}${value > 1 ? 's' : ''}`
           }
         }
         if (ref.condition.equals) {
@@ -241,11 +241,11 @@ export const useData = defineStore('data', () => {
         rankPoints += isValid ? ref.points : 0
         return {
           isValid,
-          label: ref.label,
-          positive: positive ? positive : ref.positive,
-          negative: ref.negative,
+          label: ref.label.name,
+          positive: positive ? positive : ref.label.positive,
+          negative: ref.label.negative,
           value,
-        }
+        } as ProjectRatingItem
       })
       return {
         type: rank.id,
