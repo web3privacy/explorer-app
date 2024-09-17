@@ -7,11 +7,13 @@ export interface Project {
   id: string
   name: string
   categories: string[]
-  ecosystem?: string
+  usecases?: string[]
+  ecosystem?: string[]
   product_readiness?: string
   security?: string
   have_token?: boolean
   token_link?: string
+  assets_used?: string[]
   tokens?: {
     name?: string
     symbol: string
@@ -122,11 +124,7 @@ export interface Project {
     url?: string
     [k: string]: unknown
   }[]
-  ratings: {
-    openess: OpenessRating
-    technology: TechnologyRating
-    privacy: PrivacyRating
-  }
+  ratings?: ProjectRating[]
 }
 
 export interface ProjectShallow {
@@ -136,6 +134,9 @@ export interface ProjectShallow {
   description: string
   percentage: number
   categories: string[]
+  usecases?: string[]
+  ecosystem?: string[]
+  assets_used?: string []
   forum?: string | undefined
   github?: string | undefined
   website?: string | undefined
@@ -149,36 +150,24 @@ export interface ProjectShallow {
   audits?: Audit[] | undefined
   support?: number | undefined
   anonymity?: boolean | undefined
-  ratings: {
-    openess: OpenessRating
-    technology: TechnologyRating
-    privacy: PrivacyRating
-  }
+  ratings?: ProjectRating[]
 }
 
 export interface ProjectIndexable extends Project {
   [key: string]: unknown
 }
 
-export interface OpenessRating {
-  documentation: string
-  github: string
-  socials: string
-  whitepaper: string
-  team: number
-  funding: number
-}
-export interface TechnologyRating {
-  mainnet: boolean
-  opensource: boolean
-  assets: boolean
-  no_pgradability: boolean
-  audits: number
+export interface ProjectRating {
+  type: string
+  name: string
+  items: ProjectRatingItem[]
+  points: number
 }
 
-export interface PrivacyRating {
-  policy: string
-  no_kyc: boolean
-  no_compliance: boolean
-  default_privacy: boolean
+export interface ProjectRatingItem {
+  isValid: boolean
+  label: string
+  positive: string
+  negative: string
+  value: any
 }

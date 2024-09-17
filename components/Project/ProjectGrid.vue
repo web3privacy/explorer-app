@@ -4,22 +4,32 @@ import type { ProjectShallow } from '~/types'
 const props = defineProps<{
   projects: { title: string, projects: ProjectShallow[] }[]
 }>()
-const { switcher } = storeToRefs(useData())
+const { switcher, filter } = storeToRefs(useData())
 
-const displayCount = ref(100)
-const displayedProjects = computed(() => props.projects.slice(0, displayCount.value))
-function showMoreProjects() {
-  displayCount.value += 50
+const totalProjectsCount = props.projects.map(g => g.projects.length).reduce((a, b) => a + b, 0)
+
+function onChangeSort(sortKey: string) {
+  if (filter.value.sortby === sortKey) {
+    if (filter.value.sortDirection === 'desc' && filter.value.sortby !== 'score') {
+      filter.value.sortby = 'score'
+      filter.value.sortDirection = 'desc'
+      return
+    }
+    filter.value.sortDirection = filter.value.sortDirection === 'asc' ? 'desc' : 'asc'
+    return
+  }
+  filter.value.sortby = sortKey
+  filter.value.sortDirection = sortKey === 'score' ? 'desc' : 'asc'
 }
 
-const cardTitles = ref< { label: string, togglable?: boolean, toggled?: boolean }[]>([
-  { label: 'Usecase' },
-  { label: 'Openess', togglable: true },
-  { label: 'Technology', togglable: true },
-  { label: 'Privacy', togglable: true },
-  { label: 'Ecosystem' },
-  { label: 'Links' },
-  { label: 'W3PN Score', togglable: true },
+const cardTitles = ref< { label: string, sortKey: string, togglable?: boolean }[]>([
+  { label: 'Usecase', sortKey: 'usecase' },
+  { label: 'Openess', sortKey: 'openess', togglable: true },
+  { label: 'Technology', sortKey: 'technology', togglable: true },
+  { label: 'Privacy', sortKey: 'privacy', togglable: true },
+  { label: 'Ecosystem', sortKey: 'ecosystem' },
+  { label: 'Links', sortKey: 'links' },
+  { label: 'W3PN Score', sortKey: 'score', togglable: true },
 ])
 </script>
 
@@ -71,10 +81,12 @@ const cardTitles = ref< { label: string, togglable?: boolean, toggled?: boolean 
           flex
           items-center
           gap-4px
-          col-span="1 lg:3"
+          col-span="1 lg:2"
+          :class="['title' === filter.sortby ? 'text-app-white' : 'text-app-text-grey', 'cursor-pointer']"
+          @click="onChangeSort('title')"
         >
           <p
-            text="12px lg:14px app-text-grey"
+            text="12px lg:14px"
             leading="16px lg:24px"
             whitespace-nowrap
           >
@@ -82,8 +94,10 @@ const cardTitles = ref< { label: string, togglable?: boolean, toggled?: boolean 
           </p>
           <button
             type="button"
-            i-ic-baseline-arrow-drop-down
-            text="app-text-grey 20px"
+            :class="['title' === filter.sortby ? filter.sortDirection === 'desc' ? 'i-ic-baseline-arrow-drop-up'
+              : 'i-ic-baseline-arrow-drop-down'
+              : 'i-ic-baseline-arrow-drop-down']"
+            text="20px"
           />
         </div>
         <div
@@ -113,7 +127,7 @@ const cardTitles = ref< { label: string, togglable?: boolean, toggled?: boolean 
           />
         </div>
         <div
-          v-for="title in cardTitles"
+          v-for="(title, index) in cardTitles"
           :key="title.label"
           lg:flex
           items-center
@@ -121,9 +135,11 @@ const cardTitles = ref< { label: string, togglable?: boolean, toggled?: boolean 
           last:justify-end
           gap-4px
           hidden
+          :class="[title.sortKey === filter.sortby ? 'text-app-white' : 'text-app-text-grey', { 'cursor-pointer': title.togglable, 'col-span-1 lg:col-span-2': index === 0 }]"
+          @click="onChangeSort(title.sortKey)"
         >
           <p
-            text="12px lg:14px app-text-grey"
+            text="12px lg:14px "
             leading="16px lg:24px"
             whitespace-nowrap
           >
@@ -132,16 +148,14 @@ const cardTitles = ref< { label: string, togglable?: boolean, toggled?: boolean 
           <button
             v-if="title.togglable"
             type="button"
-            :class="[title.toggled
-              ? 'i-ic-baseline-arrow-drop-up'
+            :class="[title.sortKey === filter.sortby ? filter.sortDirection === 'desc' ? 'i-ic-baseline-arrow-drop-up'
+              : 'i-ic-baseline-arrow-drop-down'
               : 'i-ic-baseline-arrow-drop-down']"
-            text="app-text-grey 20px"
-            @click="title.toggled = !title.toggled"
+            text=" 20px"
           />
         </div>
       </div>
       <div
-        v-if="displayedProjects.length"
         grid
         :class="switcher ? 'grid-cols-1 lg:grid-cols-1' : 'xl:grid-cols-3 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1'"
         gap-16px
@@ -154,23 +168,9 @@ const cardTitles = ref< { label: string, togglable?: boolean, toggled?: boolean 
           :project="project"
         />
       </div>
-      <div v-else>
-        <h3>No Projects found...</h3>
-      </div>
-      <button
-        v-if="displayedProjects.length < projects.length"
-        mt-29px
-        text="14px"
-        leading-24px
-        font-700
-        px-12px
-        py-4px
-        border-2px
-        border-app-white
-        @click="showMoreProjects"
-      >
-        Load more projects
-      </button>
     </template>
+    <div v-if="totalProjectsCount === 0">
+      <h3>No Projects found...</h3>
+    </div>
   </div>
 </template>

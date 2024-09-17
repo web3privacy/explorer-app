@@ -1,26 +1,22 @@
 <script lang="ts" setup>
 import type { InputOption } from '~/types'
 
-const { categories, usecases, ecosystems, assets, features, filteredProjectsCount, selectedCategoryId } = storeToRefs(useData())
+const { categories, usecases, ecosystems, assets, features, filteredProjectsCount, selectedCategoryId, selectedUsecaseId, selectedEcosystemId, selectedAssetsUsedId, selectedFeaturesId } = storeToRefs(useData())
 
-const selectedUsecaseId = ref('all')
-const selectedEcosystemId = ref('all')
-const selectedAssetsUsedId = ref('all')
-const selectedFeaturesId = ref('all')
+const selectedCategory = computed(() => {
+  return categories.value.find(c => c.id === selectedCategoryId.value)
+})
+const availableUsecases = computed(() => {
+  if (selectedCategoryId.value === 'all')
+    return usecases.value
+  return usecases.value.filter(u => selectedCategory.value?.usecases?.includes(u.id))
+})
 
 const categoryOptions = ref<InputOption[]>(categories.value ? [{ label: 'Category', value: 'all' }, ...categories.value.map(c => ({ label: c.name, value: c.id, count: c.projectsCount }))] : [])
-const usecaseOptions = ref<InputOption[]>(usecases.value ? [{ label: 'Usecase', value: 'all' }, ...usecases.value.map(u => ({ label: u.name, value: u.id }))] : [])
+const usecaseOptions = computed<InputOption[]>(() => availableUsecases.value.length ? [{ label: 'Usecase', value: 'all' }, ...availableUsecases.value.map(u => ({ label: u.name, value: u.id }))] : [])
 const ecosystemOptions = ref<InputOption[]>(ecosystems.value ? [{ label: 'Ecosystem', value: 'all' }, ...ecosystems.value.map(e => ({ label: e.name, value: e.id }))] : [])
-const assetOptions = ref<InputOption[]>(assets.value ? [{ label: 'Asset used', value: 'all' }, ...assets.value.map(a => ({ label: a.name, value: a.id }))] : [])
+const assetOptions = ref<InputOption[]>(assets.value ? [{ label: 'Asset used', value: 'all' }, ...assets.value.map(a => ({ label: `${a.id.toUpperCase()} (${a.name})`, value: a.id }))] : [])
 const featureOptions = ref<InputOption[]>(features.value ? [{ label: 'Feature', value: 'all' }, ...features.value.map(f => ({ label: f.name, value: f.id }))] : [])
-// const selectedCategory = computed(() => {
-//   return categories.value.find(c => c.id === selectedCategoryId.value)
-// })
-
-// const sortedFilteredCategories = computed(() => ([
-//   categories.value.find(c => c.id === 'defi')!,
-//   ...[...categories.value].sort((a, b) => a.name.localeCompare(b.name)).filter(c => c.id !== 'defi'),
-// ]))
 
 const { showBar } = storeToRefs(useNavigaiton())
 const swipeEl = ref()
@@ -94,28 +90,28 @@ watch([scrollY, top, y], (newValues, oldValues) => {
                 @selected="selectedCategoryId === 'all' ? navigateTo(`/`) : navigateTo(`/category/${selectedCategoryId}`)"
               />
               <CategorySelectBox
-                v-if="usecases.length"
+                v-if="usecases?.length"
                 v-model="selectedUsecaseId"
                 name="usecaseSelect"
                 :options="usecaseOptions"
                 w-full
               />
               <CategorySelectBox
-                v-if="ecosystems.length"
+                v-if="ecosystems?.length"
                 v-model="selectedEcosystemId"
                 name="ecosystemSelect"
                 :options="ecosystemOptions"
                 w-full
               />
               <CategorySelectBox
-                v-if="assets.length"
+                v-if="assets?.length"
                 v-model="selectedAssetsUsedId"
                 name="assetsUsedSelect"
                 :options="assetOptions"
                 w-full
               />
               <CategorySelectBox
-                v-if="features.length"
+                v-if="features?.length"
                 v-model="selectedFeaturesId"
                 name="featuresSelect"
                 :options="featureOptions"
