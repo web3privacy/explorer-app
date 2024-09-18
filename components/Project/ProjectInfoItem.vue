@@ -104,6 +104,9 @@ function tooltipMouseOut() {
         </template>
         <div
           v-else
+          flex
+          items-center
+          gap-4px
           :color="color ?? '#FFF'"
           text-14px
           :class="`sm:text-${textSize ?? '16px'} font-${bold ? '700' : '400'} opacity-${opacity}`"

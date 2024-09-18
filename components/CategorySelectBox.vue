@@ -26,7 +26,7 @@ function onOptionSelected(value: string | number) {
   >
     <div class="relative font-700 font-24px">
       <HeadlessListboxButton
-        class="relative cursor-pointer py-6px px-14px text-left border-2px bg-app-white text-app-black sm:text-sm sm:leading-6"
+        class="relative cursor-pointer py-6px px-14px text-left border-2px bg-app-white text-app-black text-xs sm:text-sm sm:leading-6"
       >
         <span class="block truncate mr-8px font">{{ isOptionSelected?.label }} <span
           v-if="titleShowCount"

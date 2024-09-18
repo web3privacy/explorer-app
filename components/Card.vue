@@ -4,7 +4,9 @@ import type { ProjectRating, ProjectShallow } from '~/types'
 const props = defineProps<{
   project: ProjectShallow
 }>()
-const { switcher, ecosystems } = storeToRefs(useData())
+const { switcher, ecosystems, filter } = storeToRefs(useData())
+
+const isLargeScreen = useMediaQuery('(min-width: 1024px)')
 
 const ratings: { label: string, type: string, rating: ProjectRating }[] = (props.project.ratings || []).map(rating => ({ label: rating.name, type: 'rating', rating: rating }))
 const ecosystem: { label: string[], type: string } = { label: ecosystems.value.filter(e => (props.project.ecosystem || []).includes(e.id)).map(e => e.icon!), type: 'ecosystem' }
@@ -60,17 +62,24 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
             flex
             items-center
             gap-8px
+
             @click.prevent="navigateTo(project.website, { external: true, open: { target: '_blank' } })"
           >
             <h1
+              flex
+              items-center
               text="14px app-white"
               font-700
               line-clamp-1
               hover:underline
               underline-offset-3
               leading="20px lg:32px"
+              class="group relative inline-block"
             >
               {{ project.title1 }}
+              <div
+                class=" i-bx-link-external ml-4px text-14px opacity-0 group-hover:opacity-100 transition-opacity"
+              />
             </h1>
           </div>
           <p
@@ -107,10 +116,11 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
             gap-16px
           >
             <NuxtLink
-              v-if="projectItem.label[1]"
-              :to="projectItem.label[1]"
+              v-if="projectItem.label[0]"
+              :to="projectItem.label[0]"
               external
               target="_blank"
+              @click.stop
             >
               <UnoIcon
                 i-ic-baseline-language
@@ -118,10 +128,11 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
               />
             </NuxtLink>
             <NuxtLink
-              v-if="projectItem.label[2]"
-              :to="projectItem.label[2]"
+              v-if="projectItem.label[1]"
+              :to="projectItem.label[1]"
               external
               target="_blank"
+              @click.stop
             >
               <UnoIcon
                 i-mdi-github
@@ -130,10 +141,11 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
               />
             </NuxtLink>
             <NuxtLink
-              v-if="projectItem.label[0]"
-              :to="projectItem.label[0]"
+              v-if="projectItem.label[2]"
+              :to="projectItem.label[2]"
               external
               target="_blank"
+              @click.stop
             >
               <UnoIcon
                 i-bi-twitter-x
@@ -171,13 +183,23 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
           w-full
           gap-16px
         >
-          <UnoIcon
+          <NuxtLink
+            v-if="project.website"
             block
             lg:hidden
-            i-iconoir-internet
-            text="24px"
-          />
+            :to="project.website"
+            external
+            target="_blank"
+            @click.stop
+          >
+            <UnoIcon
+
+              i-iconoir-internet
+              text="24px"
+            />
+          </NuxtLink>
           <div
+            v-if="filter.sortby === 'score' || filter.sortby === 'title' || isLargeScreen"
             flex
             items-center
             justify-center
@@ -192,6 +214,12 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
           >
             {{ project.percentage }} %
           </div>
+          <ProjectRating
+            v-if="(filter.sortby === 'openess' || filter.sortby === 'technology' || filter.sortby === 'privacy') && project.ratings?.find((r) => r.type === filter.sortby) && !isLargeScreen"
+            :percentage="project.ratings.find((r) => r.type === filter.sortby)!.points"
+            :rating="project.ratings.find((r) => r.type === filter.sortby)!"
+            compact
+          />
         </div>
       </ClientOnly>
     </div>

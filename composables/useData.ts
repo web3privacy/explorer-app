@@ -63,6 +63,7 @@ export const useData = defineStore('data', () => {
       projects.value = data.projects.map(project => ({
         ...project,
         ratings: generateProjectRating(project),
+        percentage: Math.round((project.ratings?.reduce((a, b) => a + b.points, 0) || 0) / 1.5),
       })).filter(p => p.name)
 
       categories.value = data.categories
@@ -98,7 +99,7 @@ export const useData = defineStore('data', () => {
       id: project.id,
       title1: project.name,
       description: project.description ?? 'N/A',
-      percentage: Math.round((project.ratings?.reduce((a, b) => a + b.points, 0) || 0) / 1.5),
+      percentage: project.percentage,
       forum: project.links?.forum,
       explorer: project.links?.block_explorer,
       twitter: project.links?.twitter,
