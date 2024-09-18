@@ -54,7 +54,7 @@ defineProps<{
         >
           <UnoIcon
             i-ic-twotone-open-in-new
-            text="22px app-text-grey"
+            text="20px app-text-grey"
           />
         </NuxtLink>
       </ProjectInfoItem>

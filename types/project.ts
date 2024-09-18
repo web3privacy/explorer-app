@@ -22,6 +22,7 @@ export interface Project {
     token_link?: string
     [k: string]: unknown
   }[]
+  percentage: number
   description?: string
   project_type?: string
   product_launch_day?: string

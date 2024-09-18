@@ -50,7 +50,6 @@ const cardTitles = ref< { label: string, sortKey: string, togglable?: boolean }[
         gap-x-12px
         w-full
         mb="8px lg:16px"
-        mt-22px
       >
         <h2
           text="app-white 16px lg:24px"
@@ -93,6 +92,8 @@ const cardTitles = ref< { label: string, sortKey: string, togglable?: boolean }[
             Project name
           </p>
           <button
+            hidden
+            lg:block
             type="button"
             :class="['title' === filter.sortby ? filter.sortDirection === 'desc' ? 'i-ic-baseline-arrow-drop-up'
               : 'i-ic-baseline-arrow-drop-down'
@@ -107,23 +108,9 @@ const cardTitles = ref< { label: string, sortKey: string, togglable?: boolean }[
           gap-4px
           lg:hidden
         >
-          <p
-            text="12px lg:14px app-text-grey"
-            leading="16px lg:24px"
-          >
-            Sort by:
-          </p>
-          <p
-            text="12px lg:14px"
-            leading="16px lg:24px"
-            font-700
-          >
-            Score
-          </p>
-          <button
-            type="button"
-            i-ic-baseline-arrow-drop-down
-            text="app-text-grey 20px"
+          <SortSelectBox
+            v-model="filter.sortby"
+            :options="['title', 'openess', 'technology', 'privacy', 'score'].map((o) => ({ label: capitalize(o), value: o }))"
           />
         </div>
         <div

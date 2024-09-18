@@ -1,26 +1,17 @@
 <script lang="ts" setup>
-import type { Project } from '~/types'
+import type { Project, ProjectRating } from '~/types'
 
 const props = defineProps<{
   project: Project
 }>()
 
-// const availableSupport = computed(() => {
-//   const filteredKeys = ['forum', 'discord', 'twitter', 'lens', 'farcaster', 'telegram']
-//   if (typeof props.project.links === 'object' && (props.project.links !== null || props.project.links !== undefined))
-//     return Object.keys(props.project.links).filter(key => filteredKeys.includes(key)).length
+const isLargeScreen = useMediaQuery('(min-width: 1024px)')
 
-//   return 0
-// })
+const selectedMobileRating = ref<ProjectRating>()
 
-/**
- * From data points
-  - product readiness
-  - docs (yes/no)
-  - github (yes/no)
-  - team: anon / public
-  - audit: yes / no
- */
+function onSelectMobileRating(rating: ProjectRating) {
+  selectedMobileRating.value = selectedMobileRating.value?.type === rating.type ? undefined : rating
+}
 
 const logo = props.project?.logos?.at(0)?.url
 </script>
@@ -172,6 +163,7 @@ const logo = props.project?.logos?.at(0)?.url
               flex
               flex-col
               lg:flex-row
+              gap-y-4px
               items-center
             >
               <p
@@ -183,7 +175,10 @@ const logo = props.project?.logos?.at(0)?.url
               <ProjectRating
                 :rating="rating"
                 :percentage="rating.points"
+                :disable-popover="!isLargeScreen"
                 compact
+                :selected="rating.type === selectedMobileRating?.type && !isLargeScreen"
+                @selected="onSelectMobileRating(rating)"
               />
             </div>
           </div>
@@ -218,8 +213,17 @@ const logo = props.project?.logos?.at(0)?.url
               py="2px lg:8px"
               lg:py-4px
             >
-              {{ calculateScore(project) }} %
+              {{ project.percentage }} %
             </div>
+          </div>
+          <div col-span-4 flex items-center justify-center w-full v-if="selectedMobileRating && !isLargeScreen">
+            <ProjectRating
+              :rating="selectedMobileRating"
+              :percentage="selectedMobileRating.points"
+              :disable-popover="!isLargeScreen"
+              compact
+              show-only-popover
+            />
           </div>
         </div>
       </div>

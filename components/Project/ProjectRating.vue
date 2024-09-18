@@ -6,7 +6,12 @@ const props = defineProps<{
   rating: ProjectRating
   percentage: number
   compact?: boolean
+  disablePopover?: boolean
+  showOnlyPopover?: boolean
+  selected?: boolean
 }>()
+
+const emits = defineEmits(['selected'])
 
 const colors = [
   '#ff0000', // 0-10%
@@ -26,11 +31,24 @@ const backgroundColorByScore = computed(() => {
   const colorIndex = Math.floor(normalizedPercentage / 10)
   return colors[colorIndex]
 })
+const isLargeScreen = useMediaQuery('(min-width: 1024px)')
+
+function onClick() {
+  if (isLargeScreen.value)
+    return
+  if (props.disablePopover)
+    emits('selected')
+  else
+    isPopoverVisible.value = !isPopoverVisible.value
+}
 
 const isPopoverVisible = ref(false)
 
 let hideTimeout: ReturnType<typeof setTimeout> | null = null
 const showPopover = () => {
+  if (!isLargeScreen.value)
+    return
+  console.log('show')
   if (hideTimeout) {
     clearTimeout(hideTimeout)
     hideTimeout = null
@@ -39,6 +57,8 @@ const showPopover = () => {
 }
 
 const hidePopover = () => {
+  if (!isLargeScreen.value)
+    return
   hideTimeout = setTimeout(() => {
     isPopoverVisible.value = false
   }, 100) // Delay of 200ms before hiding
@@ -46,17 +66,24 @@ const hidePopover = () => {
 </script>
 
 <template>
-  <div class="relative">
+  <div
+    class="relative"
+    :class="{ 'w-full': showOnlyPopover }"
+  >
     <!-- Main div that shows rating and triggers the popover on hover -->
     <div
+      v-if="!showOnlyPopover"
       flex
       items-center
       p-12px
       gap-4px
       hover:bg-app-bg-rating-hover
+      :class="{ 'bg-app-bg-rating-hover rounded-8px': selected }"
       hover:rounded-8px
+      cursor-pointer
       @mouseenter="showPopover"
       @mouseleave="hidePopover"
+      @click.prevent="onClick()"
     >
       <div
         v-for="point of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]"
@@ -68,6 +95,7 @@ const hidePopover = () => {
 
     <!-- Popover panel that appears on hover -->
     <transition
+      v-if="!showOnlyPopover"
       enter-active-class="transition duration-300 ease-out"
       enter-from-class="transform scale-95 opacity-0"
       enter-to-class="transform scale-100 opacity-100"
@@ -76,10 +104,10 @@ const hidePopover = () => {
       leave-to-class="transform scale-95 opacity-0"
     >
       <div
-        v-if="isPopoverVisible"
+        v-if="(isPopoverVisible && !disablePopover)"
         class="absolute mt-2 p-2 bg-app-bg-rating-hover w-240px shadow-lg rounded"
         z-100
-        style="left: 50%; transform: translateX(-50%);"
+        left="-250% lg:50%"
         flex
         flex-col
         gap-14px
@@ -88,44 +116,13 @@ const hidePopover = () => {
         @mouseenter="showPopover"
         @mouseleave="hidePopover"
       >
-        <div
-          v-for="item in rating.items"
-          :key="item.label"
-          flex
-          justify-between
-          items-center
-          text-12px
-          font-700
-          leading-20px
-          :class="[item.isValid ? 'text-app-white': 'text-app-text-rating-negative']"
-        >
-          <div
-            flex
-            items-center
-            gap-6px
-          >
-            <div
-              :class="[item.isValid ? 'i-ic-sharp-thumb-up' : 'i-ic-sharp-thumb-down']"
-              text-20px
-              mt--4px
-            />
-            {{ item.label }}
-          </div>
-          <NuxtLink
-            v-if="item.isValid && item.positive === 'Link'"
-            :to="item.value"
-            target="_blank"
-            external
-            underline
-            @click.stop
-          >
-            {{ item.positive }}
-          </NuxtLink>
-          <div v-else>
-            {{ item.isValid ? item.positive : item.negative }}
-          </div>
-        </div>
+        <ProjectRatingInfo :items="rating.items" />
       </div>
     </transition>
+    <ProjectRatingInfo
+      v-if="showOnlyPopover"
+      :items="rating.items"
+      :compact="false"
+    />
   </div>
 </template>
