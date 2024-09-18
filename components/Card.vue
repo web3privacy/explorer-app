@@ -62,8 +62,6 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
             flex
             items-center
             gap-8px
-
-            @click.prevent="navigateTo(project.website, { external: true, open: { target: '_blank' } })"
           >
             <h1
               flex
@@ -74,12 +72,9 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
               hover:underline
               underline-offset-3
               leading="20px lg:32px"
-              class="group relative inline-block"
+              class="relative inline-block"
             >
               {{ project.title1 }}
-              <div
-                class=" i-bx-link-external ml-4px text-14px opacity-0 group-hover:opacity-100 transition-opacity"
-              />
             </h1>
           </div>
           <p

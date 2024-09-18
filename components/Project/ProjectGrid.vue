@@ -50,7 +50,6 @@ const cardTitles = ref< { label: string, sortKey: string, togglable?: boolean }[
         gap-x-12px
         w-full
         mb="8px lg:16px"
-        mt-22px
       >
         <h2
           text="app-white 16px lg:24px"

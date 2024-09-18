@@ -81,6 +81,8 @@ watch([scrollY, top, y], (newValues, oldValues) => {
               flex
               items-center
               gap-16px
+              overflow-x-auto
+              pb="24px md:0"
             >
               <CategorySelectBox
                 v-model="selectedCategoryId"
