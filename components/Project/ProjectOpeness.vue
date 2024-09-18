@@ -301,8 +301,8 @@ defineProps<{
       </div>
     </div>
     <ProjectOpenessTeamMembers
-      v-if="project?.team"
-      :members="project.team"
+      v-if="project?.team?.teammembers"
+      :members="project.team?.teammembers"
       mt-24px
     />
     <div mt-32px>

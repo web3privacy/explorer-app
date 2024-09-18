@@ -1,4 +1,4 @@
-import type { Member } from './member'
+import type { Team } from './team'
 import type { Fund } from './fund'
 import type { ClientDiversability } from './clientDiversability'
 import type { Audit } from './audit'
@@ -16,15 +16,17 @@ export interface Project {
   assets_used?: string[]
   tokens?: {
     name?: string
-    symbol: string
+    symbol?: string
     network?: string
     contract_address?: string
-    link?: string
+    token_link?: string
     [k: string]: unknown
   }[]
   description?: string
   project_type?: string
   product_launch_day?: string
+  project_phase?: string
+  sunset: boolean
   technology?: {
     type: string
     name?: string
@@ -65,17 +67,17 @@ export interface Project {
     }
     [k: string]: unknown
     opensource: boolean
-    viewing_key: boolean
-    dissapearing_tx: boolean
-    frontend_anonymity: string
-    identity_integration: null
-    connected_tx: boolean
-    revealed_recipient: boolean
-    revealed_sender: boolean
-    revealed_ammount: boolean
-    reversability_condition: string
-    data_masking: string
-    asset_custody_type: string
+    viewing_key?: boolean
+    dissapearing_tx?: boolean
+    frontend_anonymity?: string
+    identity_integration?: null
+    connected_tx?: boolean
+    revealed_recipient?: boolean
+    revealed_sender?: boolean
+    revealed_ammount?: boolean
+    reversability_condition?: string
+    data_masking?: string
+    asset_custody_type?: string
   }
   licences?: string
   privacy_policy?: {
@@ -84,7 +86,7 @@ export interface Project {
     data_usage?: string
     [k: string]: unknown
   }
-  team?: Member[]
+  team?: Team
   storage?: {
     decentralized?: boolean
     [k: string]: unknown
@@ -92,7 +94,7 @@ export interface Project {
   tracebility?: {
     tracked_data?: string
     kyc?: boolean
-    sign_in_type_requirments?: string
+    sign_in_type_requirments?: string[]
     [k: string]: unknown
   }
   third_party_dependency?: string
@@ -107,7 +109,7 @@ export interface Project {
     time?: string
     link?: string
     [k: string]: unknown
-  }
+  }[]
   client_diversability?: ClientDiversability[]
   default_privacy?: boolean
   funding?: Fund[]
@@ -133,23 +135,23 @@ export interface ProjectShallow {
   title1: string
   description: string
   percentage: number
+  forum?: string
+  github?: string
+  website?: string
+  twitter?: string
+  coingecko?: string
+  explorer?: string
+  newsletter?: string
+  readyness?: string
+  team?: Team
+  docs?: string
+  audits?: Audit[]
+  support?: number
+  anonymity?: boolean
   categories: string[]
   usecases?: string[]
   ecosystem?: string[]
   assets_used?: string []
-  forum?: string | undefined
-  github?: string | undefined
-  website?: string | undefined
-  twitter?: string | undefined
-  coingecko?: string | undefined
-  explorer?: string | undefined
-  newsletter?: string | undefined
-  readyness?: string | undefined
-  team: Member[] | undefined
-  docs: string | undefined
-  audits?: Audit[] | undefined
-  support?: number | undefined
-  anonymity?: boolean | undefined
   ratings?: ProjectRating[]
 }
 

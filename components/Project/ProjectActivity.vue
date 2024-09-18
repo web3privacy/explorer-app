@@ -23,11 +23,12 @@ defineProps<{
     >
       <div mt-32px>
         <ProjectActivityLaunch
-          v-if="project.history"
-          :network="project.history?.title"
-          :date="project.history?.time"
-          :launch-type="project.history?.description"
-          :to="project.history?.link"
+          v-for="launch in project.history"
+          :key="launch.title"
+          :network="launch.title"
+          :date="launch.time"
+          :launch-type="launch.description"
+          :to="launch.link"
         />
       </div>
       <div

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   members: {
-    name: string
+    name?: string
     role?: string
     link?: string
   }[] | undefined

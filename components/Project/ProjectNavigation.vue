@@ -3,9 +3,9 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 
-const githubProjectUrl = computed(() => {
-  return `https://github.com/web3privacy/explorer-data/blob/main/src/projects/${route.params.id}/index.yaml`
-})
+// const githubProjectUrl = computed(() => {
+//   return `https://github.com/web3privacy/explorer-data/blob/main/src/projects/${route.params.id}/index.yaml`
+// })
 </script>
 
 <template>
@@ -20,7 +20,7 @@ const githubProjectUrl = computed(() => {
   >
     <NavigationButton
       w-230px
-      @click="$router.back()"
+      @click="$router.push('/')"
     >
       <span
         block
@@ -39,9 +39,8 @@ const githubProjectUrl = computed(() => {
       <EditButton
         px-16px
         py-8px
-        hover:bg-white
-        hover:text-black
-        :to="githubProjectUrl"
+        hover="cursor-pointer bg-white text-black"
+        @click="$router.push('/project/' + route.params.id + '/edit')"
       >
         <span
           text-16px

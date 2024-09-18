@@ -1,5 +1,5 @@
-export interface Member {
-  name: string
+export interface Team {
+  name?: string
   role?: string
   link?: string
   avatar?: string

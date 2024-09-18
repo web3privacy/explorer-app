@@ -39,7 +39,7 @@ defineProps<{
         :color="project.blockchain_features?.asset_custody_type === 'non-custody' ? '#18FF2F' : project.blockchain_features?.asset_custody_type === 'multisig' ? '#FFB800' : '#FF0000'"
         bold
       >
-        {{ project.blockchain_features?.asset_custody_type.toUpperCase() }}
+        {{ project.blockchain_features?.asset_custody_type?.toUpperCase() }}
       </ProjectInfoItem>
       <ProjectInfoItem
         title="Upgradability"

@@ -6,6 +6,10 @@ import type { Rank } from '~/types/rank'
 import type { Usecase } from '~/types/usecase'
 
 export const useData = defineStore('data', () => {
+  const projectPhase = useState<{ id: string, name: string }[]>('projectPhase')
+  const assetCustody = useState<{ id: string, name: string }[]>('assetCustody')
+  const signInRequirments = useState<{ id: string, name: string }[]>('signInRequirmenets')
+
   const categories = useState<Category[]>('categories')
   const usecases = useState<Usecase[]>('usecases')
   const features = useState<Feature[]>('features')
@@ -47,6 +51,9 @@ export const useData = defineStore('data', () => {
       const data = await $fetch<{
         categories: Category[]
         projects: Project[]
+        project_phase: { id: string, name: string }[]
+        asset_custody_type: { id: string, name: string }[]
+        sign_in_type_requirments: { id: string, name: string }[]
         usecases: Usecase[]
         ecosystems: Ecosystem[]
         assets: Asset[]
@@ -57,17 +64,17 @@ export const useData = defineStore('data', () => {
         ...project,
         ratings: generateProjectRating(project),
       })).filter(p => p.name)
-      categories.value = data.categories.map((c) => {
-        c.projectsCount = projects.value.filter(p =>
-          p.categories?.includes(c.id),
-        ).length
-        return c
-      }).filter(c => c.projectsCount > 0)
+
+      categories.value = data.categories
       usecases.value = data.usecases
       ecosystems.value = data.ecosystems
       assets.value = data.assets
       features.value = data.features
       ranks.value = data.ranks
+
+      projectPhase.value = data.project_phase.map(p => ({ id: p.id.toLowerCase(), name: p.name }))
+      assetCustody.value = data.asset_custody_type.map(a => ({ id: a.id.toLowerCase(), name: a.name }))
+      signInRequirments.value = data.sign_in_type_requirments.map(s => ({ id: s.id.toLowerCase(), name: s.name }))
     }
     catch (e) {
       console.error(e)
@@ -267,6 +274,9 @@ export const useData = defineStore('data', () => {
     filter,
     switcher,
     categories,
+    projectPhase,
+    assetCustody,
+    signInRequirments,
     usecases,
     features,
     ecosystems,

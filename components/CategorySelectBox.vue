@@ -3,7 +3,7 @@ import type { InputOption } from '~/types'
 
 const props = defineProps<{
   options: InputOption[]
-  modelValue: string
+  modelValue: string | number
   count?: number
   titleShowCount?: boolean
 }>()
@@ -14,7 +14,7 @@ const selectedValue = useVModel(props, 'modelValue', emits)
 const isOptionSelected = computed(() => {
   return props.options.find(option => option.value === selectedValue.value)
 })
-function onOptionSelected(value: string) {
+function onOptionSelected(value: string | number) {
   emits('selected', value)
 }
 </script>

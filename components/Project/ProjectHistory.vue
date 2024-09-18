@@ -25,12 +25,12 @@ defineProps<{
       gap-y-16px
       lg:grid-cols-4
     >
-      <ProjectInfoItem
+      <!-- <ProjectInfoItem
         :check-undefined="project.history?.time"
         title="Date of creation"
       >
         {{ formatDate(project.history!.time!) }}
-      </ProjectInfoItem>
+      </ProjectInfoItem> -->
     </div>
   </ProjectDetailContainer>
 </template>
