@@ -60,9 +60,9 @@ export const useData = defineStore('data', () => {
         features: Feature[]
         ranks: Rank[]
       }>('/api/data')
+      data.projects.forEach(project => project.ratings = generateProjectRating(project))
       projects.value = data.projects.map(project => ({
         ...project,
-        ratings: generateProjectRating(project),
         percentage: Math.round((project.ratings?.reduce((a, b) => a + b.points, 0) || 0) / 1.5),
       })).filter(p => p.name)
 
