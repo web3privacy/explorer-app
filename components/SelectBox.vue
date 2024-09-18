@@ -42,8 +42,8 @@ const selectedValue = useVModel(props, 'modelValue', emits)
         </span>
         <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
           <UnoIcon
-            i-heroicons-solid-chevron-down
-            :class="[blackAndWhite ? 'text-app-white' : 'text-app-black']"
+            i-ic-baseline-arrow-drop-down
+            :class="[blackAndWhite ? ' text-app-white' : 'text-app-black']"
           />
         </span>
       </HeadlessListboxButton>

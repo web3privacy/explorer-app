@@ -1,7 +1,7 @@
 export default defineAppConfig({
   github: {
-    appId: null,
+    appId: 0,
     privateKey: '',
-    installationId: null,
+    installationId: 0,
   },
 })

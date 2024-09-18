@@ -7,12 +7,13 @@ export interface Project {
   id: string
   name: string
   categories: string[]
-  usecases: string[]
+  usecases?: string[]
   ecosystem?: string[]
   product_readiness?: string
   security?: string
   have_token?: boolean
   token_link?: string
+  assets_used?: string[]
   tokens?: {
     name?: string
     symbol?: string
@@ -38,13 +39,13 @@ export interface Project {
     telegram?: string
     discord?: string
     blog?: string
+    governance?: string
     facebook?: string
     block_explorer?: string
     whitepaper?: string
     github?: string
     docs?: string
     changelog?: string
-    governance?: string
     forum?: string
     snapshot?: string
     lens?: string
@@ -101,7 +102,6 @@ export interface Project {
   audits?: Audit[]
   social_trust?: string
   technical_spof?: string
-  assets_used?: string[]
   history?: {
     title?: string
     event_type?: string
@@ -126,6 +126,7 @@ export interface Project {
     url?: string
     [k: string]: unknown
   }[]
+  ratings?: ProjectRating[]
 }
 
 export interface ProjectShallow {
@@ -147,8 +148,28 @@ export interface ProjectShallow {
   audits?: Audit[]
   support?: number
   anonymity?: boolean
+  categories: string[]
+  usecases?: string[]
+  ecosystem?: string[]
+  assets_used?: string []
+  ratings?: ProjectRating[]
 }
 
 export interface ProjectIndexable extends Project {
   [key: string]: unknown
+}
+
+export interface ProjectRating {
+  type: string
+  name: string
+  items: ProjectRatingItem[]
+  points: number
+}
+
+export interface ProjectRatingItem {
+  isValid: boolean
+  label: string
+  positive: string
+  negative: string
+  value: any
 }

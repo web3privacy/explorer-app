@@ -13,7 +13,7 @@ const signRequirements = ref(Array.isArray(props.project?.tracebility?.sign_in_t
 const trackedData = ref(props.project?.tracebility?.tracked_data || '')
 const dataUsage = ref(props.project?.privacy_policy?.data_usage || '')
 
-const { signInRequirmentsData } = useData()
+const { signInRequirments: signInRequirmentsData } = useData()
 const { saveProject } = useProject()
 
 function save() {

@@ -7,10 +7,17 @@ settings:
 importers:
 
   .:
+    dependencies:
+      moment:
+        specifier: ^2.30.1
+        version: 2.30.1
     devDependencies:
       '@formkit/auto-animate':
         specifier: ^0.8.2
         version: 0.8.2
+      '@iconify-json/bi':
+        specifier: ^1.2.0
+        version: 1.2.0
       '@iconify-json/eos-icons':
         specifier: ^1.1.10
         version: 1.2.0
@@ -20,6 +27,21 @@ importers:
       '@iconify-json/heroicons-solid':
         specifier: ^1.2.0
         version: 1.2.0
+      '@iconify-json/ic':
+        specifier: ^1.2.0
+        version: 1.2.0
+      '@iconify-json/iconoir':
+        specifier: ^1.2.0
+        version: 1.2.1
+      '@iconify-json/material-symbols':
+        specifier: ^1.2.1
+        version: 1.2.1
+      '@iconify-json/mdi':
+        specifier: ^1.2.0
+        version: 1.2.0
+      '@iconify-json/simple-icons':
+        specifier: ^1.2.2
+        version: 1.2.3
       '@nuxt/devtools':
         specifier: ^1.4.1
         version: 1.4.1(rollup@4.21.2)(vite@5.4.2(@types/node@20.8.7)(terser@5.22.0))
@@ -1103,6 +1125,9 @@ packages:
     resolution: {integrity: sha512-d2CGZR2o7fS6sWB7DG/3a95bGKQyHMACZ5aW8qGkkqQpUoZV6C0X7Pc7l4ZNMZkfNBf4VWNe9E1jRsf0G146Ew==}
     engines: {node: '>=18.18'}
 
+  '@iconify-json/bi@1.2.0':
+    resolution: {integrity: sha512-kaBV87cQlyeMkBBiMqsf3b43Nsxdk/rYKvR29dnktht57WUyHCnBAuH+ca/bscX856CzRpVX+sYs7arjrJD0qA==}
+
   '@iconify-json/eos-icons@1.2.0':
     resolution: {integrity: sha512-grdfoS20Z4gWAzNPza7ytguNBWeTOkx4Y6aZHs149t2Z6AhW7zG3VWkkq6M+YuL2G8ugHnBw7ZxgazZ6oiMnIQ==}
 
@@ -1111,6 +1136,21 @@ packages:
 
   '@iconify-json/heroicons-solid@1.2.0':
     resolution: {integrity: sha512-o+PjtMXPr4wk0veDS7Eh6H1BnTJT1vD7HcKl+I7ixdYQC8i1P2zdtk0C2v7C9OjJBMsiwJSCxT4qQ3OzONgyjw==}
+
+  '@iconify-json/ic@1.2.0':
+    resolution: {integrity: sha512-L4+m77xTQB08X3I+3xs1+IrvK+aNcuN/7ODu5aUPznHKLU+/8UYcsjUgNHze6vPOGPQ0AG+kCwvy91EYPXSRxw==}
+
+  '@iconify-json/iconoir@1.2.1':
+    resolution: {integrity: sha512-x55gpORwMGkmmT9UO11rzfMOp40k0ggQnPiOoh9axbyuHrkFMN7pdoCbaXkzqAdShcoI1dLzARbdqXi2sAPJXQ==}
+
+  '@iconify-json/material-symbols@1.2.1':
+    resolution: {integrity: sha512-r9yaBzlUmN87aCTSoCNtDCd7R9F0iVDjNPL9QHHhm1WglFJvTUKx9iBC5xcZpP0qN0bg9R5FkM90CndWxEBAnw==}
+
+  '@iconify-json/mdi@1.2.0':
+    resolution: {integrity: sha512-E9/3l5Syg3wfuarorFodhn4s8YorxhH3U3U20LaNBNiqw1kFNIDWhF6HymuzAD35k7RH0OBasJ+ZUyFtVVV6eg==}
+
+  '@iconify-json/simple-icons@1.2.3':
+    resolution: {integrity: sha512-KZpqyPkDdyAvrpMz9/FYovwFsr3xrHf9esJeBng3iqNInhuZhF33XO1k6Yf8g2p10ynUW7AYEiGJkYzDi4DENQ==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -3952,6 +3992,9 @@ packages:
   mlly@1.7.1:
     resolution: {integrity: sha512-rrVRZRELyQzrIUAVMHxP97kv+G786pHmOKzuFII8zDYahFBS7qnHh2AlYSl1GAHhaMPCz6/oHjVMcfFYgFYHgA==}
 
+  moment@2.30.1:
+    resolution: {integrity: sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==}
+
   mri@1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
     engines: {node: '>=4'}
@@ -6582,6 +6625,10 @@ snapshots:
 
   '@humanwhocodes/retry@0.3.0': {}
 
+  '@iconify-json/bi@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
+
   '@iconify-json/eos-icons@1.2.0':
     dependencies:
       '@iconify/types': 2.0.0
@@ -6591,6 +6638,26 @@ snapshots:
       '@iconify/types': 2.0.0
 
   '@iconify-json/heroicons-solid@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/ic@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/iconoir@1.2.1':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/material-symbols@1.2.1':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/mdi@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/simple-icons@1.2.3':
     dependencies:
       '@iconify/types': 2.0.0
 
@@ -10172,6 +10239,8 @@ snapshots:
       pathe: 1.1.2
       pkg-types: 1.2.0
       ufo: 1.5.4
+
+  moment@2.30.1: {}
 
   mri@1.2.0: {}
 

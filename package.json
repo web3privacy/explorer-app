@@ -1,7 +1,7 @@
 {
   "name": "develitesse-nuxt",
   "private": true,
-  "packageManager": "pnpm@9.9.0",
+  "packageManager": "pnpm@9.10.0",
   "scripts": {
     "build": "nuxt build",
     "cleanup": "nuxt cleanup",
@@ -17,9 +17,15 @@
   },
   "devDependencies": {
     "@formkit/auto-animate": "^0.8.2",
+    "@iconify-json/bi": "^1.2.0",
     "@iconify-json/heroicons-outline": "^1.2.0",
     "@iconify-json/heroicons-solid": "^1.2.0",
     "@iconify-json/eos-icons": "^1.1.10",
+    "@iconify-json/ic": "^1.2.0",
+    "@iconify-json/iconoir": "^1.2.0",
+    "@iconify-json/material-symbols": "^1.2.1",
+    "@iconify-json/mdi": "^1.2.0",
+    "@iconify-json/simple-icons": "^1.2.2",
     "@nuxt/devtools": "^1.4.1",
     "@nuxt/eslint": "0.5.5",
     "@nuxt/image": "^1.8.0",
@@ -51,5 +57,8 @@
   },
   "lint-staged": {
     "*": "eslint --fix"
+  },
+  "dependencies": {
+    "moment": "^2.30.1"
   }
 }

@@ -51,9 +51,29 @@ export default defineConfig({
         bg: {
           grey: '#ffffff33',
           dark_grey: '#161616',
+          rating: {
+            default: '#494949',
+            red: '#FF4218',
+            orange: '#FF9900',
+            yellow: '#FFE600',
+            green: '#42FF00',
+            hover: '#202020',
+          },
+          team: {
+            grey: '#404040',
+          },
+          funding: {
+            card: '#101010',
+          },
+          audits: {
+            card: '#191919',
+          },
         },
         text: {
           grey: '#909090',
+          rating: {
+            negative: '#FFB800',
+          },
         },
       },
     },

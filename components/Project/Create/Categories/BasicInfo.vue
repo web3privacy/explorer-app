@@ -6,7 +6,7 @@ const props = defineProps<{
   project?: Partial<Project>
 }>()
 
-const { categoriesData, usecasesData, ecosystemsData } = useData()
+const { categories: categoriesData, usecases: usecasesData, ecosystems: ecosystemsData } = useData()
 const { saveProject } = useProject()
 
 const validationSchema = yup.object().shape({

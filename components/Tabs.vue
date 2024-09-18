@@ -3,7 +3,7 @@ import type { InputOption } from '~/types'
 
 const props = defineProps<{
   options: InputOption[]
-  modelValue: string
+  modelValue: string | number
 }>()
 
 const emits = defineEmits(['update:modelValue'])

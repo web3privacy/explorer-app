@@ -32,13 +32,6 @@ const route = useRoute()
         md:block
       >{{ 'BACK TO LIST' }}</span>
     </NavigationButton>
-    <hr
-      hidden
-      md:block
-      border-t-2px
-      border-white
-      w-full
-    >
     <div
       flex
       gap-16px

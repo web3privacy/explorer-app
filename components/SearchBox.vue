@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { InputOption } from '~/types'
 
+defineProps<{ placeholder?: string, includeSort?: boolean }>()
+
 const { filter, switcher } = storeToRefs(useData())
 const options: InputOption[] = [
   { label: 'A to Z', value: 'atoz' },
@@ -22,8 +24,8 @@ const isSearchFocused = ref(false)
       border-2px
       flex
       items-center
-      max-w-320px
       w-full
+      h-40px
       hover:opacity-100
       :class="isSearchFocused ? 'opacity-100' : 'opacity-25'"
     >
@@ -34,7 +36,7 @@ const isSearchFocused = ref(false)
         w-fit
       >
         <UnoIcon
-          i-web-search
+          i-heroicons-solid-magnifying-glass
           text-16px
           :class="isSearchFocused ? 'opacity-100' : 'opacity-50' "
           class="uno-icon"
@@ -42,6 +44,7 @@ const isSearchFocused = ref(false)
       </div>
       <input
         v-model="filter.query"
+        :placeholder="placeholder"
         type="text"
         bg-transparent
         border-transparent
@@ -54,7 +57,7 @@ const isSearchFocused = ref(false)
         @blur="isSearchFocused = false"
       >
     </div>
-    <div>
+    <div v-if="includeSort">
       <div
         flex
         gap-24px
