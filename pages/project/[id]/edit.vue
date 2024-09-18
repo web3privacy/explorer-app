@@ -31,15 +31,15 @@ if (!project.value) {
 }
 
 const tabs = reactive([
-  { label: 'Basic Info', value: 'basic_info', component: ProjectCreateCategoriesBasicInfo },
-  { label: 'Assets', value: 'assets', component: ProjectCreateCategoriesAssets },
-  { label: 'Links', value: 'links', component: ProjectCreateCategoriesLinks },
-  { label: 'Technology', value: 'technology', component: ProjectCreateCategoriesTechnology },
-  { label: 'Privacy', value: 'privacy', component: ProjectCreateCategoriesPrivacy },
-  { label: 'Security', value: 'security', component: ProjectCreateCategoriesSecurity },
-  { label: 'Team', value: 'team', component: ProjectCreateCategoriesTeam },
-  { label: 'Funding', value: 'funding', component: ProjectCreateCategoriesFunding },
-  { label: 'History', value: 'history', component: ProjectCreateCategoriesHistory },
+  { label: 'Basic Info', value: 'basic_info', component: markRaw(ProjectCreateCategoriesBasicInfo) },
+  { label: 'Assets', value: 'assets', component: markRaw(ProjectCreateCategoriesAssets) },
+  { label: 'Links', value: 'links', component: markRaw(ProjectCreateCategoriesLinks) },
+  { label: 'Technology', value: 'technology', component: markRaw(ProjectCreateCategoriesTechnology) },
+  { label: 'Privacy', value: 'privacy', component: markRaw(ProjectCreateCategoriesPrivacy) },
+  { label: 'Security', value: 'security', component: markRaw(ProjectCreateCategoriesSecurity) },
+  { label: 'Team', value: 'team', component: markRaw(ProjectCreateCategoriesTeam) },
+  { label: 'Funding', value: 'funding', component: markRaw(ProjectCreateCategoriesFunding) },
+  { label: 'History', value: 'history', component: markRaw(ProjectCreateCategoriesHistory) },
 ])
 
 const selectedTab = ref(tabs[0].value)
@@ -73,7 +73,7 @@ const projectNameInput = ref<HTMLInputElement | null>(null)
 function useProjectName() {
   const isEditing = ref(false)
   // const name = ref('Untitled')
-  const { value: name, errorMessage: nameError } = useField<string>('name', yup.string().required().notOneOf(['Untitled', 'Undefined']))
+  const { value: name, errorMessage: nameError } = useField<string>('name', yup.string().required().notOneOf(['Untitled', 'Undefined', 'Create', 'create']))
   name.value = project.value?.name || 'Untitled'
 
   function toggleEdit() {
@@ -143,6 +143,7 @@ function jumpTo(tab: string) {
 
   selectedTab.value = tab
 }
+const transitionDone = ref(false)
 </script>
 
 <template>
@@ -306,26 +307,44 @@ function jumpTo(tab: string) {
         mb-170px
         lg="mb-55px"
       >
-        <component
-          :is="getCurrentComponent()"
-          v-if="project"
-          ref="currentComponent"
-          :project="project"
-          w-full
-          flex
-          flex-col
-          gap-24px
-        />
-        <Button
-          v-if="selectedTab !== tabs[tabs.length - 1].value"
-          class="hidden!"
-          mt-48px
-          lg="w-fit flex!"
-          border
-          @click="next()"
-        >
-          <span px-24px>NEXT SECTION</span>
-        </Button>
+        <ClientOnly>
+          <Transition
+            v-if="!transitionDone"
+            name="fade"
+            mode="out-in"
+            appear
+            @after-enter="transitionDone = true"
+          >
+            <component
+              :is="getCurrentComponent()"
+              ref="currentComponent"
+              :project="project"
+              w-full
+              flex
+              flex-col
+              gap-24px
+            />
+          </Transition>
+          <component
+            :is="getCurrentComponent()"
+            ref="currentComponent"
+            :project="project"
+            w-full
+            flex
+            flex-col
+            gap-24px
+          />
+          <Button
+            v-if="selectedTab !== tabs[tabs.length - 1].value"
+            class="hidden!"
+            mt-48px
+            lg="w-fit flex!"
+            border
+            @click="next()"
+          >
+            <span px-24px>NEXT SECTION</span>
+          </Button>
+        </ClientOnly>
       </div>
     </div>
     <div
@@ -388,3 +407,15 @@ function jumpTo(tab: string) {
     </div>
   </div>
 </template>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

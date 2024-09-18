@@ -68,35 +68,33 @@ defineExpose({
 
 <template>
   <div mt-24px>
-    <ClientOnly>
-      <ProjectCreateComponentsSelectChips
-        v-model="categories"
-        label="Categories"
-        required
-        :options="categoriesData?.map(cat => ({ label: cat.name, value: cat.id }))"
-        placeholder="Add category"
-        hint="Choose categories that fits your project"
-        :error="categoriesError"
-      />
-      <ProjectCreateComponentsSelectChips
-        v-model="usecases"
-        label="Use-cases"
-        required
-        :options="usecasesData?.map(uc => ({ label: uc.name, value: uc.id }))"
-        placeholder="Add use-case"
-        hint="What can be your project used for?"
-        :error="usecasesError"
-      />
-      <ProjectCreateComponentsSelectChips
-        v-model="ecosystems"
-        label="Ecosystems"
-        required
-        :options="ecosystemsData?.map(ec => ({ label: ec.name, value: ec.id }))"
-        placeholder="Add ecosystem"
-        hint="Choose ecosystems that is your project part of"
-        :error="ecosystemsError"
-      />
-    </ClientOnly>
+    <ProjectCreateComponentsSelectChips
+      v-model="categories"
+      label="Categories"
+      required
+      :options="categoriesData?.map(cat => ({ label: cat.name, value: cat.id }))"
+      placeholder="Add category"
+      hint="Choose categories that fits your project"
+      :error="categoriesError"
+    />
+    <ProjectCreateComponentsSelectChips
+      v-model="usecases"
+      label="Use-cases"
+      required
+      :options="usecasesData?.map(uc => ({ label: uc.name, value: uc.id }))"
+      placeholder="Add use-case"
+      hint="What can be your project used for?"
+      :error="usecasesError"
+    />
+    <ProjectCreateComponentsSelectChips
+      v-model="ecosystems"
+      label="Ecosystems"
+      required
+      :options="ecosystemsData?.map(ec => ({ label: ec.name, value: ec.id }))"
+      placeholder="Add ecosystem"
+      hint="Choose ecosystems that is your project part of"
+      :error="ecosystemsError"
+    />
     <ProjectCreateComponentsInput
       v-model="description"
       lg="w-1/2"
