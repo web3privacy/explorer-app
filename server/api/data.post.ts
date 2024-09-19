@@ -5,7 +5,7 @@ import type { Project } from '~/types'
 export default defineEventHandler(async (event) => {
   const body = await readBody<{ project: Project, image?: { type: string, data: string } }>(event)
   const yamlProject = yaml.stringify(body.project)
-  const { appId, privateKey, installationId } = useAppConfig().github
+  const { appId, privateKey, installationId, baseBranch, owner, repo } = useRuntimeConfig().app.github
 
   const id = body.project.id || body.project.name.toLowerCase().replace(/\s+/g, '-')
 
@@ -16,9 +16,6 @@ export default defineEventHandler(async (event) => {
   await app.octokit.rest.apps.getAuthenticated()
   const octokit = await app.getInstallationOctokit(installationId)
 
-  const owner = 'develit-io'
-  const repo = 'test-repo'
-  const baseBranch = 'main'
   const newBranchName = `${id}-project-update-${Date.now()}`
   const commitMessage = `${body.project.id ? `Updating the project: ${body.project.name}` : `Initiating the creation of project: ${body.project.name}`}`
 

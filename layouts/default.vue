@@ -82,7 +82,10 @@ watch([scrollY, top, y], (newValues, oldValues) => {
               items-center
               gap-16px
               overflow-x-auto
-              pb="24px md:0"
+              pb-274px
+              mb--250px
+              md="overflow-x-visible pb-0 mb-0"
+              class="no-scrollbar"
             >
               <CategorySelectBox
                 v-model="selectedCategoryId"
