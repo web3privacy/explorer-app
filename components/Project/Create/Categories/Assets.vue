@@ -106,7 +106,7 @@ defineExpose({
           hover:text-app-black
           class="text-app-black/50 text-16px hidden"
           lg="block"
-        >Etherscan
+        >Link
         </NuxtLink>
       </template>
     </ProjectCreateComponentsItem>
