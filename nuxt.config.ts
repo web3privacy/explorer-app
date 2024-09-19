@@ -53,4 +53,13 @@ export default defineNuxtConfig({
   lodash: {
     prefix: '_',
   },
+  runtimeConfig: {
+    app: {
+      github: {
+        appId: 0,
+        privateKey: '',
+        installationId: 0,
+      },
+    },
+  },
 })

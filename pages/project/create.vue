@@ -211,6 +211,7 @@ const transitionDone = ref(false)
                 leading-28px
                 bg-app-bg-dark_grey
                 onfocus="this.style.width = 0; this.style.width = this.scrollWidth + 2 + 'px';"
+                @blur="toggleEdit()"
               >
               <h2
                 v-else
@@ -220,16 +221,11 @@ const transitionDone = ref(false)
               >
                 {{ name }}
               </h2>
-              <button @click="toggleEdit()">
+              <button
+                v-if="!isEditing"
+                @click="toggleEdit()"
+              >
                 <UnoIcon
-                  v-if="isEditing"
-                  text-24px
-                  class="text-app-white/30"
-                  hover:text-app-white
-                  i-heroicons-solid-check
-                />
-                <UnoIcon
-                  v-else
                   text-20px
                   class="text-app-white/30"
                   hover:text-app-white

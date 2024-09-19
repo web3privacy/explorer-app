@@ -42,7 +42,7 @@ const model = defineModel<string>()
       flex
       flex-col
       gap-8px
-      lg="flex flex-row gap-24px"
+      lg="flex flex-row gap-24px items-center"
       relative
     >
       <div v-bind="$attrs">
