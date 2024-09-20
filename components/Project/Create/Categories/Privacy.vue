@@ -81,7 +81,7 @@ defineExpose({
       <ProjectCreateComponentsSelectChips
         v-model="signRequirements"
         label="Sign-in requirements"
-        :options="signInRequirmentsData.map(s => ({ label: s.name, value: s.id }))"
+        :options="signInRequirmentsData?.map(s => ({ label: s.name, value: s.id }))"
         placeholder="Add requirement"
         hint="What do you need to provide to use your project?"
       />
