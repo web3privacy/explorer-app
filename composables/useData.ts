@@ -73,7 +73,7 @@ export const useData = defineStore('data', () => {
       features.value = data.features
       ranks.value = data.ranks
 
-      projectPhase.value = data.project_phase.map(p => ({ id: p.id.toLowerCase(), name: p.name }))
+      projectPhase.value = data.project_phase?.map(p => ({ id: p.id.toLowerCase(), name: p.name }))
       assetCustody.value = data.asset_custody_type.map(a => ({ id: a.id.toLowerCase(), name: a.name }))
       signInRequirments.value = data.sign_in_type_requirments.map(s => ({ id: s.id.toLowerCase(), name: s.name }))
     }
