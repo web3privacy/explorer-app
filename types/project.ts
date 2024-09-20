@@ -11,7 +11,7 @@ export interface Project {
   ecosystem?: string[]
   product_readiness?: string
   security?: string
-  have_token?: boolean
+  have_token: boolean
   token_link?: string
   assets_used?: string[]
   tokens?: {
@@ -57,44 +57,44 @@ export interface Project {
     [k: string]: unknown
   }
   blockchain_features?: {
-    p2p?: boolean
+    p2p: boolean
     encryption?: string
     network?: string
     upgradability?: {
-      enabled?: boolean
+      enabled: boolean
       type?: string
       admin_keys?: string
       [k: string]: unknown
     }
     [k: string]: unknown
     opensource: boolean
-    viewing_key?: boolean
-    dissapearing_tx?: boolean
+    viewing_key: boolean
+    dissapearing_tx: boolean
     frontend_anonymity?: string
     identity_integration?: null
-    connected_tx?: boolean
-    revealed_recipient?: boolean
-    revealed_sender?: boolean
-    revealed_ammount?: boolean
+    connected_tx: boolean
+    revealed_recipient: boolean
+    revealed_sender: boolean
+    revealed_ammount: boolean
     reversability_condition?: string
     data_masking?: string
     asset_custody_type?: string
   }
   licences?: string
-  privacy_policy?: {
-    defined?: boolean
+  privacy_policy: {
+    defined: boolean
     link?: string
     data_usage?: string
     [k: string]: unknown
   }
   team?: Team
   storage?: {
-    decentralized?: boolean
+    decentralized: boolean
     [k: string]: unknown
   }
   tracebility?: {
     tracked_data?: string
-    kyc?: boolean
+    kyc: boolean
     sign_in_type_requirments?: string[]
     [k: string]: unknown
   }
@@ -115,10 +115,10 @@ export interface Project {
   default_privacy?: boolean
   funding?: Fund[]
   project_status?: {
-    live_status?: boolean
+    live_status: boolean
     version?: string
-    testnet?: boolean
-    mainnet?: boolean
+    testnet: boolean
+    mainnet: boolean
     [k: string]: unknown
   }
   logos?: {
