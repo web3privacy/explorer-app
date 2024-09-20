@@ -98,6 +98,7 @@ name.value = project.value?.name || 'Untitled'
 
 function save() {
   saveProject({
+    ...project.value,
     name: name.value,
   })
 }
@@ -123,10 +124,13 @@ async function publish() {
   if (selectedTab.value === 'basic_info') {
     if (!currentComponent.value.isFormValid())
       return
+    else save()
   }
   else if (isPublishing) {
     return
   }
+
+  currentComponent.value.save()
 
   await publishProject()
   navigateTo(`/project/${project.value?.id || project.value?.name?.toLowerCase().replace(/\s+/g, '-')}`)

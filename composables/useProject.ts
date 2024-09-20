@@ -30,14 +30,16 @@ export const useProject = defineStore('project', () => {
   async function publishProject() {
     isPublishing.value = true
     try {
-      const imageArrayBuffer = await projectImage.value?.arrayBuffer()
       let imageBuffer: Buffer | undefined
       let base64Image: string | undefined
 
-      if (imageArrayBuffer) {
-        imageBuffer = Buffer.from(imageArrayBuffer)
-        const base64String = imageBuffer.toString('base64')
-        base64Image = base64String
+      if (projectImage.value) {
+        const imageArrayBuffer = await projectImage.value?.arrayBuffer()
+        if (imageArrayBuffer) {
+          imageBuffer = Buffer.from(imageArrayBuffer)
+          const base64String = imageBuffer.toString('base64')
+          base64Image = base64String
+        }
       }
 
       await $fetch(`/api/data`, {
