@@ -31,24 +31,11 @@ const backgroundColorByScore = computed(() => {
   const colorIndex = Math.floor(normalizedPercentage / 10)
   return colors[colorIndex]
 })
-const isLargeScreen = useMediaQuery('(min-width: 1024px)')
-
-function onClick() {
-  if (isLargeScreen.value)
-    return
-  if (props.disablePopover)
-    emits('selected')
-  else
-    isPopoverVisible.value = !isPopoverVisible.value
-}
 
 const isPopoverVisible = ref(false)
 
 let hideTimeout: ReturnType<typeof setTimeout> | null = null
 const showPopover = () => {
-  if (!isLargeScreen.value)
-    return
-  console.log('show')
   if (hideTimeout) {
     clearTimeout(hideTimeout)
     hideTimeout = null
@@ -57,8 +44,6 @@ const showPopover = () => {
 }
 
 const hidePopover = () => {
-  if (!isLargeScreen.value)
-    return
   hideTimeout = setTimeout(() => {
     isPopoverVisible.value = false
   }, 100) // Delay of 200ms before hiding
@@ -83,7 +68,7 @@ const hidePopover = () => {
       cursor-pointer
       @mouseenter="showPopover"
       @mouseleave="hidePopover"
-      @click.prevent="onClick()"
+      @click.prevent=" emits('selected')"
     >
       <div
         v-for="point of [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]"
