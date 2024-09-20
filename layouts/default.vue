@@ -124,6 +124,7 @@ watch([scrollY, top, y], (newValues, oldValues) => {
               />
             </div>
           </div>
+          {{ selectedAssetsUsedId }}
           <slot />
         </div>
       </div>
