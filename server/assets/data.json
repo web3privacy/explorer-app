@@ -1,77 +1,4 @@
 {
-  "categories": [
-    {
-      "id": "infrastructure",
-      "name": "Infrastructure",
-      "usecases": [
-        "node",
-        "rpc-provider",
-        "infrastructure",
-        "eth-layer-2",
-        "research-and-development",
-        "computing",
-        "storage",
-        "data-management",
-        "other"
-      ]
-    },
-    {
-      "id": "social-and-communications",
-      "name": "Social & Communications",
-      "usecases": [
-        "dao",
-        "nft-community",
-        "alliances",
-        "messaging",
-        "events",
-        "other"
-      ]
-    },
-    {
-      "id": "hardware",
-      "name": "Hardware",
-      "usecases": [
-        "wallets",
-        "node",
-        "other"
-      ]
-    },
-    {
-      "id": "applications",
-      "name": "Applications",
-      "usecases": [
-        "browser",
-        "vpn",
-        "did",
-        "operation-systems",
-        "dapps",
-        "wallets",
-        "ai",
-        "kyc-solution",
-        "other"
-      ]
-    },
-    {
-      "id": "defi",
-      "name": "Defi",
-      "usecases": [
-        "bridge",
-        "defi",
-        "mixing-service",
-        "mixing-management",
-        "currency",
-        "other"
-      ]
-    },
-    {
-      "id": "archived-projects",
-      "name": "Archived projects",
-      "usecases": [
-        "legacy-projects",
-        "deprecated-systems"
-      ]
-    }
-  ],
   "projects": [
     {
       "id": "01-labs",
@@ -227,52 +154,6 @@
       ]
     },
     {
-      "id": "adamant",
-      "name": "Adamant",
-      "categories": [
-        "social-and-communications"
-      ],
-      "description": "Decentralized anonymous blockchain Messenger & crypto Wallet",
-      "team": {
-        "anonymous": true
-      },
-      "links": {
-        "web": "https://adamant.im/",
-        "github": "https://github.com/adamant-im",
-        "block_explorer": "https://explorer.adamant.im/",
-        "whitepaper": "https://adamant.im/whitepapers-library/",
-        "blog": "https://news.adamant.im/",
-        "twitter": "https://x.com/adamant_im",
-        "telegram": "https://t.me/adamant_eng"
-      },
-      "project_status": {
-        "live_status": true,
-        "version": "Mainnet",
-        "testnet": false,
-        "mainnet": true
-      },
-      "have_token": false,
-      "token_link": "https://www.coingecko.com/en/coins/adamant-messenger",
-      "tokens": [
-        {
-          "name": "ADMToken",
-          "symbol": "$ADM",
-          "network": "Ethereum"
-        }
-      ],
-      "usecases": [
-        "messaging"
-      ],
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/adamant/logo.png"
-        }
-      ]
-    },
-    {
       "id": "anon-club",
       "name": "AnonKlub",
       "categories": [
@@ -313,125 +194,6 @@
       ]
     },
     {
-      "id": "arcium",
-      "name": "Arcium",
-      "categories": [
-        "infrastructure"
-      ],
-      "description": "The first parallelized confidential computing network",
-      "links": {
-        "web": "https://arcium.com/",
-        "github": "https://github.com/elusiv-privacy",
-        "docs": "https://docs.arcium.com/",
-        "blog": "https://blog.arcium.com/",
-        "twitter": "https://x.com/ArciumHQ",
-        "discord": "https://discord.com/invite/arcium"
-      },
-      "have_token": false,
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/arcium/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "bandada",
-      "name": "Bandada",
-      "categories": [
-        "applications"
-      ],
-      "description": "An open-source system for managing privacy-preserving groups of anonymous individuals.",
-      "project_status": {
-        "version": "testnet",
-        "live_status": true,
-        "mainnet": false,
-        "testnet": true
-      },
-      "team": {
-        "anonymous": true
-      },
-      "links": {
-        "web": "https://bandada.pse.dev/",
-        "docs": "https://docs.bandada.pse.dev/",
-        "github": "https://github.com/bandada-infra/bandada",
-        "type": "semaphore, zk-kit"
-      },
-      "usecases": [
-        "did"
-      ],
-      "have_token": false,
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/bandada/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "blockblend",
-      "name": "BlockBlend",
-      "categories": [
-        "applications"
-      ],
-      "ecosystem": [
-        "ethereum",
-        "polygon",
-        "base",
-        "bnb",
-        "solana"
-      ],
-      "description": "Privacy Cross-Chain Decentralized Services",
-      "team": {
-        "anonymous": false,
-        "teammembers": [
-          {
-            "name": "Tom",
-            "link": "https://x.com/TomBlockBlend"
-          }
-        ]
-      },
-      "links": {
-        "web": "https://blockblend.io/",
-        "docs": "https://docs.blockblend.io/",
-        "whitepaper": "https://blockblend.io/pitchdeck.pdf",
-        "blog": "https://blockblendio.medium.com/",
-        "twitter": "https://x.com/blockblendio",
-        "telegram": "https://t.me/blockblendIO"
-      },
-      "project_status": {
-        "live_status": true,
-        "version": "Mainnet",
-        "testnet": false,
-        "mainnet": true
-      },
-      "have_token": false,
-      "token_link": "https://etherscan.io/address/0x0a44a7ccea34a7563ba1d45a5f757d0b02281124",
-      "tokens": [
-        {
-          "name": "BBL Tpken",
-          "symbol": "$BBL",
-          "network": "Ethereum",
-          "contract_address": "0x0a44a7ccea34a7563ba1d45a5f757d0b02281124"
-        }
-      ],
-      "usecases": [
-        "bridge"
-      ],
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/blockblend/logo.png"
-        }
-      ]
-    },
-    {
       "id": "broearn",
       "name": "Broearn",
       "categories": [
@@ -468,138 +230,6 @@
       ]
     },
     {
-      "id": "chainport",
-      "name": "ChainPort",
-      "categories": [
-        "infrastructure"
-      ],
-      "ecosystem": [
-        "ethereum",
-        "arbitrum",
-        "optimism",
-        "base",
-        "bnb",
-        "fantom",
-        "polygon",
-        "avalanche"
-      ],
-      "description": "next-gen custodian secure bridge",
-      "team": {
-        "anonymous": false,
-        "teammembers": [
-          {
-            "name": "DcentraLab",
-            "link": "https://x.com/DcentraLab"
-          }
-        ]
-      },
-      "links": {
-        "web": "https://www.chainport.io/private-bridge",
-        "github": "https://github.com/chainport",
-        "docs": "https://docs.chainport.io/",
-        "blog": "https://medium.com/chainport",
-        "twitter": "https://x.com/chain_port",
-        "telegram": "https://t.me/chainport_news"
-      },
-      "project_status": {
-        "live_status": true,
-        "version": "Mainnet",
-        "testnet": false,
-        "mainnet": true
-      },
-      "have_token": false,
-      "token_link": "https://etherscan.io/token/0x104f3152d8ebfc3f679392977356962ff36566ac",
-      "tokens": [
-        {
-          "name": "PORTX Token",
-          "symbol": "$PORTX",
-          "network": "Ethereum",
-          "contract_address": "0x104f3152d8ebfc3f679392977356962ff36566ac"
-        }
-      ],
-      "usecases": [
-        "bridge"
-      ],
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/chainport/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "chainback",
-      "name": "Chainback",
-      "categories": [
-        "applications"
-      ],
-      "ecosystem": [
-        "ethereum",
-        "solana",
-        "bsc",
-        "polygon"
-      ],
-      "description": "Ultimate Cloud Computing & File Storage",
-      "team": {
-        "anonymous": true
-      },
-      "links": {
-        "web": "https://chainback.org/",
-        "docs": "https://chainback.gitbook.io/chainback-whitepaper",
-        "block_explorer": "https://app.chainback.org/explorer",
-        "whitepaper": "https://drive.google.com/file/d/1wtzmijhSoJJmIO5S2PRDH3-rV3IH93xv/view",
-        "blog": "https://medium.com/@chainback.archive",
-        "twitter": "https://x.com/ChainbackWeb3",
-        "telegram": "https://t.me/chainback_archive"
-      },
-      "sunset": false,
-      "tokens": [
-        {
-          "name": "ARCHIVE Token",
-          "symbol": "$ARCHIVE",
-          "network": "Ethereum",
-          "contract_address": "0xC7f950271d118A5bdF250dFfc39128DCCED8472C",
-          "token_link": "https://etherscan.io/token/0xC7f950271d118A5bdF250dFfc39128DCCED8472C"
-        }
-      ],
-      "funding": {
-        "name": "Summus Capital",
-        "link": "https://summus.capital/"
-      },
-      "blockchain_features": {
-        "opensource": false,
-        "asset_custody_type": "non-custody",
-        "p2p": true
-      },
-      "privacy_policy": {
-        "defined": true,
-        "link": "https://chainback.gitbook.io/chainback-whitepaper/company-policy/privacy-policy"
-      },
-      "default_privacy": true,
-      "tracebility": {
-        "kyc": false,
-        "sign_in_type_requirments": "wallet"
-      },
-      "third_party_dependency": false,
-      "compliance": false,
-      "storage": {
-        "decentralized": true
-      },
-      "usecases": [
-        "storage"
-      ],
-      "have_token": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/chainback/logo.png"
-        }
-      ]
-    },
-    {
       "id": "cloak-ai",
       "name": "Cloak Ai",
       "categories": [
@@ -631,401 +261,6 @@
           "file": "logo.png",
           "ext": "png",
           "url": "https://explorer-data.web3privacy.info/assets/projects/cloak-ai/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "codex",
-      "name": "Codex",
-      "categories": [
-        "applications"
-      ],
-      "ecosystem": [
-        "ethereum"
-      ],
-      "description": "Codex is a durable, decentralised data storage protocol, created so the world community can preserve its most important knowledge without risk of censorship.",
-      "team": {
-        "anonymous": false
-      },
-      "links": {
-        "web": "https://codex.storage",
-        "github": "https://github.com/codex-storage",
-        "docs": "https://docs.codex.storage",
-        "forum": "https://forum.vac.dev/",
-        "blog": "https://blog.codex.storage",
-        "twitter": "https://x.com/codex_storage",
-        "discord": "https://discord.com/invite/codex-storage",
-        "farcaster": "https://farcaster/@codexstorage"
-      },
-      "project_status": {
-        "live_status": true,
-        "version": "Codex Devnet",
-        "testnet": false,
-        "mainnet": false
-      },
-      "tracebility": {
-        "kyc": false
-      },
-      "usecases": [
-        "storage"
-      ],
-      "have_token": false,
-      "third_party_dependency": false
-    },
-    {
-      "id": "coti",
-      "name": "Coti",
-      "categories": [
-        "infrastructure"
-      ],
-      "description": "EVM L2 solving blockchain privacy with Garbled Circuits",
-      "team": {
-        "anonymous": false,
-        "teammembers": [
-          {
-            "name": "Joshua Maddox",
-            "role": "CEPO",
-            "link": "https://x.com/JoshuaBMaddox"
-          },
-          {
-            "name": "Shaf Bar-Geffen",
-            "role": "CEO",
-            "link": "https://x.com/shahafbg"
-          }
-        ]
-      },
-      "links": {
-        "web": "https://coti.io/",
-        "github": "https://github.com/coti-io",
-        "docs": "https://docs.coti.io/coti-v2-documentation",
-        "whitepaper": "https://coti.io/files/coti_v2_whitepaper.pdf",
-        "blog": "https://coti.io/blog",
-        "twitter": "https://x.com/COTInetwork",
-        "discord": "https://discord.com/invite/wfAQfbc3Df",
-        "telegram": "https://t.me/COTInetwork"
-      },
-      "project_status": {
-        "live_status": true,
-        "version": "Testnet",
-        "testnet": true,
-        "mainnet": false
-      },
-      "have_token": false,
-      "token_link": "https://etherscan.io/token/0xddb3422497e61e13543bea06989c0789117555c5",
-      "tokens": [
-        {
-          "name": "CotiToken",
-          "symbol": "$COTI",
-          "network": "Ethereum",
-          "contract_address": "0xDDB3422497E61e13543BeA06989C0789117555c5"
-        }
-      ],
-      "usecases": [
-        "eth-layer-2"
-      ],
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/coti/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "cursive",
-      "name": "Cursive",
-      "categories": [
-        "applications"
-      ],
-      "description": "A cryptography lab focused on human-first applications of signed data.",
-      "links": {
-        "web": "https://www.cursive.team/",
-        "github": "https://github.com/cursive-team",
-        "blog": "https://www.cursive.team/blog",
-        "twitter": "https://x.com/cursive_team",
-        "telegram": "https://t.me/+z5REVOBXp_hmNDIx"
-      },
-      "have_token": false,
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/cursive/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "dechat",
-      "name": "DeChat",
-      "categories": [
-        "social-and-communications"
-      ],
-      "description": "open and secure web3 communications protocol that powers decentralized user interactions",
-      "team": {
-        "anonymous": false,
-        "teammembers": [
-          {
-            "name": "JAMES I. RADFORD",
-            "role": "CEO",
-            "link": "https://www.linkedin.com/in/james-r-aa8989165/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-          },
-          {
-            "name": "ANDY DEMETRIOU",
-            "role": "CMO",
-            "link": "https://www.linkedin.com/in/andy-demetriou-a57778177/"
-          },
-          {
-            "name": "DANIEL DRESCHER",
-            "role": "COO",
-            "link": "https://www.linkedin.com/in/danieldrescher/"
-          }
-        ]
-      },
-      "links": {
-        "web": "https://www.dechat.io/home",
-        "docs": "https://dechat.gitbook.io/dechat",
-        "twitter": "https://x.com/dechat_io",
-        "discord": "https://discord.com/invite/dechat",
-        "telegram": "https://t.me/dechat_community"
-      },
-      "project_status": {
-        "live_status": true,
-        "version": "Testnet",
-        "testnet": true,
-        "mainnet": false
-      },
-      "have_token": false,
-      "token_link": "https://bscscan.com/token/0xd69ee2e508363fed57f89917d5ca03e715ee5519",
-      "tokens": [
-        {
-          "name": "DeChat Token",
-          "symbol": "$DeChat",
-          "network": "BSC",
-          "contract_address": "0xD69ee2e508363FEd57f89917D5ca03e715ee5519"
-        }
-      ],
-      "usecases": [
-        "messaging"
-      ],
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/dechat/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "deguard",
-      "name": "DeGuard",
-      "categories": [
-        "applications"
-      ],
-      "description": "Provide utimate privacy based on web3",
-      "team": {
-        "anonymous": false,
-        "teammembers": [
-          {
-            "name": "Niktim",
-            "link": "https://x.com/Crypto_Niktim"
-          }
-        ]
-      },
-      "links": {
-        "web": "https://deguard.io/",
-        "github": "https://github.com/deguardvpn",
-        "docs": "https://docs.deguard.io/",
-        "twitter": "https://x.com/DeGuardVPN",
-        "discord": "https://discord.com/invite/agv3a9wGUn",
-        "telegram": "https://t.me/DeGuardVPN"
-      },
-      "project_status": {
-        "live_status": true,
-        "version": "Mainnet",
-        "testnet": false,
-        "mainnet": true
-      },
-      "have_token": false,
-      "usecases": [
-        "vpn"
-      ],
-      "third_party_dependency": false
-    },
-    {
-      "id": "denet",
-      "name": "DeNet",
-      "categories": [
-        "applications"
-      ],
-      "ecosystem": [
-        "polygon"
-      ],
-      "description": "Decentralized Storage Protocol for Web3 services ",
-      "team": {
-        "anonymous": false,
-        "teammembers": [
-          {
-            "name": "Denis Shelestov",
-            "link": "https://x.com/djdeniro1"
-          },
-          {
-            "name": "Daniil Maslov",
-            "link": "https://x.com/tttcrp"
-          }
-        ]
-      },
-      "links": {
-        "web": "https://denet.pro/",
-        "github": "https://github.com/denetpro",
-        "doc": "https://docs.denet.pro/",
-        "blog": "https://medium.com/denetpro",
-        "twitter": "https://x.com/DeNetPro",
-        "telegram": "https://t.me/denetnews",
-        "discord": "https://discord.com/invite/PSnjPCq4x5"
-      },
-      "sunset": false,
-      "tokens": [
-        {
-          "name": "DeNet File Token",
-          "symbol": "$DE",
-          "network": "Polygon",
-          "contract_address": "0x081ec4c0e30159c8259bad8f4887f83010a681dc",
-          "token_link": "https://polygonscan.com/token/0x081ec4c0e30159c8259bad8f4887f83010a681dc"
-        }
-      ],
-      "blockchain_features": {
-        "opensource": true,
-        "asset_custody_type": "non-custody",
-        "p2p": false
-      },
-      "privacy_policy": {
-        "defined": false
-      },
-      "default_privacy": true,
-      "tracebility": {
-        "kyc": false
-      },
-      "compliance": false,
-      "storage": {
-        "decentralized": true
-      },
-      "usecases": [
-        "storage"
-      ],
-      "have_token": false,
-      "third_party_dependency": false
-    },
-    {
-      "id": "ergo-platform",
-      "name": "Ergo Platform",
-      "categories": [
-        "infrastructure"
-      ],
-      "ecosystem": [
-        "ergo",
-        "btc"
-      ],
-      "description": "Ergo is the next-gen smart contract platform! Bringing economic freedom to ordinary people through decentralized financial tools",
-      "team": {
-        "anonymous": false,
-        "teammembers": [
-          {
-            "name": "Alex Chepurnoy",
-            "link": "https://x.com/chepurnoy"
-          },
-          {
-            "name": "qx",
-            "link": "https://x.com/qx_ergo"
-          }
-        ]
-      },
-      "links": {
-        "web": "https://ergoplatform.org/en/",
-        "github": "https://github.com/ergoplatform",
-        "whitepaper": "https://storage.googleapis.com/ergo-cms-media/Advanced_Ergo_Script_Tutorial_70ed6feddf/Advanced_Ergo_Script_Tutorial_70ed6feddf.pdf",
-        "docs": "https://docs.ergoplatform.com/",
-        "blog": "https://ergoplatform.org/en/blog/",
-        "forum": "https://www.ergoforum.org/",
-        "twitter": "https://x.com/ergo_platform",
-        "telegram": "https://t.me/Ergo_Chats",
-        "discord": "https://discord.com/invite/ergo-platform-668903786361651200"
-      },
-      "sunset": false,
-      "tokens": [
-        {
-          "name": "Ergo Token",
-          "symbol": "$ERG",
-          "network": "Ergochain",
-          "token_link": "https://www.coingecko.com/en/coins/ergo"
-        }
-      ],
-      "blockchain_features": {
-        "opensource": true,
-        "p2p": false,
-        "asset_custody_type": "non-custody"
-      },
-      "privacy_policy": {
-        "defined": true,
-        "link": "https://ergoplatform.org/en/privacy-policy/"
-      },
-      "default_privacy": true,
-      "tracebility": {
-        "kyc": false,
-        "sign_in_type_requirments": "wallet"
-      },
-      "third_party_dependency": false,
-      "compliance": false,
-      "audits": [
-        {
-          "name": "Jean-Philipee Aumasson",
-          "link": "https://www.aumasson.jp/",
-          "time": "2019-12"
-        }
-      ],
-      "usecases": [
-        "infrastructure"
-      ],
-      "have_token": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/ergo-platform/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "exabits",
-      "name": "Exabits",
-      "categories": [
-        "applications"
-      ],
-      "description": "Simplified Access to the Currency of the Future ",
-      "team": {
-        "anonymous": true
-      },
-      "links": {
-        "web": "https://www.exabits.ai/",
-        "docs": "https://docs.exabits.ai/introduction/what-is-exabits",
-        "blog": "https://blog.exabits.ai/",
-        "twitter": "https://x.com/exa_bits",
-        "discord": "https://discord.com/invite/exabits",
-        "telegram": "https://t.me/+D0CulDl9udZjMWIx"
-      },
-      "have_token": false,
-      "sunset": false,
-      "usecases": [
-        "ai"
-      ],
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/exabits/logo.png"
         }
       ]
     },
@@ -1163,73 +398,6 @@
       ]
     },
     {
-      "id": "ivpn",
-      "name": "IVPN",
-      "categories": [
-        "applications"
-      ],
-      "description": "Audited, privacy focused VPN service.",
-      "team": {
-        "anonymous": false,
-        "teammembers": [
-          {
-            "name": "Nicholas Pestell",
-            "role": "CEO",
-            "link": "https://github.com/cipheromega"
-          },
-          {
-            "name": "Edward De",
-            "role": "Technical Support Lead",
-            "link": "https://www.linkedin.com/in/edward-de-91793b163/"
-          },
-          {
-            "name": "Iain Douglas",
-            "link": "https://github.com/Iain-ivpn"
-          },
-          {
-            "name": "Gorka Pernas",
-            "role": "Senior QA Engineer",
-            "link": "https://github.com/gorkapernas"
-          },
-          {
-            "name": "Natanael Rodriguez",
-            "link": "https://github.com/nathanrod"
-          },
-          {
-            "name": "Juraj Hilje",
-            "role": "Dev",
-            "link": "https://github.com/jurajhilje"
-          },
-          {
-            "name": "Alexandr Stelnykovych",
-            "role": "Dev",
-            "link": "https://github.com/stenya"
-          },
-          {
-            "name": "Jordan Sullivan",
-            "link": "https://github.com/jordan-ivpn"
-          }
-        ]
-      },
-      "links": {
-        "web": "https://www.ivpn.net/en/",
-        "github": "https://github.com/ivpn",
-        "blog": "https://www.ivpn.net/en/blog/",
-        "twitter": "https://x.com/ivpnnet"
-      },
-      "project_status": {
-        "live_status": true,
-        "version": "Mainnet",
-        "testnet": false,
-        "mainnet": true
-      },
-      "have_token": false,
-      "usecases": [
-        "vpn"
-      ],
-      "third_party_dependency": false
-    },
-    {
       "id": "inco",
       "name": "Inco",
       "categories": [
@@ -1364,104 +532,6 @@
       ]
     },
     {
-      "id": "mailchain",
-      "name": "Mailchain",
-      "categories": [
-        "applications"
-      ],
-      "ecosystem": [
-        "ethereum"
-      ],
-      "description": "Web3 communication layer & web3 email  for everyone",
-      "team": {
-        "anonymous": false,
-        "teammembers": [
-          {
-            "name": "Tim Boeckmann",
-            "link": "https://x.com/t_boeckmann"
-          },
-          {
-            "name": "Rob De Feo",
-            "link": "https://x.com/robdefeo"
-          },
-          {
-            "name": "Misha Deville",
-            "link": "https://x.com/MishaDV_"
-          },
-          {
-            "name": "Elizabeth Stuart-Morris",
-            "link": "https://x.com/esm_iam"
-          },
-          {
-            "name": "Hannah Anderson",
-            "link": "https://www.linkedin.com/in/hannahsanderson/"
-          },
-          {
-            "name": "Alexandru Velicu",
-            "link": "https://www.linkedin.com/in/velicu-a-73794348/"
-          },
-          {
-            "name": "Zubeyir O.",
-            "link": "https://github.com/zubeyiro"
-          },
-          {
-            "name": "Antonio Ivanovski",
-            "link": "https://github.com/toteto"
-          },
-          {
-            "name": "Nathan Sorochan",
-            "link": "https://x.com/nathansorochan"
-          },
-          {
-            "name": "Tom Sargent",
-            "link": "https://x.com/expensive_jpeg"
-          },
-          {
-            "name": "Becky Prunty",
-            "link": "https://www.linkedin.com/in/becky-prunty-b93406a9/"
-          }
-        ]
-      },
-      "links": {
-        "web": "https://mailchain.com/",
-        "github": "https://github.com/mailchain",
-        "whitepaper": "https://mailchain.com/papers/mailchain-whitepaper",
-        "docs": "https://docs.mailchain.com/",
-        "blog": "https://medium.com/@mailchain",
-        "twitter": "https://x.com/Mailchain_xyz",
-        "lens": "https://hey.xyz/u/mailchain",
-        "farcaster": "https://warpcast.com/mailchain"
-      },
-      "sunset": false,
-      "blockchain_features": {
-        "opensource": true,
-        "asset_custody_type": "non-custody",
-        "p2p": true
-      },
-      "privacy_policy": {
-        "defined": true,
-        "link": "https://mailchain.com/terms"
-      },
-      "default_privacy": true,
-      "tracebility": {
-        "kyc": false,
-        "sign_in_type_requirments": "wallet"
-      },
-      "third_party_dependency": false,
-      "compliance": false,
-      "usecases": [
-        "dapps"
-      ],
-      "have_token": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/mailchain/logo.png"
-        }
-      ]
-    },
-    {
       "id": "media-network",
       "name": "Media Network",
       "categories": [
@@ -1520,151 +590,6 @@
           "file": "logo.png",
           "ext": "png",
           "url": "https://explorer-data.web3privacy.info/assets/projects/media-network/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "nata-network",
-      "name": "Nata network",
-      "categories": [
-        "infrastructure"
-      ],
-      "description": "Nata Network is your portal to private cross-chain transactions.",
-      "team": {
-        "anonymous": true
-      },
-      "links": {
-        "web": "https://app.natarouter.com/",
-        "github": "https://github.com/shichiro-nakahara",
-        "block_explorer": "https://explorer.natanetwork.io/",
-        "docs": "https://docs.natanetwork.io/",
-        "blog": "https://mirror.xyz/natanetwork.eth",
-        "twitter": "https://x.com/nata_network_io",
-        "discord": "https://discord.com/invite/m9Ma7PbFwb"
-      },
-      "project_status": {
-        "live_status": true,
-        "version": "Mainnet",
-        "testnet": false,
-        "mainnet": true
-      },
-      "have_token": false,
-      "usecases": [
-        "bridge"
-      ],
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/nata-network/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "nuco-cloud",
-      "name": "Nuco-cloud",
-      "categories": [
-        "applications"
-      ],
-      "description": "Enabling tomorrow’s tech like Ai with scalable, sustainable computing power and up to a 90% cost reduction.",
-      "links": {
-        "web": "https://www.nuco.cloud/",
-        "github": "https://github.com/IronEagleCapital",
-        "whitepaper": "https://www.nuco.cloud/whitepaper",
-        "blog": "https://nucocloud.medium.com/",
-        "twitter": "https://x.com/nucocloud",
-        "discord": "https://discord.com/invite/5fSC5aEhpm",
-        "facebook": "https://www.facebook.com/nuco.cloud.distributedcloudcomputing/",
-        "telegram": "https://t.me/officialnucocloudgroup"
-      },
-      "have_token": false,
-      "token_link": "https://etherscan.io/token/0xE0C8b298db4cfFE05d1bEA0bb1BA414522B33C1B",
-      "tokens": [
-        {
-          "name": "nuco.cloud",
-          "symbol": "NCDT",
-          "network": "Ethereum",
-          "contract_address": "0xe0c8b298db4cffe05d1bea0bb1ba414522b33c1b"
-        }
-      ],
-      "sunset": false,
-      "usecases": [
-        "ai"
-      ],
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/nuco-cloud/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "opsec",
-      "name": "OpSec",
-      "categories": [
-        "applications"
-      ],
-      "description": " AI-powered decentralized cloud security.",
-      "links": {
-        "web": "https://opsec.computer/",
-        "docs": "https://docs.opsec.computer/",
-        "twitter": "https://x.com/OpSecCloud",
-        "discord": "https://discord.com/invite/opseccloud",
-        "telegram": "https://t.me/OpSecCloud"
-      },
-      "have_token": false,
-      "token_link": "https://etherscan.io/token/0x6A7eFF1e2c355AD6eb91BEbB5ded49257F3FED98",
-      "tokens": [
-        {
-          "name": "Opsec",
-          "symbol": "OPSEC",
-          "network": "Ethereum",
-          "contract_address": "0x6A7eFF1e2c355AD6eb91BEbB5ded49257F3FED98"
-        }
-      ],
-      "sunset": false,
-      "usecases": [
-        "ai"
-      ],
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/opsec/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "origin-trail",
-      "name": "OriginTrail",
-      "categories": [
-        "applications"
-      ],
-      "description": "Powering Verifiable Internet for Artificial Intelligence ",
-      "links": {
-        "web": "https://origintrail.io/",
-        "github": "https://github.com/OriginTrail",
-        "docs": "https://docs.origintrail.io/",
-        "whitepaper": "https://origintrail.io/documents/Verifiable_Internet_for_Artificial_Intelligence_whitepaper_v3_pre_publication.pdf",
-        "blog": "https://origintrail.io/blog",
-        "twitter": "https://x.com/origin_trail",
-        "discord": "https://discord.com/invite/QctFuPCMew",
-        "telegram": "https://t.me/origintrail"
-      },
-      "usecases": [
-        "ai"
-      ],
-      "have_token": false,
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/origin-trail/logo.png"
         }
       ]
     },
@@ -1746,136 +671,6 @@
       ]
     },
     {
-      "id": "presearch",
-      "name": "Preserch",
-      "categories": [
-        "applications"
-      ],
-      "ecosystem": [
-        "ethereum"
-      ],
-      "description": "The Decentralized Search Engine with more than 4 million members",
-      "team": {
-        "anonymous": false,
-        "teammembers": [
-          {
-            "name": "Tim Enneking",
-            "link": "https://www.linkedin.com/in/timothy-enneking-a725905/"
-          },
-          {
-            "name": "Mark Torelli",
-            "link": "https://www.linkedin.com/in/mark-torelli"
-          },
-          {
-            "name": "Jeff Hunt",
-            "link": "https://www.linkedin.com/in/jeff-hunt-b302631b"
-          },
-          {
-            "name": "Ed Reese",
-            "link": "https://www.linkedin.com/in/edreese/"
-          },
-          {
-            "name": "Brenden Tacon",
-            "link": "https://www.linkedin.com/in/brenden-tacon-81abb211/"
-          },
-          {
-            "name": "Todd Enneking",
-            "link": "https://www.linkedin.com/in/toddenneking/"
-          },
-          {
-            "name": "Colin Pape",
-            "link": "https://www.linkedin.com/in/colinpape"
-          },
-          {
-            "name": "Trey Grainger",
-            "link": "https://www.linkedin.com/in/treygrainger/"
-          },
-          {
-            "name": "Luís Dalmolin",
-            "link": "https://www.linkedin.com/in/luisdalmolin/"
-          }
-        ]
-      },
-      "links": {
-        "web": "https://presearch.com/",
-        "github": "https://github.com/presearchofficial",
-        "whitepaper": "https://presearch.io/vision.pdf",
-        "docs": "https://docs.presearch.io/",
-        "blog": "https://news.presearch.io/",
-        "forum": "https://community.presearch.io/",
-        "twitter": "https://x.com/presearchnews",
-        "telegram": "https://t.me/presearch",
-        "discord": "https://discord.com/invite/KUpshRZz2n"
-      },
-      "sunset": false,
-      "tokens": [
-        {
-          "name": "Pre Token",
-          "symbol": "$PRE",
-          "network": "Ethereum",
-          "contract_address": "0xEC213F83defB583af3A000B1c0ada660b1902A0F",
-          "token_link": "https://etherscan.io/token/0xEC213F83defB583af3A000B1c0ada660b1902A0F"
-        }
-      ],
-      "blockchain_features": {
-        "opensource": true,
-        "asset_custody_type": "non-custody",
-        "p2p": true
-      },
-      "privacy_policy": {
-        "defined": true,
-        "link": "https://presearch.com/privacy"
-      },
-      "default_privacy": true,
-      "tracebility": {
-        "kyc": false,
-        "sign_in_type_requirments": "wallet"
-      },
-      "third_party_dependency": false,
-      "compliance": false,
-      "audits": [
-        {
-          "name": "Mantisec Lab",
-          "link": "https://github.com/PresearchOfficial/audit/blob/main/Final%20Presearch%20SCA.Code%20Audit.pdf",
-          "time": "2023-10"
-        }
-      ],
-      "storage": {
-        "decentralized": true
-      },
-      "usecases": [
-        "browser"
-      ],
-      "have_token": false
-    },
-    {
-      "id": "privasea",
-      "name": "Privasea",
-      "categories": [
-        "infrastructure"
-      ],
-      "description": "An AI + DePIN Network enabled through FHEML",
-      "links": {
-        "web": "https://www.privasea.ai/",
-        "github": "https://github.com/Privasea",
-        "docs": "https://docs.privasea.ai/",
-        "whitepaper": "https://drive.google.com/file/d/1jbxWMgEziupt119gvM1n0Mu8sDdM7VWF/view",
-        "blog": "https://www.privasea.ai/blog",
-        "twitter": "https://x.com/Privasea_ai",
-        "discord": "https://discord.com/invite/yRtQGvWkvG",
-        "telegram": "https://t.me/Privasea_ai"
-      },
-      "have_token": false,
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/privasea/logo.png"
-        }
-      ]
-    },
-    {
       "id": "privy",
       "name": "Privy",
       "categories": [
@@ -1942,488 +737,6 @@
       ]
     },
     {
-      "id": "raw-box",
-      "name": "RawBox",
-      "categories": [
-        "hardware"
-      ],
-      "ecosystem": [
-        "nym"
-      ],
-      "description": "Redefined privacy-enabled router.",
-      "team": {
-        "anonymous": false,
-        "teammembers": [
-          {
-            "name": "Oleksandr",
-            "link": "https://x.com/oleksky"
-          },
-          {
-            "name": "crptcpchk",
-            "link": "https://x.com/the01100011"
-          },
-          {
-            "name": "Yana Matrosova",
-            "link": "https://x.com/yana_tnfl"
-          },
-          {
-            "name": "Beyond",
-            "link": "https://x.com/Beyond_Karto"
-          }
-        ]
-      },
-      "links": {
-        "github": "https://github.com/Raw-Box/",
-        "twitter": "https://x.com/rawbox_tech",
-        "telegram": "https://t.me/+G4ixLEgYBXJkZWRi"
-      },
-      "project_status": {
-        "live_status": true,
-        "version": "Testnet",
-        "testnet": true,
-        "mainnet": false
-      },
-      "have_token": false,
-      "usecases": [
-        "hardware"
-      ],
-      "third_party_dependency": false
-    },
-    {
-      "id": "rido",
-      "name": "Rido",
-      "categories": [
-        "applications"
-      ],
-      "description": "Web3 Personal Data Layer for AI ",
-      "team": {
-        "anonymous": true
-      },
-      "links": {
-        "web": "https://www.rido.io/",
-        "github": "https://github.com/ridoio/rido-dao-contract",
-        "blog": "https://medium.com/@Rido_io",
-        "twitter": "https://x.com/rido_crypto",
-        "discord": "https://discord.com/invite/Ekb98rR3pu",
-        "telegram": "https://t.me/+N6HLxnRL_WE5ZDVl"
-      },
-      "have_token": false,
-      "sunset": false,
-      "usecases": [
-        "ai"
-      ],
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/rido/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "ritual",
-      "name": "Ritual",
-      "categories": [
-        "applications"
-      ],
-      "ecosystem": [
-        "ethereum",
-        "solana",
-        "polygon"
-      ],
-      "description": "We are building a way for any protocol, application, or smart contract to integrate AI models with a few lines of code.",
-      "product_launch_day": "2023",
-      "team": {
-        "anonymous": false,
-        "teammembers": [
-          {
-            "name": "Niraj Pant",
-            "link": "https://x.com/niraj"
-          },
-          {
-            "name": "Akilesh Potti",
-            "link": "https://x.com/akileshpotti"
-          },
-          {
-            "name": "Anish Agnihotri",
-            "link": "https://x.com/_anishagnihotri"
-          },
-          {
-            "name": "Eva Zhang",
-            "link": "https://www.linkedin.com/in/evazhang612/"
-          },
-          {
-            "name": "Saneel Sreeni",
-            "link": "https://x.com/sanlsrni"
-          },
-          {
-            "name": "Maryam Bahrani",
-            "link": "https://www.mbahrani.net/"
-          },
-          {
-            "name": "Yahya Hassanzadeh",
-            "link": "https://www.linkedin.com/in/yhassanzadeh/"
-          },
-          {
-            "name": "Praveen Palanisamy",
-            "link": "https://www.linkedin.com/in/praveenpalanisamy/"
-          }
-        ]
-      },
-      "links": {
-        "web": "https://ritual.net/",
-        "github": "https://github.com/ritual-net",
-        "docs": "https://docs.ritual.net/",
-        "blog": "https://ritual.net/blog",
-        "twitter": "https://x.com/ritualnet",
-        "discord": "https://discord.com/invite/ritual-net"
-      },
-      "sunset": false,
-      "funding": {
-        "name": "archetype",
-        "link": "https://ritual.net/blog/introducing-ritual"
-      },
-      "blockchain_features": {
-        "opensource": true,
-        "asset_custody_type": "non-custody",
-        "p2p": true
-      },
-      "privacy_policy": {
-        "defined": false
-      },
-      "default_privacy": true,
-      "tracebility": {
-        "kyc": false
-      },
-      "third_party_dependency": false,
-      "compliance": false,
-      "usecases": [
-        "ai"
-      ],
-      "have_token": false
-    },
-    {
-      "id": "rotki",
-      "name": "Rotki",
-      "categories": [
-        "applications"
-      ],
-      "ecosystem": [
-        "ethereum",
-        "bitcoin",
-        "base",
-        "optimist",
-        "gnosis",
-        "scroll",
-        "zksync"
-      ],
-      "description": "rotki is an open source portfolio tracker, accounting and analytics tool that protects your privacy",
-      "team": {
-        "anonymous": false,
-        "teammembers": [
-          {
-            "name": "Lefteris Karapetsas",
-            "link": "https://x.com/LefterisJP"
-          }
-        ]
-      },
-      "links": {
-        "web": "https://rotki.com/",
-        "github": "https://github.com/rotki/rotki",
-        "docs": "https://docs.rotki.com/",
-        "blog": "https://blog.rotki.com/",
-        "twitter": "https://x.com/rotkiapp",
-        "discord": "https://discord.rotki.com/"
-      },
-      "sunset": false,
-      "blockchain_features": {
-        "opensource": true,
-        "asset_custody_type": "non-custody",
-        "p2p": true
-      },
-      "privacy_policy": {
-        "defined": true,
-        "link": "https://rotki.com/privacy-policy"
-      },
-      "default_privacy": true,
-      "tracebility": {
-        "kyc": false,
-        "sign_in_type_requirments": "wallet"
-      },
-      "third_party_dependency": false,
-      "compliance": false,
-      "usecases": [
-        "dapps"
-      ],
-      "have_token": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/rotki/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "self",
-      "name": "Self",
-      "categories": [
-        "applications"
-      ],
-      "description": "Build identification and personal data management for everything",
-      "team": {
-        "anonymous": false,
-        "teammembers": [
-          {
-            "name": "Dan Sutherland",
-            "link": "https://www.linkedin.com/in/dansuth/"
-          },
-          {
-            "name": "Sena Gbeckor-Kove",
-            "link": "https://www.linkedin.com/in/senagbe/"
-          },
-          {
-            "name": "Jason Reid",
-            "link": "https://www.linkedin.com/in/jason-reid-1a12833/"
-          }
-        ]
-      },
-      "links": {
-        "web": "https://www.joinself.com/",
-        "github": "https://github.com/joinself",
-        "docs": "https://docs.joinself.com/",
-        "twitter": "https://x.com/futureoftrust"
-      },
-      "sunset": false,
-      "blockchain_features": {
-        "opensource": true,
-        "asset_custody_type": "non-custody",
-        "p2p": false
-      },
-      "privacy_policy": {
-        "defined": true,
-        "link": "https://www.joinself.com/company/legal"
-      },
-      "default_privacy": true,
-      "tracebility": {
-        "kyc": false
-      },
-      "third_party_dependency": false,
-      "compliance": false,
-      "storage": {
-        "decentralized": true
-      },
-      "usecases": [
-        "did"
-      ],
-      "have_token": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/self/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "sentz",
-      "name": "Sentz",
-      "categories": [
-        "applications"
-      ],
-      "description": "Global payments app for Freelancers & Creators",
-      "team": {
-        "anonymous": false,
-        "teammembers": [
-          {
-            "name": "Sara Drakeley",
-            "link": "https://www.linkedin.com/in/sara-drakeley/"
-          },
-          {
-            "name": "Henry Holtzman",
-            "link": "https://www.linkedin.com/in/holtzmanh/?original_referer=https%3A%2F%2Fwww.sentz.com%2F"
-          }
-        ]
-      },
-      "links": {
-        "web": "https://www.sentz.com/",
-        "github": "https://github.com/mobilecoinofficial",
-        "whitepaper": "https://www.sentz.com/learn/whitepapers",
-        "docs": "https://www.sentz.com/developers",
-        "blog": "https://www.sentz.com/blog",
-        "twitter": "https://x.com/sentzapp",
-        "discord": "https://discord.com/invite/mobilecoin"
-      },
-      "sunset": false,
-      "tokens": [
-        {
-          "name": "Mobile Coin",
-          "symbol": "$MOB",
-          "token_link": "https://www.coingecko.com/en/coins/mobilecoin"
-        }
-      ],
-      "blockchain_features": {
-        "opensource": true,
-        "asset_custody_type": "non-custody",
-        "p2p": false
-      },
-      "privacy_policy": {
-        "defined": true,
-        "link": "https://www.sentz.com/privacy-policy"
-      },
-      "default_privacy": true,
-      "tracebility": {
-        "kyc": false,
-        "sign_in_type_requirments": "wallet"
-      },
-      "third_party_dependency": false,
-      "compliance": false,
-      "audits": [
-        {
-          "name": "Trail of Bits",
-          "link": "https://www.sentz.com/developers/audits"
-        }
-      ],
-      "assets_used": [
-        "EUSD"
-      ],
-      "usecases": [
-        "dapps"
-      ],
-      "have_token": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/sentz/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "sightai",
-      "name": "SightAI",
-      "categories": [
-        "applications"
-      ],
-      "description": "Decentralized AI inference with FHE",
-      "team": {
-        "anonymous": true
-      },
-      "links": {
-        "web": "https://sightai.io/",
-        "github": "https://github.com/sight-ai",
-        "docs": "https://sightai.gitbook.io/docs",
-        "blog": "https://medium.com/@theSightAI",
-        "twitter": "https://x.com/theSightAI",
-        "telegram": "https://t.me/sightai"
-      },
-      "have_token": false,
-      "sunset": false,
-      "usecases": [
-        "ai"
-      ],
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/sightai/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "summa",
-      "name": "Summa",
-      "categories": [
-        "infrastructure"
-      ],
-      "description": "Protocol enabling centralized exchanges to prove solvency without compromising private information.",
-      "project_status": {
-        "live_status": true,
-        "testnet": false,
-        "mainnet": false
-      },
-      "team": {
-        "anonymous": true
-      },
-      "links": {
-        "github": "https://github.com/summa-dev"
-      },
-      "technology": {
-        "type": "halo2",
-        "features": [
-          ""
-        ]
-      },
-      "usecases": [
-        "infrastructure"
-      ],
-      "have_token": false,
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/summa/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "sunscreen",
-      "name": "Sunsscreen",
-      "categories": [
-        "applications"
-      ],
-      "description": "Privacy engine of the new web.",
-      "links": {
-        "web": "https://sunscreen.tech/",
-        "blog": "https://blog.sunscreen.tech/",
-        "twitter": "https://x.com/sunscreentech",
-        "discord": "https://discord.com/invite/WHCs6jNNDS"
-      },
-      "have_token": false,
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/sunscreen/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "super-protocol",
-      "name": "SuperProtocol",
-      "categories": [
-        "applications"
-      ],
-      "description": "The confidential and self-sovereign AI cloud and marketplace, governed by smart contracts",
-      "team": {
-        "anonymous": true
-      },
-      "links": {
-        "web": "https://superprotocol.com/",
-        "docs": "https://docs.superprotocol.com/developers/",
-        "twitter": "https://x.com/super__protocol",
-        "discord": "https://discord.com/invite/superprotocol",
-        "telegram": "https://t.me/superprotocol"
-      },
-      "have_token": false,
-      "sunset": false,
-      "usecases": [
-        "ai"
-      ],
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/super-protocol/logo.png"
-        }
-      ]
-    },
-    {
       "id": "synaps",
       "name": "Synaps",
       "categories": [
@@ -2463,54 +776,6 @@
           "file": "logo.png",
           "ext": "png",
           "url": "https://explorer-data.web3privacy.info/assets/projects/synaps/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "taceo",
-      "name": "Taceo",
-      "categories": [
-        "infrastructure"
-      ],
-      "description": "Encrypted Computation Layer; MPC + ZK",
-      "team": {
-        "anonymous": false,
-        "teammembers": [
-          {
-            "name": "Roman Walch",
-            "role": "Co-founder",
-            "link": "https://x.com/rw0x0"
-          },
-          {
-            "name": "Lukas Helminger",
-            "role": "CEO",
-            "link": "https://x.com/luhelminger"
-          }
-        ]
-      },
-      "links": {
-        "web": "https://taceo.io/",
-        "github": "https://github.com/TaceoLabs",
-        "docs": "https://docs.taceo.io/",
-        "blog": "https://blog.taceo.io/",
-        "twitter": "https://x.com/TACEO_IO",
-        "discord": "https://discord.com/invite/gWZW2TANpk"
-      },
-      "project_status": {
-        "live_status": true,
-        "mainnet": true,
-        "testnet": true
-      },
-      "have_token": false,
-      "usecases": [
-        "computing"
-      ],
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/taceo/logo.png"
         }
       ]
     },
@@ -2559,114 +824,6 @@
           "file": "logo.png",
           "ext": "png",
           "url": "https://explorer-data.web3privacy.info/assets/projects/the-4th-pillar/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "venice",
-      "name": "Venice",
-      "categories": [
-        "applications"
-      ],
-      "description": "a generative AI app focused on privacy",
-      "links": {
-        "web": "https://venice.ai",
-        "blog": "https://venice.ai/blog",
-        "twitter": "https://x.com/askvenice",
-        "farcaster": "https://forecaster.com/venice-ai"
-      },
-      "usecases": [
-        "ai"
-      ],
-      "have_token": false,
-      "third_party_dependency": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/venice/logo.png"
-        }
-      ]
-    },
-    {
-      "id": "vocdoni",
-      "name": "Vocdoni",
-      "categories": [
-        "applications"
-      ],
-      "ecosystem": [
-        "ethereum"
-      ],
-      "description": "To build open source solutions to facilitate decision making in any organization.",
-      "team": {
-        "anonymous": false,
-        "teammembers": [
-          {
-            "name": "Joan Arus",
-            "link": "https://x.com/Joan_Arus"
-          },
-          {
-            "name": "Jordi Aulet",
-            "link": "https://x.com/jp_aulet"
-          },
-          {
-            "name": "Pau Escrich",
-            "link": "https://x.com/wildp4u"
-          },
-          {
-            "name": "Jordi Pinyana"
-          },
-          {
-            "name": "Marta Sancho",
-            "link": "https://x.com/MartaMordis"
-          },
-          {
-            "name": "Guido Iribarren",
-            "link": "https://github.com/altergui"
-          },
-          {
-            "name": "Lucas Menéndez",
-            "link": "https://github.com/lucasmenendez"
-          }
-        ]
-      },
-      "links": {
-        "web": "https://www.vocdoni.io/",
-        "github": "https://github.com/vocdoni",
-        "docs": "https://docs.vocdoni.io/about-us/how-we-work.html",
-        "block_explorer": "https://explorer.vote/",
-        "blog": "https://blog.vocdoni.io/",
-        "twitter": "https://x.com/vocdoni",
-        "discord": "https://discord.com/invite/Qjm7krrFBf"
-      },
-      "sunset": false,
-      "funding": {
-        "name": "Aragon grant 2021/2022",
-        "link": "https://x.com/AragonProject"
-      },
-      "blockchain_features": {
-        "opensource": true,
-        "asset_custody_type": "non-custody",
-        "p2p": false
-      },
-      "privacy_policy": {
-        "defined": false
-      },
-      "default_privacy": true,
-      "third_party_dependency": false,
-      "compliance": false,
-      "storage": {
-        "decentralized": true
-      },
-      "usecases": [
-        "dapps"
-      ],
-      "have_token": false,
-      "logos": [
-        {
-          "file": "logo.png",
-          "ext": "png",
-          "url": "https://explorer-data.web3privacy.info/assets/projects/vocdoni/logo.png"
         }
       ]
     },
@@ -4504,7 +2661,7 @@
     },
     {
       "id": "bringing-privacy-to-ens",
-      "name": "Bringing Privacy to ENS",
+      "name": "bringing-privacy-to-ens",
       "categories": [
         "applications"
       ],
@@ -18308,6 +16465,1776 @@
           "url": "https://explorer-data.web3privacy.info/assets/projects/zus/logo.png"
         }
       ]
+    },
+    {
+      "id": "adamant",
+      "name": "Adamant",
+      "categories": [
+        "social-and-communications"
+      ],
+      "description": "Decentralized anonymous blockchain Messenger & crypto Wallet",
+      "team": {
+        "anonymous": true
+      },
+      "links": {
+        "web": "https://adamant.im/",
+        "github": "https://github.com/adamant-im",
+        "block_explorer": "https://explorer.adamant.im/",
+        "whitepaper": "https://adamant.im/whitepapers-library/",
+        "blog": "https://news.adamant.im/",
+        "twitter": "https://x.com/adamant_im",
+        "telegram": "https://t.me/adamant_eng"
+      },
+      "project_status": {
+        "live_status": true,
+        "version": "Mainnet",
+        "testnet": false,
+        "mainnet": true
+      },
+      "have_token": false,
+      "token_link": "https://www.coingecko.com/en/coins/adamant-messenger",
+      "tokens": [
+        {
+          "name": "ADMToken",
+          "symbol": "$ADM",
+          "network": "Ethereum"
+        }
+      ],
+      "usecases": [
+        "messaging"
+      ],
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/adamant/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "arcium",
+      "name": "Arcium",
+      "categories": [
+        "infrastructure"
+      ],
+      "description": "The first parallelized confidential computing network",
+      "links": {
+        "web": "https://arcium.com/",
+        "github": "https://github.com/elusiv-privacy",
+        "docs": "https://docs.arcium.com/",
+        "blog": "https://blog.arcium.com/",
+        "twitter": "https://x.com/ArciumHQ",
+        "discord": "https://discord.com/invite/arcium"
+      },
+      "have_token": false,
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/arcium/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "bandada",
+      "name": "Bandada",
+      "categories": [
+        "applications"
+      ],
+      "description": "An open-source system for managing privacy-preserving groups of anonymous individuals.",
+      "project_status": {
+        "version": "testnet",
+        "live_status": true,
+        "mainnet": false,
+        "testnet": true
+      },
+      "team": {
+        "anonymous": true
+      },
+      "links": {
+        "web": "https://bandada.pse.dev/",
+        "docs": "https://docs.bandada.pse.dev/",
+        "github": "https://github.com/bandada-infra/bandada",
+        "type": "semaphore, zk-kit"
+      },
+      "usecases": [
+        "did"
+      ],
+      "have_token": false,
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/bandada/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "blockblend",
+      "name": "BlockBlend",
+      "categories": [
+        "applications"
+      ],
+      "ecosystem": [
+        "ethereum",
+        "polygon",
+        "base",
+        "bnb",
+        "solana"
+      ],
+      "description": "Privacy Cross-Chain Decentralized Services",
+      "team": {
+        "anonymous": false,
+        "teammembers": [
+          {
+            "name": "Tom",
+            "link": "https://x.com/TomBlockBlend"
+          }
+        ]
+      },
+      "links": {
+        "web": "https://blockblend.io/",
+        "docs": "https://docs.blockblend.io/",
+        "whitepaper": "https://blockblend.io/pitchdeck.pdf",
+        "blog": "https://blockblendio.medium.com/",
+        "twitter": "https://x.com/blockblendio",
+        "telegram": "https://t.me/blockblendIO"
+      },
+      "project_status": {
+        "live_status": true,
+        "version": "Mainnet",
+        "testnet": false,
+        "mainnet": true
+      },
+      "have_token": false,
+      "token_link": "https://etherscan.io/address/0x0a44a7ccea34a7563ba1d45a5f757d0b02281124",
+      "tokens": [
+        {
+          "name": "BBL Tpken",
+          "symbol": "$BBL",
+          "network": "Ethereum",
+          "contract_address": "0x0a44a7ccea34a7563ba1d45a5f757d0b02281124"
+        }
+      ],
+      "usecases": [
+        "bridge"
+      ],
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/blockblend/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "sentz",
+      "name": "Sentz",
+      "categories": [
+        "applications"
+      ],
+      "description": "Global payments app for Freelancers & Creators",
+      "team": {
+        "anonymous": false,
+        "teammembers": [
+          {
+            "name": "Sara Drakeley",
+            "link": "https://www.linkedin.com/in/sara-drakeley/"
+          },
+          {
+            "name": "Henry Holtzman",
+            "link": "https://www.linkedin.com/in/holtzmanh/?original_referer=https%3A%2F%2Fwww.sentz.com%2F"
+          }
+        ]
+      },
+      "links": {
+        "web": "https://www.sentz.com/",
+        "github": "https://github.com/mobilecoinofficial",
+        "whitepaper": "https://www.sentz.com/learn/whitepapers",
+        "docs": "https://www.sentz.com/developers",
+        "blog": "https://www.sentz.com/blog",
+        "twitter": "https://x.com/sentzapp",
+        "discord": "https://discord.com/invite/mobilecoin"
+      },
+      "sunset": false,
+      "tokens": [
+        {
+          "name": "Mobile Coin",
+          "symbol": "$MOB",
+          "token_link": "https://www.coingecko.com/en/coins/mobilecoin"
+        }
+      ],
+      "blockchain_features": {
+        "opensource": true,
+        "asset_custody_type": "non-custody",
+        "p2p": false
+      },
+      "privacy_policy": {
+        "defined": true,
+        "link": "https://www.sentz.com/privacy-policy"
+      },
+      "default_privacy": true,
+      "tracebility": {
+        "kyc": false,
+        "sign_in_type_requirments": "wallet"
+      },
+      "third_party_dependency": false,
+      "compliance": false,
+      "audits": [
+        {
+          "name": "Trail of Bits",
+          "link": "https://www.sentz.com/developers/audits"
+        }
+      ],
+      "assets_used": [
+        "EUSD"
+      ],
+      "usecases": [
+        "dapps"
+      ],
+      "have_token": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/sentz/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "sunscreen",
+      "name": "Sunsscreen",
+      "categories": [
+        "applications"
+      ],
+      "description": "Privacy engine of the new web.",
+      "links": {
+        "web": "https://sunscreen.tech/",
+        "blog": "https://blog.sunscreen.tech/",
+        "twitter": "https://x.com/sunscreentech",
+        "discord": "https://discord.com/invite/WHCs6jNNDS"
+      },
+      "have_token": false,
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/sunscreen/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "summa",
+      "name": "Summa",
+      "categories": [
+        "infrastructure"
+      ],
+      "description": "Protocol enabling centralized exchanges to prove solvency without compromising private information.",
+      "project_status": {
+        "live_status": true,
+        "testnet": false,
+        "mainnet": false
+      },
+      "team": {
+        "anonymous": true
+      },
+      "links": {
+        "github": "https://github.com/summa-dev"
+      },
+      "technology": {
+        "type": "halo2",
+        "features": [
+          ""
+        ]
+      },
+      "usecases": [
+        "infrastructure"
+      ],
+      "have_token": false,
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/summa/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "super-protocol",
+      "name": "SuperProtocol",
+      "categories": [
+        "applications"
+      ],
+      "description": "The confidential and self-sovereign AI cloud and marketplace, governed by smart contracts",
+      "team": {
+        "anonymous": true
+      },
+      "links": {
+        "web": "https://superprotocol.com/",
+        "docs": "https://docs.superprotocol.com/developers/",
+        "twitter": "https://x.com/super__protocol",
+        "discord": "https://discord.com/invite/superprotocol",
+        "telegram": "https://t.me/superprotocol"
+      },
+      "have_token": false,
+      "sunset": false,
+      "usecases": [
+        "ai"
+      ],
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/super-protocol/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "taceo",
+      "name": "Taceo",
+      "categories": [
+        "infrastructure"
+      ],
+      "description": "Encrypted Computation Layer; MPC + ZK",
+      "team": {
+        "anonymous": false,
+        "teammembers": [
+          {
+            "name": "Roman Walch",
+            "role": "Co-founder",
+            "link": "https://x.com/rw0x0"
+          },
+          {
+            "name": "Lukas Helminger",
+            "role": "CEO",
+            "link": "https://x.com/luhelminger"
+          }
+        ]
+      },
+      "links": {
+        "web": "https://taceo.io/",
+        "github": "https://github.com/TaceoLabs",
+        "docs": "https://docs.taceo.io/",
+        "blog": "https://blog.taceo.io/",
+        "twitter": "https://x.com/TACEO_IO",
+        "discord": "https://discord.com/invite/gWZW2TANpk"
+      },
+      "project_status": {
+        "live_status": true,
+        "mainnet": true,
+        "testnet": true
+      },
+      "have_token": false,
+      "usecases": [
+        "computing"
+      ],
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/taceo/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "venice",
+      "name": "Venice",
+      "categories": [
+        "applications"
+      ],
+      "description": "a generative AI app focused on privacy",
+      "links": {
+        "web": "https://venice.ai",
+        "blog": "https://venice.ai/blog",
+        "twitter": "https://x.com/askvenice",
+        "farcaster": "https://forecaster.com/venice-ai"
+      },
+      "usecases": [
+        "ai"
+      ],
+      "have_token": false,
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/venice/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "vocdoni",
+      "name": "Vocdoni",
+      "categories": [
+        "applications"
+      ],
+      "ecosystem": [
+        "ethereum"
+      ],
+      "description": "To build open source solutions to facilitate decision making in any organization.",
+      "team": {
+        "anonymous": false,
+        "teammembers": [
+          {
+            "name": "Joan Arus",
+            "link": "https://x.com/Joan_Arus"
+          },
+          {
+            "name": "Jordi Aulet",
+            "link": "https://x.com/jp_aulet"
+          },
+          {
+            "name": "Pau Escrich",
+            "link": "https://x.com/wildp4u"
+          },
+          {
+            "name": "Jordi Pinyana"
+          },
+          {
+            "name": "Marta Sancho",
+            "link": "https://x.com/MartaMordis"
+          },
+          {
+            "name": "Guido Iribarren",
+            "link": "https://github.com/altergui"
+          },
+          {
+            "name": "Lucas Menéndez",
+            "link": "https://github.com/lucasmenendez"
+          }
+        ]
+      },
+      "links": {
+        "web": "https://www.vocdoni.io/",
+        "github": "https://github.com/vocdoni",
+        "docs": "https://docs.vocdoni.io/about-us/how-we-work.html",
+        "block_explorer": "https://explorer.vote/",
+        "blog": "https://blog.vocdoni.io/",
+        "twitter": "https://x.com/vocdoni",
+        "discord": "https://discord.com/invite/Qjm7krrFBf"
+      },
+      "sunset": false,
+      "funding": {
+        "name": "Aragon grant 2021/2022",
+        "link": "https://x.com/AragonProject"
+      },
+      "blockchain_features": {
+        "opensource": true,
+        "asset_custody_type": "non-custody",
+        "p2p": false
+      },
+      "privacy_policy": {
+        "defined": false
+      },
+      "default_privacy": true,
+      "third_party_dependency": false,
+      "compliance": false,
+      "storage": {
+        "decentralized": true
+      },
+      "usecases": [
+        "dapps"
+      ],
+      "have_token": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/vocdoni/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "sightai",
+      "name": "SightAI",
+      "categories": [
+        "applications"
+      ],
+      "description": "Decentralized AI inference with FHE",
+      "team": {
+        "anonymous": true
+      },
+      "links": {
+        "web": "https://sightai.io/",
+        "github": "https://github.com/sight-ai",
+        "docs": "https://sightai.gitbook.io/docs",
+        "blog": "https://medium.com/@theSightAI",
+        "twitter": "https://x.com/theSightAI",
+        "telegram": "https://t.me/sightai"
+      },
+      "have_token": false,
+      "sunset": false,
+      "usecases": [
+        "ai"
+      ],
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/sightai/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "self",
+      "name": "Self",
+      "categories": [
+        "applications"
+      ],
+      "description": "Build identification and personal data management for everything",
+      "team": {
+        "anonymous": false,
+        "teammembers": [
+          {
+            "name": "Dan Sutherland",
+            "link": "https://www.linkedin.com/in/dansuth/"
+          },
+          {
+            "name": "Sena Gbeckor-Kove",
+            "link": "https://www.linkedin.com/in/senagbe/"
+          },
+          {
+            "name": "Jason Reid",
+            "link": "https://www.linkedin.com/in/jason-reid-1a12833/"
+          }
+        ]
+      },
+      "links": {
+        "web": "https://www.joinself.com/",
+        "github": "https://github.com/joinself",
+        "docs": "https://docs.joinself.com/",
+        "twitter": "https://x.com/futureoftrust"
+      },
+      "sunset": false,
+      "blockchain_features": {
+        "opensource": true,
+        "asset_custody_type": "non-custody",
+        "p2p": false
+      },
+      "privacy_policy": {
+        "defined": true,
+        "link": "https://www.joinself.com/company/legal"
+      },
+      "default_privacy": true,
+      "tracebility": {
+        "kyc": false
+      },
+      "third_party_dependency": false,
+      "compliance": false,
+      "storage": {
+        "decentralized": true
+      },
+      "usecases": [
+        "did"
+      ],
+      "have_token": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/self/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "rotki",
+      "name": "Rotki",
+      "categories": [
+        "applications"
+      ],
+      "ecosystem": [
+        "ethereum",
+        "bitcoin",
+        "base",
+        "optimist",
+        "gnosis",
+        "scroll",
+        "zksync"
+      ],
+      "description": "rotki is an open source portfolio tracker, accounting and analytics tool that protects your privacy",
+      "team": {
+        "anonymous": false,
+        "teammembers": [
+          {
+            "name": "Lefteris Karapetsas",
+            "link": "https://x.com/LefterisJP"
+          }
+        ]
+      },
+      "links": {
+        "web": "https://rotki.com/",
+        "github": "https://github.com/rotki/rotki",
+        "docs": "https://docs.rotki.com/",
+        "blog": "https://blog.rotki.com/",
+        "twitter": "https://x.com/rotkiapp",
+        "discord": "https://discord.rotki.com/"
+      },
+      "sunset": false,
+      "blockchain_features": {
+        "opensource": true,
+        "asset_custody_type": "non-custody",
+        "p2p": true
+      },
+      "privacy_policy": {
+        "defined": true,
+        "link": "https://rotki.com/privacy-policy"
+      },
+      "default_privacy": true,
+      "tracebility": {
+        "kyc": false,
+        "sign_in_type_requirments": "wallet"
+      },
+      "third_party_dependency": false,
+      "compliance": false,
+      "usecases": [
+        "dapps"
+      ],
+      "have_token": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/rotki/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "ritual",
+      "name": "Ritual",
+      "categories": [
+        "applications"
+      ],
+      "ecosystem": [
+        "ethereum",
+        "solana",
+        "polygon"
+      ],
+      "description": "We are building a way for any protocol, application, or smart contract to integrate AI models with a few lines of code.",
+      "product_launch_day": "2023",
+      "team": {
+        "anonymous": false,
+        "teammembers": [
+          {
+            "name": "Niraj Pant",
+            "link": "https://x.com/niraj"
+          },
+          {
+            "name": "Akilesh Potti",
+            "link": "https://x.com/akileshpotti"
+          },
+          {
+            "name": "Anish Agnihotri",
+            "link": "https://x.com/_anishagnihotri"
+          },
+          {
+            "name": "Eva Zhang",
+            "link": "https://www.linkedin.com/in/evazhang612/"
+          },
+          {
+            "name": "Saneel Sreeni",
+            "link": "https://x.com/sanlsrni"
+          },
+          {
+            "name": "Maryam Bahrani",
+            "link": "https://www.mbahrani.net/"
+          },
+          {
+            "name": "Yahya Hassanzadeh",
+            "link": "https://www.linkedin.com/in/yhassanzadeh/"
+          },
+          {
+            "name": "Praveen Palanisamy",
+            "link": "https://www.linkedin.com/in/praveenpalanisamy/"
+          }
+        ]
+      },
+      "links": {
+        "web": "https://ritual.net/",
+        "github": "https://github.com/ritual-net",
+        "docs": "https://docs.ritual.net/",
+        "blog": "https://ritual.net/blog",
+        "twitter": "https://x.com/ritualnet",
+        "discord": "https://discord.com/invite/ritual-net"
+      },
+      "sunset": false,
+      "funding": {
+        "name": "archetype",
+        "link": "https://ritual.net/blog/introducing-ritual"
+      },
+      "blockchain_features": {
+        "opensource": true,
+        "asset_custody_type": "non-custody",
+        "p2p": true
+      },
+      "privacy_policy": {
+        "defined": false
+      },
+      "default_privacy": true,
+      "tracebility": {
+        "kyc": false
+      },
+      "third_party_dependency": false,
+      "compliance": false,
+      "usecases": [
+        "ai"
+      ],
+      "have_token": false
+    },
+    {
+      "id": "rido",
+      "name": "Rido",
+      "categories": [
+        "applications"
+      ],
+      "description": "Web3 Personal Data Layer for AI ",
+      "team": {
+        "anonymous": true
+      },
+      "links": {
+        "web": "https://www.rido.io/",
+        "github": "https://github.com/ridoio/rido-dao-contract",
+        "blog": "https://medium.com/@Rido_io",
+        "twitter": "https://x.com/rido_crypto",
+        "discord": "https://discord.com/invite/Ekb98rR3pu",
+        "telegram": "https://t.me/+N6HLxnRL_WE5ZDVl"
+      },
+      "have_token": false,
+      "sunset": false,
+      "usecases": [
+        "ai"
+      ],
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/rido/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "raw-box",
+      "name": "RawBox",
+      "categories": [
+        "hardware"
+      ],
+      "ecosystem": [
+        "nym"
+      ],
+      "description": "Redefined privacy-enabled router.",
+      "team": {
+        "anonymous": false,
+        "teammembers": [
+          {
+            "name": "Oleksandr",
+            "link": "https://x.com/oleksky"
+          },
+          {
+            "name": "crptcpchk",
+            "link": "https://x.com/the01100011"
+          },
+          {
+            "name": "Yana Matrosova",
+            "link": "https://x.com/yana_tnfl"
+          },
+          {
+            "name": "Beyond",
+            "link": "https://x.com/Beyond_Karto"
+          }
+        ]
+      },
+      "links": {
+        "github": "https://github.com/Raw-Box/",
+        "twitter": "https://x.com/rawbox_tech",
+        "telegram": "https://t.me/+G4ixLEgYBXJkZWRi"
+      },
+      "project_status": {
+        "live_status": true,
+        "version": "Testnet",
+        "testnet": true,
+        "mainnet": false
+      },
+      "have_token": false,
+      "usecases": [
+        "hardware"
+      ],
+      "third_party_dependency": false
+    },
+    {
+      "id": "privasea",
+      "name": "Privasea",
+      "categories": [
+        "infrastructure"
+      ],
+      "description": "An AI + DePIN Network enabled through FHEML",
+      "links": {
+        "web": "https://www.privasea.ai/",
+        "github": "https://github.com/Privasea",
+        "docs": "https://docs.privasea.ai/",
+        "whitepaper": "https://drive.google.com/file/d/1jbxWMgEziupt119gvM1n0Mu8sDdM7VWF/view",
+        "blog": "https://www.privasea.ai/blog",
+        "twitter": "https://x.com/Privasea_ai",
+        "discord": "https://discord.com/invite/yRtQGvWkvG",
+        "telegram": "https://t.me/Privasea_ai"
+      },
+      "have_token": false,
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/privasea/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "presearch",
+      "name": "Preserch",
+      "categories": [
+        "applications"
+      ],
+      "ecosystem": [
+        "ethereum"
+      ],
+      "description": "The Decentralized Search Engine with more than 4 million members",
+      "team": {
+        "anonymous": false,
+        "teammembers": [
+          {
+            "name": "Tim Enneking",
+            "link": "https://www.linkedin.com/in/timothy-enneking-a725905/"
+          },
+          {
+            "name": "Mark Torelli",
+            "link": "https://www.linkedin.com/in/mark-torelli"
+          },
+          {
+            "name": "Jeff Hunt",
+            "link": "https://www.linkedin.com/in/jeff-hunt-b302631b"
+          },
+          {
+            "name": "Ed Reese",
+            "link": "https://www.linkedin.com/in/edreese/"
+          },
+          {
+            "name": "Brenden Tacon",
+            "link": "https://www.linkedin.com/in/brenden-tacon-81abb211/"
+          },
+          {
+            "name": "Todd Enneking",
+            "link": "https://www.linkedin.com/in/toddenneking/"
+          },
+          {
+            "name": "Colin Pape",
+            "link": "https://www.linkedin.com/in/colinpape"
+          },
+          {
+            "name": "Trey Grainger",
+            "link": "https://www.linkedin.com/in/treygrainger/"
+          },
+          {
+            "name": "Luís Dalmolin",
+            "link": "https://www.linkedin.com/in/luisdalmolin/"
+          }
+        ]
+      },
+      "links": {
+        "web": "https://presearch.com/",
+        "github": "https://github.com/presearchofficial",
+        "whitepaper": "https://presearch.io/vision.pdf",
+        "docs": "https://docs.presearch.io/",
+        "blog": "https://news.presearch.io/",
+        "forum": "https://community.presearch.io/",
+        "twitter": "https://x.com/presearchnews",
+        "telegram": "https://t.me/presearch",
+        "discord": "https://discord.com/invite/KUpshRZz2n"
+      },
+      "sunset": false,
+      "tokens": [
+        {
+          "name": "Pre Token",
+          "symbol": "$PRE",
+          "network": "Ethereum",
+          "contract_address": "0xEC213F83defB583af3A000B1c0ada660b1902A0F",
+          "token_link": "https://etherscan.io/token/0xEC213F83defB583af3A000B1c0ada660b1902A0F"
+        }
+      ],
+      "blockchain_features": {
+        "opensource": true,
+        "asset_custody_type": "non-custody",
+        "p2p": true
+      },
+      "privacy_policy": {
+        "defined": true,
+        "link": "https://presearch.com/privacy"
+      },
+      "default_privacy": true,
+      "tracebility": {
+        "kyc": false,
+        "sign_in_type_requirments": "wallet"
+      },
+      "third_party_dependency": false,
+      "compliance": false,
+      "audits": [
+        {
+          "name": "Mantisec Lab",
+          "link": "https://github.com/PresearchOfficial/audit/blob/main/Final%20Presearch%20SCA.Code%20Audit.pdf",
+          "time": "2023-10"
+        }
+      ],
+      "storage": {
+        "decentralized": true
+      },
+      "usecases": [
+        "browser"
+      ],
+      "have_token": false
+    },
+    {
+      "id": "opsec",
+      "name": "OpSec",
+      "categories": [
+        "applications"
+      ],
+      "description": " AI-powered decentralized cloud security.",
+      "links": {
+        "web": "https://opsec.computer/",
+        "docs": "https://docs.opsec.computer/",
+        "twitter": "https://x.com/OpSecCloud",
+        "discord": "https://discord.com/invite/opseccloud",
+        "telegram": "https://t.me/OpSecCloud"
+      },
+      "have_token": false,
+      "token_link": "https://etherscan.io/token/0x6A7eFF1e2c355AD6eb91BEbB5ded49257F3FED98",
+      "tokens": [
+        {
+          "name": "Opsec",
+          "symbol": "OPSEC",
+          "network": "Ethereum",
+          "contract_address": "0x6A7eFF1e2c355AD6eb91BEbB5ded49257F3FED98"
+        }
+      ],
+      "sunset": false,
+      "usecases": [
+        "ai"
+      ],
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/opsec/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "origin-trail",
+      "name": "OriginTrail",
+      "categories": [
+        "applications"
+      ],
+      "description": "Powering Verifiable Internet for Artificial Intelligence ",
+      "links": {
+        "web": "https://origintrail.io/",
+        "github": "https://github.com/OriginTrail",
+        "docs": "https://docs.origintrail.io/",
+        "whitepaper": "https://origintrail.io/documents/Verifiable_Internet_for_Artificial_Intelligence_whitepaper_v3_pre_publication.pdf",
+        "blog": "https://origintrail.io/blog",
+        "twitter": "https://x.com/origin_trail",
+        "discord": "https://discord.com/invite/QctFuPCMew",
+        "telegram": "https://t.me/origintrail"
+      },
+      "usecases": [
+        "ai"
+      ],
+      "have_token": false,
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/origin-trail/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "nuco-cloud",
+      "name": "Nuco-cloud",
+      "categories": [
+        "applications"
+      ],
+      "description": "Enabling tomorrow’s tech like Ai with scalable, sustainable computing power and up to a 90% cost reduction.",
+      "links": {
+        "web": "https://www.nuco.cloud/",
+        "github": "https://github.com/IronEagleCapital",
+        "whitepaper": "https://www.nuco.cloud/whitepaper",
+        "blog": "https://nucocloud.medium.com/",
+        "twitter": "https://x.com/nucocloud",
+        "discord": "https://discord.com/invite/5fSC5aEhpm",
+        "facebook": "https://www.facebook.com/nuco.cloud.distributedcloudcomputing/",
+        "telegram": "https://t.me/officialnucocloudgroup"
+      },
+      "have_token": false,
+      "token_link": "https://etherscan.io/token/0xE0C8b298db4cfFE05d1bEA0bb1BA414522B33C1B",
+      "tokens": [
+        {
+          "name": "nuco.cloud",
+          "symbol": "NCDT",
+          "network": "Ethereum",
+          "contract_address": "0xe0c8b298db4cffe05d1bea0bb1ba414522b33c1b"
+        }
+      ],
+      "sunset": false,
+      "usecases": [
+        "ai"
+      ],
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/nuco-cloud/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "nata-network",
+      "name": "Nata network",
+      "categories": [
+        "infrastructure"
+      ],
+      "description": "Nata Network is your portal to private cross-chain transactions.",
+      "team": {
+        "anonymous": true
+      },
+      "links": {
+        "web": "https://app.natarouter.com/",
+        "github": "https://github.com/shichiro-nakahara",
+        "block_explorer": "https://explorer.natanetwork.io/",
+        "docs": "https://docs.natanetwork.io/",
+        "blog": "https://mirror.xyz/natanetwork.eth",
+        "twitter": "https://x.com/nata_network_io",
+        "discord": "https://discord.com/invite/m9Ma7PbFwb"
+      },
+      "project_status": {
+        "live_status": true,
+        "version": "Mainnet",
+        "testnet": false,
+        "mainnet": true
+      },
+      "have_token": false,
+      "usecases": [
+        "bridge"
+      ],
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/nata-network/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "mailchain",
+      "name": "Mailchain",
+      "categories": [
+        "applications"
+      ],
+      "ecosystem": [
+        "ethereum"
+      ],
+      "description": "Web3 communication layer & web3 email  for everyone",
+      "team": {
+        "anonymous": false,
+        "teammembers": [
+          {
+            "name": "Tim Boeckmann",
+            "link": "https://x.com/t_boeckmann"
+          },
+          {
+            "name": "Rob De Feo",
+            "link": "https://x.com/robdefeo"
+          },
+          {
+            "name": "Misha Deville",
+            "link": "https://x.com/MishaDV_"
+          },
+          {
+            "name": "Elizabeth Stuart-Morris",
+            "link": "https://x.com/esm_iam"
+          },
+          {
+            "name": "Hannah Anderson",
+            "link": "https://www.linkedin.com/in/hannahsanderson/"
+          },
+          {
+            "name": "Alexandru Velicu",
+            "link": "https://www.linkedin.com/in/velicu-a-73794348/"
+          },
+          {
+            "name": "Zubeyir O.",
+            "link": "https://github.com/zubeyiro"
+          },
+          {
+            "name": "Antonio Ivanovski",
+            "link": "https://github.com/toteto"
+          },
+          {
+            "name": "Nathan Sorochan",
+            "link": "https://x.com/nathansorochan"
+          },
+          {
+            "name": "Tom Sargent",
+            "link": "https://x.com/expensive_jpeg"
+          },
+          {
+            "name": "Becky Prunty",
+            "link": "https://www.linkedin.com/in/becky-prunty-b93406a9/"
+          }
+        ]
+      },
+      "links": {
+        "web": "https://mailchain.com/",
+        "github": "https://github.com/mailchain",
+        "whitepaper": "https://mailchain.com/papers/mailchain-whitepaper",
+        "docs": "https://docs.mailchain.com/",
+        "blog": "https://medium.com/@mailchain",
+        "twitter": "https://x.com/Mailchain_xyz",
+        "lens": "https://hey.xyz/u/mailchain",
+        "farcaster": "https://warpcast.com/mailchain"
+      },
+      "sunset": false,
+      "blockchain_features": {
+        "opensource": true,
+        "asset_custody_type": "non-custody",
+        "p2p": true
+      },
+      "privacy_policy": {
+        "defined": true,
+        "link": "https://mailchain.com/terms"
+      },
+      "default_privacy": true,
+      "tracebility": {
+        "kyc": false,
+        "sign_in_type_requirments": "wallet"
+      },
+      "third_party_dependency": false,
+      "compliance": false,
+      "usecases": [
+        "dapps"
+      ],
+      "have_token": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/mailchain/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "ivpn",
+      "name": "IVPN",
+      "categories": [
+        "applications"
+      ],
+      "description": "Audited, privacy focused VPN service.",
+      "team": {
+        "anonymous": false,
+        "teammembers": [
+          {
+            "name": "Nicholas Pestell",
+            "role": "CEO",
+            "link": "https://github.com/cipheromega"
+          },
+          {
+            "name": "Edward De",
+            "role": "Technical Support Lead",
+            "link": "https://www.linkedin.com/in/edward-de-91793b163/"
+          },
+          {
+            "name": "Iain Douglas",
+            "link": "https://github.com/Iain-ivpn"
+          },
+          {
+            "name": "Gorka Pernas",
+            "role": "Senior QA Engineer",
+            "link": "https://github.com/gorkapernas"
+          },
+          {
+            "name": "Natanael Rodriguez",
+            "link": "https://github.com/nathanrod"
+          },
+          {
+            "name": "Juraj Hilje",
+            "role": "Dev",
+            "link": "https://github.com/jurajhilje"
+          },
+          {
+            "name": "Alexandr Stelnykovych",
+            "role": "Dev",
+            "link": "https://github.com/stenya"
+          },
+          {
+            "name": "Jordan Sullivan",
+            "link": "https://github.com/jordan-ivpn"
+          }
+        ]
+      },
+      "links": {
+        "web": "https://www.ivpn.net/en/",
+        "github": "https://github.com/ivpn",
+        "blog": "https://www.ivpn.net/en/blog/",
+        "twitter": "https://x.com/ivpnnet"
+      },
+      "project_status": {
+        "live_status": true,
+        "version": "Mainnet",
+        "testnet": false,
+        "mainnet": true
+      },
+      "have_token": false,
+      "usecases": [
+        "vpn"
+      ],
+      "third_party_dependency": false
+    },
+    {
+      "id": "exabits",
+      "name": "Exabits",
+      "categories": [
+        "applications"
+      ],
+      "description": "Simplified Access to the Currency of the Future ",
+      "team": {
+        "anonymous": true
+      },
+      "links": {
+        "web": "https://www.exabits.ai/",
+        "docs": "https://docs.exabits.ai/introduction/what-is-exabits",
+        "blog": "https://blog.exabits.ai/",
+        "twitter": "https://x.com/exa_bits",
+        "discord": "https://discord.com/invite/exabits",
+        "telegram": "https://t.me/+D0CulDl9udZjMWIx"
+      },
+      "have_token": false,
+      "sunset": false,
+      "usecases": [
+        "ai"
+      ],
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/exabits/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "ergo-platform",
+      "name": "Ergo Platform",
+      "categories": [
+        "infrastructure"
+      ],
+      "ecosystem": [
+        "ergo",
+        "btc"
+      ],
+      "description": "Ergo is the next-gen smart contract platform! Bringing economic freedom to ordinary people through decentralized financial tools",
+      "team": {
+        "anonymous": false,
+        "teammembers": [
+          {
+            "name": "Alex Chepurnoy",
+            "link": "https://x.com/chepurnoy"
+          },
+          {
+            "name": "qx",
+            "link": "https://x.com/qx_ergo"
+          }
+        ]
+      },
+      "links": {
+        "web": "https://ergoplatform.org/en/",
+        "github": "https://github.com/ergoplatform",
+        "whitepaper": "https://storage.googleapis.com/ergo-cms-media/Advanced_Ergo_Script_Tutorial_70ed6feddf/Advanced_Ergo_Script_Tutorial_70ed6feddf.pdf",
+        "docs": "https://docs.ergoplatform.com/",
+        "blog": "https://ergoplatform.org/en/blog/",
+        "forum": "https://www.ergoforum.org/",
+        "twitter": "https://x.com/ergo_platform",
+        "telegram": "https://t.me/Ergo_Chats",
+        "discord": "https://discord.com/invite/ergo-platform-668903786361651200"
+      },
+      "sunset": false,
+      "tokens": [
+        {
+          "name": "Ergo Token",
+          "symbol": "$ERG",
+          "network": "Ergochain",
+          "token_link": "https://www.coingecko.com/en/coins/ergo"
+        }
+      ],
+      "blockchain_features": {
+        "opensource": true,
+        "p2p": false,
+        "asset_custody_type": "non-custody"
+      },
+      "privacy_policy": {
+        "defined": true,
+        "link": "https://ergoplatform.org/en/privacy-policy/"
+      },
+      "default_privacy": true,
+      "tracebility": {
+        "kyc": false,
+        "sign_in_type_requirments": "wallet"
+      },
+      "third_party_dependency": false,
+      "compliance": false,
+      "audits": [
+        {
+          "name": "Jean-Philipee Aumasson",
+          "link": "https://www.aumasson.jp/",
+          "time": "2019-12"
+        }
+      ],
+      "usecases": [
+        "infrastructure"
+      ],
+      "have_token": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/ergo-platform/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "deguard",
+      "name": "DeGuard",
+      "categories": [
+        "applications"
+      ],
+      "description": "Provide utimate privacy based on web3",
+      "team": {
+        "anonymous": false,
+        "teammembers": [
+          {
+            "name": "Niktim",
+            "link": "https://x.com/Crypto_Niktim"
+          }
+        ]
+      },
+      "links": {
+        "web": "https://deguard.io/",
+        "github": "https://github.com/deguardvpn",
+        "docs": "https://docs.deguard.io/",
+        "twitter": "https://x.com/DeGuardVPN",
+        "discord": "https://discord.com/invite/agv3a9wGUn",
+        "telegram": "https://t.me/DeGuardVPN"
+      },
+      "project_status": {
+        "live_status": true,
+        "version": "Mainnet",
+        "testnet": false,
+        "mainnet": true
+      },
+      "have_token": false,
+      "usecases": [
+        "vpn"
+      ],
+      "third_party_dependency": false
+    },
+    {
+      "id": "denet",
+      "name": "DeNet",
+      "categories": [
+        "applications"
+      ],
+      "ecosystem": [
+        "polygon"
+      ],
+      "description": "Decentralized Storage Protocol for Web3 services ",
+      "team": {
+        "anonymous": false,
+        "teammembers": [
+          {
+            "name": "Denis Shelestov",
+            "link": "https://x.com/djdeniro1"
+          },
+          {
+            "name": "Daniil Maslov",
+            "link": "https://x.com/tttcrp"
+          }
+        ]
+      },
+      "links": {
+        "web": "https://denet.pro/",
+        "github": "https://github.com/denetpro",
+        "doc": "https://docs.denet.pro/",
+        "blog": "https://medium.com/denetpro",
+        "twitter": "https://x.com/DeNetPro",
+        "telegram": "https://t.me/denetnews",
+        "discord": "https://discord.com/invite/PSnjPCq4x5"
+      },
+      "sunset": false,
+      "tokens": [
+        {
+          "name": "DeNet File Token",
+          "symbol": "$DE",
+          "network": "Polygon",
+          "contract_address": "0x081ec4c0e30159c8259bad8f4887f83010a681dc",
+          "token_link": "https://polygonscan.com/token/0x081ec4c0e30159c8259bad8f4887f83010a681dc"
+        }
+      ],
+      "blockchain_features": {
+        "opensource": true,
+        "asset_custody_type": "non-custody",
+        "p2p": false
+      },
+      "privacy_policy": {
+        "defined": false
+      },
+      "default_privacy": true,
+      "tracebility": {
+        "kyc": false
+      },
+      "compliance": false,
+      "storage": {
+        "decentralized": true
+      },
+      "usecases": [
+        "storage"
+      ],
+      "have_token": false,
+      "third_party_dependency": false
+    },
+    {
+      "id": "dechat",
+      "name": "DeChat",
+      "categories": [
+        "social-and-communications"
+      ],
+      "description": "open and secure web3 communications protocol that powers decentralized user interactions",
+      "team": {
+        "anonymous": false,
+        "teammembers": [
+          {
+            "name": "JAMES I. RADFORD",
+            "role": "CEO",
+            "link": "https://www.linkedin.com/in/james-r-aa8989165/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
+          },
+          {
+            "name": "ANDY DEMETRIOU",
+            "role": "CMO",
+            "link": "https://www.linkedin.com/in/andy-demetriou-a57778177/"
+          },
+          {
+            "name": "DANIEL DRESCHER",
+            "role": "COO",
+            "link": "https://www.linkedin.com/in/danieldrescher/"
+          }
+        ]
+      },
+      "links": {
+        "web": "https://www.dechat.io/home",
+        "docs": "https://dechat.gitbook.io/dechat",
+        "twitter": "https://x.com/dechat_io",
+        "discord": "https://discord.com/invite/dechat",
+        "telegram": "https://t.me/dechat_community"
+      },
+      "project_status": {
+        "live_status": true,
+        "version": "Testnet",
+        "testnet": true,
+        "mainnet": false
+      },
+      "have_token": false,
+      "token_link": "https://bscscan.com/token/0xd69ee2e508363fed57f89917d5ca03e715ee5519",
+      "tokens": [
+        {
+          "name": "DeChat Token",
+          "symbol": "$DeChat",
+          "network": "BSC",
+          "contract_address": "0xD69ee2e508363FEd57f89917D5ca03e715ee5519"
+        }
+      ],
+      "usecases": [
+        "messaging"
+      ],
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/dechat/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "cursive",
+      "name": "Cursive",
+      "categories": [
+        "applications"
+      ],
+      "description": "A cryptography lab focused on human-first applications of signed data.",
+      "links": {
+        "web": "https://www.cursive.team/",
+        "github": "https://github.com/cursive-team",
+        "blog": "https://www.cursive.team/blog",
+        "twitter": "https://x.com/cursive_team",
+        "telegram": "https://t.me/+z5REVOBXp_hmNDIx"
+      },
+      "have_token": false,
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/cursive/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "coti",
+      "name": "Coti",
+      "categories": [
+        "infrastructure"
+      ],
+      "description": "EVM L2 solving blockchain privacy with Garbled Circuits",
+      "team": {
+        "anonymous": false,
+        "teammembers": [
+          {
+            "name": "Joshua Maddox",
+            "role": "CEPO",
+            "link": "https://x.com/JoshuaBMaddox"
+          },
+          {
+            "name": "Shaf Bar-Geffen",
+            "role": "CEO",
+            "link": "https://x.com/shahafbg"
+          }
+        ]
+      },
+      "links": {
+        "web": "https://coti.io/",
+        "github": "https://github.com/coti-io",
+        "docs": "https://docs.coti.io/coti-v2-documentation",
+        "whitepaper": "https://coti.io/files/coti_v2_whitepaper.pdf",
+        "blog": "https://coti.io/blog",
+        "twitter": "https://x.com/COTInetwork",
+        "discord": "https://discord.com/invite/wfAQfbc3Df",
+        "telegram": "https://t.me/COTInetwork"
+      },
+      "project_status": {
+        "live_status": true,
+        "version": "Testnet",
+        "testnet": true,
+        "mainnet": false
+      },
+      "have_token": false,
+      "token_link": "https://etherscan.io/token/0xddb3422497e61e13543bea06989c0789117555c5",
+      "tokens": [
+        {
+          "name": "CotiToken",
+          "symbol": "$COTI",
+          "network": "Ethereum",
+          "contract_address": "0xDDB3422497E61e13543BeA06989C0789117555c5"
+        }
+      ],
+      "usecases": [
+        "eth-layer-2"
+      ],
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/coti/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "codex",
+      "name": "Codex",
+      "categories": [
+        "applications"
+      ],
+      "ecosystem": [
+        "ethereum"
+      ],
+      "description": "Codex is a durable, decentralised data storage protocol, created so the world community can preserve its most important knowledge without risk of censorship.",
+      "team": {
+        "anonymous": false
+      },
+      "links": {
+        "web": "https://codex.storage",
+        "github": "https://github.com/codex-storage",
+        "docs": "https://docs.codex.storage",
+        "forum": "https://forum.vac.dev/",
+        "blog": "https://blog.codex.storage",
+        "twitter": "https://x.com/codex_storage",
+        "discord": "https://discord.com/invite/codex-storage",
+        "farcaster": "https://farcaster/@codexstorage"
+      },
+      "project_status": {
+        "live_status": true,
+        "version": "Codex Devnet",
+        "testnet": false,
+        "mainnet": false
+      },
+      "tracebility": {
+        "kyc": false
+      },
+      "usecases": [
+        "storage"
+      ],
+      "have_token": false,
+      "third_party_dependency": false
+    },
+    {
+      "id": "chainback",
+      "name": "Chainback",
+      "categories": [
+        "applications"
+      ],
+      "ecosystem": [
+        "ethereum",
+        "solana",
+        "bsc",
+        "polygon"
+      ],
+      "description": "Ultimate Cloud Computing & File Storage",
+      "team": {
+        "anonymous": true
+      },
+      "links": {
+        "web": "https://chainback.org/",
+        "docs": "https://chainback.gitbook.io/chainback-whitepaper",
+        "block_explorer": "https://app.chainback.org/explorer",
+        "whitepaper": "https://drive.google.com/file/d/1wtzmijhSoJJmIO5S2PRDH3-rV3IH93xv/view",
+        "blog": "https://medium.com/@chainback.archive",
+        "twitter": "https://x.com/ChainbackWeb3",
+        "telegram": "https://t.me/chainback_archive"
+      },
+      "sunset": false,
+      "tokens": [
+        {
+          "name": "ARCHIVE Token",
+          "symbol": "$ARCHIVE",
+          "network": "Ethereum",
+          "contract_address": "0xC7f950271d118A5bdF250dFfc39128DCCED8472C",
+          "token_link": "https://etherscan.io/token/0xC7f950271d118A5bdF250dFfc39128DCCED8472C"
+        }
+      ],
+      "funding": {
+        "name": "Summus Capital",
+        "link": "https://summus.capital/"
+      },
+      "blockchain_features": {
+        "opensource": false,
+        "asset_custody_type": "non-custody",
+        "p2p": true
+      },
+      "privacy_policy": {
+        "defined": true,
+        "link": "https://chainback.gitbook.io/chainback-whitepaper/company-policy/privacy-policy"
+      },
+      "default_privacy": true,
+      "tracebility": {
+        "kyc": false,
+        "sign_in_type_requirments": "wallet"
+      },
+      "third_party_dependency": false,
+      "compliance": false,
+      "storage": {
+        "decentralized": true
+      },
+      "usecases": [
+        "storage"
+      ],
+      "have_token": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/chainback/logo.png"
+        }
+      ]
+    },
+    {
+      "id": "chainport",
+      "name": "ChainPort",
+      "categories": [
+        "infrastructure"
+      ],
+      "ecosystem": [
+        "ethereum",
+        "arbitrum",
+        "optimism",
+        "base",
+        "bnb",
+        "fantom",
+        "polygon",
+        "avalanche"
+      ],
+      "description": "next-gen custodian secure bridge",
+      "team": {
+        "anonymous": false,
+        "teammembers": [
+          {
+            "name": "DcentraLab",
+            "link": "https://x.com/DcentraLab"
+          }
+        ]
+      },
+      "links": {
+        "web": "https://www.chainport.io/private-bridge",
+        "github": "https://github.com/chainport",
+        "docs": "https://docs.chainport.io/",
+        "blog": "https://medium.com/chainport",
+        "twitter": "https://x.com/chain_port",
+        "telegram": "https://t.me/chainport_news"
+      },
+      "project_status": {
+        "live_status": true,
+        "version": "Mainnet",
+        "testnet": false,
+        "mainnet": true
+      },
+      "have_token": false,
+      "token_link": "https://etherscan.io/token/0x104f3152d8ebfc3f679392977356962ff36566ac",
+      "tokens": [
+        {
+          "name": "PORTX Token",
+          "symbol": "$PORTX",
+          "network": "Ethereum",
+          "contract_address": "0x104f3152d8ebfc3f679392977356962ff36566ac"
+        }
+      ],
+      "usecases": [
+        "bridge"
+      ],
+      "third_party_dependency": false,
+      "logos": [
+        {
+          "file": "logo.png",
+          "ext": "png",
+          "url": "https://explorer-data.web3privacy.info/assets/projects/chainport/logo.png"
+        }
+      ]
     }
   ],
   "assets": [
@@ -18360,30 +18287,87 @@
       "name": "Other"
     }
   ],
-  "features": [
+  "categories": [
     {
-      "id": "no-compliance",
-      "name": "No compliance"
+      "id": "infrastructure",
+      "name": "Infrastructure",
+      "usecases": [
+        "node",
+        "rpc-provider",
+        "infrastructure",
+        "eth-layer-2",
+        "research-and-development",
+        "computing",
+        "storage",
+        "data-management",
+        "other"
+      ]
     },
     {
-      "id": "non-kyc",
-      "name": "Non-KYC"
+      "id": "social-and-communications",
+      "name": "Social & Communications",
+      "usecases": [
+        "dao",
+        "nft-community",
+        "alliances",
+        "messaging",
+        "events",
+        "other"
+      ]
     },
     {
-      "id": "private-by-default",
-      "name": "Private by default"
+      "id": "hardware",
+      "name": "Hardware",
+      "usecases": [
+        "wallets",
+        "node",
+        "other"
+      ]
     },
     {
-      "id": "non-custodial",
-      "name": "Non custodial"
+      "id": "applications",
+      "name": "Applications",
+      "usecases": [
+        "browser",
+        "vpn",
+        "did",
+        "operation-systems",
+        "dapps",
+        "wallets",
+        "ai",
+        "kyc-solution",
+        "other"
+      ]
     },
     {
-      "id": "opensource",
-      "name": "Opensource"
+      "id": "defi",
+      "name": "Defi",
+      "usecases": [
+        "bridge",
+        "defi",
+        "mixing-service",
+        "mixing-management",
+        "currency",
+        "other"
+      ]
     },
     {
-      "id": "live-on-mainnet",
-      "name": "Live on Mainnet"
+      "id": "archived-projects",
+      "name": "Archived projects",
+      "usecases": [
+        "legacy-projects",
+        "deprecated-systems"
+      ]
+    }
+  ],
+  "custodys": [
+    {
+      "id": "non-custody",
+      "name": "Non-custody"
+    },
+    {
+      "id": "custodial",
+      "name": "Custodial"
     }
   ],
   "ecosystems": [
@@ -18417,126 +18401,52 @@
       "name": "Other"
     }
   ],
-  "usecases": [
+  "features": [
     {
-      "id": "wallets",
-      "name": "Wallets"
+      "id": "no-compliance",
+      "name": "No compliance"
     },
     {
-      "id": "defi",
-      "name": "DeFi"
+      "id": "non-kyc",
+      "name": "Non-KYC"
     },
     {
-      "id": "currency",
-      "name": "Currency"
+      "id": "private-by-default",
+      "name": "Private by default"
     },
     {
-      "id": "infrastructure",
-      "name": "Infrastructure"
+      "id": "non-custodial",
+      "name": "Non custodial"
     },
     {
-      "id": "computing",
-      "name": "Computing"
+      "id": "opensource",
+      "name": "Opensource"
     },
     {
-      "id": "eth-layer-2",
-      "name": "Ethereum Layer 2"
+      "id": "live-on-mainnet",
+      "name": "Live on Mainnet"
+    }
+  ],
+  "phases": [
+    {
+      "id": "mainnet",
+      "name": "Mainnet"
     },
     {
-      "id": "hardware",
-      "name": "Hardware"
+      "id": "testnet",
+      "name": "Testnet"
     },
     {
-      "id": "vpn",
-      "name": "VPN"
+      "id": "alpha",
+      "name": "Alpha"
     },
     {
-      "id": "did",
-      "name": "DID"
+      "id": "beta",
+      "name": "Beta"
     },
     {
-      "id": "dao",
-      "name": "DAO"
-    },
-    {
-      "id": "bridge",
-      "name": "Bridge"
-    },
-    {
-      "id": "messaging",
-      "name": "Messaging"
-    },
-    {
-      "id": "browser",
-      "name": "browser"
-    },
-    {
-      "id": "kyc-solution",
-      "name": "KYC solution"
-    },
-    {
-      "id": "rpc-provider",
-      "name": "RPC provider"
-    },
-    {
-      "id": "storage",
-      "name": "Storage"
-    },
-    {
-      "id": "dapps",
-      "name": "Dapps"
-    },
-    {
-      "id": "operation-systems",
-      "name": "Operation systems"
-    },
-    {
-      "id": "nft-community",
-      "name": "NFT community"
-    },
-    {
-      "id": "alliances",
-      "name": "Allicanes"
-    },
-    {
-      "id": "mixing-management",
-      "name": "Mixing management"
-    },
-    {
-      "id": "data-management",
-      "name": "Data management"
-    },
-    {
-      "id": "donate-charity",
-      "name": "Donate / Charity"
-    },
-    {
-      "id": "research-and-development",
-      "name": "Research and development"
-    },
-    {
-      "id": "mixing-service",
-      "name": "Mixing service"
-    },
-    {
-      "id": "node",
-      "name": "Node"
-    },
-    {
-      "id": "events",
-      "name": "Events"
-    },
-    {
-      "id": "ai",
-      "name": "AI (Artificial Inteligence)"
-    },
-    {
-      "id": "sunset",
-      "name": "Sunset"
-    },
-    {
-      "id": "other",
-      "name": "Other"
+      "id": "mvp",
+      "name": "MVP"
     }
   ],
   "ranks": [
@@ -18787,38 +18697,6 @@
       ]
     }
   ],
-  "custodys": [
-    {
-      "id": "non-custody",
-      "name": "Non-custody"
-    },
-    {
-      "id": "custodial",
-      "name": "Custodial"
-    }
-  ],
-  "phases": [
-    {
-      "id": "mainnet",
-      "name": "Mainnet"
-    },
-    {
-      "id": "testnet",
-      "name": "Testnet"
-    },
-    {
-      "id": "alpha",
-      "name": "Alpha"
-    },
-    {
-      "id": "beta",
-      "name": "Beta"
-    },
-    {
-      "id": "mvp",
-      "name": "MVP"
-    }
-  ],
   "requirements": [
     {
       "id": "wallet",
@@ -18831,6 +18709,128 @@
     {
       "id": "seed",
       "name": "Seed"
+    }
+  ],
+  "usecases": [
+    {
+      "id": "wallets",
+      "name": "Wallets"
+    },
+    {
+      "id": "defi",
+      "name": "DeFi"
+    },
+    {
+      "id": "currency",
+      "name": "Currency"
+    },
+    {
+      "id": "infrastructure",
+      "name": "Infrastructure"
+    },
+    {
+      "id": "computing",
+      "name": "Computing"
+    },
+    {
+      "id": "eth-layer-2",
+      "name": "Ethereum Layer 2"
+    },
+    {
+      "id": "hardware",
+      "name": "Hardware"
+    },
+    {
+      "id": "vpn",
+      "name": "VPN"
+    },
+    {
+      "id": "did",
+      "name": "DID"
+    },
+    {
+      "id": "dao",
+      "name": "DAO"
+    },
+    {
+      "id": "bridge",
+      "name": "Bridge"
+    },
+    {
+      "id": "messaging",
+      "name": "Messaging"
+    },
+    {
+      "id": "browser",
+      "name": "browser"
+    },
+    {
+      "id": "kyc-solution",
+      "name": "KYC solution"
+    },
+    {
+      "id": "rpc-provider",
+      "name": "RPC provider"
+    },
+    {
+      "id": "storage",
+      "name": "Storage"
+    },
+    {
+      "id": "dapps",
+      "name": "Dapps"
+    },
+    {
+      "id": "operation-systems",
+      "name": "Operation systems"
+    },
+    {
+      "id": "nft-community",
+      "name": "NFT community"
+    },
+    {
+      "id": "alliances",
+      "name": "Allicanes"
+    },
+    {
+      "id": "mixing-management",
+      "name": "Mixing management"
+    },
+    {
+      "id": "data-management",
+      "name": "Data management"
+    },
+    {
+      "id": "donate-charity",
+      "name": "Donate / Charity"
+    },
+    {
+      "id": "research-and-development",
+      "name": "Research and development"
+    },
+    {
+      "id": "mixing-service",
+      "name": "Mixing service"
+    },
+    {
+      "id": "node",
+      "name": "Node"
+    },
+    {
+      "id": "events",
+      "name": "Events"
+    },
+    {
+      "id": "ai",
+      "name": "AI (Artificial Inteligence)"
+    },
+    {
+      "id": "sunset",
+      "name": "Sunset"
+    },
+    {
+      "id": "other",
+      "name": "Other"
     }
   ]
 }
