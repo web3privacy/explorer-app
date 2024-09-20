@@ -89,6 +89,8 @@
       "usecases": [
         "research-and-development"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -110,6 +112,8 @@
       "usecases": [
         "mixing-service"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -135,6 +139,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -158,6 +164,8 @@
       "usecases": [
         "rpc-provider"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -180,6 +188,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -206,6 +216,8 @@
       "usecases": [
         "ai"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -239,7 +251,7 @@
         "testnet": false,
         "mainnet": true
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://www.coingecko.com/en/coins/adamant-messenger",
       "tokens": [
         {
@@ -251,6 +263,7 @@
       "usecases": [
         "messaging"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -289,6 +302,8 @@
       "usecases": [
         "did"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -312,6 +327,8 @@
         "twitter": "https://x.com/ArciumHQ",
         "discord": "https://discord.com/invite/arcium"
       },
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -328,7 +345,10 @@
       ],
       "description": "An open-source system for managing privacy-preserving groups of anonymous individuals.",
       "project_status": {
-        "version": "testnet"
+        "version": "testnet",
+        "live_status": true,
+        "mainnet": false,
+        "testnet": true
       },
       "team": {
         "anonymous": true
@@ -342,6 +362,8 @@
       "usecases": [
         "did"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -387,7 +409,7 @@
         "testnet": false,
         "mainnet": true
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://etherscan.io/address/0x0a44a7ccea34a7563ba1d45a5f757d0b02281124",
       "tokens": [
         {
@@ -400,6 +422,7 @@
       "usecases": [
         "bridge"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -435,6 +458,7 @@
       "usecases": [
         "browser"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -483,7 +507,7 @@
         "testnet": false,
         "mainnet": true
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://etherscan.io/token/0x104f3152d8ebfc3f679392977356962ff36566ac",
       "tokens": [
         {
@@ -496,6 +520,7 @@
       "usecases": [
         "bridge"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -545,14 +570,15 @@
       },
       "blockchain_features": {
         "opensource": false,
-        "asset_custody_type": "non-custody"
+        "asset_custody_type": "non-custody",
+        "p2p": true
       },
       "privacy_policy": {
         "defined": true,
         "link": "https://chainback.gitbook.io/chainback-whitepaper/company-policy/privacy-policy"
       },
       "default_privacy": true,
-      "traceability": {
+      "tracebility": {
         "kyc": false,
         "sign_in_type_requirments": "wallet"
       },
@@ -564,6 +590,7 @@
       "usecases": [
         "storage"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -584,7 +611,7 @@
         "twitter": "https://x.com/Cloak_xyz",
         "telegram": "https://t.me/cloakai"
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://etherscan.io/token/0x13f7b4581df403542286563c2f762077b2a368da",
       "tokens": [
         {
@@ -598,6 +625,7 @@
       "usecases": [
         "ai"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -635,12 +663,14 @@
         "testnet": false,
         "mainnet": false
       },
-      "traceability": {
+      "tracebility": {
         "kyc": false
       },
       "usecases": [
         "storage"
-      ]
+      ],
+      "have_token": false,
+      "third_party_dependency": false
     },
     {
       "id": "coti",
@@ -680,7 +710,7 @@
         "testnet": true,
         "mainnet": false
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://etherscan.io/token/0xddb3422497e61e13543bea06989c0789117555c5",
       "tokens": [
         {
@@ -693,6 +723,7 @@
       "usecases": [
         "eth-layer-2"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -715,6 +746,8 @@
         "twitter": "https://x.com/cursive_team",
         "telegram": "https://t.me/+z5REVOBXp_hmNDIx"
       },
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -763,7 +796,7 @@
         "testnet": true,
         "mainnet": false
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://bscscan.com/token/0xd69ee2e508363fed57f89917d5ca03e715ee5519",
       "tokens": [
         {
@@ -776,6 +809,7 @@
       "usecases": [
         "messaging"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -817,7 +851,8 @@
       "have_token": false,
       "usecases": [
         "vpn"
-      ]
+      ],
+      "third_party_dependency": false
     },
     {
       "id": "denet",
@@ -863,13 +898,14 @@
       ],
       "blockchain_features": {
         "opensource": true,
-        "asset_custody_type": "non-custody"
+        "asset_custody_type": "non-custody",
+        "p2p": false
       },
       "privacy_policy": {
         "defined": false
       },
       "default_privacy": true,
-      "traceability": {
+      "tracebility": {
         "kyc": false
       },
       "compliance": false,
@@ -878,7 +914,9 @@
       },
       "usecases": [
         "storage"
-      ]
+      ],
+      "have_token": false,
+      "third_party_dependency": false
     },
     {
       "id": "ergo-platform",
@@ -926,6 +964,7 @@
       ],
       "blockchain_features": {
         "opensource": true,
+        "p2p": false,
         "asset_custody_type": "non-custody"
       },
       "privacy_policy": {
@@ -933,7 +972,7 @@
         "link": "https://ergoplatform.org/en/privacy-policy/"
       },
       "default_privacy": true,
-      "traceability": {
+      "tracebility": {
         "kyc": false,
         "sign_in_type_requirments": "wallet"
       },
@@ -949,6 +988,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -980,6 +1020,7 @@
       "usecases": [
         "ai"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -1001,6 +1042,8 @@
         "twitter": "https://x.com/FairMath",
         "discord": "https://discord.com/invite/NfhXwyr9M5"
       },
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -1025,6 +1068,8 @@
         "twitter": "https://x.com/FhenixIO",
         "discord": "https://discord.com/invite/FuVgxrvJMY"
       },
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -1086,13 +1131,14 @@
       ],
       "blockchain_features": {
         "opensource": true,
-        "asset_custody_type": "non-custody"
+        "asset_custody_type": "non-custody",
+        "p2p": false
       },
       "privacy_policy": {
         "defined": false
       },
       "default_privacy": true,
-      "traceability": {
+      "tracebility": {
         "kyc": false
       },
       "third_party_dependency": false,
@@ -1107,6 +1153,7 @@
       "usecases": [
         "did"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -1179,7 +1226,8 @@
       "have_token": false,
       "usecases": [
         "vpn"
-      ]
+      ],
+      "third_party_dependency": false
     },
     {
       "id": "inco",
@@ -1201,6 +1249,8 @@
         "discord": "https://discord.com/invite/fnKZp2qHPQ",
         "telgram": "https://t.me/inconetwork"
       },
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -1249,6 +1299,7 @@
       "usecases": [
         "eth-layer-2"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -1290,7 +1341,7 @@
         "testnet": false,
         "mainnet": true
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://kintoscan.io/token/0x010700808D59d2bb92257fCafACfe8e5bFF7aB87?chainid=7887",
       "tokens": [
         {
@@ -1303,6 +1354,7 @@
       "usecases": [
         "eth-layer-2"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -1383,14 +1435,15 @@
       "sunset": false,
       "blockchain_features": {
         "opensource": true,
-        "asset_custody_type": "non-custody"
+        "asset_custody_type": "non-custody",
+        "p2p": true
       },
       "privacy_policy": {
         "defined": true,
         "link": "https://mailchain.com/terms"
       },
       "default_privacy": true,
-      "traceability": {
+      "tracebility": {
         "kyc": false,
         "sign_in_type_requirments": "wallet"
       },
@@ -1399,6 +1452,7 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -1445,13 +1499,14 @@
       ],
       "blockchain_features": {
         "opensource": true,
-        "asset_custody_type": "non-custody"
+        "asset_custody_type": "non-custody",
+        "p2p": true
       },
       "privacy_policy": {
         "defined": false
       },
       "default_privacy": true,
-      "traceability": {
+      "tracebility": {
         "kyc": false
       },
       "third_party_dependency": false,
@@ -1459,6 +1514,7 @@
       "usecases": [
         "computing"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -1496,6 +1552,7 @@
       "usecases": [
         "bridge"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -1521,7 +1578,7 @@
         "facebook": "https://www.facebook.com/nuco.cloud.distributedcloudcomputing/",
         "telegram": "https://t.me/officialnucocloudgroup"
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://etherscan.io/token/0xE0C8b298db4cfFE05d1bEA0bb1BA414522B33C1B",
       "tokens": [
         {
@@ -1535,6 +1592,7 @@
       "usecases": [
         "ai"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -1557,7 +1615,7 @@
         "discord": "https://discord.com/invite/opseccloud",
         "telegram": "https://t.me/OpSecCloud"
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://etherscan.io/token/0x6A7eFF1e2c355AD6eb91BEbB5ded49257F3FED98",
       "tokens": [
         {
@@ -1571,6 +1629,7 @@
       "usecases": [
         "ai"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -1599,6 +1658,8 @@
       "usecases": [
         "ai"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -1659,13 +1720,14 @@
       ],
       "blockchain_features": {
         "opensource": true,
-        "asset_custody_type": "non-custody"
+        "asset_custody_type": "non-custody",
+        "p2p": false
       },
       "privacy_policy": {
         "defined": false
       },
       "default_privacy": true,
-      "traceability": {
+      "tracebility": {
         "kyc": false,
         "sign_in_type_requirments": "wallet"
       },
@@ -1674,6 +1736,7 @@
       "usecases": [
         "ai"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -1756,14 +1819,15 @@
       ],
       "blockchain_features": {
         "opensource": true,
-        "asset_custody_type": "non-custody"
+        "asset_custody_type": "non-custody",
+        "p2p": true
       },
       "privacy_policy": {
         "defined": true,
         "link": "https://presearch.com/privacy"
       },
       "default_privacy": true,
-      "traceability": {
+      "tracebility": {
         "kyc": false,
         "sign_in_type_requirments": "wallet"
       },
@@ -1781,7 +1845,8 @@
       },
       "usecases": [
         "browser"
-      ]
+      ],
+      "have_token": false
     },
     {
       "id": "privasea",
@@ -1800,6 +1865,8 @@
         "discord": "https://discord.com/invite/yRtQGvWkvG",
         "telegram": "https://t.me/Privasea_ai"
       },
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -1841,14 +1908,15 @@
       "sunset": false,
       "blockchain_features": {
         "opensource": true,
-        "asset_custody_type": "non-custody"
+        "asset_custody_type": "non-custody",
+        "p2p": true
       },
       "privacy_policy": {
         "defined": true,
         "link": "https://www.privy.io/privacy-policy"
       },
       "default_privacy": true,
-      "traceability": {
+      "tracebility": {
         "kyc": false,
         "sign_in_type_requirments": "wallet"
       },
@@ -1864,6 +1932,7 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -1917,7 +1986,8 @@
       "have_token": false,
       "usecases": [
         "hardware"
-      ]
+      ],
+      "third_party_dependency": false
     },
     {
       "id": "rido",
@@ -1942,6 +2012,7 @@
       "usecases": [
         "ai"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2015,20 +2086,22 @@
       },
       "blockchain_features": {
         "opensource": true,
-        "asset_custody_type": "non-custody"
+        "asset_custody_type": "non-custody",
+        "p2p": true
       },
       "privacy_policy": {
         "defined": false
       },
       "default_privacy": true,
-      "traceability": {
+      "tracebility": {
         "kyc": false
       },
       "third_party_dependency": false,
       "compliance": false,
       "usecases": [
         "ai"
-      ]
+      ],
+      "have_token": false
     },
     {
       "id": "rotki",
@@ -2066,14 +2139,15 @@
       "sunset": false,
       "blockchain_features": {
         "opensource": true,
-        "asset_custody_type": "non-custody"
+        "asset_custody_type": "non-custody",
+        "p2p": true
       },
       "privacy_policy": {
         "defined": true,
         "link": "https://rotki.com/privacy-policy"
       },
       "default_privacy": true,
-      "traceability": {
+      "tracebility": {
         "kyc": false,
         "sign_in_type_requirments": "wallet"
       },
@@ -2082,6 +2156,7 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2123,14 +2198,15 @@
       "sunset": false,
       "blockchain_features": {
         "opensource": true,
-        "asset_custody_type": "non-custody"
+        "asset_custody_type": "non-custody",
+        "p2p": false
       },
       "privacy_policy": {
         "defined": true,
         "link": "https://www.joinself.com/company/legal"
       },
       "default_privacy": true,
-      "traceability": {
+      "tracebility": {
         "kyc": false
       },
       "third_party_dependency": false,
@@ -2141,6 +2217,7 @@
       "usecases": [
         "did"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2188,14 +2265,15 @@
       ],
       "blockchain_features": {
         "opensource": true,
-        "asset_custody_type": "non-custody"
+        "asset_custody_type": "non-custody",
+        "p2p": false
       },
       "privacy_policy": {
         "defined": true,
         "link": "https://www.sentz.com/privacy-policy"
       },
       "default_privacy": true,
-      "traceability": {
+      "tracebility": {
         "kyc": false,
         "sign_in_type_requirments": "wallet"
       },
@@ -2213,6 +2291,7 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2244,6 +2323,7 @@
       "usecases": [
         "ai"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2260,7 +2340,9 @@
       ],
       "description": "Protocol enabling centralized exchanges to prove solvency without compromising private information.",
       "project_status": {
-        "live_status": true
+        "live_status": true,
+        "testnet": false,
+        "mainnet": false
       },
       "team": {
         "anonymous": true
@@ -2277,6 +2359,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2298,6 +2382,8 @@
         "twitter": "https://x.com/sunscreentech",
         "discord": "https://discord.com/invite/WHCs6jNNDS"
       },
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2328,6 +2414,7 @@
       "usecases": [
         "ai"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2370,6 +2457,7 @@
       "usecases": [
         "kyc-solution"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2409,12 +2497,15 @@
         "discord": "https://discord.com/invite/gWZW2TANpk"
       },
       "project_status": {
-        "live_status": true
+        "live_status": true,
+        "mainnet": true,
+        "testnet": true
       },
       "have_token": false,
       "usecases": [
         "computing"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2449,7 +2540,7 @@
         "testnet": false,
         "mainnet": true
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://etherscan.io/token/0x4730fb1463a6f1f44aeb45f6c5c422427f37f4d0",
       "tokens": [
         {
@@ -2462,6 +2553,7 @@
       "usecases": [
         "messaging"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2486,6 +2578,8 @@
       "usecases": [
         "ai"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2552,7 +2646,8 @@
       },
       "blockchain_features": {
         "opensource": true,
-        "asset_custody_type": "non-custody"
+        "asset_custody_type": "non-custody",
+        "p2p": false
       },
       "privacy_policy": {
         "defined": false
@@ -2566,6 +2661,7 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2588,6 +2684,8 @@
         "web": "https://www.zama.ai",
         "docs": "https://docs.zama.ai/"
       },
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2617,6 +2715,7 @@
       "usecases": [
         "ai"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2652,6 +2751,7 @@
       "usecases": [
         "nft-community"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2676,10 +2776,11 @@
         "facebook": "https://www.facebook.com/aesirxio",
         "telegram": "https://t.me/aesirx_official_community"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2699,7 +2800,10 @@
         "ethereum"
       ],
       "project_status": {
-        "version": "Mainnet"
+        "version": "Mainnet",
+        "live_status": true,
+        "mainnet": true,
+        "testnet": true
       },
       "links": {
         "web": "https://alaya.network/en",
@@ -2714,6 +2818,8 @@
       "usecases": [
         "computing"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2743,10 +2849,11 @@
         "blog": "https://aleo.org/blog/"
       },
       "project_status": {
-        "live_status": true,
         "version": "Testnet",
+        "open_source": true,
         "testnet": true,
-        "mainnet": false
+        "mainnet": false,
+        "live_status": true
       },
       "technology": {
         "type": "zk-SNARKs",
@@ -2756,6 +2863,7 @@
         ]
       },
       "blockchain_features": {
+        "opensource": true,
         "p2p": true,
         "viewing_key": true,
         "dissapearing_tx": true,
@@ -2776,6 +2884,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2819,6 +2928,8 @@
       "usecases": [
         "computing"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2854,6 +2965,8 @@
       "usecases": [
         "messaging"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2878,10 +2991,11 @@
         "twitter": "https://x.com/AnagolayNet",
         "discord": "https://discord.com/invite/WHe4EuY"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2898,7 +3012,10 @@
       ],
       "description": "An intent-centric, privacy-preserving protocol for decentralized counterparty discovery, solving, and multi-chain atomic settlement",
       "project_status": {
-        "version": "testnet"
+        "version": "testnet",
+        "testnet": true,
+        "mainnet": false,
+        "live_status": true
       },
       "team": {
         "anonymous": false,
@@ -2932,7 +3049,8 @@
         ]
       },
       "blockchain_features": {
-        "p2p": true
+        "p2p": true,
+        "opensource": true
       },
       "storage": {
         "decentralized": true
@@ -2940,6 +3058,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2956,7 +3076,10 @@
       ],
       "description": "Anon Aadhaar is a project that allows individuals to prove their citizenship anonymously. The project provides circuits, an SDK, and demo applications that generate and verify proofs of valid Aadhaar cards, integrating with the PCD framework to support a wide range of applications.",
       "project_status": {
-        "version": "testnet"
+        "version": "testnet",
+        "live_status": false,
+        "mainnet": false,
+        "testnet": true
       },
       "team": {
         "anonymous": true
@@ -2976,6 +3099,8 @@
       "usecases": [
         "did"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -2997,6 +3122,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3020,10 +3147,11 @@
         "blog": "https://www.anonybit.io/blog/",
         "twitter": "https://x.com/Anonybit1"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3045,6 +3173,8 @@
       "usecases": [
         "mixing-service"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3070,6 +3200,8 @@
       "usecases": [
         "dao"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3097,6 +3229,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3119,6 +3253,8 @@
       "usecases": [
         "nft-community"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3170,7 +3306,7 @@
         "blog": "https://arcana.network/blog",
         "whitepaper": "https://www.notion.so/arcananetwork/Arcana-Technical-Docs-a1d7fd0d2970452586c693e4fee14d08"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "XAR"
@@ -3179,6 +3315,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3219,6 +3356,8 @@
       "usecases": [
         "computing"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3244,6 +3383,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3285,6 +3426,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3317,6 +3460,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3341,7 +3486,7 @@
         "github": "https://github.com/automata-network",
         "blog": "https://blog.ata.network/"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "ATA"
@@ -3356,6 +3501,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3392,6 +3538,8 @@
       "usecases": [
         "hardware"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3420,6 +3568,8 @@
       "usecases": [
         "hardware"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3444,6 +3594,8 @@
       "usecases": [
         "bridge"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3475,6 +3627,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3533,7 +3687,7 @@
       "storage": {
         "decentralized": true
       },
-      "traceability": {
+      "tracebility": {
         "tracked_data": "Chains activity",
         "kyc": false,
         "sign_in_type_requirments": "wallets"
@@ -3556,6 +3710,7 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3592,6 +3747,8 @@
       "usecases": [
         "messaging"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3624,6 +3781,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3653,7 +3812,10 @@
         "beam"
       ],
       "project_status": {
-        "version": "Mainnet"
+        "version": "Mainnet",
+        "live_status": true,
+        "mainnet": true,
+        "testnet": false
       },
       "team": {
         "anonymous": false
@@ -3661,6 +3823,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3700,6 +3864,8 @@
       "usecases": [
         "messaging"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3740,6 +3906,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3765,6 +3933,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3787,7 +3957,7 @@
         "twitter": "https://x.com/BIDSHOP_io",
         "telegram": "https://t.me/BIDSHOP_TG"
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://etherscan.io/token/0xA53e968b8d8a5Be52d66e5BB35d9b6B6B5A5CD2F",
       "tokens": [
         {
@@ -3800,6 +3970,7 @@
       "usecases": [
         "nft-community"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3872,7 +4043,7 @@
       "storage": {
         "decentralized": true
       },
-      "traceability": {
+      "tracebility": {
         "kyc": false,
         "sign_in_type_requirments": "wallet"
       },
@@ -3900,6 +4071,7 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3919,7 +4091,10 @@
         "blackhat"
       ],
       "project_status": {
-        "version": "Mainnet"
+        "version": "Mainnet",
+        "live_status": true,
+        "mainnet": true,
+        "testnet": false
       },
       "links": {
         "web": "https://blackhatco.in",
@@ -3937,6 +4112,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -3980,6 +4157,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4016,6 +4195,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4037,6 +4218,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4059,6 +4242,8 @@
       "usecases": [
         "nft-community"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4096,6 +4281,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4126,6 +4313,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4151,12 +4340,13 @@
       "team": {
         "anonymous": true
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://coinmarketcap.com/currencies/boring-protocol/",
       "sunset": true,
       "usecases": [
         "vpn"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4179,6 +4369,8 @@
       "usecases": [
         "alliances"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4201,11 +4393,15 @@
         "twitter": "https://x.com/bracedotto"
       },
       "project_status": {
-        "live_status": true
+        "live_status": true,
+        "mainnet": true,
+        "testnet": false
       },
       "usecases": [
         "dapps"
-      ]
+      ],
+      "have_token": false,
+      "third_party_dependency": false
     },
     {
       "id": "brave-wallet",
@@ -4240,6 +4436,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4265,6 +4463,8 @@
       "usecases": [
         "browser"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4289,10 +4489,11 @@
         "twitter": "https://x.com/BrightIDProject",
         "discord": "https://discord.com/invite/brightid-596752664906432522"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4315,6 +4516,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png.png",
@@ -4375,7 +4578,7 @@
       "storage": {
         "decentralized": true
       },
-      "traceability": {
+      "tracebility": {
         "tracked_data": "no ( Tor based )",
         "kyc": false,
         "sign_in_type_requirments": "seed"
@@ -4400,6 +4603,7 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4425,6 +4629,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.jpg",
@@ -4461,7 +4667,7 @@
         "web": "https://burstiq.com",
         "twitter": "https://twitter.com/BurstIQ"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "BIQ"
@@ -4475,6 +4681,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4510,6 +4717,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4533,7 +4742,7 @@
         "github": "https://github.com/Manta-Network",
         "blog": "https://mantanetwork.medium.com/"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "KMA"
@@ -4548,6 +4757,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4580,6 +4790,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4613,6 +4825,8 @@
       "usecases": [
         "operation-systems"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4638,7 +4852,8 @@
       },
       "project_status": {
         "live_status": false,
-        "testnet": true
+        "testnet": true,
+        "mainnet": false
       },
       "team": {
         "anonymous": true
@@ -4646,6 +4861,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4671,6 +4888,8 @@
       "usecases": [
         "browser"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4692,10 +4911,11 @@
         "blog": "https://blog.cerebrum.com/",
         "twitter": "https://x.com/cerebruminc"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4728,6 +4948,7 @@
       "usecases": [
         "nft-community"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4756,6 +4977,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4794,6 +5017,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4811,6 +5036,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4835,6 +5062,8 @@
       "usecases": [
         "data-management"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4859,6 +5088,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4876,6 +5107,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4898,6 +5131,8 @@
       "usecases": [
         "mixing-service"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4919,6 +5154,8 @@
       "usecases": [
         "mixing-service"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4960,6 +5197,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -4992,6 +5231,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5009,6 +5250,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5026,6 +5269,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5067,7 +5312,7 @@
         "github": "https://github.com/Concordium",
         "whitepaper": "https://www.concordium.com/technology#whitepapers"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "CCD"
@@ -5082,6 +5327,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5121,6 +5367,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5161,6 +5409,8 @@
       "usecases": [
         "storage"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5196,7 +5446,7 @@
         "twitter": "https://twitter.com/crypviser",
         "facebook": "https://www.facebook.com/crypviser/"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "CVT"
@@ -5211,6 +5461,7 @@
       "usecases": [
         "messaging"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5233,7 +5484,7 @@
       ],
       "description": "Investment DAO that fight against centralization and further decentralization",
       "product_readiness": "live",
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://etherscan.io/address/0xf0f9D895aCa5c8678f706FB8216fa22957685A13",
       "tokens": [
         {
@@ -5284,6 +5535,7 @@
       "usecases": [
         "dao"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5333,6 +5585,8 @@
       "usecases": [
         "mixing-service"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5356,6 +5610,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.jpg",
@@ -5392,6 +5648,8 @@
       "usecases": [
         "hardware"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5422,6 +5680,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5445,10 +5705,11 @@
         "twitter": "https://x.com/DauthNetwork",
         "discord": "https://discord.com/invite/ZJZjAAej2q"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5476,6 +5737,8 @@
       "usecases": [
         "browser"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5511,6 +5774,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5527,7 +5792,10 @@
       ],
       "description": "Web 3.0 infrastructure of the users, by the users, for the users.",
       "project_status": {
-        "version": "Mainet"
+        "version": "Mainet",
+        "live_status": true,
+        "mainnet": true,
+        "testnet": false
       },
       "links": {
         "web": "https://www.deeper.network",
@@ -5543,6 +5811,8 @@
       "usecases": [
         "hardware"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5654,7 +5924,8 @@
         "opensource": true,
         "data_masking": "DeepSend",
         "frontend_anonymity": "TOR addresses",
-        "asset_custody_type": "non-custodial"
+        "asset_custody_type": "non-custodial",
+        "p2p": true
       },
       "project_status": {
         "live_status": true,
@@ -5672,7 +5943,7 @@
         "link": "https://deeponion.org/privacypolicy.html",
         "data_usage": "Not using"
       },
-      "traceability": {
+      "tracebility": {
         "kyc": false,
         "sign_in_type_requirements": "wallet"
       },
@@ -5702,6 +5973,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.jpg",
@@ -5734,6 +6007,8 @@
       "usecases": [
         "research-and-development"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5756,7 +6031,7 @@
         "whitepaper": "https://github.com/deroproject/documentation/blob/master/Dero_Whitepaper.pdf",
         "twitter": "https://twitter.com/deroproject"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "DERO"
@@ -5771,6 +6046,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5793,6 +6069,8 @@
       "usecases": [
         "rpc-provider"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5830,6 +6108,8 @@
       "usecases": [
         "research-and-development"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5868,6 +6148,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5885,6 +6167,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5916,6 +6200,8 @@
       "usecases": [
         "operation-systems"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5959,6 +6245,8 @@
       "usecases": [
         "storage"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -5986,10 +6274,11 @@
         "discord": "https://discord.com/invite/RyYNmdqjF9?ref=blog.dmail.ai",
         "telegram": "https://t.me/dmailofficial"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6026,6 +6315,7 @@
       },
       "blockchain_features": {
         "p2p": true,
+        "opensource": true,
         "dissapearing_tx": true,
         "connected_tx": false,
         "revealed_recipient": false,
@@ -6041,6 +6331,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6065,7 +6357,8 @@
       },
       "project_status": {
         "live_status": false,
-        "testnet": true
+        "testnet": true,
+        "mainnet": false
       },
       "team": {
         "anonymous": false,
@@ -6076,6 +6369,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6106,6 +6401,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6150,6 +6447,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6188,6 +6487,8 @@
       "usecases": [
         "research-and-development"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6219,6 +6520,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6249,7 +6552,9 @@
         "docs": "https://docs.elusiv.io/"
       },
       "project_status": {
-        "live_status": true
+        "live_status": true,
+        "mainnet": true,
+        "testnet": false
       },
       "team": {
         "anonymous": false,
@@ -6260,6 +6565,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6302,6 +6609,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6325,6 +6634,8 @@
       "usecases": [
         "research-and-development"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6358,6 +6669,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6413,6 +6726,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6437,6 +6752,8 @@
       "usecases": [
         "events"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.svg",
@@ -6464,6 +6781,8 @@
       "usecases": [
         "events"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6489,6 +6808,8 @@
       "usecases": [
         "events"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6516,6 +6837,8 @@
       "usecases": [
         "events"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6566,6 +6889,8 @@
       "usecases": [
         "rpc-provider"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6618,9 +6943,10 @@
       },
       "blockchain_features": {
         "p2p": false,
-        "encryption": "ECC"
+        "encryption": "ECC",
+        "opensource": true
       },
-      "traceability": {
+      "tracebility": {
         "kyc": false
       },
       "storage": {
@@ -6629,6 +6955,8 @@
       "usecases": [
         "computing"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6654,6 +6982,8 @@
       "usecases": [
         "events"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6677,7 +7007,9 @@
         "github": "https://github.com/Evanesco-Labs"
       },
       "project_status": {
-        "live_status": true
+        "live_status": true,
+        "mainnet": true,
+        "testnet": false
       },
       "team": {
         "anonymous": true
@@ -6685,6 +7017,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6704,9 +7038,9 @@
         "evolution"
       ],
       "project_status": {
-        "live status": true,
+        "live_status": true,
         "version": "Mainnet",
-        "testnet": true,
+        "testnet": false,
         "mainnet": true
       },
       "links": {
@@ -6725,6 +7059,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6745,7 +7081,9 @@
       },
       "usecases": [
         "nft-community"
-      ]
+      ],
+      "have_token": false,
+      "third_party_dependency": false
     },
     {
       "id": "fairy",
@@ -6756,6 +7094,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6792,6 +7132,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6826,6 +7168,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6858,6 +7202,8 @@
       "usecases": [
         "storage"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6881,15 +7227,17 @@
         "github": "https://github.com/findoranetwork"
       },
       "team": {
+        "anonymous": false,
         "company": {
           "link": "https://findora.org/team/"
         }
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://coinmarketcap.com/it/currencies/findora/",
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6915,7 +7263,7 @@
         "web": "https://findora.org",
         "github": "https://github.com/findoranetwork"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "FRA"
@@ -6933,6 +7281,7 @@
       "usecases": [
         "computing"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -6957,7 +7306,7 @@
         "facebook": "https://www.facebook.com/findoraOfficial/",
         "telegram": "https://t.me/findoraen"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "FRA"
@@ -6972,6 +7321,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7040,7 +7390,7 @@
       "storage": {
         "decentralized": true
       },
-      "traceability": {
+      "tracebility": {
         "tracked_dat": "non",
         "kyc": false,
         "sign_in_type_requirments": "wallet"
@@ -7086,6 +7436,7 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7121,6 +7472,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7148,6 +7501,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.jpg",
@@ -7183,6 +7538,8 @@
       "usecases": [
         "hardware"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7206,10 +7563,11 @@
         "twitter": "https://x.com/Fractal_ID",
         "telegram": "https://t.me/Fractal_ID_Support_bot"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7248,6 +7606,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7269,6 +7629,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.jpg",
@@ -7293,6 +7655,8 @@
       "usecases": [
         "browser"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7318,6 +7682,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.jpg",
@@ -7344,6 +7710,7 @@
       "usecases": [
         "nft-community"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7384,6 +7751,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7408,7 +7777,7 @@
         "docs": "https://docs.gotabit.io/",
         "twitter": "https://twitter.com/GotaBitG"
       },
-      "have_token": true,
+      "have_token": false,
       "project_status": {
         "live_status": true,
         "version": "Testnet",
@@ -7418,6 +7787,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7454,6 +7824,8 @@
       "usecases": [
         "operation-systems"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7489,6 +7861,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7512,6 +7886,8 @@
       "usecases": [
         "events"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7535,7 +7911,7 @@
         "blog": "https://medium.com/hananetwork",
         "twitter": "https://twitter.com/HanaNetwork"
       },
-      "have_token": true,
+      "have_token": false,
       "project_status": {
         "live_status": false,
         "version": "",
@@ -7545,6 +7921,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7573,6 +7950,8 @@
       "usecases": [
         "kyc-solution"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7609,6 +7988,8 @@
       "usecases": [
         "research-and-development"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7635,7 +8016,7 @@
         "blog": "https://havenprotocol.org/category/blog/",
         "twitter": "https://twitter.com/HavenXHV"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "XHV"
@@ -7656,6 +8037,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7678,6 +8060,8 @@
       "usecases": [
         "dao"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7701,6 +8085,8 @@
       "usecases": [
         "mixing-service"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7723,6 +8109,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7740,6 +8128,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7759,10 +8149,11 @@
         "web": "https://www.holonym.id",
         "github": "https://github.com/holonym-foundation"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7788,10 +8179,11 @@
         "blog": "https://medium.com/holonym",
         "twitter": "https://x.com/0xHolonym"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "kyc-solution"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7825,7 +8217,7 @@
         "github": "https://github.com/hoprnet",
         "docs": "https://docs.hoprnet.org/"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "HOPR"
@@ -7840,6 +8232,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7857,6 +8250,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7887,6 +8282,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7921,6 +8318,8 @@
       "usecases": [
         "messaging"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7963,6 +8362,8 @@
       "usecases": [
         "research-and-development"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -7988,10 +8389,11 @@
         "discord": "https://discord.com/invite/MMnhBYjF4N",
         "telegram": "https://t.me/hypersignchain"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8015,10 +8417,11 @@
         "telegram": "https://t.me/+Mgo-ltakTs80MDkx",
         "farcaster": "https://farcaster/icebreaker"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8045,10 +8448,11 @@
         "twitter": "https://x.com/identhree",
         "telegram": "https://t.me/iden3io"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8078,7 +8482,7 @@
         "facebook": "https://www.facebook.com/iexecteam",
         "telegram": "https://discord.com/invite/pbt9m98wnU"
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://etherscan.io/token/0x607F4C5BB672230e8672085532f7e901544a7375",
       "tokens": [
         {
@@ -8091,7 +8495,8 @@
       "sunset": false,
       "usecases": [
         "infrastructure"
-      ]
+      ],
+      "third_party_dependency": false
     },
     {
       "id": "imperiume",
@@ -8107,6 +8512,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8134,6 +8541,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8160,7 +8569,7 @@
         "Lightpaper": "https://www.integritee.network/docs/Integritee_%20Lightpaper_2021.pdf",
         "twitter": "https://twitter.com/integri_t_e_e"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "TEER"
@@ -8175,6 +8584,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8197,10 +8607,11 @@
         "blog": "https://mirror.xyz/privacy-scaling-explorations.eth/w7zCHj0xoxIfhoJIxI-ZeYIXwvNatP1t4w0TsqSIBe4",
         "education": "https://x.com/PrivacyScaling/status/1570046655998709764"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8234,6 +8645,8 @@
       "usecases": [
         "operation-systems"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8253,7 +8666,7 @@
         "iron-fish"
       ],
       "project_status": {
-        "live status": true,
+        "live_status": true,
         "version": "testnet",
         "testnet": true,
         "mainnet": false
@@ -8274,6 +8687,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8304,6 +8719,8 @@
       "usecases": [
         "messaging"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8333,6 +8750,8 @@
       "usecases": [
         "mixing-service"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8360,6 +8779,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.jpg",
@@ -8382,11 +8803,15 @@
         "twitter": "https://x.com/justnotecc"
       },
       "project_status": {
-        "live_status": true
+        "live_status": true,
+        "mainnet": true,
+        "testnet": false
       },
       "usecases": [
         "dapps"
-      ]
+      ],
+      "have_token": false,
+      "third_party_dependency": false
     },
     {
       "id": "keep",
@@ -8399,7 +8824,7 @@
         "web": "https://keep.network/info",
         "github": "https://github.com/keep-network/"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "KEEP"
@@ -8408,6 +8833,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8437,7 +8863,7 @@
       "team": {
         "anonymous": true
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://coinmarketcap.com/currencies/kelvpn/",
       "project_status": {
         "live_status": true,
@@ -8448,6 +8874,7 @@
       "usecases": [
         "vpn"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8478,15 +8905,17 @@
         "telegram": "https://t.me/KILTProtocolChat"
       },
       "team": {
+        "anonymous": false,
         "company": {
           "link": "https://www.kilt.io/team"
         }
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://coinmarketcap.com/it/currencies/kiltprotocol/",
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8513,6 +8942,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.jpg",
@@ -8549,6 +8980,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8575,6 +9008,8 @@
       "usecases": [
         "kyc-solution"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8597,6 +9032,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8620,6 +9057,8 @@
       "usecases": [
         "alliances"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8641,7 +9080,7 @@
         "twitter": "https://x.com/LegendaoNFT",
         "discord": "https://discord.com/invite/ARgf2Qun2y"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "name": "LegendaoToken",
@@ -8653,6 +9092,7 @@
       "usecases": [
         "nft-community"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8696,6 +9136,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8719,7 +9161,7 @@
         "github": "https://github.com/Lightprotocol/light-protocol",
         "docs": "https://docs.lightprotocol.com/"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "LIGHT"
@@ -8728,6 +9170,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8745,6 +9188,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8766,6 +9211,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.jpg",
@@ -8807,7 +9254,7 @@
         "blog": "https://spark.litprotocol.com/",
         "twitter": "https://twitter.com/litprotocol"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "LIT"
@@ -8828,6 +9275,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8860,6 +9308,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8888,15 +9338,17 @@
         "telegram": "https://t.me/litentry"
       },
       "team": {
+        "anonymous": false,
         "company": {
           "link": "https://www.linkedin.com/search/results/people/?currentCompany=%5B%2240805422%22%5D&origin=COMPANY_PAGE_CANNED_SEARCH&sid=2W3"
         }
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://coinmarketcap.com/currencies/litentry/",
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8920,6 +9372,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.jpg",
@@ -8945,10 +9399,11 @@
         "whitepaper": "https://docs.logion.network/logion-white-paper",
         "twitter": "https://twitter.com/logion_network"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -8976,11 +9431,12 @@
       "team": {
         "anonymous": true
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://www.coingecko.com/en/coins/oxen",
       "usecases": [
         "vpn"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9022,6 +9478,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9049,6 +9507,8 @@
       "usecases": [
         "dao"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9071,6 +9531,8 @@
       "usecases": [
         "messaging"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9112,6 +9574,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9136,7 +9600,7 @@
         "docs": "https://docs.manta.network/",
         "twitter": "https://twitter.com/mantanetwork"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "MANTA"
@@ -9151,6 +9615,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9182,7 +9647,8 @@
       },
       "project_status": {
         "live_status": false,
-        "testnet": true
+        "testnet": true,
+        "mainnet": false
       },
       "team": {
         "anonymous": true
@@ -9190,6 +9656,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9235,9 +9703,10 @@
         ]
       },
       "blockchain_features": {
-        "p2p": false
+        "p2p": false,
+        "opensource": true
       },
-      "traceability": {
+      "tracebility": {
         "kyc": false,
         "sign_in_type_requirments": "wallet"
       },
@@ -9248,6 +9717,8 @@
       "usecases": [
         "computing"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9276,6 +9747,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.jpg",
@@ -9356,7 +9829,8 @@
         "infrastructure",
         "vpn",
         "browser"
-      ]
+      ],
+      "have_token": false
     },
     {
       "id": "mbuddy",
@@ -9377,10 +9851,11 @@
         "discord": "https://discord.com/invite/jFxBtJCMAJ",
         "telegram": "https://t.me/MetaMirror"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9408,7 +9883,7 @@
       "team": {
         "anonymous": true
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://coinmarketcap.com/currencies/sentinel/",
       "project_status": {
         "live_status": true,
@@ -9419,6 +9894,7 @@
       "usecases": [
         "vpn"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9457,7 +9933,7 @@
         "blog": "https://hzmcoin.com/blog/",
         "twitter": "https://x.com/Mejhool_app"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "HZM"
@@ -9466,6 +9942,7 @@
       "usecases": [
         "messaging"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9498,10 +9975,11 @@
         "yellow-paper": "https://docs.themelio.org/specifications/yellow/",
         "Twitter": "https://twitter.com/melproject_org"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9527,7 +10005,7 @@
         "docs": "https://docs.minaprotocol.com/",
         "twitter": "https://twitter.com/minaprotocol"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "MINA"
@@ -9542,6 +10020,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9564,6 +10043,8 @@
       "usecases": [
         "mixing-service"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9588,7 +10069,7 @@
         "docs": "https://mind-network.gitbook.io/mindnetwork",
         "Twitter": "https://twitter.com/mindnetwork_xyz"
       },
-      "have_token": true,
+      "have_token": false,
       "project_status": {
         "live_status": true,
         "version": "Testnet",
@@ -9598,6 +10079,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9629,6 +10111,8 @@
       "usecases": [
         "mixing-service"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9660,6 +10144,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9682,6 +10168,8 @@
       "usecases": [
         "node"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9720,6 +10208,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9758,6 +10248,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9786,6 +10278,8 @@
       "usecases": [
         "hardware"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9810,6 +10304,8 @@
       "usecases": [
         "browser"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9849,6 +10345,8 @@
       "usecases": [
         "vpn"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9877,6 +10375,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9916,6 +10416,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9952,6 +10454,7 @@
       "usecases": [
         "node"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -9982,11 +10485,12 @@
           "link": "https://www.mysterium.network/team"
         }
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://coinmarketcap.com/currencies/mysterium/",
       "usecases": [
         "vpn"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10024,7 +10528,7 @@
         "blog": "https://www.mysterium.network/blog",
         "twitter": "https://twitter.com/MysteriumNet"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "MYST"
@@ -10033,6 +10537,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10067,6 +10572,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10101,6 +10608,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10127,6 +10636,8 @@
       "usecases": [
         "data-management"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10167,6 +10678,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10214,7 +10727,8 @@
         "connected_tx": false,
         "revealed_recipient": false,
         "revealed_sender": false,
-        "revealed_ammount": false
+        "revealed_ammount": false,
+        "opensource": false
       },
       "default_privacy": true,
       "storage": {
@@ -10228,6 +10742,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10251,10 +10767,11 @@
         "twitter": "https://x.com/NextDotID",
         "telegram": "https://t.me/NextDotIDofficial"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10277,6 +10794,8 @@
       "usecases": [
         "nft-community"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10309,6 +10828,8 @@
       "usecases": [
         "node"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10344,6 +10865,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10371,6 +10894,8 @@
       "usecases": [
         "research-and-development"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10406,6 +10931,8 @@
       "usecases": [
         "computing"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10435,6 +10962,8 @@
       "usecases": [
         "operation-systems"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10460,6 +10989,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10502,6 +11033,8 @@
       "usecases": [
         "research-and-development"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10528,6 +11061,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.jpg",
@@ -10556,6 +11091,8 @@
       "usecases": [
         "node"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10577,6 +11114,8 @@
       "usecases": [
         "node"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10601,7 +11140,7 @@
         "blog": "https://blog.nomos.tech/",
         "twitter": "https://twitter.com/Nomos_tech"
       },
-      "have_token": true,
+      "have_token": false,
       "project_status": {
         "live_status": false,
         "version": "",
@@ -10611,6 +11150,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10628,6 +11168,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10655,6 +11197,8 @@
       "usecases": [
         "kyc-solution"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10679,7 +11223,7 @@
         "docs": "https://docs.threshold.network/",
         "blog": "https://blog.threshold.network/"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "T"
@@ -10716,6 +11260,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10742,7 +11287,7 @@
         "blog": "https://www.nulink.org/blog",
         "twitter": "https://twitter.com/NuLink_"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "NLINK"
@@ -10757,6 +11302,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10804,7 +11350,7 @@
         "docs": "https://nymtech.net/docs",
         "blog": "https://blog.nymtech.net/"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "NYM"
@@ -10819,6 +11365,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10839,7 +11386,9 @@
       },
       "usecases": [
         "data-management"
-      ]
+      ],
+      "have_token": false,
+      "third_party_dependency": false
     },
     {
       "id": "oasis-network",
@@ -10875,7 +11424,7 @@
         "testnet": true,
         "mainnet": true
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "ROSE"
@@ -10911,11 +11460,14 @@
         ]
       },
       "blockchain_features": {
-        "encryption": "TEE"
+        "encryption": "TEE",
+        "p2p": true,
+        "opensource": true
       },
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10953,6 +11505,8 @@
       "usecases": [
         "eth-layer-2"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -10976,6 +11530,8 @@
         "discord": "https://discord.com/invite/m724x5Ne2F",
         "telegram": "https://t.me/octranetwork"
       },
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11000,7 +11556,9 @@
         "docs": "https://docs.elusiv.io/"
       },
       "project_status": {
-        "live_status": true
+        "live_status": true,
+        "mainnet": true,
+        "testnet": false
       },
       "team": {
         "anonymous": true,
@@ -11011,6 +11569,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11033,6 +11593,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.jpg",
@@ -11070,6 +11632,8 @@
       "usecases": [
         "eth-layer-2"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11104,7 +11668,7 @@
         "docs": "https://docs.omniatech.io/",
         "twitter": "https://twitter.com/omnia_protocol"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "OMNIA"
@@ -11126,6 +11690,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11144,7 +11709,7 @@
       "links": {
         "web": "https://www.onino.io"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "ONI"
@@ -11153,6 +11718,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11174,7 +11740,9 @@
       "sunset": true,
       "usecases": [
         "mixing-service"
-      ]
+      ],
+      "have_token": false,
+      "third_party_dependency": false
     },
     {
       "id": "onionclub",
@@ -11189,6 +11757,8 @@
       "usecases": [
         "messaging"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11214,10 +11784,11 @@
         "facebook": "https://www.facebook.com/ONTnetwork/",
         "telegram": "https://t.me/OntologyAnnouncements"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11255,6 +11826,8 @@
       "usecases": [
         "storage"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11280,6 +11853,8 @@
       "usecases": [
         "browser"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11299,7 +11874,7 @@
         "web": "https://orbis.club",
         "github": "https://github.com/OrbisWeb3/"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "OBT"
@@ -11308,6 +11883,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11342,11 +11918,12 @@
           "link": "https://www.linkedin.com/search/results/people/?currentCompany=%5B%2218313136%22%5D&origin=COMPANY_PAGE_CANNED_SEARCH&sid=cWH"
         }
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://coinmarketcap.com/currencies/orchid/",
       "usecases": [
         "vpn"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11371,6 +11948,8 @@
       "usecases": [
         "kyc-solution"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11410,6 +11989,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11426,7 +12007,9 @@
       ],
       "description": "Toolkit for Groth16 Phase 2 Trusted Setup ceremonies.",
       "project_status": {
-        "live_status": true
+        "live_status": true,
+        "mainnet": false,
+        "testnet": false
       },
       "team": {
         "anonymous": true
@@ -11438,6 +12021,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11461,6 +12046,8 @@
       "usecases": [
         "research-and-development"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11509,6 +12096,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11534,7 +12123,7 @@
         "docs": "https://docs.parallelchain.io/",
         "twitter": "https://twitter.com/ParallelChainLB"
       },
-      "have_token": true,
+      "have_token": false,
       "project_status": {
         "live_status": true,
         "version": "Mainnet",
@@ -11556,6 +12145,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11583,6 +12173,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11604,7 +12196,7 @@
         "twitter": "https://x.com/ParasHQ",
         "telegram": "https://t.me/parasannouncement"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "name": "ParasToken",
@@ -11616,6 +12208,7 @@
       "usecases": [
         "nft-community"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11669,14 +12262,15 @@
       ],
       "blockchain_features": {
         "opensource": true,
-        "asset_custody_type": "non-custody"
+        "asset_custody_type": "non-custody",
+        "p2p": true
       },
       "privacy_policy": {
         "defined": true,
         "link": "https://academy.particl.io/en/latest/particl-blockchain/blockchain_privacy.html"
       },
       "default_privacy": true,
-      "traceability": {
+      "tracebility": {
         "kyc": false
       },
       "third_party_dependency": false,
@@ -11684,6 +12278,7 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11723,7 +12318,7 @@
         "yellowpaper": "https://drive.google.com/file/d/1OX7ljrLY4IgEA1O3t3fKNH1qSO60_Qbw/view",
         "twitter": "https://x.com/partisiampc"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "MPC"
@@ -11738,6 +12333,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11760,6 +12356,8 @@
       "usecases": [
         "messaging"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11794,6 +12392,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11818,6 +12418,8 @@
       "usecases": [
         "research-and-development"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11857,6 +12459,8 @@
       "usecases": [
         "computing"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11894,6 +12498,8 @@
       "usecases": [
         "computing"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11927,6 +12533,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -11953,7 +12561,7 @@
         "facebook": "https://www.facebook.com/groups/1022013661300591",
         "telegram": "https://t.me/Pigeoncoin"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "PGN"
@@ -11968,6 +12576,7 @@
       "usecases": [
         "messaging"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12002,6 +12611,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12038,6 +12649,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12077,6 +12690,8 @@
       "usecases": [
         "computing"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12113,6 +12728,8 @@
       "usecases": [
         "eth-layer-2"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12137,6 +12754,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12156,7 +12775,7 @@
         "web": "https://www.pollenmobile.io",
         "github": "https://docs.pollenmobile.io/pollen-mobile-docs/"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "PCN"
@@ -12165,6 +12784,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12208,6 +12828,8 @@
       "usecases": [
         "eth-layer-2"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12234,14 +12856,16 @@
         "twitter": "https://x.com/0xPolygonID"
       },
       "team": {
+        "anonymous": false,
         "company": {
           "link": "https://github.com/orgs/0xPolygonID/people"
         }
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12279,6 +12903,8 @@
       "usecases": [
         "eth-layer-2"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12306,6 +12932,8 @@
       "usecases": [
         "nft-community"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12331,6 +12959,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12364,6 +12994,8 @@
       "usecases": [
         "hardware"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12388,6 +13020,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12430,6 +13064,8 @@
       "usecases": [
         "research-and-development"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12453,6 +13089,8 @@
       "usecases": [
         "alliances"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12468,7 +13106,7 @@
         "infrastructure"
       ],
       "description": "An open-source protocol that offers a wide variety of solutions for privacy preservation for blockchain users",
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "PRIVATIXY"
@@ -12476,7 +13114,8 @@
       ],
       "usecases": [
         "infrastructure"
-      ]
+      ],
+      "third_party_dependency": false
     },
     {
       "id": "proof-of-passport",
@@ -12499,6 +13138,7 @@
       "usecases": [
         "kyc-solution"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12538,6 +13178,7 @@
       "usecases": [
         "vpn"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12563,6 +13204,8 @@
       "usecases": [
         "browser"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12585,10 +13228,11 @@
         "twitter": "https://x.com/QuadrataNetwork",
         "discord": "https://discord.com/invite/67QgzrymHW"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12631,6 +13275,8 @@
       "usecases": [
         "operation-systems"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12752,7 +13398,7 @@
       "storage": {
         "decentralized": true
       },
-      "traceability": {
+      "tracebility": {
         "kyc": false,
         "sign_in_type_requirments": "wallet"
       },
@@ -12801,6 +13447,7 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12838,6 +13485,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12870,6 +13519,8 @@
       "usecases": [
         "node"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12892,7 +13543,7 @@
         "blog": "https://raze-net.medium.com/",
         "twitter": "https://twitter.com/R4ZE_Network"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "RAZE"
@@ -12901,6 +13552,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12928,6 +13580,8 @@
       "usecases": [
         "research-and-development"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12953,6 +13607,8 @@
       "usecases": [
         "messaging"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -12974,6 +13630,8 @@
       "usecases": [
         "messaging"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13005,6 +13663,8 @@
       "usecases": [
         "hardware"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13030,6 +13690,8 @@
       "usecases": [
         "rpc-provider"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13054,7 +13716,7 @@
         "docs": "https://wiki.ruby.xyz/",
         "Twitter": "https://twitter.com/RubyProtocol"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "RUBY"
@@ -13063,6 +13725,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13080,6 +13743,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13097,6 +13762,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.svg",
@@ -13126,6 +13793,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13157,7 +13826,7 @@
         "blog": "https://scala.network/blog/",
         "twitter": "https://twitter.com/scalahq"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "XLA"
@@ -13172,6 +13841,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13252,7 +13922,7 @@
       "storage": {
         "decentralized": true
       },
-      "traceability": {
+      "tracebility": {
         "tracked_data": "user SCRT adress",
         "kyc": false,
         "sign_in_type_requirments": "wallet"
@@ -13319,6 +13989,8 @@
       "usecases": [
         "rpc-provider"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13354,6 +14026,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13376,10 +14050,11 @@
         "discord": "https://discord.com/invite/zpy6tXP5Qt",
         "telegram": "https://t.me/seer_official"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13397,7 +14072,9 @@
       "description": "Semaphore is a protocol that allows users to prove their membership in a group and transmit anonymous data, such as votes or feedback, without revealing their identities.",
       "project_status": {
         "version": "V4-beta",
-        "live_status": true
+        "live_status": true,
+        "mainnet": false,
+        "testnet": true
       },
       "team": {
         "anonymous": true
@@ -13418,6 +14095,8 @@
       "usecases": [
         "did"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13439,6 +14118,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13468,6 +14149,8 @@
       "usecases": [
         "messaging"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13496,7 +14179,7 @@
       "team": {
         "anonymous": true
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://coinmarketcap.com/currencies/sentinel/",
       "project_status": {
         "live_status": true,
@@ -13507,6 +14190,7 @@
       "usecases": [
         "vpn"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13593,6 +14277,8 @@
       "usecases": [
         "storage"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13622,6 +14308,7 @@
         "facebook": "https://www.facebook.com/SessionMessenger/"
       },
       "team": {
+        "anonymous": false,
         "company": {
           "link": "https://www.linkedin.com/company/sessionmessenger/people/"
         }
@@ -13629,6 +14316,8 @@
       "usecases": [
         "messaging"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13646,6 +14335,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13663,6 +14354,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13750,7 +14443,7 @@
       "storage": {
         "decentralized": true
       },
-      "traceability": {
+      "tracebility": {
         "tracked_data": "user SCRT adress",
         "kyc": false,
         "sign_in_type_requirments": "wallet"
@@ -13807,6 +14500,7 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13833,6 +14527,8 @@
       "usecases": [
         "bridge"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13918,6 +14614,8 @@
       "usecases": [
         "storage"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -13992,7 +14690,7 @@
       "storage": {
         "decentralized": true
       },
-      "traceability": {
+      "tracebility": {
         "tracked_data": "user SCRT adress",
         "kyc": false,
         "sign_in_type_requirments": "wallet"
@@ -14044,6 +14742,7 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14071,6 +14770,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14096,6 +14797,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14123,6 +14826,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14163,7 +14868,7 @@
       "storage": {
         "decentralized": true
       },
-      "traceability": {
+      "tracebility": {
         "kyc": false,
         "sign_in_type_requirments": "wallet"
       },
@@ -14188,6 +14893,7 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14213,6 +14919,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14236,10 +14944,11 @@
         "twitter": "https://x.com/sismo_eth",
         "discord": "https://discord.com/invite/xKTMeRUX6u"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14263,6 +14972,8 @@
       "usecases": [
         "storage"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14285,6 +14996,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14310,6 +15023,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14333,6 +15048,8 @@
       "usecases": [
         "storage"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14356,10 +15073,11 @@
         "discord": "https://discord.com/invite/DxTBJXvJxn",
         "telegram": "https://t.me/slashtags"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14387,6 +15105,8 @@
       "usecases": [
         "kyc-solution"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14413,6 +15133,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14432,10 +15154,11 @@
         "web": "https://solarlabs.ee",
         "twitter": "https://twitter.com/solardvpn"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "vpn"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14473,6 +15196,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14515,6 +15240,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14541,6 +15268,8 @@
       "usecases": [
         "messaging"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14563,6 +15292,8 @@
       "usecases": [
         "messaging"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14591,6 +15322,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14616,6 +15349,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14640,6 +15375,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14684,6 +15421,8 @@
       "usecases": [
         "mixing-service"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14701,6 +15440,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14726,6 +15467,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14748,6 +15491,8 @@
       "usecases": [
         "data-management"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14769,6 +15514,8 @@
       "usecases": [
         "rpc-provider"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14794,6 +15541,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14817,10 +15566,11 @@
         "twitter": "https://x.com/SpruceID",
         "discord": "https://discord.com/invite/KmQeRhQPYh"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14855,6 +15605,8 @@
       "usecases": [
         "eth-layer-2"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14883,6 +15635,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14917,6 +15671,8 @@
       "usecases": [
         "node"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14951,6 +15707,7 @@
       "usecases": [
         "nft-community"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -14976,6 +15733,8 @@
       "usecases": [
         "browser"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15004,6 +15763,8 @@
       "usecases": [
         "messaging"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15026,6 +15787,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15043,6 +15806,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15076,6 +15841,8 @@
       "usecases": [
         "node"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15111,6 +15878,8 @@
       "usecases": [
         "storage"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15130,7 +15899,7 @@
         "web": "https://suterusu.io",
         "github": "https://github.com/suterusu-team"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "SUTER"
@@ -15139,6 +15908,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15172,7 +15942,7 @@
         "testnet": true,
         "mainnet": true
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://etherscan.io/token/0x19062190b1925b5b6689d7073fdfc8c2976ef8cb",
       "tokens": [
         {
@@ -15185,6 +15955,7 @@
       "usecases": [
         "storage"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15216,6 +15987,8 @@
       "usecases": [
         "storage"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15249,6 +16022,8 @@
       "usecases": [
         "operation-systems"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15276,6 +16051,8 @@
       "usecases": [
         "mixing-service"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15298,6 +16075,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15321,6 +16100,8 @@
       "usecases": [
         "nft-community"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15346,6 +16127,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15372,6 +16155,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15398,6 +16183,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15417,7 +16204,7 @@
         "web": "https://tomochain.com/tomop",
         "github": "https://github.com/tomochain/tomop"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "TOMO"
@@ -15426,6 +16213,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15449,7 +16237,7 @@
         "github": "https://github.com/Tonnel-Network/core",
         "twitter": "https://twitter.com/tonnel_network"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "$TONNEL"
@@ -15464,6 +16252,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15499,6 +16288,8 @@
       "usecases": [
         "mixing-service"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15533,6 +16324,8 @@
       "usecases": [
         "storage"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15561,6 +16354,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15587,6 +16382,8 @@
       "usecases": [
         "research-and-development"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15612,6 +16409,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15637,6 +16436,8 @@
       "usecases": [
         "eth-layer-2"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15664,6 +16465,8 @@
       "usecases": [
         "eth-layer-2"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15681,6 +16484,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15703,6 +16508,8 @@
       "usecases": [
         "mixing-service"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15726,6 +16533,8 @@
       "usecases": [
         "alliances"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15750,10 +16559,11 @@
         "twitter": "https://x.com/UniRep_protocol",
         "discord": "https://discord.com/invite/VzMMDJmYc5"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15774,7 +16584,7 @@
         "blog": "https://unova.io/blog/",
         "whitepaper": "https://unova.io/wp-content/uploads/2022/06/whitepaper-UNOVA-V1.0-1.pdf"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "UON"
@@ -15789,6 +16599,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15807,10 +16618,11 @@
       "links": {
         "web": "https://u.is/en/"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15830,10 +16642,11 @@
         "web": "https://valid3.id",
         "docs": "https://valid3.id/tutorial/"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15873,6 +16686,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15918,6 +16733,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15949,15 +16766,17 @@
         "telegram": "https://t.me/veruscommunity"
       },
       "team": {
+        "anonymous": false,
         "company": {
           "link": "https://verus.io/people"
         }
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://coinmarketcap.com/it/currencies/veruscoin/",
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -15980,6 +16799,8 @@
       "usecases": [
         "mixing-service"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16013,6 +16834,8 @@
       "usecases": [
         "storage"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16046,6 +16869,8 @@
       "usecases": [
         "storage"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16083,12 +16908,14 @@
         "testnet": true,
         "mainnet": false
       },
-      "traceability": {
+      "tracebility": {
         "kyc": false
       },
       "usecases": [
         "messaging"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16117,6 +16944,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16138,6 +16967,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16167,15 +16998,17 @@
         "telegram": "https://t.me/dockio"
       },
       "team": {
+        "anonymous": false,
         "company": {
           "link": "https://www.dock.io/verifiable-credentials-company"
         }
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://coinmarketcap.com/it/currencies/dock/",
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16207,7 +17040,9 @@
       },
       "project_status": {
         "live_status": false,
-        "beta": true
+        "beta": true,
+        "mainnet": false,
+        "testnet": false
       },
       "team": {
         "anonymous": true
@@ -16215,6 +17050,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16233,7 +17070,9 @@
       "sunset": true,
       "usecases": [
         "mixing-service"
-      ]
+      ],
+      "have_token": false,
+      "third_party_dependency": false
     },
     {
       "id": "whonix",
@@ -16263,6 +17102,8 @@
       "usecases": [
         "operation-systems"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16287,6 +17128,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16319,7 +17162,8 @@
       },
       "blockchain_features": {
         "p2p": true,
-        "network": "Dandelion++, RandomX PoW (lite variant)"
+        "network": "Dandelion++, RandomX PoW (lite variant)",
+        "opensource": false
       },
       "links": {
         "web": "https://wownero.org",
@@ -16336,7 +17180,7 @@
         "anonymous": true
       },
       "licences": "MIT License",
-      "traceability": {
+      "tracebility": {
         "kyc": false
       },
       "compliance": "We will not comply",
@@ -16349,11 +17193,14 @@
       "project_status": {
         "live_status": true,
         "version": "v0.11.1.0",
-        "mainnet": true
+        "mainnet": true,
+        "testnet": false
       },
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16373,7 +17220,10 @@
         "xcash"
       ],
       "project_status": {
-        "version": "Mainnet"
+        "version": "Mainnet",
+        "live_status": true,
+        "mainnet": true,
+        "testnet": false
       },
       "links": {
         "web": "https://xcash.tech",
@@ -16389,6 +17239,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16417,6 +17269,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16453,6 +17307,8 @@
       "usecases": [
         "messaging"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16490,6 +17346,8 @@
       "usecases": [
         "messaging"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16512,7 +17370,7 @@
         "docs": "https://blockchainapi.xx.network/",
         "twitter": "https://twitter.com/xx_network"
       },
-      "have_token": true,
+      "have_token": false,
       "tokens": [
         {
           "symbol": "XX"
@@ -16527,6 +17385,7 @@
       "usecases": [
         "infrastructure"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16543,7 +17402,9 @@
       ],
       "usecases": [
         "defi"
-      ]
+      ],
+      "have_token": false,
+      "third_party_dependency": false
     },
     {
       "id": "ywallet",
@@ -16565,6 +17426,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16605,6 +17468,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16717,6 +17582,7 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16740,10 +17606,11 @@
         "twitter": "https://x.com/zcloaknetwork",
         "discord": "https://discord.com/invite/wcKt6MDRJz"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16771,6 +17638,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16799,6 +17668,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16831,6 +17702,8 @@
       "usecases": [
         "eth-layer-2"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16859,6 +17732,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16899,6 +17774,7 @@
       },
       "blockchain_features": {
         "p2p": true,
+        "opensource": false,
         "encryption": "Cryptonote",
         "data_masking": "Ring signature",
         "viewing_key": true,
@@ -16927,6 +17803,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16945,10 +17823,11 @@
       "links": {
         "web": "https://github.com/mono-koto/zkcred"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -16979,6 +17858,8 @@
       "usecases": [
         "currency"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -17000,6 +17881,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -17022,6 +17905,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -17056,6 +17941,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -17086,6 +17973,8 @@
       "usecases": [
         "messaging"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -17102,7 +17991,9 @@
       ],
       "description": "A set of reusable libraries for zero-knowledge technologies.",
       "project_status": {
-        "live_status": true
+        "live_status": true,
+        "mainnet": false,
+        "testnet": false
       },
       "team": {
         "anonymous": true
@@ -17120,6 +18011,8 @@
       "usecases": [
         "infrastructure"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -17148,6 +18041,8 @@
       "usecases": [
         "eth-layer-2"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -17178,6 +18073,8 @@
       "usecases": [
         "computing"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -17200,6 +18097,8 @@
       "usecases": [
         "dapps"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -17217,6 +18116,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -17241,10 +18142,11 @@
         "twitter": "https://x.com/zkPass",
         "discord": "https://discord.com/invite/zkpass"
       },
-      "have_token": true,
+      "have_token": false,
       "usecases": [
         "did"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -17262,6 +18164,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -17279,6 +18183,8 @@
       "usecases": [
         "defi"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -17302,7 +18208,7 @@
         "discord": "https://discord.com/invite/vv3HXAVmMq",
         "telegram": "https://t.me/zoci_io"
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://arbiscan.io/token/0x45d780CfE839b8a8f292C9E26aa5D1805bc536dc",
       "tokens": [
         {
@@ -17315,6 +18221,7 @@
       "usecases": [
         "rpc-provider"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -17343,6 +18250,8 @@
       "usecases": [
         "wallets"
       ],
+      "have_token": false,
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -17378,7 +18287,7 @@
         "testnet": false,
         "mainnet": true
       },
-      "have_token": true,
+      "have_token": false,
       "token_link": "https://etherscan.io/token/0xb9ef770b6a5e12e45983c5d80545258aa38f3b78",
       "tokens": [
         {
@@ -17391,6 +18300,7 @@
       "usecases": [
         "storage"
       ],
+      "third_party_dependency": false,
       "logos": [
         {
           "file": "logo.png",
@@ -17507,6 +18417,128 @@
       "name": "Other"
     }
   ],
+  "usecases": [
+    {
+      "id": "wallets",
+      "name": "Wallets"
+    },
+    {
+      "id": "defi",
+      "name": "DeFi"
+    },
+    {
+      "id": "currency",
+      "name": "Currency"
+    },
+    {
+      "id": "infrastructure",
+      "name": "Infrastructure"
+    },
+    {
+      "id": "computing",
+      "name": "Computing"
+    },
+    {
+      "id": "eth-layer-2",
+      "name": "Ethereum Layer 2"
+    },
+    {
+      "id": "hardware",
+      "name": "Hardware"
+    },
+    {
+      "id": "vpn",
+      "name": "VPN"
+    },
+    {
+      "id": "did",
+      "name": "DID"
+    },
+    {
+      "id": "dao",
+      "name": "DAO"
+    },
+    {
+      "id": "bridge",
+      "name": "Bridge"
+    },
+    {
+      "id": "messaging",
+      "name": "Messaging"
+    },
+    {
+      "id": "browser",
+      "name": "browser"
+    },
+    {
+      "id": "kyc-solution",
+      "name": "KYC solution"
+    },
+    {
+      "id": "rpc-provider",
+      "name": "RPC provider"
+    },
+    {
+      "id": "storage",
+      "name": "Storage"
+    },
+    {
+      "id": "dapps",
+      "name": "Dapps"
+    },
+    {
+      "id": "operation-systems",
+      "name": "Operation systems"
+    },
+    {
+      "id": "nft-community",
+      "name": "NFT community"
+    },
+    {
+      "id": "alliances",
+      "name": "Allicanes"
+    },
+    {
+      "id": "mixing-management",
+      "name": "Mixing management"
+    },
+    {
+      "id": "data-management",
+      "name": "Data management"
+    },
+    {
+      "id": "donate-charity",
+      "name": "Donate / Charity"
+    },
+    {
+      "id": "research-and-development",
+      "name": "Research and development"
+    },
+    {
+      "id": "mixing-service",
+      "name": "Mixing service"
+    },
+    {
+      "id": "node",
+      "name": "Node"
+    },
+    {
+      "id": "events",
+      "name": "Events"
+    },
+    {
+      "id": "ai",
+      "name": "AI (Artificial Inteligence)"
+    },
+    {
+      "id": "sunset",
+      "name": "Sunset"
+    },
+    {
+      "id": "other",
+      "name": "Other"
+    }
+  ],
   "ranks": [
     {
       "id": "openess",
@@ -17563,7 +18595,7 @@
         {
           "field": "links.telegram",
           "label": {
-            "name": "Telegram",
+            "name": "Twitter",
             "positive": "Link",
             "negative": "Not available"
           },
@@ -17717,7 +18749,7 @@
           "points": 10
         },
         {
-          "field": "traceability.kyc",
+          "field": "tracebility.kyc",
           "label": {
             "name": "KYC",
             "positive": "No",
@@ -17755,143 +18787,17 @@
       ]
     }
   ],
-  "usecases": [
+  "custodys": [
     {
-      "id": "wallets",
-      "name": "Wallets"
+      "id": "non-custody",
+      "name": "Non-custody"
     },
     {
-      "id": "defi",
-      "name": "DeFi"
-    },
-    {
-      "id": "currency",
-      "name": "Currency"
-    },
-    {
-      "id": "infrastructure",
-      "name": "Infrastructure"
-    },
-    {
-      "id": "computing",
-      "name": "Computing"
-    },
-    {
-      "id": "eth-layer-2",
-      "name": "Ethereum Layer 2"
-    },
-    {
-      "id": "hardware",
-      "name": "Hardware"
-    },
-    {
-      "id": "vpn",
-      "name": "VPN"
-    },
-    {
-      "id": "did",
-      "name": "DID"
-    },
-    {
-      "id": "dao",
-      "name": "DAO"
-    },
-    {
-      "id": "bridge",
-      "name": "Bridge"
-    },
-    {
-      "id": "messaging",
-      "name": "Messaging"
-    },
-    {
-      "id": "browser",
-      "name": "browser"
-    },
-    {
-      "id": "kyc-solution",
-      "name": "KYC solution"
-    },
-    {
-      "id": "rpc-provider",
-      "name": "RPC provider"
-    },
-    {
-      "id": "storage",
-      "name": "Storage"
-    },
-    {
-      "id": "dapps",
-      "name": "Dapps"
-    },
-    {
-      "id": "operation-systems",
-      "name": "Operation systems"
-    },
-    {
-      "id": "nft-community",
-      "name": "NFT community"
-    },
-    {
-      "id": "alliances",
-      "name": "Allicanes"
-    },
-    {
-      "id": "mixing-management",
-      "name": "Mixing management"
-    },
-    {
-      "id": "data-management",
-      "name": "Data management"
-    },
-    {
-      "id": "donate-charity",
-      "name": "Donate / Charity"
-    },
-    {
-      "id": "research-and-development",
-      "name": "Research and development"
-    },
-    {
-      "id": "mixing-service",
-      "name": "Mixing service"
-    },
-    {
-      "id": "node",
-      "name": "Node"
-    },
-    {
-      "id": "events",
-      "name": "Events"
-    },
-    {
-      "id": "ai",
-      "name": "AI (Artificial Inteligence)"
-    },
-    {
-      "id": "sunset",
-      "name": "Sunset"
-    },
-    {
-      "id": "other",
-      "name": "Other"
+      "id": "custodial",
+      "name": "Custodial"
     }
   ],
-  "sign_in_type_requirements": [
-    {
-      "id": "wallet",
-      "name": "Wallet"
-    },
-    {
-      "id": "email",
-      "name": "Email"
-    },
-    {
-      "id": "seed",
-      "name": "Seed"
-    }
-  ],
-  "project_phases": [
+  "phases": [
     {
       "id": "mainnet",
       "name": "Mainnet"
@@ -17913,14 +18819,18 @@
       "name": "MVP"
     }
   ],
-  "asset_custody_types": [
+  "requirements": [
     {
-      "id": "non-custody",
-      "name": "Non-custody"
+      "id": "wallet",
+      "name": "Wallet"
     },
     {
-      "id": "custodial",
-      "name": "Custodial"
+      "id": "email",
+      "name": "Email"
+    },
+    {
+      "id": "seed",
+      "name": "Seed"
     }
   ]
 }

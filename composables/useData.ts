@@ -228,22 +228,22 @@ export const useData = defineStore('data', () => {
         let value
         let positive
 
-        if (ref.condition.minLength) {
+        if (ref.condition.minLength !== undefined) {
           value = (field as any[])?.length
           if (value) {
             isValid = value >= ref.condition.minLength
             positive = `${value} ${ref.label.positive}${value > 1 ? 's' : ''}`
           }
         }
-        if (ref.condition.equals) {
+        if (ref.condition.equals !== undefined) {
           value = field
-          if (value)
+          if (value !== undefined)
             isValid = value === ref.condition.equals
         }
 
-        if (ref.condition.exists) {
+        if (ref.condition.exists !== undefined) {
           value = field
-          if (value)
+          if (value !== undefined)
             isValid = !!value
         }
         rankPoints += isValid ? ref.points : 0

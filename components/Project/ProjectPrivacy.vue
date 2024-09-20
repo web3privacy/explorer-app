@@ -38,7 +38,7 @@ defineProps<{
         :color="project.tracebility?.kyc ? '#FF0000' : '#18FF2F'"
         title="Know Your Customer (KYC)"
       >
-        {{ project.tracebility?.kyc ? 'YES' : 'NO' }}
+        {{ project.tracebility?.kyc ? 'YES': 'NO' }}
       </ProjectInfoItem>
       <ProjectInfoItem
         :check-undefined="project.privacy_policy"
