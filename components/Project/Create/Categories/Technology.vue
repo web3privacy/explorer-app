@@ -47,7 +47,7 @@ defineExpose({
     />
     <ProjectCreateComponentsRadio
       v-model="version"
-      :options="projectPhaseData.map(p => ({ label: p.name, value: p.id }))"
+      :options="projectPhaseData?.map(p => ({ label: p.name, value: p.id }))"
     />
     <ProjectCreateComponentsCategoryDivider
       w-full
@@ -71,7 +71,7 @@ defineExpose({
     </div>
     <ProjectCreateComponentsSelect
       v-model="assetType"
-      :options="assetCustodyData.map(c => ({ label: c.name, value: c.id }))"
+      :options="assetCustodyData?.map(c => ({ label: c.name, value: c.id }))"
       label="Asset custody type"
       placeholder="Select custody type"
       hint="How are user’s fund handled? (non-custody, multisig, pool,...)"
