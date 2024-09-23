@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  to: string
+  to?: string
 }>()
 </script>
 
@@ -13,6 +13,7 @@ defineProps<{
   >
     <UnoIcon
       i-heroicons-solid-pencil
+      text-app-text-grey
       text-24px
     />
     <slot />

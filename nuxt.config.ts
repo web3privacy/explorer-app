@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     'nuxt-lodash',
     'nuxt-headlessui',
     '@nuxt/image',
+    '@vee-validate/nuxt',
   ],
   sourcemap: {
     server: true,
@@ -51,5 +52,18 @@ export default defineNuxtConfig({
   },
   lodash: {
     prefix: '_',
+  },
+  runtimeConfig: {
+    app: {
+      github: {
+        appId: 0,
+        privateKey: '',
+        installationId: 0,
+        owner: 'web3privacy',
+        baseBranch: 'main',
+        repo: 'test-repo',
+      },
+      datasource: 'local',
+    },
   },
 })

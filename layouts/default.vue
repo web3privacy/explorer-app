@@ -1,21 +1,22 @@
 <script lang="ts" setup>
 import type { InputOption } from '~/types'
 
-const { categories, filteredProjectsCount, selectedCategoryId } = storeToRefs(useData())
-
-const categoriesOptions = ref(categories.value ? categories.value.map(c => ({ label: c.name, value: c.id, count: c.projectsCount })) : [])
-const extendedOptions: InputOption[] = [
-  ...categoriesOptions.value,
-]
+const { categories, usecases, ecosystems, assets, features, filteredProjectsCount, selectedCategoryId, selectedUsecaseId, selectedEcosystemId, selectedAssetsUsedId, selectedFeaturesId } = storeToRefs(useData())
 
 const selectedCategory = computed(() => {
   return categories.value.find(c => c.id === selectedCategoryId.value)
 })
+const availableUsecases = computed(() => {
+  if (selectedCategoryId.value === 'all')
+    return usecases.value
+  return usecases.value.filter(u => selectedCategory.value?.usecases?.includes(u.id))
+})
 
-const sortedFilteredCategories = computed(() => ([
-  categories.value.find(c => c.id === 'defi')!,
-  ...[...categories.value].sort((a, b) => a.name.localeCompare(b.name)).filter(c => c.id !== 'defi'),
-]))
+const categoryOptions = ref<InputOption[]>(categories.value ? [{ label: 'Category', value: 'all' }, ...categories.value.map(c => ({ label: c.name, value: c.id, count: c.projectsCount }))] : [])
+const usecaseOptions = computed<InputOption[]>(() => availableUsecases.value.length ? [{ label: 'Usecase', value: 'all' }, ...availableUsecases.value.map(u => ({ label: u.name, value: u.id }))] : [])
+const ecosystemOptions = ref<InputOption[]>(ecosystems.value ? [{ label: 'Ecosystem', value: 'all' }, ...ecosystems.value.map(e => ({ label: e.name, value: e.id }))] : [])
+const assetOptions = ref<InputOption[]>(assets.value ? [{ label: 'Asset used', value: 'all' }, ...assets.value.map(a => ({ label: `${a.id.toUpperCase()} (${a.name})`, value: a.id }))] : [])
+const featureOptions = ref<InputOption[]>(features.value ? [{ label: 'Feature', value: 'all' }, ...features.value.map(f => ({ label: f.name, value: f.id }))] : [])
 
 const { showBar } = storeToRefs(useNavigaiton())
 const swipeEl = ref()
@@ -56,77 +57,72 @@ watch([scrollY, top, y], (newValues, oldValues) => {
         w-full
         xl:gap-32px
       >
-        <div w-fit>
-          <div
-            ref="scrollEl"
-            class="no-scrollbar"
-            h-100vh
-            overflow-y-auto
-            sticky
-            top-32px
-            hidden
-            xl:block
-            min-w-234px
-            pb-48px
-          >
-            <Category
-              v-for="category in sortedFilteredCategories"
-              :key="category.id"
-              :title="category.name"
-              :count="category.projectsCount"
-              :selected="selectedCategoryId === category.id"
-              @click="[navigateTo(`/category/${category.id}`), selectedCategoryId = category.id]"
-            />
-          </div>
-        </div>
-        <div w-full>
+        <div
+          flex
+          flex-col
+          w-full
+        >
           <div
             flex
             flex-col
+            md:flex-row
+            md:justify-between
+            md:items-center
             gap-16px
-            w-full
+            mb="16px md:32px"
           >
+            <SearchBox
+              flex-1
+              placeholder:text-app-text-grey
+              :placeholder="`Search in ${filteredProjectsCount} Projects`"
+            />
             <div
-              xl:hidden
-              block
+              md:flex-2
+              flex
+              items-center
+              gap-16px
+              overflow-x-auto
+              pb-274px
+              mb--250px
+              md="overflow-x-visible pb-0 mb-0"
+              class="no-scrollbar"
             >
-              <h2
-                text-14px
-                font-700
-              >
-                Choose category
-              </h2>
               <CategorySelectBox
                 v-model="selectedCategoryId"
-                :options="extendedOptions"
+                :options="categoryOptions"
+                name="categorySelect"
                 w-full
                 @selected="selectedCategoryId === 'all' ? navigateTo(`/`) : navigateTo(`/category/${selectedCategoryId}`)"
               />
+              <CategorySelectBox
+                v-if="usecases?.length"
+                v-model="selectedUsecaseId"
+                name="usecaseSelect"
+                :options="usecaseOptions"
+                w-full
+              />
+              <CategorySelectBox
+                v-if="ecosystems?.length"
+                v-model="selectedEcosystemId"
+                name="ecosystemSelect"
+                :options="ecosystemOptions"
+                w-full
+              />
+              <CategorySelectBox
+                v-if="assets?.length"
+                v-model="selectedAssetsUsedId"
+                name="assetsUsedSelect"
+                :options="assetOptions"
+                w-full
+              />
+              <CategorySelectBox
+                v-if="features?.length"
+                v-model="selectedFeaturesId"
+                name="featuresSelect"
+                :options="featureOptions"
+                w-full
+              />
             </div>
-            <SearchBox />
-          </div>
-          <div
-            flex
-            gap-28px
-            items-center
-            my-24px
-            mt-28px
-          >
-            <h2
-              v-if="selectedCategoryId"
-              w-max
-              font-700
-              text-18px
-              sm:text-28px
-              whitespace-nowrap
-            >
-              {{ selectedCategoryId === 'all' ? `${filteredProjectsCount} All Projects` : `${filteredProjectsCount ?? 0} ${selectedCategory?.name}` }}
-            </h2>
-            <div
-              h-2px
-              w="full"
-              bg-white
-            />
           </div>
           <slot />
         </div>

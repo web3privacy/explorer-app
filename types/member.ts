@@ -9,7 +9,7 @@ export interface Member {
     role?: string
     link?: string
     [k: string]: unknown
-  }
+  }[]
   company?: {
     name?: string
     link?: string

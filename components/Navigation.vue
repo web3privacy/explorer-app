@@ -143,7 +143,7 @@ watch(y, (newY, oldY) => {
     lg:bg-app-bg-dark_grey
   >
     <div
-      v-if="!isProjectRoute"
+      v-if="!isProjectRoute && !route.fullPath.includes('create') && !route.fullPath.includes('edit')"
       relative
       app-container
       w-full
@@ -355,7 +355,10 @@ watch(y, (newY, oldY) => {
     :class="[(!showBar && width < 768) ? 'translate-y--128px' : 'translate-y-0px']"
     duration-200ms
   >
-    <ProjectNavigation md:mt-16px />
+    <ProjectNavigation
+      v-if="!route.fullPath.includes('create') && !route.fullPath.includes('edit')"
+      md:mt-16px
+    />
   </div>
   <div
     v-else

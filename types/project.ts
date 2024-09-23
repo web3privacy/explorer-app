@@ -1,4 +1,4 @@
-import type { Member } from './member'
+import type { Team } from './team'
 import type { Fund } from './fund'
 import type { ClientDiversability } from './clientDiversability'
 import type { Audit } from './audit'
@@ -7,22 +7,27 @@ export interface Project {
   id: string
   name: string
   categories: string[]
-  ecosystem?: string
+  usecases?: string[]
+  ecosystem?: string[]
   product_readiness?: string
   security?: string
-  have_token?: boolean
+  have_token: boolean
   token_link?: string
+  assets_used?: string[]
   tokens?: {
     name?: string
-    symbol: string
+    symbol?: string
     network?: string
     contract_address?: string
-    link?: string
+    token_link?: string
     [k: string]: unknown
   }[]
+  percentage: number
   description?: string
   project_type?: string
   product_launch_day?: string
+  project_phase?: string
+  sunset: boolean
   technology?: {
     type: string
     name?: string
@@ -35,6 +40,7 @@ export interface Project {
     telegram?: string
     discord?: string
     blog?: string
+    governance?: string
     facebook?: string
     block_explorer?: string
     whitepaper?: string
@@ -51,11 +57,11 @@ export interface Project {
     [k: string]: unknown
   }
   blockchain_features?: {
-    p2p?: boolean
+    p2p: boolean
     encryption?: string
     network?: string
     upgradability?: {
-      enabled?: boolean
+      enabled: boolean
       type?: string
       admin_keys?: string
       [k: string]: unknown
@@ -64,32 +70,32 @@ export interface Project {
     opensource: boolean
     viewing_key: boolean
     dissapearing_tx: boolean
-    frontend_anonymity: string
-    identity_integration: null
+    frontend_anonymity?: string
+    identity_integration?: null
     connected_tx: boolean
     revealed_recipient: boolean
     revealed_sender: boolean
     revealed_ammount: boolean
-    reversability_condition: string
-    data_masking: string
-    asset_custody_type: string
+    reversability_condition?: string
+    data_masking?: string
+    asset_custody_type?: string
   }
   licences?: string
-  privacy_policy?: {
-    defined?: boolean
+  privacy_policy: {
+    defined: boolean
     link?: string
     data_usage?: string
     [k: string]: unknown
   }
-  team?: Member[]
+  team?: Team
   storage?: {
-    decentralized?: boolean
+    decentralized: boolean
     [k: string]: unknown
   }
   tracebility?: {
     tracked_data?: string
-    kyc?: boolean
-    sign_in_type_requirments?: string
+    kyc: boolean
+    sign_in_type_requirments?: string[]
     [k: string]: unknown
   }
   third_party_dependency?: string
@@ -104,15 +110,15 @@ export interface Project {
     time?: string
     link?: string
     [k: string]: unknown
-  }
+  }[]
   client_diversability?: ClientDiversability[]
   default_privacy?: boolean
   funding?: Fund[]
   project_status?: {
-    live_status?: boolean
+    live_status: boolean
     version?: string
-    testnet?: boolean
-    mainnet?: boolean
+    testnet: boolean
+    mainnet: boolean
     [k: string]: unknown
   }
   logos?: {
@@ -121,6 +127,7 @@ export interface Project {
     url?: string
     [k: string]: unknown
   }[]
+  ratings?: ProjectRating[]
 }
 
 export interface ProjectShallow {
@@ -129,21 +136,41 @@ export interface ProjectShallow {
   title1: string
   description: string
   percentage: number
-  forum?: string | undefined
-  github?: string | undefined
-  website?: string | undefined
-  twitter?: string | undefined
-  coingecko?: string | undefined
-  explorer?: string | undefined
-  newsletter?: string | undefined
-  readyness?: string | undefined
-  team: Member[] | undefined
-  docs: string | undefined
-  audits?: Audit[] | undefined
-  support?: number | undefined
-  anonymity?: boolean | undefined
+  forum?: string
+  github?: string
+  website?: string
+  twitter?: string
+  coingecko?: string
+  explorer?: string
+  newsletter?: string
+  readyness?: string
+  team?: Team
+  docs?: string
+  audits?: Audit[]
+  support?: number
+  anonymity?: boolean
+  categories: string[]
+  usecases?: string[]
+  ecosystem?: string[]
+  assets_used?: string []
+  ratings?: ProjectRating[]
 }
 
 export interface ProjectIndexable extends Project {
   [key: string]: unknown
+}
+
+export interface ProjectRating {
+  type: string
+  name: string
+  items: ProjectRatingItem[]
+  points: number
+}
+
+export interface ProjectRatingItem {
+  isValid: boolean
+  label: string
+  positive: string
+  negative: string
+  value: any
 }
