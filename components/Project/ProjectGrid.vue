@@ -49,7 +49,6 @@ const cardTitles = ref< { label: string, sortKey: string, togglable?: boolean }[
         items-center
         gap-x-12px
         w-full
-        mb="8px lg:16px"
       >
         <h2
           text="app-white 16px lg:24px"
@@ -148,6 +147,7 @@ const cardTitles = ref< { label: string, sortKey: string, togglable?: boolean }[
         gap-16px
         text-white
         w-full
+        mb="8px lg:24px"
       >
         <Card
           v-for="project in group.projects"

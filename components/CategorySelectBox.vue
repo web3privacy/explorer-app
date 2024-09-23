@@ -27,6 +27,7 @@ function onOptionSelected(value: string | number) {
     <div class="relative font-700 font-24px">
       <HeadlessListboxButton
         class="relative cursor-pointer py-6px px-14px text-left border-2px bg-app-white text-app-black text-xs sm:text-sm sm:leading-6"
+        :class="{ 'text-app-danger!': isOptionSelected?.value === 'sunset' }"
       >
         <span class="block truncate mr-8px font">{{ isOptionSelected?.label }} <span
           v-if="titleShowCount"
@@ -58,7 +59,7 @@ function onOptionSelected(value: string | number) {
           >
             <li
               class="w-full relative cursor-pointer select-none py-8px p-16px bg-app-black text-app-white"
-              :class="[active ? 'text-app-white' : 'text-app-white']"
+              :class="[active ? 'text-app-white' : 'text-app-white', { 'text-app-danger!': option.value === 'sunset' }]"
             >
               <span
                 class="block truncate"
