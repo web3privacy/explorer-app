@@ -51,9 +51,9 @@ export const useData = defineStore('data', () => {
       const data = await $fetch<{
         categories: Category[]
         projects: Project[]
-        project_phase: { id: string, name: string }[]
-        asset_custody_type: { id: string, name: string }[]
-        sign_in_type_requirments: { id: string, name: string }[]
+        phases: { id: string, name: string }[]
+        custodys: { id: string, name: string }[]
+        requirements: { id: string, name: string }[]
         usecases: Usecase[]
         ecosystems: Ecosystem[]
         assets: Asset[]
@@ -73,9 +73,9 @@ export const useData = defineStore('data', () => {
       features.value = data.features
       ranks.value = data.ranks
 
-      projectPhase.value = data.project_phase?.map(p => ({ id: p.id.toLowerCase(), name: p.name }))
-      assetCustody.value = data.asset_custody_type.map(a => ({ id: a.id.toLowerCase(), name: a.name }))
-      signInRequirments.value = data.sign_in_type_requirments.map(s => ({ id: s.id.toLowerCase(), name: s.name }))
+      projectPhase.value = data.phases?.map(p => ({ id: p.id.toLowerCase(), name: p.name }))
+      assetCustody.value = data.custodys.map(a => ({ id: a.id.toLowerCase(), name: a.name }))
+      signInRequirments.value = data.requirements.map(s => ({ id: s.id.toLowerCase(), name: s.name }))
     }
     catch (e) {
       console.error(e)
@@ -129,7 +129,7 @@ export const useData = defineStore('data', () => {
         selectedCategoryId.value !== 'all' ? project.categories.includes(selectedCategoryId.value) : true,
       )
       .filter(project =>
-        selectedUsecaseId.value !== 'all' ? project.usecases?.map(u => u.toLowerCase()).includes(selectedUsecaseId.value.toLowerCase()) : true,
+        selectedUsecaseId.value !== 'all' ? selectedUsecaseId.value === 'sunset' ? project.sunset : project.usecases?.map(u => u.toLowerCase()).includes(selectedUsecaseId.value.toLowerCase()) : true,
       )
       .filter(project =>
         selectedEcosystemId.value !== 'all' ? project.ecosystem?.map(e => e.toLowerCase()).includes(selectedEcosystemId.value.toLowerCase()) : true,
@@ -204,7 +204,7 @@ export const useData = defineStore('data', () => {
       }
     }).sort((a, b) => b.projects.length - a.projects.length)
 
-    return groupedProjects
+    return groupedProjects.filter(group => group.projects.length > 0)
   })
 
   const filteredProjectsCount = computed(() => filteredProjects.value.length)
