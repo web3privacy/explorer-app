@@ -40,16 +40,18 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
         h="48px lg:64px"
         :class="switcher ? '' : 'lg:max-w-full! lg:w-full '"
       >
-        <NuxtImg
-          :src="project?.image || '/no-image-1-1.svg'"
-          class="w-full h-auto"
-          max-h="md:64px 48px"
-          max-w="md:64px 48px"
-          self-center
-          z-10
-          object-fit
-          bg="#121212"
-        />
+        <ClientOnly>
+          <NuxtImg
+            :src="project?.image || '/no-image-1-1.svg'"
+            class="w-full h-auto"
+            max-h="md:64px 48px"
+            max-w="md:64px 48px"
+            self-center
+            z-10
+            object-fit
+            bg="#121212"
+          />
+        </ClientOnly>
         <div
           flex
           flex-col

@@ -25,14 +25,25 @@ const logo = props.project?.logos?.at(0)?.url
     items-center
     lg:gap-32px
   >
-    <NuxtImg
-      max-w-200px
-      max-h-200px
-      shrink
-      border="1px app-text-grey"
-      :src="logo ?? '/no-image-1-1.svg'"
-      class="bg-app-bg-grey object-cover h-full vertical-align[middle] block w-full h-[300px] "
-    />
+    <ClientOnly>
+      <div
+        max-w-200px
+        max-h-200px
+        shrink
+        relative
+      >
+        <NuxtImg
+          border="1px app-text-grey"
+          :src="logo ?? '/no-image-1-1.svg'"
+          class="bg-app-bg-grey object-cover h-full vertical-align[middle] block w-full h-[300px] "
+        />
+        <div flex items-center gap-4px absolute top-12px right-12px bg-app-danger text-12px leading-16px font-bold px-8px py-4px rounded-full v-if="project.sunset">
+          <UnoIcon i-material-symbols-dangerous text-16px />
+          SUNSET
+          <p></p>
+        </div>
+      </div>
+    </ClientOnly>
     <div
       grow
       w-full
@@ -216,7 +227,14 @@ const logo = props.project?.logos?.at(0)?.url
               {{ project.percentage }} %
             </div>
           </div>
-          <div col-span-4 flex items-center justify-center w-full v-if="selectedMobileRating && !isLargeScreen">
+          <div
+            v-if="selectedMobileRating && !isLargeScreen"
+            col-span-4
+            flex
+            items-center
+            justify-center
+            w-full
+          >
             <ProjectRating
               :rating="selectedMobileRating"
               :percentage="selectedMobileRating.points"
