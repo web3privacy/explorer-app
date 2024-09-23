@@ -75,7 +75,7 @@ defineProps<{
           Assets used
         </h3>
         <p leading="20px lg:24px">
-          ETH, DAI, USDC, FRAX
+          {{ project.assets_used?.map((a) => a.toUpperCase()).join(', ') }}
         </p>
       </div>
       <div>
@@ -87,7 +87,7 @@ defineProps<{
           Native token
         </h3>
         <p leading="20px lg:24px">
-          SCRT
+          {{ project.tokens?.length ? project.tokens[0]?.name : 'N/A' }}
         </p>
       </div>
       <div>
@@ -99,7 +99,7 @@ defineProps<{
           Project launch day
         </h3>
         <p leading="20px lg:24px">
-          06/2017
+          {{ project.product_launch_day || 'N/A'}}
         </p>
       </div>
     </div>
