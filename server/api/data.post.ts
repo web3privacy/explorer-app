@@ -36,9 +36,13 @@ export default defineEventHandler(async (event) => {
   ]
 
   if (body.image?.data && body.image?.type) {
+    let extension = body.image.type.split('/')[1]
+    if (extension === 'svg+xml') {
+      extension = 'svg'
+    }
     files.push(
       {
-        path: `src/projects/${id}/logo.${body.image.type.split('/')[1]}`,
+        path: `src/projects/${id}/logo.${extension}`,
         content: body.image.data,
         encoding: 'base64',
       },
