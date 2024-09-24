@@ -6,7 +6,7 @@ export default defineEventHandler(async (event) => {
   const body = await readBody<{ project: Project, image?: { type: string, data: string } }>(event)
   const { appId, privateKey, installationId, baseBranch, owner, repo } = useRuntimeConfig().app.github
 
-  const id = (body.project.id && body.project.id === body.project.name.toLowerCase().replace(/\s+/g, '-'))
+  const id = (body.project.id && body.project.id.toLowerCase() === body.project.name.toLowerCase().replace(/\s+/g, '-'))
     ? body.project.id
     : body.project.name.toLowerCase().replace(/\s+/g, '-')
 
@@ -131,61 +131,66 @@ export default defineEventHandler(async (event) => {
     files: { path: string, content: string, encoding: string }[],
     deletedFiles: string[] = [],
   ) {
-    const { data: latestCommit } = await octokit.rest.repos.getCommit({
-      owner,
-      repo,
-      ref: newBranch,
-    })
-
-    const { data: baseTree } = await octokit.rest.git.getTree({
-      owner,
-      repo,
-      tree_sha: latestCommit.commit.tree.sha,
-    })
-
-    const blobs = await Promise.all(files.map(async (file) => {
-      const { data: blob } = await octokit.rest.git.createBlob({
+    try {
+      const { data: latestCommit } = await octokit.rest.repos.getCommit({
         owner,
         repo,
-        content: file.content,
-        encoding: file.encoding,
+        ref: newBranch,
       })
-      return {
-        path: file.path,
+
+      const { data: baseTree } = await octokit.rest.git.getTree({
+        owner,
+        repo,
+        tree_sha: latestCommit.commit.tree.sha,
+      })
+
+      const blobs = await Promise.all(files.map(async (file) => {
+        const { data: blob } = await octokit.rest.git.createBlob({
+          owner,
+          repo,
+          content: file.content,
+          encoding: file.encoding,
+        })
+        return {
+          path: file.path,
+          mode: '100644' as const,
+          type: 'blob' as const,
+          sha: blob.sha,
+        }
+      }))
+
+      const deletions = deletedFiles.map(filePath => ({
+        path: filePath,
         mode: '100644' as const,
         type: 'blob' as const,
-        sha: blob.sha,
-      }
-    }))
+        sha: null,
+      }))
 
-    const deletions = deletedFiles.map(filePath => ({
-      path: filePath,
-      mode: '100644' as const,
-      type: 'blob' as const,
-      sha: null,
-    }))
+      const { data: newTree } = await octokit.rest.git.createTree({
+        owner,
+        repo,
+        base_tree: baseTree.sha,
+        tree: [...blobs, ...deletions],
+      })
 
-    const { data: newTree } = await octokit.rest.git.createTree({
-      owner,
-      repo,
-      base_tree: baseTree.sha,
-      tree: [...blobs, ...deletions],
-    })
+      const { data: newCommit } = await octokit.rest.git.createCommit({
+        owner,
+        repo,
+        message,
+        tree: newTree.sha,
+        parents: [latestCommit.sha],
+      })
 
-    const { data: newCommit } = await octokit.rest.git.createCommit({
-      owner,
-      repo,
-      message,
-      tree: newTree.sha,
-      parents: [latestCommit.sha],
-    })
-
-    await octokit.rest.git.updateRef({
-      owner,
-      repo,
-      ref: `heads/${newBranch}`,
-      sha: newCommit.sha,
-    })
+      await octokit.rest.git.updateRef({
+        owner,
+        repo,
+        ref: `heads/${newBranch}`,
+        sha: newCommit.sha,
+      })
+    }
+    catch (error) {
+      console.error('Error during commit operation:', error)
+    }
   }
 
   async function createPullRequest(owner: string, repo: string, head: string, base: string, title: string, body: string) {
@@ -206,7 +211,7 @@ export default defineEventHandler(async (event) => {
     console.log(`Branch ${newBranchName} created successfully!`)
 
     const deletedFiles = []
-    if (body.project.id && body.project.id !== body.project.name.toLowerCase().replace(/\s+/g, '-')) {
+    if (body.project.id && body.project.id.toLowerCase() !== body.project.name.toLowerCase().replace(/\s+/g, '-')) {
       const oldId = body.project.id
       const oldFolderPath = `src/projects/${oldId}`
       await deleteOldProjectFolder(owner, repo, newBranchName, oldFolderPath)
