@@ -124,23 +124,48 @@ export const useData = defineStore('data', () => {
   const shallowProjects = computed(() => projects.value.map(project => projectToShallow(project)))
 
   const getProjectsByFilters = <T extends ProjectShallow>(options?: { shallow: boolean }): T[] => {
-    const filteredProjects = projects.value
-      .filter(project =>
-        selectedCategoryId.value !== 'all' ? project.categories.includes(selectedCategoryId.value) : true,
-      )
-      .filter(project =>
-        selectedUsecaseId.value !== 'all' ? selectedUsecaseId.value === 'sunset' ? project.sunset : project.usecases?.map(u => u.toLowerCase()).includes(selectedUsecaseId.value.toLowerCase()) : true,
-      )
-      .filter(project =>
-        selectedEcosystemId.value !== 'all' ? project.ecosystem?.map(e => e.toLowerCase()).includes(selectedEcosystemId.value.toLowerCase()) : true,
-      )
-      .filter(project =>
-        selectedAssetsUsedId.value !== 'all' ? project.assets_used?.map(a => a.toLowerCase()).includes(selectedAssetsUsedId.value.toLowerCase()) : true,
-      )
-      .filter(project =>
-        selectedFeaturesId.value !== 'all' ? project.technology?.features?.map(f => f.toLowerCase()).includes(selectedFeaturesId.value.toLowerCase()) : true,
-      )
-    return (filteredProjects.map(project => options?.shallow ? projectToShallow(project) : project) as T[])
+    const selectedCategory = selectedCategoryId.value !== 'all' ? selectedCategoryId.value : undefined
+    const selectedUsecase = selectedUsecaseId.value !== 'all' ? selectedUsecaseId.value.toLowerCase() : undefined
+    const selectedEcosystem = selectedEcosystemId.value !== 'all' ? selectedEcosystemId.value.toLowerCase() : undefined
+    const selectedAssetsUsed = selectedAssetsUsedId.value !== 'all' ? selectedAssetsUsedId.value.toLowerCase() : undefined
+    const selectedFeature = selectedFeaturesId.value !== 'all' ? selectedFeaturesId.value.toLowerCase() : undefined
+
+    return (projects.value.filter((project) => {
+      if (selectedCategory && !project.categories.includes(selectedCategory))
+        return false
+
+      if (selectedUsecase) {
+        if (selectedUsecase === 'sunset') {
+          if (!project.sunset)
+            return false
+        }
+        else {
+          const usecases = project.usecases?.map(u => u.toLowerCase()) || []
+          if (!usecases.includes(selectedUsecase))
+            return false
+        }
+      }
+
+      if (selectedEcosystem) {
+        const ecosystems = project.ecosystem?.map(e => e.toLowerCase()) || []
+        if (!ecosystems.includes(selectedEcosystem))
+          return false
+      }
+
+      if (selectedAssetsUsed) {
+        const assetsUsed = project.assets_used?.map(a => a.toLowerCase()) || []
+        if (!assetsUsed.includes(selectedAssetsUsed))
+          return false
+      }
+
+      if (selectedFeature) {
+        const features = project.technology?.features?.map(f => f.toLowerCase()) || []
+        if (!features.includes(selectedFeature))
+          return false
+      }
+
+      return true
+    }).map(project => (options?.shallow ? projectToShallow(project) : project)) as T[])
   }
 
   const getProjectById = <T extends Project | ProjectShallow>(id: string, options?: { shallow: boolean }): T => {
@@ -149,51 +174,39 @@ export const useData = defineStore('data', () => {
   }
 
   const filteredProjects = computed(() => {
-    if (!projects.value)
-      return []
+    if (!projects.value) return []
 
     const query = filter.query.toLowerCase()
+    const sortDirection = filter.sortDirection === 'asc' ? 1 : -1
+    const sortBy = filter.sortby
 
     const filteredShallowProjects = getProjectsByFilters({ shallow: true })
       .filter((project) => {
-        return (
-          project
-          && project.title1
-          && project.title1.toLowerCase().includes(query)
-        )
-      }).filter((project) => {
-        if (filter.sortby === 'anonymity')
-          return project.anonymity === true
-        else
-          return true
-      }).sort((a, b) => {
-        if (filter.sortby === 'score')
-          if (filter.sortDirection === 'asc')
-            return a.percentage - b.percentage
-          else
-            return b.percentage - a.percentage
-        if (filter.sortby === 'title')
-          if (filter.sortDirection === 'asc')
-            return a.title1.toLowerCase().localeCompare(b.title1.toLowerCase())
-          else
-            return b.title1.toLowerCase().localeCompare(a.title1.toLowerCase())
-        if (filter.sortby === 'openess' || filter.sortby === 'technology' || filter.sortby === 'privacy') {
-          const scoreA = a.ratings?.find(r => r.type === filter.sortby)?.points || 0
-          const scoreB = b.ratings?.find(r => r.type === filter.sortby)?.points || 0
-          if (filter.sortDirection === 'asc')
-            return scoreB - scoreA
-          else
-            return scoreA - scoreB
-        }
-        else
-          return 0
+        return project?.title1?.toLowerCase().includes(query)
       })
+      .sort((a, b) => {
+        if (sortBy === 'score') {
+          return sortDirection * (a.percentage - b.percentage)
+        }
+
+        if (sortBy === 'title') {
+          return sortDirection * a.title1.toLowerCase().localeCompare(b.title1.toLowerCase())
+        }
+
+        if (sortBy === 'openess' || sortBy === 'technology' || sortBy === 'privacy') {
+          const scoreA = a.ratings?.find(r => r.type === sortBy)?.points || 0
+          const scoreB = b.ratings?.find(r => r.type === sortBy)?.points || 0
+          return sortDirection * (scoreB - scoreA)
+        }
+
+        return 0
+      })
+
     return filteredShallowProjects
   })
 
   const groupedProjectsPerCategory = computed(() => {
     const groupedProjects = categories.value.map((category) => {
-      // Find all projects that include this category
       const projectsInCategory = filteredProjects.value.filter(project =>
         project.categories.includes(category.id),
       )
