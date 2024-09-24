@@ -63,7 +63,6 @@ export default defineNuxtConfig({
         baseBranch: 'main',
         repo: 'test-repo',
       },
-      datasource: 'local',
     },
   },
 })
