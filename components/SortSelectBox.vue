@@ -8,6 +8,7 @@ const props = withDefaults(defineProps<SelectProps>(), {
 const emits = defineEmits(['update:modelValue'])
 
 interface SelectProps {
+  name: string
   options: InputOption[]
   modelValue: string
   isMarginTop?: boolean
@@ -27,23 +28,24 @@ const selectedValue = useVModel(props, 'modelValue', emits)
       :class="[isMarginTop ? 'mt-2' : 'mt-0', blackAndWhite ? 'bg-app-black' : 'bg-app-white']"
     >
       <HeadlessListboxButton
-        class="relative w-full cursor-pointer py-8px p-16px text-left  text-xs sm:text-sm sm:leading-6 flex items-center gap-4px"
+        :id="`headless-listbox-button-${name}`"
+        class="cursor-pointer py-8px  text-left  text-xs sm:text-sm sm:leading-6 flex items-center justify-end gap-4px"
         :class="[blackAndWhite ? ' text-app-white' : 'text-app-black']"
       >
-        <span
-          block
+        <div
           text="12px lg:14px app-text-grey"
           leading="16px lg:24px"
         >
           Sort by:
-        </span>
-        <span class="block truncate mr-8px">{{ props.options.find(option => option.value === selectedValue)?.label }}</span>
-        <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-          <UnoIcon
-            i-ic-baseline-arrow-drop-down
-            :class="[blackAndWhite ? ' text-app-white' : 'text-app-black']"
-          />
-        </span>
+        </div>
+        <div class="truncate">
+          {{ props.options.find(option => option.value === selectedValue)?.label }}
+        </div>
+        <UnoIcon
+          i-ic-baseline-arrow-drop-down
+          :class="[blackAndWhite ? ' text-app-white' : 'text-app-black']"
+          text="18px lg:20px"
+        />
       </HeadlessListboxButton>
 
       <transition
