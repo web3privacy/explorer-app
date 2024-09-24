@@ -38,6 +38,7 @@ const logo = props.project?.logos?.at(0)?.url
   >
     <ClientOnly>
       <div
+        w-full
         max-w-200px
         max-h-200px
         shrink
