@@ -327,6 +327,7 @@ const transitionDone = ref(false)
           </Transition>
           <component
             :is="getCurrentComponent()"
+            v-else
             ref="currentComponent"
             :project="project"
             w-full
