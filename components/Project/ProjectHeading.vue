@@ -7,11 +7,22 @@ const props = defineProps<{
 
 const isLargeScreen = useMediaQuery('(min-width: 1024px)')
 
+const { usecases, ecosystems, categories } = storeToRefs(useData())
 const selectedMobileRating = ref<ProjectRating>()
 
 function onSelectMobileRating(rating: ProjectRating) {
   selectedMobileRating.value = selectedMobileRating.value?.type === rating.type ? undefined : rating
 }
+
+const projectCategories = computed(() => {
+  return categories.value.filter(cat => props.project.categories.includes(cat.id)).map(cat => cat.name).join(', ')
+})
+const projectUsecases = computed(() => {
+  return usecases.value.filter(u => props.project.usecases?.includes(u.id)).map(u => u.name).join(', ')
+})
+const projectEcosystems = computed(() => {
+  return ecosystems.value.filter(e => props.project.ecosystem?.includes(e.id)).map(e => e.name).join(', ')
+})
 
 const logo = props.project?.logos?.at(0)?.url
 </script>
@@ -37,10 +48,28 @@ const logo = props.project?.logos?.at(0)?.url
           :src="logo ?? '/no-image-1-1.svg'"
           class="bg-app-bg-grey object-cover h-full vertical-align[middle] block w-full h-[300px] "
         />
-        <div flex items-center gap-4px absolute top-12px right-12px bg-app-danger text-12px leading-16px font-bold px-8px py-4px rounded-full v-if="project.sunset">
-          <UnoIcon i-material-symbols-dangerous text-16px />
+        <div
+          v-if="project.sunset"
+          flex
+          items-center
+          gap-4px
+          absolute
+          top-12px
+          right-12px
+          bg-app-danger
+          text-12px
+          leading-16px
+          font-bold
+          px-8px
+          py-4px
+          rounded-full
+        >
+          <UnoIcon
+            i-material-symbols-dangerous
+            text-16px
+          />
           SUNSET
-          <p></p>
+          <p />
         </div>
       </div>
     </ClientOnly>
@@ -100,7 +129,7 @@ const logo = props.project?.logos?.at(0)?.url
             text-app-white
             col-span-9
           >
-            Swap, Mixer
+            {{ projectUsecases }}
           </p>
         </div>
         <div
@@ -129,7 +158,7 @@ const logo = props.project?.logos?.at(0)?.url
               text-app-white
               col-span-9
             >
-              Dapp, Network
+              {{ projectCategories }}
             </p>
           </div>
           <div
@@ -148,7 +177,7 @@ const logo = props.project?.logos?.at(0)?.url
               text-app-white
               col-span-9
             >
-              Ethereum, Secret Network
+              {{ projectEcosystems }}
             </p>
           </div>
         </div>
