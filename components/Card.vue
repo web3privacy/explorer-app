@@ -40,18 +40,16 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
         h="48px lg:64px"
         :class="switcher ? '' : 'lg:max-w-full! lg:w-full '"
       >
-        <ClientOnly>
-          <NuxtImg
-            :src="project?.image || '/no-image-1-1.svg'"
-            class="w-full h-auto"
-            max-h="md:64px 48px"
-            max-w="md:64px 48px"
-            self-center
-            z-10
-            object-fit
-            bg="#121212"
-          />
-        </ClientOnly>
+        <NuxtImg
+          :src="project?.image || '/no-image-1-1.svg'"
+          class="w-full h-auto"
+          max-h="md:64px 48px"
+          max-w="md:64px 48px"
+          self-center
+          z-10
+          object-fit
+          bg="#121212"
+        />
         <div
           flex
           flex-col
@@ -88,138 +86,135 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
           </p>
         </div>
       </div>
-      <ClientOnly>
-        <div
-          v-for="(projectItem, index) of projectItems"
-          :key="projectItem.label.toString()"
-          hidden
-          lg:flex
-          items-center
-          text-14px
-          leading-24px
-          :class="{ 'col-span-1 lg:col-span-2': index === 0 }"
+      <div
+        v-for="(projectItem, index) of projectItems"
+        :key="projectItem.label.toString()"
+        hidden
+        lg:flex
+        items-center
+        text-14px
+        leading-24px
+        :class="{ 'col-span-1 lg:col-span-2': index === 0 }"
+      >
+        <p
+          v-if="projectItem.type === 'array'"
+          text-app-text-grey
         >
-          <p
-            v-if="projectItem.type === 'array'"
-            text-app-text-grey
-          >
-            {{ (projectItem.label as string[] || []).join(', ') }}
-          </p>
-          <div
-            v-if="projectItem.type === 'links'"
-            flex
-            items-center
-            justify-start
-            gap-16px
-          >
-            <NuxtLink
-              v-if="projectItem.label[0]"
-              :to="projectItem.label[0]"
-              external
-              target="_blank"
-              @click.stop
-            >
-              <UnoIcon
-                i-ic-baseline-language
-                text="24px app-text-grey"
-              />
-            </NuxtLink>
-            <NuxtLink
-              v-if="projectItem.label[1]"
-              :to="projectItem.label[1]"
-              external
-              target="_blank"
-              @click.stop
-            >
-              <UnoIcon
-                i-mdi-github
-                text="24px app-text-grey"
-                text-27px
-              />
-            </NuxtLink>
-            <NuxtLink
-              v-if="projectItem.label[2]"
-              :to="projectItem.label[2]"
-              external
-              target="_blank"
-              @click.stop
-            >
-              <UnoIcon
-                i-bi-twitter-x
-                text="24px app-text-grey"
-              />
-            </NuxtLink>
-          </div>
-          <div
-            v-if="projectItem.type === 'ecosystem'"
-            flex
-            items-center
-            justify-start
-            gap-2px
-          >
-            <NuxtImg
-              v-for="ecosystem of projectItem.label"
-              :key="ecosystem"
-              :src="ecosystem"
-              w-24px
-              h-24px
-              rounded-full
-            />
-          </div>
-          <ProjectRating
-            v-if="projectItem.type! === 'rating' && projectItem.rating"
-            :percentage="projectItem.rating.points"
-            :rating="projectItem.rating"
-            :type="projectItem.rating.type"
-          />
-        </div>
+          {{ (projectItem.label as string[] || []).join(', ') }}
+        </p>
         <div
+          v-if="projectItem.type === 'links'"
           flex
           items-center
-          justify-end
-          w-full
+          justify-start
           gap-16px
         >
           <NuxtLink
-            v-if="project.website"
-            block
-            lg:hidden
-            :to="project.website"
+            v-if="projectItem.label[0]"
+            :to="projectItem.label[0]"
             external
             target="_blank"
             @click.stop
           >
             <UnoIcon
-
-              i-iconoir-internet
-              text="24px"
+              i-ic-baseline-language
+              text="24px app-text-grey"
             />
           </NuxtLink>
-          <div
-            v-if="filter.sortby === 'score' || filter.sortby === 'title' || isLargeScreen"
-            flex
-            items-center
-            justify-center
-            border="2px app-white"
-            text="14px md:18px"
-            leading="24px md:32px"
-            max-h-="28px md:32px"
-            max-w="48px md:56px"
-            w-full
-            font-700
-            whitespace-nowrap
+          <NuxtLink
+            v-if="projectItem.label[1]"
+            :to="projectItem.label[1]"
+            external
+            target="_blank"
+            @click.stop
           >
-            {{ project.percentage }} %
-          </div>
-          <ProjectRating
-            v-if="(filter.sortby === 'openess' || filter.sortby === 'technology' || filter.sortby === 'privacy') && project.ratings?.find((r) => r.type === filter.sortby) && !isLargeScreen"
-            :percentage="project.ratings.find((r) => r.type === filter.sortby)!.points"
-            :rating="project.ratings.find((r) => r.type === filter.sortby)!"
-            compact
+            <UnoIcon
+              i-mdi-github
+              text="24px app-text-grey"
+              text-27px
+            />
+          </NuxtLink>
+          <NuxtLink
+            v-if="projectItem.label[2]"
+            :to="projectItem.label[2]"
+            external
+            target="_blank"
+            @click.stop
+          >
+            <UnoIcon
+              i-bi-twitter-x
+              text="24px app-text-grey"
+            />
+          </NuxtLink>
+        </div>
+        <div
+          v-if="projectItem.type === 'ecosystem'"
+          flex
+          items-center
+          justify-start
+          gap-2px
+        >
+          <NuxtImg
+            v-for="ecosystem of projectItem.label"
+            :key="ecosystem"
+            :src="ecosystem"
+            w-24px
+            h-24px
+            rounded-full
           />
         </div>
-      </ClientOnly>
-    </div>
+        <ProjectRating
+          v-if="projectItem.type! === 'rating' && projectItem.rating"
+          :percentage="projectItem.rating.points"
+          :rating="projectItem.rating"
+          :type="projectItem.rating.type"
+        />
+      </div>
+      <div
+        flex
+        items-center
+        justify-end
+        w-full
+        gap-16px
+      >
+        <NuxtLink
+          v-if="project.website"
+          block
+          lg:hidden
+          :to="project.website"
+          external
+          target="_blank"
+          @click.stop
+        >
+          <UnoIcon
 
+            i-iconoir-internet
+            text="24px"
+          />
+        </NuxtLink>
+        <div
+          v-if="filter.sortby === 'score' || filter.sortby === 'title' || isLargeScreen"
+          flex
+          items-center
+          justify-center
+          border="2px app-white"
+          text="14px md:18px"
+          leading="24px md:32px"
+          max-h-="28px md:32px"
+          max-w="48px md:56px"
+          w-full
+          font-700
+          whitespace-nowrap
+        >
+          {{ project.percentage }} %
+        </div>
+        <ProjectRating
+          v-if="(filter.sortby === 'openess' || filter.sortby === 'technology' || filter.sortby === 'privacy') && project.ratings?.find((r) => r.type === filter.sortby) && !isLargeScreen"
+          :percentage="project.ratings.find((r) => r.type === filter.sortby)!.points"
+          :rating="project.ratings.find((r) => r.type === filter.sortby)!"
+          compact
+        />
+      </div>
+    </div>
   </NuxtLink>
 </template>

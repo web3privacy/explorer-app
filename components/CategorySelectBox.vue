@@ -2,6 +2,7 @@
 import type { InputOption } from '~/types'
 
 const props = defineProps<{
+  name: string
   options: InputOption[]
   modelValue: string | number
   count?: number
@@ -26,6 +27,7 @@ function onOptionSelected(value: string | number) {
   >
     <div class="relative font-700 font-24px">
       <HeadlessListboxButton
+        :id="`headless-listbox-button-${name}`"
         class="relative cursor-pointer py-6px px-14px text-left border-2px bg-app-white text-app-black text-xs sm:text-sm sm:leading-6"
         :class="{ 'text-app-danger!': isOptionSelected?.value === 'sunset' }"
       >
