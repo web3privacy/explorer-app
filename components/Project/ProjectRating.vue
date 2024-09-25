@@ -27,6 +27,8 @@ const colors = [
 ]
 
 const backgroundColorByScore = computed(() => {
+  if (props.percentage === 100)
+    return '#42FF00'
   const normalizedPercentage = Math.min(Math.max(props.percentage, 0), 100)
   const colorIndex = Math.floor(normalizedPercentage / 10)
   return colors[colorIndex]
