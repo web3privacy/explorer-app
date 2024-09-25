@@ -59,7 +59,7 @@ defineProps<{
         </NuxtLink>
       </ProjectInfoItem>
       <ProjectInfoItem
-        :check-undefined="project.compliance"
+        :check-undefined="true"
         color="#FFB800"
         bold
         title="Compliance with"
