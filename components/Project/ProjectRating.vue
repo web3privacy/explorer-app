@@ -14,16 +14,16 @@ const props = defineProps<{
 const emits = defineEmits(['selected'])
 
 const colors = [
-  '#ff0000', // 0-10%
-  '#ff4500', // 11-20%
-  '#ff8c00', // 21-30%
-  '#ffd700', // 31-40%
-  '#adff2f', // 41-50%
-  '#7fff00', // 51-60%
-  '#00ff00', // 61-70%
-  '#32cd32', // 71-80%
-  '#00fa9a', // 81-90%
-  '#00ffff', // 91-100%
+  '#EA171D', // 0-10%
+  '#FB2D00', // 11-20%
+  '#FD6515', // 21-30%
+  '#FD941A', // 31-40%
+  '#FECD0A', // 41-50%
+  '#FFD806', // 51-60%
+  '#D2EF1F', // 61-70%
+  '#95DF1C', // 71-80%
+  '#42FF00', // 81-90%
+  '#42FF00', // 91-100%
 ]
 
 const backgroundColorByScore = computed(() => {

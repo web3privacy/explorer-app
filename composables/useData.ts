@@ -233,6 +233,7 @@ export const useData = defineStore('data', () => {
   const generateProjectRating = (project: Project) => {
     const projectRatings: ProjectRating[] = ranks.value?.map((rank) => {
       let rankPoints = 0
+      let maxPoints = 0
 
       const ratingStats: ProjectRatingItem[] = rank.references?.map((ref) => {
         let isValid = false
@@ -240,6 +241,7 @@ export const useData = defineStore('data', () => {
 
         let value
         let positive
+        let negative
 
         if (ref.condition.minLength !== undefined) {
           value = (field as any[])?.length
@@ -259,12 +261,17 @@ export const useData = defineStore('data', () => {
           if (value !== undefined)
             isValid = !!value
         }
+        if (ref.field === 'compliance') {
+          negative = value
+        }
+
         rankPoints += isValid ? ref.points : 0
+        maxPoints += ref.points
         return {
           isValid,
           label: ref.label.name,
           positive: positive ? positive : ref.label.positive,
-          negative: ref.label.negative,
+          negative: negative ? negative : ref.label.negative,
           value,
         } as ProjectRatingItem
       })
@@ -273,6 +280,7 @@ export const useData = defineStore('data', () => {
         name: rank.name,
         items: ratingStats,
         points: rankPoints,
+        percentagePoints: rankPoints / maxPoints * 100,
       }
     })
 

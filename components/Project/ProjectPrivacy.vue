@@ -64,7 +64,7 @@ defineProps<{
         bold
         title="Compliance with"
       >
-        {{ project.compliance ? 'YES' : 'NO' }}
+        {{ project.compliance ? project.compliance : 'NO' }}
       </ProjectInfoItem>
       <ProjectInfoItem
         :check-undefined="project.tracebility?.sign_in_type_requirments"

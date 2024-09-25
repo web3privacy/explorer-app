@@ -165,7 +165,7 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
         </div>
         <ProjectRating
           v-if="projectItem.type! === 'rating' && projectItem.rating"
-          :percentage="projectItem.rating.points"
+          :percentage="projectItem.rating.percentagePoints"
           :rating="projectItem.rating"
           :type="projectItem.rating.type"
         />
@@ -210,7 +210,7 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
         </div>
         <ProjectRating
           v-if="(filter.sortby === 'openess' || filter.sortby === 'technology' || filter.sortby === 'privacy') && project.ratings?.find((r) => r.type === filter.sortby) && !isLargeScreen"
-          :percentage="project.ratings.find((r) => r.type === filter.sortby)!.points"
+          :percentage="project.ratings.find((r) => r.type === filter.sortby)!.percentagePoints"
           :rating="project.ratings.find((r) => r.type === filter.sortby)!"
           compact
         />
