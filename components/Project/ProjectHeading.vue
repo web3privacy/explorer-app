@@ -215,7 +215,7 @@ const logo = props.project?.logos?.at(0)?.url
               </p>
               <ProjectRating
                 :rating="rating"
-                :percentage="rating.points"
+                :percentage="rating.percentagePoints"
                 :disable-popover="!isLargeScreen"
                 compact
                 :selected="rating.type === selectedMobileRating?.type && !isLargeScreen"
@@ -267,7 +267,7 @@ const logo = props.project?.logos?.at(0)?.url
           >
             <ProjectRating
               :rating="selectedMobileRating"
-              :percentage="selectedMobileRating.points"
+              :percentage="selectedMobileRating.percentagePoints"
               :disable-popover="!isLargeScreen"
               compact
               show-only-popover

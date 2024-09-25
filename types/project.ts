@@ -165,6 +165,7 @@ export interface ProjectRating {
   name: string
   items: ProjectRatingItem[]
   points: number
+  percentagePoints: number
 }
 
 export interface ProjectRatingItem {
