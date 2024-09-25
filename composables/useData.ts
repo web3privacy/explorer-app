@@ -254,9 +254,6 @@ export const useData = defineStore('data', () => {
           value = field
           if (value !== undefined)
             isValid = value === ref.condition.equals
-          if (ref.field === 'compliance') {
-            negative = value
-          }
         }
 
         if (ref.condition.exists !== undefined) {
@@ -264,6 +261,10 @@ export const useData = defineStore('data', () => {
           if (value !== undefined)
             isValid = !!value
         }
+        if (ref.field === 'compliance') {
+          negative = value
+        }
+
         rankPoints += isValid ? ref.points : 0
         maxPoints += ref.points
         return {
