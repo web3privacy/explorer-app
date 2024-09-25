@@ -63,8 +63,12 @@ const shownProjects = computed(() => props.group.projects.slice(0, shownProjects
           :key="project.id"
           :project="project"
         />
+
         <template #fallback>
-          Loading...
+          <CardSkeletor
+            v-for="i in 6"
+            :key="i"
+          />
         </template>
       </ClientOnly>
     </div>
