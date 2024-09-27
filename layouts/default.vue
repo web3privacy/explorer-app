@@ -51,7 +51,19 @@ watch([scrollY, top, y], (newValues, oldValues) => {
     <div
       app-container
       mt-32px
+      relative
     >
+      <div
+        md:hidden
+        block
+        absolute
+        z-5
+        class="bg-gradient-to-r from-transparent to-app-black "
+        w-50px
+        h-35px
+        top-14
+        right-0
+      />
       <div
         flex
         w-full
@@ -81,6 +93,7 @@ watch([scrollY, top, y], (newValues, oldValues) => {
               flex
               items-center
               gap-16px
+              relative
               overflow-x-auto
               pb-274px
               mb--250px

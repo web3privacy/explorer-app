@@ -11,6 +11,7 @@ defineProps<{
     justify-between
     gap-8px
     my-40px
+    mb-24px
     lg="gap-32px"
   >
     <div

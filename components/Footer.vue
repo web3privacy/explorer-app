@@ -13,6 +13,7 @@
     </div>
     <div
       p-24px
+      pb-8px
       flex
       items-center
     >

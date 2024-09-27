@@ -274,7 +274,7 @@ const transitionDone = ref(false)
             :model-value="selectedTab"
             label="Choose category"
             :options="tabs.map(t => ({ label: t.label, value: t.value }))"
-            :border-opacity="30"
+            :border-opacity="100"
             w-full
             lg:hidden
             block
@@ -299,13 +299,13 @@ const transitionDone = ref(false)
     <div
       border-t-2
       class="border-app-white/30"
-      px-16px
-      py-24px
+      px-8px
+      py-8px
+      md:py-24px
     >
       <div
         app-container
-        mb-170px
-        lg="mb-55px"
+        mb-55px
       >
         <ClientOnly>
           <Transition
@@ -333,7 +333,7 @@ const transitionDone = ref(false)
             w-full
             flex
             flex-col
-            gap-24px
+            gap-8px
           />
           <Button
             v-if="selectedTab !== tabs[tabs.length - 1].value"
@@ -351,10 +351,10 @@ const transitionDone = ref(false)
     <div
       flex
       flex-col
-      gap-16px
+      gap-10px
       justify-center
       text-center
-      fixed
+      md:fixed
       bottom-0
       w-full
       bg-app-bg-dark_grey

@@ -29,6 +29,9 @@ function onOptionSelected(value: string | number) {
       <HeadlessListboxButton
         :id="`headless-listbox-button-${name}`"
         class="relative cursor-pointer py-6px px-14px text-left border-2px bg-app-white text-app-black text-xs sm:text-sm sm:leading-6"
+        hover="bg-app-black text-app-white"
+        transition="all"
+        duration-250
         :class="{ 'text-app-danger!': isOptionSelected?.value === 'sunset' }"
       >
         <span class="block truncate mr-8px font">{{ isOptionSelected?.label }} <span

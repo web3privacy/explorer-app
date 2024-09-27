@@ -32,7 +32,7 @@ withDefaults(defineProps<{ items: ProjectRatingItem[], compact?: boolean }>(), {
       >
         <div
           :class="[item.isValid ? 'i-ic-sharp-thumb-up' : 'i-ic-sharp-thumb-down']"
-          text-20px
+          text-16px
           mt--4px
         />
         {{ item.label }}

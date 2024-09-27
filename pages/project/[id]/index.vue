@@ -49,7 +49,10 @@ useSeoMeta({
             <ProjectTechnology :project="project" />
             <ProjectPrivacy :project="project" />
             <ProjectSecurity :project="project" />
-            <ProjectHistory :project="project" />
+            <ProjectHistory
+              v-if="project.history"
+              :project="project"
+            />
           </div>
         </div>
       </div>

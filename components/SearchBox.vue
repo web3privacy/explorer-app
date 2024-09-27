@@ -27,6 +27,8 @@ const isSearchFocused = ref(false)
       w-full
       h-40px
       hover:opacity-100
+      md:max-w-470px
+
       :class="isSearchFocused ? 'opacity-100' : 'opacity-25'"
     >
       <div

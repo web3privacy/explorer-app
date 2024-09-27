@@ -58,6 +58,13 @@ defineExpose({
       flex-col
       gap-24px
     >
+      <ProjectCreateComponentsSelect
+        v-model="assetType"
+        :options="assetCustodyData?.map(c => ({ label: c.name, value: c.id }))"
+        label="Asset custody type"
+        placeholder="Select custody type"
+        hint="How are user’s fund handled? (non-custody, multisig, pool,...)"
+      />
       <ProjectCreateComponentsToggle
         v-model="openSource"
         label="Open source"
@@ -69,13 +76,7 @@ defineExpose({
         hint="Are developers able to upgrade and change deployed contract?"
       />
     </div>
-    <ProjectCreateComponentsSelect
-      v-model="assetType"
-      :options="assetCustodyData?.map(c => ({ label: c.name, value: c.id }))"
-      label="Asset custody type"
-      placeholder="Select custody type"
-      hint="How are user’s fund handled? (non-custody, multisig, pool,...)"
-    />
+
     <ProjectCreateComponentsCategoryDivider
       w-full
       title="ADDITIONAL INFO"

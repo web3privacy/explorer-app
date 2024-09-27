@@ -11,8 +11,8 @@ defineProps<{
     flex
     justify-between
     gap-8px
-    lg:gap-32px
-    mt-36px
+    lg:gap-24px
+    mt-24px
   >
     <div
       flex
