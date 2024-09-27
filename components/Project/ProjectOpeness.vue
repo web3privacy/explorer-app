@@ -74,8 +74,11 @@ defineProps<{
         >
           Assets used
         </h3>
-        <p leading="20px lg:24px">
-          {{ project.assets_used?.map((a) => a.toUpperCase()).join(', ') }}
+        <p
+          leading="20px lg:24px"
+          :class=" project.assets_used ? '' : 'opacity-50'"
+        >
+          {{ project.assets_used ? project.assets_used?.map((a) => a.toUpperCase()).join(', ') : 'N/A' }}
         </p>
       </div>
       <div>
@@ -86,7 +89,10 @@ defineProps<{
         >
           Native token
         </h3>
-        <p leading="20px lg:24px">
+        <p
+          leading="20px lg:24px"
+          :class=" project.tokens?.length ? '' : 'opacity-50'"
+        >
           {{ project.tokens?.length ? project.tokens[0]?.name : 'N/A' }}
         </p>
       </div>
@@ -98,8 +104,11 @@ defineProps<{
         >
           Project launch day
         </h3>
-        <p leading="20px lg:24px">
-          {{ project.product_launch_day || 'N/A'}}
+        <p
+          leading="20px lg:24px"
+          :class=" project.product_launch_day ? '' : 'opacity-50'"
+        >
+          {{ project.product_launch_day || 'N/A' }}
         </p>
       </div>
     </div>

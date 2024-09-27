@@ -54,7 +54,7 @@ const selectedValue = useVModel(props, 'modelValue', emits)
         leave-to-class="opacity-0"
       >
         <HeadlessListboxOptions
-          class="absolute z-100 max-h-60 w-full divide-y-2px border-2px  overflow-auto bg-app-black text-app-white focus:outline-none sm:text-sm"
+          class="absolute md: left--12 z-100 max-h-60 w-150px divide-y-2px border-2px  overflow-auto bg-app-black text-app-white focus:outline-none sm:text-sm"
         >
           <HeadlessListboxOption
             v-for="option in props.options"
@@ -64,7 +64,7 @@ const selectedValue = useVModel(props, 'modelValue', emits)
             :value="option.value"
           >
             <li
-              class="w-full relative cursor-pointer select-none py-8px p-16px text-xs sm:text-sm"
+              class="w-full relative cursor-pointer select-none py-8px p-16px text-sm"
               :class="[active ? 'bg-#ffffff1a' : 'text-white']"
             >
               <span

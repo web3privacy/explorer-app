@@ -45,7 +45,6 @@ const logo = props.project?.logos?.at(0)?.url
         relative
       >
         <NuxtImg
-          border="1px app-text-grey"
           :src="logo ?? '/no-image-1-1.svg'"
           class="bg-app-bg-grey object-cover h-full vertical-align[middle] block w-full h-[300px] "
         />
@@ -84,7 +83,7 @@ const logo = props.project?.logos?.at(0)?.url
         items-center
         lg:items-start
         justify-between
-        gap-y="lg:12px 24px"
+        gap-y="12px"
         text-app-text-grey
         w-full
       >
@@ -127,6 +126,8 @@ const logo = props.project?.logos?.at(0)?.url
             Usecases:
           </h2>
           <p
+            mt-8px
+            mb-16px
             text-app-white
             col-span-9
           >
@@ -142,6 +143,8 @@ const logo = props.project?.logos?.at(0)?.url
           order-3
           lg:order-2
           w-full
+          md:ml-0px
+          ml-18px
         >
           <div
             flex
@@ -205,11 +208,14 @@ const logo = props.project?.logos?.at(0)?.url
               flex-col
               lg:flex-row
               gap-y-4px
-              items-center
+              md:items-center
+              items-start
             >
               <p
                 text="12px lg:16px"
                 leading="16px lg:24px"
+                md:ml-0
+                ml-10px
               >
                 {{ rating.name }}:
               </p>
@@ -246,7 +252,7 @@ const logo = props.project?.logos?.at(0)?.url
               text="16px lg:24px app-white"
               leading="24px md:32px"
               max-h-="32px md:40px"
-              max-w="84px"
+              max-w="md:84px 64px"
               w-full
               h-full
               font-700

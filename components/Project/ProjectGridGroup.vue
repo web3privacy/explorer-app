@@ -12,7 +12,7 @@ const { switcher } = storeToRefs(useData())
 
 const groupCollapsed = ref(false)
 
-const shownProjectsCount = ref(15)
+const shownProjectsCount = ref(10)
 
 const shownProjects = computed(() => props.group.projects.slice(0, shownProjectsCount.value))
 </script>
@@ -41,7 +41,7 @@ const shownProjects = computed(() => props.group.projects.slice(0, shownProjects
       />
       <button
         type="button"
-        :class="[groupCollapsed ? 'i-ic-baseline-arrow-drop-up' : 'i-ic-baseline-arrow-drop-down']"
+        :class="[groupCollapsed ? 'i-ic-baseline-arrow-drop-down' : 'i-ic-baseline-arrow-drop-up']"
         text="app-text-grey 24px"
         @click="groupCollapsed = !groupCollapsed"
       />
@@ -79,6 +79,8 @@ const shownProjects = computed(() => props.group.projects.slice(0, shownProjects
         text="12px lg:14px"
         leading="24px lg:32px"
         font-bold
+        pt-16px
+        pb-24px
         text-app-text-grey
         @click="shownProjectsCount += 15"
       >

@@ -97,6 +97,7 @@ function addOption() {
         </HeadlessComboboxLabel>
         <div class="relative font-700 mt-2 bg-app-black">
           <HeadlessComboboxButton
+
             as="div"
             class="relative w-full cursor-pointer p-8px text-left border-2px text-app-white bg-black sm:text-sm sm:leading-6"
             :class="error ? 'border-app-danger/50' : 'border-white/30'"
@@ -146,7 +147,7 @@ function addOption() {
         >
           <HeadlessComboboxOptions
             lg="w-1/2"
-            class="w-full absolute z-100 max-h-60 divide-y-2px border-2px border-t-0 overflow-auto bg-app-black text-app-white focus:outline-none sm:text-sm border-white/30"
+            class="w-full absolute z-100 max-h-60 divide-y-2px border-2px border-t-0 overflow-auto bg-app-black text-app-white focus:outline-none sm:text-sm border-white"
           >
             <div
               v-if="filteredOptions.length === 0 && query !== '' && props.canAddNew"

@@ -34,6 +34,8 @@ const cardTitles = ref< { label: string, sortKey: string, togglable?: boolean }[
     mb-16px
   >
     <div
+      py-8px
+
       flex
       items-center
       gap-4px
@@ -45,6 +47,8 @@ const cardTitles = ref< { label: string, sortKey: string, togglable?: boolean }[
         text="12px lg:14px"
         leading="16px lg:24px"
         whitespace-nowrap
+        md:mt-0px
+        mt-4px
       >
         Project name
       </p>
@@ -87,6 +91,9 @@ const cardTitles = ref< { label: string, sortKey: string, togglable?: boolean }[
         text="12px lg:14px "
         leading="16px lg:24px"
         whitespace-nowrap
+        hover="text-app-white"
+        transition-all
+        duration-250
       >
         {{ title.label }}
       </p>

@@ -81,6 +81,8 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
             text-12px
             leading-16px
             lg:hidden
+            md:opacuty-100
+            opacity-70
           >
             {{ project.usecases?.join(', ') }}
           </p>
@@ -118,8 +120,11 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
           >
             <UnoIcon
               i-ic-baseline-language
-              text="24px app-text-grey"
+              text="24px app-text-grey hover:app-white"
+              transition-all
+              duration-250
             />
+
           </NuxtLink>
           <NuxtLink
             v-if="projectItem.label[1]"
@@ -130,8 +135,10 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
           >
             <UnoIcon
               i-mdi-github
-              text="24px app-text-grey"
+              text="24px app-text-grey hover:app-white"
               text-27px
+              transition-all
+              duration-250
             />
           </NuxtLink>
           <NuxtLink
@@ -143,7 +150,9 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
           >
             <UnoIcon
               i-bi-twitter-x
-              text="24px app-text-grey"
+              text="24px app-text-grey hover:app-white"
+              transition-all
+              duration-250
             />
           </NuxtLink>
         </div>
@@ -189,7 +198,10 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
           <UnoIcon
 
             i-iconoir-internet
-            text="24px"
+            text="20px"
+            md:opacity-100
+            opacity-70
+            hover:opacity="100"
           />
         </NuxtLink>
         <div

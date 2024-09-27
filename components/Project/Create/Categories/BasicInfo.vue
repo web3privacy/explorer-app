@@ -98,6 +98,8 @@ defineExpose({
     <ProjectCreateComponentsInput
       v-model="description"
       lg="w-1/2"
+      textarea
+      :textarea-rows="5"
       label="Description"
       text-area
       required

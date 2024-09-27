@@ -18,6 +18,12 @@ watch(y, (newY, oldY) => {
     w-full
   >
     <Navigation />
-    <slot />
+    <div
+      max-w-1160px
+      w-full
+      mx-auto
+    >
+      <slot />
+    </div>
   </div>
 </template>

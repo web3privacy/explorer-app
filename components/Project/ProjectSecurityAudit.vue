@@ -16,6 +16,7 @@ defineProps<{
     py-12px
     px-16px
     bg-app-bg-audits-card
+    hover="brightness-120%"
   >
     <div
       grid
