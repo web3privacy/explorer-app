@@ -265,7 +265,7 @@ export const useData = defineStore('data', () => {
             isValid = value ? true : false
         }
         if (ref.field === 'compliance') {
-          negative = value
+          positive = value
         }
 
         rankPoints += isValid ? ref.points : 0
