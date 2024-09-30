@@ -11,7 +11,7 @@ type Fundings = {
 }
 
 function useFundings(project?: Partial<Project>) {
-  const fundings = ref<Fundings[]>(project?.funding as Fundings[] || [])
+  const fundings = ref<Fundings[]>(Array.isArray(project?.funding) ? project?.funding as unknown as Fundings[] : [project?.funding as unknown as Fundings])
   const newFunding = reactive<Fundings>({
     name: '',
     link: '',
@@ -59,7 +59,7 @@ defineExpose({
     <ProjectCreateComponentsItem
       v-for="funding in fundings"
       :key="funding.name"
-      @remove="() => removeFunding(fundings.indexOf(funding))"
+      @remove="() => removeFunding(fundings?.indexOf(funding))"
     >
       <template #label>
         <div
