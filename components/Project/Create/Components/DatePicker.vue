@@ -76,30 +76,25 @@ const days = computed(() => {
         lg="w-1/2"
         relative
       >
-        <SelectBox
+        <ProjectCreateComponentsSelect
           v-model="day"
-          w-full
+          class="lg:w-full!"
           :options="days.map(day => ({ label: day.toString(), value: day }))"
           placeholder="Day"
-          :border-opacity="30"
-          :is-margin-top="false"
         />
-        <SelectBox
+        <ProjectCreateComponentsSelect
           v-model="month"
-          w-full
-          mx--2px
+          class="lg:w-full!"
+          ml--2px
           :options="months.map(month => ({ label: month.label, value: month.value }))"
           placeholder="Month"
-          :border-opacity="30"
-          :is-margin-top="false"
         />
-        <SelectBox
+        <ProjectCreateComponentsSelect
           v-model="year"
-          w-full
+          class="lg:w-full!"
+          ml--2px
           :options="years.map(year => ({ label: year.toString(), value: year }))"
           placeholder="Year"
-          :border-opacity="30"
-          :is-margin-top="false"
         />
       </div>
       <span

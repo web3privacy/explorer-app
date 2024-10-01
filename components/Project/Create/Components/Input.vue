@@ -45,13 +45,13 @@ const model = defineModel<string>()
       lg="flex flex-row gap-24px items-center"
       relative
     >
-      <div v-bind="$attrs">
+      <div v-bind="$attrs" shrink-0>
         <textarea
           v-if="textarea"
           v-model="model"
           :rows="textareaRows"
           :placeholder="placeholder"
-          class="relative w-full p-8px text-left border-2px text-app-white bg-black sm:text-sm sm:leading-6 focus:ring-0 focus:outline-none"
+          class="relative w-full p-8px text-left border-2px text-app-white bg-black sm:text-sm sm:leading-6 focus:outline-none focus:ring-0 focus:border-white"
           :class="error ? 'border-app-danger/50' : 'border-white/30'"
         />
         <input
@@ -59,7 +59,7 @@ const model = defineModel<string>()
           v-model="model"
           :placeholder="placeholder"
           type="text"
-          class="relative w-full p-8px text-left border-2px text-app-white bg-black sm:text-sm sm:leading-6 focus:ring-0 focus:outline-none"
+          class="relative w-full p-8px text-left border-2px text-app-white bg-black sm:text-sm sm:leading-6 focus:outline-none focus:ring-0 focus:border-white"
           :class="error ? 'border-app-danger/50' : 'border-white/30'"
         >
       </div>
