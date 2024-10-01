@@ -108,7 +108,7 @@ async function next() {
     return
 
   if (selectedTab.value === 'basic_info') {
-    if (!currentComponent.value.isFormValid())
+    if (!(await currentComponent.value.isFormValid()))
       return
     else save()
   }
@@ -122,7 +122,7 @@ async function next() {
 
 async function publish() {
   if (selectedTab.value === 'basic_info') {
-    if (!currentComponent.value.isFormValid())
+    if (!(await currentComponent.value.isFormValid()))
       return
     else save()
   }
@@ -136,9 +136,9 @@ async function publish() {
   navigateTo(`/project/${project.value?.id || project.value?.name?.toLowerCase().replace(/\s+/g, '-')}`)
 }
 
-function jumpTo(tab: string) {
+async function jumpTo(tab: string) {
   if (selectedTab.value === 'basic_info') {
-    if (!currentComponent.value.isFormValid())
+    if (!(await currentComponent.value.isFormValid()))
       return
     else save()
   }

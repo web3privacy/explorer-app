@@ -38,8 +38,8 @@ resetForm({
   },
 })
 
-function isFormValid() {
-  validate()
+async function isFormValid() {
+  await validate()
 
   if (meta.value.valid) {
     return true

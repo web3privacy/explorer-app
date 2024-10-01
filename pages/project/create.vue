@@ -89,9 +89,9 @@ function save() {
   })
 }
 
-function next() {
+async function next() {
   if (selectedTab.value === 'basic_info') {
-    if (!currentComponent.value.isFormValid())
+    if (!(await currentComponent.value.isFormValid()))
       return
     else save()
   }
@@ -105,7 +105,7 @@ function next() {
 
 async function publish() {
   if (selectedTab.value === 'basic_info') {
-    if (!currentComponent.value.isFormValid())
+    if (!(await currentComponent.value.isFormValid()))
       return
     else save()
   }
@@ -119,9 +119,10 @@ async function publish() {
   navigateTo('/')
 }
 
-function jumpTo(tab: string) {
+async function jumpTo(tab: string) {
+  console.log(tab, selectedTab.value)
   if (selectedTab.value === 'basic_info') {
-    if (!currentComponent.value.isFormValid())
+    if (!(await currentComponent.value.isFormValid()))
       return
     else save()
   }
@@ -273,7 +274,7 @@ const transitionDone = ref(false)
             pb-8px
             leading-40px
             :class="selectedTab === tab.value ? 'font-bold border-b-4 border-app-white' : ''"
-            @click="selectedTab = tab.value"
+            @click="jumpTo(tab.value)"
           >
             {{ tab.label }}
           </button>
