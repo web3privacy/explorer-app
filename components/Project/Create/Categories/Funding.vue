@@ -11,7 +11,7 @@ type Fundings = {
 }
 
 function useFundings(project?: Partial<Project>) {
-  const fundings = ref<Fundings[]>(Array.isArray(project?.funding) ? project?.funding as unknown as Fundings[] : [project?.funding as unknown as Fundings])
+  const fundings = ref(Array.isArray(project?.funding) ? project.funding : (project?.funding ? [project.funding] : []))
   const newFunding = reactive<Fundings>({
     name: '',
     link: '',
@@ -58,7 +58,7 @@ defineExpose({
     />
     <ProjectCreateComponentsItem
       v-for="funding in fundings"
-      :key="funding.name"
+      :key="funding?.name"
       @remove="() => removeFunding(fundings?.indexOf(funding))"
     >
       <template #label>
@@ -69,13 +69,13 @@ defineExpose({
           <span
             class="text-app-black text-14px font-700"
             lg="text-16px"
-          > {{ funding.name }}
+          > {{ funding?.name }}
           </span>
         </div>
       </template>
       <template #desc>
         <NuxtLink
-          :to="funding.link"
+          :to="funding?.link"
           hover:text-app-black
           class="text-app-black/50 text-16px hidden"
           lg="block"

@@ -7,7 +7,7 @@ const emits = defineEmits(['update:modelValue'])
 interface SelectProps {
   options: InputOption[]
   label?: string
-  modelValue: string
+  modelValue: any
   placeholder?: string
   required?: boolean
   hint?: string
@@ -24,7 +24,10 @@ const selectedValue = useVModel(props, 'modelValue', emits)
     lg="flex flex-row gap-24px"
     relative
   >
-    <div lg="w-1/2">
+    <div
+      v-bind="$attrs"
+      lg="w-1/2"
+    >
       <HeadlessListbox
         v-model="selectedValue"
         as="div"
@@ -48,11 +51,11 @@ const selectedValue = useVModel(props, 'modelValue', emits)
         >
           <HeadlessListboxButton
             as="div"
-            class="relative w-full cursor-pointer p-8px text-left border-2px text-app-white bg-black border-white/30 sm:text-sm sm:leading-6"
+            class="relative w-full cursor-pointer p-8px text-left border-2px text-app-white bg-black border-white/30 sm:text-sm sm:leading-6 aria-expanded:border-white aria-expanded:z-10"
           >
             <span
               class="block truncate mr-8px"
-              :class="[selectedValue ? 'text-app-white' : 'font-400 text-white/50']"
+              :style="[selectedValue ? 'text-app-white' : 'font-400 text-white/50']"
             >
               {{ props.options.find(option => option.value === selectedValue)?.label || props.placeholder }}
             </span>
@@ -71,7 +74,7 @@ const selectedValue = useVModel(props, 'modelValue', emits)
             leave-to-class="opacity-0"
           >
             <HeadlessListboxOptions
-              class="absolute z-100 max-h-60 w-full divide-y-2px border-2px border-t-0 overflow-auto bg-app-black text-app-white focus:outline-none sm:text-sm border-white/30"
+              class="absolute z-100 max-h-60 w-full divide-y-2px border-2px border-t-0 overflow-auto bg-app-black text-app-white focus:outline-none sm:text-sm border-white"
             >
               <HeadlessListboxOption
                 v-for="option in props.options"

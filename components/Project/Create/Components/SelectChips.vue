@@ -97,10 +97,9 @@ function addOption() {
         </HeadlessComboboxLabel>
         <div class="relative font-700 mt-2 bg-app-black">
           <HeadlessComboboxButton
-
             as="div"
             class="relative w-full cursor-pointer p-8px text-left border-2px text-app-white bg-black sm:text-sm sm:leading-6"
-            :class="error ? 'border-app-danger/50' : 'border-white/30'"
+            :class="error ? 'border-app-danger/50' : 'border-white/30 aria-expanded:border-white'"
           >
             <div class="flex flex-wrap gap-8px">
               <span
@@ -123,8 +122,7 @@ function addOption() {
                 </button>
               </span>
               <HeadlessComboboxInput
-                class="text-14px font-400 leading-20px ml-8px w-fit bg-transparent border-none focus:ring-0 focus:outline-none"
-                lg="16px"
+                class="text-14px lg:focus:text-14px focus:text-16px font-400 leading-20px ml-8px w-fit bg-transparent border-none focus:ring-0 focus:outline-none"
                 :placeholder="placeholder"
                 @keyup.enter="addOption"
                 @change="query = $event.target.value"

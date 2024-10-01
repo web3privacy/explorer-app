@@ -1,21 +1,10 @@
 <script setup lang="ts">
-import * as yup from 'yup'
-import ProjectCreateCategoriesBasicInfo from '~/components/Project/Create/Categories/BasicInfo.vue'
-import ProjectCreateCategoriesAssets from '~/components/Project/Create/Categories/Assets.vue'
-import ProjectCreateCategoriesLinks from '~/components/Project/Create/Categories/Links.vue'
-import ProjectCreateCategoriesTechnology from '~/components/Project/Create/Categories/Technology.vue'
-import ProjectCreateCategoriesPrivacy from '~/components/Project/Create/Categories/Privacy.vue'
-import ProjectCreateCategoriesSecurity from '~/components/Project/Create/Categories/Security.vue'
-import ProjectCreateCategoriesTeam from '~/components/Project/Create/Categories/Team.vue'
-import ProjectCreateCategoriesFunding from '~/components/Project/Create/Categories/Funding.vue'
-import ProjectCreateCategoriesHistory from '~/components/Project/Create/Categories/History.vue'
-
 definePageMeta({
   layout: 'create',
 })
 
 const { projects } = useData()
-const { saveProject, setProject, publishProject, saveProjectImage } = useProject()
+const { setProject, saveProjectImage } = useProject()
 const { project, isPublishing } = storeToRefs(useProject())
 
 const route = useRoute()
@@ -29,27 +18,6 @@ if (!project.value) {
     fatal: true,
   })
 }
-
-const tabs = reactive([
-  { label: 'Basic Info', value: 'basic_info', component: markRaw(ProjectCreateCategoriesBasicInfo) },
-  { label: 'Assets', value: 'assets', component: markRaw(ProjectCreateCategoriesAssets) },
-  { label: 'Links', value: 'links', component: markRaw(ProjectCreateCategoriesLinks) },
-  { label: 'Technology', value: 'technology', component: markRaw(ProjectCreateCategoriesTechnology) },
-  { label: 'Privacy', value: 'privacy', component: markRaw(ProjectCreateCategoriesPrivacy) },
-  { label: 'Security', value: 'security', component: markRaw(ProjectCreateCategoriesSecurity) },
-  { label: 'Team', value: 'team', component: markRaw(ProjectCreateCategoriesTeam) },
-  { label: 'Funding', value: 'funding', component: markRaw(ProjectCreateCategoriesFunding) },
-  { label: 'History', value: 'history', component: markRaw(ProjectCreateCategoriesHistory) },
-])
-
-const selectedTab = ref(tabs[0].value)
-
-function getCurrentComponent() {
-  const tab = tabs.find(t => t.value === selectedTab.value) || tabs[0]
-  return tab.component || null
-}
-
-const currentComponent = ref()
 
 const { open, onChange } = useFileDialog({
   accept: 'image/*', // Set to accept only image files
@@ -69,84 +37,19 @@ onChange((files) => {
   saveProjectImage(file)
 })
 
-const projectNameInput = ref<HTMLInputElement | null>(null)
-function useProjectName() {
-  const isEditing = ref(false)
-  // const name = ref('Untitled')
-  const { value: name, errorMessage: nameError } = useField<string>('name', yup.string().required().notOneOf(['Untitled', 'Undefined', 'Create', 'create']))
-  name.value = project.value?.name || 'Untitled'
-
-  function toggleEdit() {
-    isEditing.value = !isEditing.value
-    if (isEditing.value) {
-      setTimeout(() => {
-        projectNameInput.value?.focus()
-      }, 0)
-    }
-  }
-
-  return {
-    isEditing,
-    name,
-    nameError,
-    toggleEdit,
-  }
-}
-
-const { isEditing, name, nameError, toggleEdit } = useProjectName()
+const { next, jumpTo, publish, toggleEditName } = useProjectForm()
+const { currentComponent, selectedTab, tabsArray, isEditingName, name, nameError } = storeToRefs(useProjectForm())
 name.value = project.value?.name || 'Untitled'
 
-function save() {
-  saveProject({
-    ...project.value,
-    name: name.value,
-  })
-}
-
-async function next() {
-  if (nameError.value)
-    return
-
-  if (selectedTab.value === 'basic_info') {
-    if (!currentComponent.value.isFormValid())
-      return
-    else save()
+const projectNameInput = ref<HTMLInputElement | null>(null)
+watch(isEditingName, () => {
+  if (isEditingName.value) {
+    setTimeout(() => {
+      projectNameInput.value?.focus()
+    }, 0)
   }
+})
 
-  currentComponent.value.save()
-
-  const currentIndex = tabs.findIndex(tab => tab.value === selectedTab.value)
-  const nextTab = tabs[currentIndex + 1] || tabs[0]
-  selectedTab.value = nextTab.value
-}
-
-async function publish() {
-  if (selectedTab.value === 'basic_info') {
-    if (!currentComponent.value.isFormValid())
-      return
-    else save()
-  }
-  else if (isPublishing) {
-    return
-  }
-
-  currentComponent.value.save()
-
-  await publishProject()
-  navigateTo(`/project/${project.value?.id || project.value?.name?.toLowerCase().replace(/\s+/g, '-')}`)
-}
-
-function jumpTo(tab: string) {
-  if (selectedTab.value === 'basic_info') {
-    if (!currentComponent.value.isFormValid())
-      return
-    else save()
-  }
-
-  currentComponent.value.save()
-
-  selectedTab.value = tab
-}
 const transitionDone = ref(false)
 </script>
 
@@ -219,7 +122,7 @@ const transitionDone = ref(false)
               relative
             >
               <input
-                v-if="isEditing"
+                v-if="isEditingName"
                 ref="projectNameInput"
                 v-model="name"
                 w-fit
@@ -230,7 +133,7 @@ const transitionDone = ref(false)
                 leading-28px
                 bg-app-bg-dark_grey
                 onfocus="this.style.width = 0; this.style.width = this.scrollWidth + 2 + 'px';"
-                @blur="toggleEdit()"
+                @blur="toggleEditName()"
               >
               <h2
                 v-else
@@ -241,8 +144,8 @@ const transitionDone = ref(false)
                 {{ name }}
               </h2>
               <button
-                v-if="!isEditing"
-                @click="toggleEdit()"
+                v-if="!isEditingName"
+                @click="toggleEditName()"
               >
                 <UnoIcon
                   text-20px
@@ -270,26 +173,25 @@ const transitionDone = ref(false)
           gap-46px
           lg="mt-24px"
         >
-          <SelectBox
+          <ProjectCreateComponentsSelect
             :model-value="selectedTab"
             label="Choose category"
-            :options="tabs.map(t => ({ label: t.label, value: t.value }))"
-            :border-opacity="100"
+            :options="tabsArray.map((t, index) => ({ label: t.label, value: index }))"
             w-full
-            lg:hidden
+            class="lg:hidden! block!"
             block
             mt-16px
             @update:model-value="$event => jumpTo($event)"
           />
           <button
-            v-for="tab in tabs"
+            v-for="(tab, index) in tabsArray"
             :key="tab.value"
             lg:block
             hidden
             pb-8px
             leading-40px
-            :class="selectedTab === tab.value ? 'font-bold border-b-4 border-app-white' : ''"
-            @click="jumpTo(tab.value)"
+            :class="selectedTab === index ? 'font-bold border-b-4 border-app-white' : ''"
+            @click="jumpTo(index)"
           >
             {{ tab.label }}
           </button>
@@ -316,7 +218,7 @@ const transitionDone = ref(false)
             @after-enter="transitionDone = true"
           >
             <component
-              :is="getCurrentComponent()"
+              :is="tabsArray[selectedTab].component"
               ref="currentComponent"
               :project="project"
               w-full
@@ -326,7 +228,7 @@ const transitionDone = ref(false)
             />
           </Transition>
           <component
-            :is="getCurrentComponent()"
+            :is="tabsArray[selectedTab].component"
             v-else
             ref="currentComponent"
             :project="project"
@@ -336,7 +238,7 @@ const transitionDone = ref(false)
             gap-8px
           />
           <Button
-            v-if="selectedTab !== tabs[tabs.length - 1].value"
+            v-if="selectedTab !== tabsArray.length - 1"
             class="hidden!"
             mt-48px
             lg="w-fit flex!"
@@ -348,64 +250,72 @@ const transitionDone = ref(false)
         </ClientOnly>
       </div>
     </div>
-    <div
-      flex
-      flex-col
-      gap-10px
-      justify-center
-      text-center
-      md:fixed
-      bottom-0
-      w-full
-      bg-app-bg-dark_grey
-      class="border-app-white/30"
-      lg="bg-app-black w-fit border-l-2 border-t-2 right-0 border-app-white"
-      p-12px
+    <Transition
+      name="fade"
+      mode="out-in"
+      appear
     >
-      <Button
-        v-if="selectedTab !== tabs[tabs.length - 1].value"
+      <div
+        v-if="transitionDone"
         flex
-        lg="w-fit hidden!"
-        border
-        @click="next()"
-      >
-        <span px-24px>NEXT SECTION</span>
-      </Button>
-      <span
-        v-if="selectedTab !== tabs[tabs.length - 1].value"
-        lg="hidden"
+        flex-col
+        gap-10px
+        justify-center
+        text-center
         block
-        text="12px italic app-white/50"
-      >or you can submit changes by publishing them</span>
-      <div flex>
+        lg:fixed
+        bottom-0
+        w-full
+        bg-app-bg-dark_grey
+        class="border-app-white/30"
+        lg="bg-app-black w-fit border-l-2 border-t-2 right-0 border-app-white"
+        p-12px
+      >
         <Button
-          w-full
-          lg="w-fit"
+          v-if="selectedTab !== tabsArray.length - 1"
+          flex
+          lg="w-fit hidden!"
           border
-          @click="navigateTo(`/project/${route.params.id}`)"
+          @click="next()"
         >
-          <span px-24px>CANCEL</span>
+          <span px-24px>NEXT SECTION</span>
         </Button>
-        <Button
-          w-full
-          lg="w-fit"
-          inverted-color
-          @click="publish()"
-        >
-          <UnoIcon
-            v-if="isPublishing"
-            w-108px
-            i-eos-icons-loading
-            text-black
-            text-18px
-          />
-          <span
-            v-else
-            px-24px
-          >PUBLISH</span>
-        </Button>
+        <span
+          v-if="selectedTab !== tabsArray.length - 1"
+          lg="hidden"
+          block
+          text="12px italic app-white/50"
+        >or you can submit changes by publishing them</span>
+        <div flex>
+          <Button
+            w-full
+            lg="w-fit"
+            border
+            @click="navigateTo(`/project/${route.params.id}`)"
+          >
+            <span px-24px>CANCEL</span>
+          </Button>
+          <Button
+            w-full
+            lg="w-fit"
+            inverted-color
+            @click="publish()"
+          >
+            <UnoIcon
+              v-if="isPublishing"
+              w-108px
+              i-eos-icons-loading
+              text-black
+              text-18px
+            />
+            <span
+              v-else
+              px-24px
+            >PUBLISH</span>
+          </Button>
+        </div>
       </div>
-    </div>
+    </Transition>
   </div>
 </template>
 
