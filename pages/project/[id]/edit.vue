@@ -173,13 +173,12 @@ const transitionDone = ref(false)
           gap-46px
           lg="mt-24px"
         >
-          <SelectBox
+          <ProjectCreateComponentsSelect
             :model-value="selectedTab"
             label="Choose category"
-            :options="tabsArray.map(t => ({ label: t.label, value: t.value }))"
-            :border-opacity="100"
+            :options="tabsArray.map((t, index) => ({ label: t.label, value: index }))"
             w-full
-            lg:hidden
+            class="lg:hidden! block!"
             block
             mt-16px
             @update:model-value="$event => jumpTo($event)"
@@ -251,64 +250,72 @@ const transitionDone = ref(false)
         </ClientOnly>
       </div>
     </div>
-    <div
-      flex
-      flex-col
-      gap-10px
-      justify-center
-      text-center
-      md:fixed
-      bottom-0
-      w-full
-      bg-app-bg-dark_grey
-      class="border-app-white/30"
-      lg="bg-app-black w-fit border-l-2 border-t-2 right-0 border-app-white"
-      p-12px
+    <Transition
+      name="fade"
+      mode="out-in"
+      appear
     >
-      <Button
-        v-if="selectedTab !== tabsArray.length - 1"
+      <div
+        v-if="transitionDone"
         flex
-        lg="w-fit hidden!"
-        border
-        @click="next()"
-      >
-        <span px-24px>NEXT SECTION</span>
-      </Button>
-      <span
-        v-if="selectedTab !== tabsArray.length - 1"
-        lg="hidden"
+        flex-col
+        gap-10px
+        justify-center
+        text-center
         block
-        text="12px italic app-white/50"
-      >or you can submit changes by publishing them</span>
-      <div flex>
+        lg:fixed
+        bottom-0
+        w-full
+        bg-app-bg-dark_grey
+        class="border-app-white/30"
+        lg="bg-app-black w-fit border-l-2 border-t-2 right-0 border-app-white"
+        p-12px
+      >
         <Button
-          w-full
-          lg="w-fit"
+          v-if="selectedTab !== tabsArray.length - 1"
+          flex
+          lg="w-fit hidden!"
           border
-          @click="navigateTo(`/project/${route.params.id}`)"
+          @click="next()"
         >
-          <span px-24px>CANCEL</span>
+          <span px-24px>NEXT SECTION</span>
         </Button>
-        <Button
-          w-full
-          lg="w-fit"
-          inverted-color
-          @click="publish()"
-        >
-          <UnoIcon
-            v-if="isPublishing"
-            w-108px
-            i-eos-icons-loading
-            text-black
-            text-18px
-          />
-          <span
-            v-else
-            px-24px
-          >PUBLISH</span>
-        </Button>
+        <span
+          v-if="selectedTab !== tabsArray.length - 1"
+          lg="hidden"
+          block
+          text="12px italic app-white/50"
+        >or you can submit changes by publishing them</span>
+        <div flex>
+          <Button
+            w-full
+            lg="w-fit"
+            border
+            @click="navigateTo(`/project/${route.params.id}`)"
+          >
+            <span px-24px>CANCEL</span>
+          </Button>
+          <Button
+            w-full
+            lg="w-fit"
+            inverted-color
+            @click="publish()"
+          >
+            <UnoIcon
+              v-if="isPublishing"
+              w-108px
+              i-eos-icons-loading
+              text-black
+              text-18px
+            />
+            <span
+              v-else
+              px-24px
+            >PUBLISH</span>
+          </Button>
+        </div>
       </div>
-    </div>
+    </Transition>
   </div>
 </template>
 

@@ -24,7 +24,10 @@ const selectedValue = useVModel(props, 'modelValue', emits)
     lg="flex flex-row gap-24px"
     relative
   >
-    <div v-bind="$attrs" lg="w-1/2">
+    <div
+      v-bind="$attrs"
+      lg="w-1/2"
+    >
       <HeadlessListbox
         v-model="selectedValue"
         as="div"
@@ -52,7 +55,7 @@ const selectedValue = useVModel(props, 'modelValue', emits)
           >
             <span
               class="block truncate mr-8px"
-              :class="[selectedValue ? 'text-app-white' : 'font-400 text-white/50']"
+              :style="[selectedValue ? 'text-app-white' : 'font-400 text-white/50']"
             >
               {{ props.options.find(option => option.value === selectedValue)?.label || props.placeholder }}
             </span>
