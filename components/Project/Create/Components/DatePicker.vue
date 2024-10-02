@@ -78,20 +78,20 @@ const days = computed(() => {
       >
         <ProjectCreateComponentsSelect
           v-model="day"
-          class="lg:w-full!"
+          class="w-full!"
           :options="days.map(day => ({ label: day.toString(), value: day }))"
           placeholder="Day"
         />
         <ProjectCreateComponentsSelect
           v-model="month"
-          class="lg:w-full!"
+          class="w-full!"
           ml--2px
           :options="months.map(month => ({ label: month.label, value: month.value }))"
           placeholder="Month"
         />
         <ProjectCreateComponentsSelect
           v-model="year"
-          class="lg:w-full!"
+          class="w-full!"
           ml--2px
           :options="years.map(year => ({ label: year.toString(), value: year }))"
           placeholder="Year"
