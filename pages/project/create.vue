@@ -3,8 +3,8 @@ definePageMeta({
   layout: 'create',
 })
 
-const { saveProjectImage } = useProject()
-const { project, isPublishing } = storeToRefs(useProject())
+const { saveProjectImage, clearProject } = useProject()
+const { project } = storeToRefs(useProject())
 
 const { open, onChange } = useFileDialog({
   accept: 'image/*', // Set to accept only image files
@@ -24,8 +24,8 @@ onChange((files) => {
   saveProjectImage(file)
 })
 
-const { next, jumpTo, publish, toggleEditName } = useProjectForm()
-const { currentComponent, selectedTab, tabsArray, isEditingName, name, nameError } = storeToRefs(useProjectForm())
+const { next, jumpTo, publish, toggleEditName, initForm } = useProjectForm()
+const { currentComponent, selectedTab, tabsArray, isEditingName, name, nameError, isPublishing } = storeToRefs(useProjectForm())
 
 const projectNameInput = ref<HTMLInputElement | null>(null)
 watch(isEditingName, () => {
@@ -37,6 +37,11 @@ watch(isEditingName, () => {
 })
 
 const transitionDone = ref(false)
+
+onBeforeMount(() => {
+  clearProject()
+  initForm()
+})
 </script>
 
 <template>
@@ -284,7 +289,7 @@ const transitionDone = ref(false)
             w-full
             lg="w-fit"
             inverted-color
-            @click="publish(true)"
+            @click="isPublishing ? null : publish(true)"
           >
             <UnoIcon
               v-if="isPublishing"

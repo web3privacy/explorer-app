@@ -4,12 +4,10 @@ import type { Project } from '~/types'
 export const useProject = defineStore('project', () => {
   const project = ref<Partial<Project>>()
   const projectImage = ref<File>()
-  const isPublishing = ref(false)
 
   const { getProjectById } = useData()
 
   function setProject(id: string) {
-    clearProject()
     project.value = getProjectById(id, { shallow: false }) as Project
     delete project.value.ratings
   }
@@ -30,7 +28,6 @@ export const useProject = defineStore('project', () => {
   }
 
   async function publishProject() {
-    isPublishing.value = true
     try {
       let imageBuffer: Buffer | undefined
       let base64Image: string | undefined
@@ -58,14 +55,10 @@ export const useProject = defineStore('project', () => {
     catch (e) {
       console.error(e)
     }
-    finally {
-      isPublishing.value = false
-    }
   }
 
   return {
     project,
-    isPublishing,
     setProject,
     clearProject,
     saveProject,

@@ -5,10 +5,12 @@ definePageMeta({
 
 const { projects } = useData()
 const { setProject, saveProjectImage } = useProject()
-const { project, isPublishing } = storeToRefs(useProject())
+const { project } = storeToRefs(useProject())
+const { initForm } = useProjectForm()
 
 const route = useRoute()
 await until(projects).toMatch(p => p?.length > 0)
+initForm()
 setProject(route.params.id as string)
 
 if (!project.value) {
@@ -38,7 +40,7 @@ onChange((files) => {
 })
 
 const { next, jumpTo, publish, toggleEditName } = useProjectForm()
-const { currentComponent, selectedTab, tabsArray, isEditingName, name, nameError } = storeToRefs(useProjectForm())
+const { currentComponent, selectedTab, tabsArray, isEditingName, name, nameError, isPublishing } = storeToRefs(useProjectForm())
 name.value = project.value?.name || 'Untitled'
 
 const projectNameInput = ref<HTMLInputElement | null>(null)
@@ -299,7 +301,7 @@ const transitionDone = ref(false)
             w-full
             lg="w-fit"
             inverted-color
-            @click="publish()"
+            @click="isPublishing ? null : publish()"
           >
             <UnoIcon
               v-if="isPublishing"
