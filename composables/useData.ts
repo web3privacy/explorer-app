@@ -159,9 +159,23 @@ export const useData = defineStore('data', () => {
       }
 
       if (selectedFeature) {
-        const features = project.technology?.features?.map(f => f.toLowerCase()) || []
-        if (!features.includes(selectedFeature))
-          return false
+        switch (selectedFeature) {
+          case 'no-compliance':
+            return project.compliance ? false : true
+          case 'non-kyc':
+            return project.tracebility?.kyc ? false : true
+          case 'private-by-default':
+            return project.default_privacy
+          case 'non-custodial':
+            return project.blockchain_features?.asset_custody_type === 'non-custody'
+          case 'opensource':
+            return project.blockchain_features?.opensource
+          case 'live-on-mainnet':
+            return project.project_phase === 'mainnet'
+        }
+        // const features = project.technology?.features?.map(f => f.toLowerCase()) || []
+        // if (!features.includes(selectedFeature))
+        //   return false
       }
 
       return true
