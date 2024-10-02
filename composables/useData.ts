@@ -65,8 +65,8 @@ export const useData = defineStore('data', () => {
         ...project,
         percentage: Math.round((project.ratings?.reduce((a, b) => a + b.points, 0) || 0) / 1.5),
       })).filter(p => p.name)
-
-      categories.value = data.categories
+      const projectCategories = projects.value.map(p => p.categories).flat()
+      categories.value = data.categories.filter(c => projectCategories.includes(c.id))
       usecases.value = data.usecases
       ecosystems.value = data.ecosystems
       assets.value = data.assets
