@@ -24,7 +24,7 @@ onChange((files) => {
   saveProjectImage(file)
 })
 
-const { next, jumpTo, publish, toggleEditName } = useProjectForm()
+const { next, jumpTo, publish, toggleEditName, initForm } = useProjectForm()
 const { currentComponent, selectedTab, tabsArray, isEditingName, name, nameError, isPublishing } = storeToRefs(useProjectForm())
 
 const projectNameInput = ref<HTMLInputElement | null>(null)
@@ -40,7 +40,7 @@ const transitionDone = ref(false)
 
 onBeforeMount(() => {
   clearProject()
-  name.value = 'Untitled'
+  initForm()
 })
 </script>
 

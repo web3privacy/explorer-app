@@ -8,7 +8,6 @@ export const useProject = defineStore('project', () => {
   const { getProjectById } = useData()
 
   function setProject(id: string) {
-    clearProject()
     project.value = getProjectById(id, { shallow: false }) as Project
     delete project.value.ratings
   }

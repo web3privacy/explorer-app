@@ -6,9 +6,11 @@ definePageMeta({
 const { projects } = useData()
 const { setProject, saveProjectImage } = useProject()
 const { project } = storeToRefs(useProject())
+const { initForm } = useProjectForm()
 
 const route = useRoute()
 await until(projects).toMatch(p => p?.length > 0)
+initForm()
 setProject(route.params.id as string)
 
 if (!project.value) {

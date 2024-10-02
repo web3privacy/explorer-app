@@ -15,7 +15,6 @@ export const useProjectForm = defineStore('useProjectForm', () => {
 
   const isEditingName = ref(false)
   const { value: name, errorMessage: nameError } = useField<string>('name', yup.string().required().notOneOf(['Untitled', 'Undefined', 'Create', 'create']))
-  name.value = project.value?.name || 'Untitled'
 
   function toggleEditName() {
     isEditingName.value = !isEditingName.value
@@ -87,6 +86,11 @@ export const useProjectForm = defineStore('useProjectForm', () => {
       navigateTo(`/project/${project.value?.id || project.value?.name?.toLowerCase().replace(/\s+/g, '-')}`)
   }
 
+  function initForm() {
+    selectedTab.value = 0
+    name.value = 'Untitled'
+  }
+
   return {
     isEditingName,
     name,
@@ -100,5 +104,6 @@ export const useProjectForm = defineStore('useProjectForm', () => {
     publish,
     jumpTo,
     isPublishing,
+    initForm,
   }
 })
