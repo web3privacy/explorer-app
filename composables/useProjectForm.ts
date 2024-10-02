@@ -11,7 +11,7 @@ import ProjectCreateCategoriesHistory from '~/components/Project/Create/Categori
 
 export const useProjectForm = defineStore('useProjectForm', () => {
   const { saveProject, publishProject } = useProject()
-  const { project, isPublishing } = storeToRefs(useProject())
+  const { project } = storeToRefs(useProject())
 
   const isEditingName = ref(false)
   const { value: name, errorMessage: nameError } = useField<string>('name', yup.string().required().notOneOf(['Untitled', 'Undefined', 'Create', 'create']))
@@ -45,10 +45,9 @@ export const useProjectForm = defineStore('useProjectForm', () => {
   const currentComponent = ref()
 
   async function next() {
-    if (selectedTab.value === 0) {
-      if (!(await currentComponent.value.isFormValid()) || nameError.value)
-        return
-    }
+    const isFormValid = selectedTab.value === 0 ? await currentComponent.value.isFormValid() : true
+    if (!isFormValid || nameError.value)
+      return
 
     saveName()
     currentComponent.value.save()
@@ -59,12 +58,9 @@ export const useProjectForm = defineStore('useProjectForm', () => {
   }
 
   async function jumpTo(index: number) {
-    if (selectedTab.value === 0) {
-      if (!(await currentComponent.value.isFormValid()) || nameError.value)
-        return
-      if (nameError.value)
-        return
-      else saveName()
+    const isFormValid = selectedTab.value === 0 ? await currentComponent.value.isFormValid() : true
+    if (!isFormValid || nameError.value) {
+      return
     }
 
     saveName()
@@ -73,19 +69,18 @@ export const useProjectForm = defineStore('useProjectForm', () => {
     selectedTab.value = index
   }
 
+  const isPublishing = ref(false)
   async function publish(isNew?: boolean) {
-    if (selectedTab.value === 0) {
-      if (!(await currentComponent.value.isFormValid()) || nameError.value)
-        return
-    }
-    else if (isPublishing) {
+    isPublishing.value = true
+    const isFormValid = selectedTab.value === 0 ? await currentComponent.value.isFormValid() : true
+    if (!isFormValid || nameError.value)
       return
-    }
 
     saveName()
     currentComponent.value?.save()
 
     await publishProject()
+    isPublishing.value = false
     if (isNew)
       navigateTo('/')
     else
@@ -104,5 +99,6 @@ export const useProjectForm = defineStore('useProjectForm', () => {
     next,
     publish,
     jumpTo,
+    isPublishing,
   }
 })
