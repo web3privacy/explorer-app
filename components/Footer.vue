@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const isHovered = ref(false)
 </script>
 
 <template>
@@ -227,9 +228,9 @@
           text-app-text-grey
           whitespace-nowrap
         >{{ 'Developed by' }}</span>
-        <div
+        <NuxtImg
           shrink-0
-          bg="[url(/develit-logo-white.svg)]"
+          :src="isHovered ? '/develit-logo-color.svg' : '/develit-logo-white.svg'"
           duration-300
           bg-no-repeat
           bg-center
@@ -237,7 +238,8 @@
           w-full
           max-w-104px
           h-32px
-          hover:bg="[url(/develit-logo-color.svg)]"
+          @mouseover="isHovered = true"
+          @mouseleave="isHovered = false"
           @click="navigateTo('https://develit.io/', { external: true })"
         />
       </div>

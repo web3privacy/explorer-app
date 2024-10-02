@@ -4,6 +4,8 @@ import type { Project } from '~/types'
 defineProps<{
   project: Project
 }>()
+
+const { projectPhase } = storeToRefs(useData())
 </script>
 
 <template>
@@ -60,9 +62,12 @@ defineProps<{
             h-10px
             w-10px
             rounded-full
-            bg-green
-          /><p leading="20px lg:24px">
-            Mainnet
+            :class=" project.project_phase ? 'bg-green' : 'bg-red'"
+          /><p
+            :class="project.project_phase ? 'text-white' : 'text-app-text-grey'"
+            leading="20px lg:24px"
+          >
+            {{ projectPhase.find(p => p.id === project.project_phase)?.name || 'N/A' }}
           </p>
         </div>
       </div>

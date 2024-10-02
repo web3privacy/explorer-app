@@ -1,0 +1,97 @@
+<script setup lang="ts">
+</script>
+
+<template>
+  <div
+    w-full
+    flex
+    flex-col
+    items-center
+  >
+    <NuxtLink
+      to="https://web3privacy.info/"
+      bg-black
+      hover:bg-white
+      w-full
+      text-center
+      justify-center
+      py-14px
+      cursor-pointer
+      text-app-text-grey
+      class="hover:text-black"
+      hover:underline
+      underline-offset-1
+      text-16px
+      font-400
+      uppercase
+    >
+      About
+    </NuxtLink>
+    <NuxtLink
+      to="https://web3privacy.info/"
+      bg-black
+      hover:bg-white
+      w-full
+      text-center
+      justify-center
+      py-14px
+      cursor-pointer
+      text-app-text-grey
+      class="hover:text-black"
+      hover:underline
+      underline-offset-1
+      text-16px
+      font-400
+      uppercase
+    >
+      Scoring
+    </NuxtLink>
+    <NuxtLink
+      bg-black
+      hover:bg-white
+      w-full
+      flex
+      gap-8px
+      text-center
+      items-center
+      justify-center
+      py-14px
+      cursor-pointer
+      text-app-text-grey
+      class="hover:text-black"
+      hover:underline
+      underline-offset-1
+      text-16px
+      font-400
+      uppercase
+      to="https://github.com/web3privacy/privacy-projects-db"
+    >
+      LEARN HOW TO CONTRIBUTE
+      <UnoIcon
+        i-web-arrowright
+        text-16px
+        w-16px
+        h-16px
+      />
+    </NuxtLink>
+    <NuxtLink
+      v-if="useRoute().path !== '/project/create'"
+      bg-black
+      hover:bg-white
+      w-full
+      flex
+      sm:hidden
+      gap-8px
+      text-center
+      items-center
+      justify-center
+      py-14px
+      cursor-pointer
+      text-app-text-grey
+      to="/project/create"
+      mr-16px
+    >
+      + ADD PROJECT
+    </NuxtLink>
+  </div>
+</template>
