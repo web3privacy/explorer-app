@@ -14,7 +14,7 @@ const props = defineProps<{
 const emits = defineEmits(['selected'])
 
 const colors = [
-  '#EA171D', // 0-10%
+  '#EA171D', // 1-10%
   '#FB2D00', // 11-20%
   '#FD6515', // 21-30%
   '#FD941A', // 31-40%
@@ -29,6 +29,8 @@ const colors = [
 const backgroundColorByScore = computed(() => {
   if (props.percentage === 100)
     return '#42FF00'
+  if (props.percentage === 0)
+    return '#494949'
   const normalizedPercentage = Math.min(Math.max(props.percentage, 0), 100)
   const colorIndex = Math.floor(normalizedPercentage / 10)
   return colors[colorIndex]

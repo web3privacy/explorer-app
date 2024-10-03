@@ -114,10 +114,9 @@ const logo = props.project?.logos?.at(0)?.url
           flex
           justify-center
           lg:grid
-          grid-cols-10
+          grid-cols-8
           w-full
           items-center
-          mt-4px
         >
           <h2
             hidden
@@ -126,10 +125,10 @@ const logo = props.project?.logos?.at(0)?.url
             Usecases:
           </h2>
           <p
-            mt-8px
-            mb-16px
+            mb-8px
+            lg="mb-0 mt-0"
             text-app-white
-            col-span-9
+            col-span-7
           >
             {{ projectUsecases }}
           </p>
@@ -143,15 +142,13 @@ const logo = props.project?.logos?.at(0)?.url
           order-3
           lg:order-2
           w-full
-          md:ml-0px
-          ml-18px
         >
           <div
             flex
             flex-col
             gap-4px
             lg:grid
-            lg:grid-cols-10
+            lg:grid-cols-8
             lg:items-center
             w-full
           >
@@ -160,7 +157,7 @@ const logo = props.project?.logos?.at(0)?.url
             </h2>
             <p
               text-app-white
-              col-span-9
+              col-span-7
             >
               {{ projectCategories }}
             </p>
@@ -170,7 +167,7 @@ const logo = props.project?.logos?.at(0)?.url
             flex-col
             gap-4px
             lg:grid
-            lg:grid-cols-10
+            lg:grid-cols-8
             lg:items-center
             w-full
           >
@@ -179,7 +176,7 @@ const logo = props.project?.logos?.at(0)?.url
             </h2>
             <p
               text-app-white
-              col-span-9
+              col-span-7
             >
               {{ projectEcosystems }}
             </p>
@@ -192,6 +189,8 @@ const logo = props.project?.logos?.at(0)?.url
           items-center
           order-2
           lg:order-3
+          lg:ml-0
+          ml--12px
         >
           <div
             flex

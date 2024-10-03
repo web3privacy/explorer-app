@@ -10,7 +10,7 @@ import { collections } from './unocss.config.collections'
 export default defineConfig({
   shortcuts: [
     {
-      'app-container': 'px-12px sm:px-1.5rem max-w-1140px 2xl:max-w-1400px m-auto w-full',
+      'app-container': 'px-24px sm:px-1.5rem max-w-1140px 2xl:max-w-1400px m-auto w-full',
       'custom-link': 'text-app-text-grey hover:underline underline-offset-4px text-18px font-400 leading-32px cursor-pointer',
     },
     {

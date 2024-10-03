@@ -3,7 +3,7 @@ const isHovered = ref(false)
 </script>
 
 <template>
-  <div app-container>
+  <div w-full>
     <div mt-48px>
       <hr
         border-t-2px
@@ -13,7 +13,8 @@ const isHovered = ref(false)
       >
     </div>
     <div
-      p-24px
+      app-container
+      pt-24px
       pb-8px
       flex
       items-center
@@ -121,8 +122,8 @@ const isHovered = ref(false)
       </div>
     </div>
     <div
+      app-container
       text="14px sm:16px"
-      px-24px
       grid
       grid-cols-2
       sm:grid-cols-3
@@ -196,7 +197,7 @@ const isHovered = ref(false)
       w-full
     >
     <div
-      px-24px
+      app-container
       my-16px
       sm:mt-32px
       flex

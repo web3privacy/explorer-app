@@ -1,4 +1,8 @@
 <script lang="ts" setup>
+const props = defineProps<{
+  hiddenColumns?: string[]
+}>()
+
 const { filter } = storeToRefs(useData())
 
 function onChangeSort(sortKey: string) {
@@ -15,6 +19,10 @@ function onChangeSort(sortKey: string) {
   filter.value.sortDirection = sortKey === 'score' ? 'desc' : 'asc'
 }
 
+watch(filter, () => {
+  console.log(filter.value)
+}, { deep: true })
+
 const cardTitles = ref< { label: string, sortKey: string, togglable?: boolean }[]>([
   { label: 'Usecase', sortKey: 'usecase' },
   { label: 'Openess', sortKey: 'openess', togglable: true },
@@ -24,12 +32,21 @@ const cardTitles = ref< { label: string, sortKey: string, togglable?: boolean }[
   { label: 'Links', sortKey: 'links' },
   { label: 'W3PN Score', sortKey: 'score', togglable: true },
 ])
+
+const { width } = useWindowSize()
+const visibleColumnsCount = computed(() => {
+  if (width.value >= 1024)
+    return cardTitles.value.filter(title => !props.hiddenColumns?.includes(title.sortKey)).length + 3
+  else {
+    return 2
+  }
+})
 </script>
 
 <template>
   <div
     grid
-    grid-cols="2 lg:10"
+    :style="`grid-template-columns: repeat(${visibleColumnsCount}, 1fr)`"
     w-full
     mb-16px
   >
@@ -76,7 +93,7 @@ const cardTitles = ref< { label: string, sortKey: string, togglable?: boolean }[
       />
     </div>
     <div
-      v-for="(title, index) in cardTitles"
+      v-for="(title, index) in cardTitles.filter((title) => !hiddenColumns?.includes(title.sortKey))"
       :key="title.label"
       lg:flex
       items-center
@@ -100,8 +117,8 @@ const cardTitles = ref< { label: string, sortKey: string, togglable?: boolean }[
       <button
         v-if="title.togglable"
         type="button"
-        :class="[title.sortKey === filter.sortby ? filter.sortDirection === 'desc' ? 'i-ic-baseline-arrow-drop-up'
-          : 'i-ic-baseline-arrow-drop-down'
+        :class="[title.sortKey === filter.sortby ? filter.sortDirection === 'desc' ? 'i-ic-baseline-arrow-drop-down'
+          : 'i-ic-baseline-arrow-drop-up'
           : 'i-ic-baseline-arrow-drop-down']"
         text-24px
       />

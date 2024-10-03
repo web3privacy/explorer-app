@@ -3,6 +3,7 @@ import type { ProjectRating, ProjectShallow } from '~/types'
 
 const props = defineProps<{
   project: ProjectShallow
+  hiddenColumns?: string[]
 }>()
 const { switcher, ecosystems, filter } = storeToRefs(useData())
 
@@ -11,6 +12,14 @@ const isLargeScreen = useMediaQuery('(min-width: 1024px)')
 const ratings: { label: string, type: string, rating: ProjectRating }[] = (props.project.ratings || []).map(rating => ({ label: rating.name, type: 'rating', rating: rating }))
 const ecosystem: { label: string[], type: string } = { label: ecosystems.value.filter(e => (props.project.ecosystem || []).includes(e.id)).map(e => e.icon!), type: 'ecosystem' }
 const projectItems: { label: string | string[], type: string, rating?: ProjectRating }[] = [{ label: props.project.usecases || [], type: 'array' }, ...ratings, ecosystem, { label: [props.project.website || '', props.project.github || '', props.project.twitter || ''], type: 'links' }]
+
+const { width } = useWindowSize()
+const visibleColumnsCount = computed(() => {
+  if (width.value >= 1024)
+    return projectItems.filter(item => item.rating?.type ? !props.hiddenColumns?.includes(item.rating.type) : true).length + 4
+  else
+    return 2
+})
 </script>
 
 <template>
@@ -25,7 +34,7 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
   >
     <div
       grid
-      grid-cols="2 lg:10"
+      :style="`grid-template-columns: repeat(${visibleColumnsCount}, 1fr)`"
       w-full
     >
 
@@ -89,7 +98,7 @@ const projectItems: { label: string | string[], type: string, rating?: ProjectRa
         </div>
       </div>
       <div
-        v-for="(projectItem, index) of projectItems"
+        v-for="(projectItem, index) of projectItems.filter((item) => item.rating?.type ? !hiddenColumns?.includes(item.rating.type): true)"
         :key="projectItem.label.toString()"
         hidden
         lg:flex

@@ -34,13 +34,12 @@ useSeoMeta({
   <div v-if="project">
     <div
       app-container
-      px-16px
     >
       <div
         flex
         flex-col
         gap-48px
-        mt-54px
+        mt-32px
       >
         <div>
           <div>
