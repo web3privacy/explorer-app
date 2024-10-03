@@ -81,10 +81,10 @@ watch([scrollY, top, y], (newValues, oldValues) => {
             md:justify-between
             md:items-center
             gap-16px
-            mb="16px md:32px"
           >
             <SearchBox
               flex-1
+              class="w-full lg:max-w-1/3"
               placeholder:text-app-text-grey
               :placeholder="`Search in ${filteredProjectsCount} Projects`"
             />
@@ -98,7 +98,7 @@ watch([scrollY, top, y], (newValues, oldValues) => {
               pb-274px
               mb--250px
               md="overflow-x-visible pb-0 mb-0"
-              class="no-scrollbar"
+              class="no-scrollbar lg:w-full lg:max-w-2/3"
             >
               <CategorySelectBox
                 v-model="selectedCategoryId"

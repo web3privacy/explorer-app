@@ -15,6 +15,7 @@ const totalProjectsCount = props.projects.map(g => g.projects.length).reduce((a,
     items-start
   >
     <ProjectGridGroup
+      my-24px lg:my-32px
       v-for="group in projects"
       :key="group.title"
       :group="group"

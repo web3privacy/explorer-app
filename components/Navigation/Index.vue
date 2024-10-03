@@ -19,6 +19,7 @@ const isProjectDetailRoute = computed(() => {
     z-100
     bg-black
     overflow-hidden
+    border="b-1px white/20"
   >
     <div
       relative
@@ -28,7 +29,7 @@ const isProjectDetailRoute = computed(() => {
     >
       <img
         absolute
-        lg="left--30px"
+        lg="left-10px"
         left--30px
         top--25px
         z-101

@@ -28,7 +28,7 @@ function onOptionSelected(value: string | number) {
     <div class="relative font-700 font-24px">
       <HeadlessListboxButton
         :id="`headless-listbox-button-${name}`"
-        class="relative cursor-pointer py-6px px-14px text-left border-2px bg-app-white text-app-black text-xs sm:text-sm sm:leading-6"
+        class="w-full relative cursor-pointer py-6px px-14px text-left border-2px bg-app-white text-app-black text-xs sm:text-sm sm:leading-6"
         hover="bg-app-black text-app-white"
         transition="all"
         duration-250
@@ -52,7 +52,7 @@ function onOptionSelected(value: string | number) {
         leave-to-class="opacity-0"
       >
         <HeadlessListboxOptions
-          class="absolute z-100 max-h-60 w-auto border-2px border-t-0 overflow-auto bg-app-black text-app-white focus:outline-none sm:text-sm"
+          class="absolute z-100 max-h-60 w-fit border-2px border-t-0 overflow-auto bg-app-black text-app-white focus:outline-none sm:text-sm"
         >
           <HeadlessListboxOption
             v-for="option in props.options"
