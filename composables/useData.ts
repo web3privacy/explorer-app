@@ -61,16 +61,18 @@ export const useData = defineStore('data', () => {
         ranks: Rank[]
       }>('/api/data')
       data.projects.forEach(project => project.ratings = generateProjectRating(project))
+
+      // Percentage calculation
       projects.value = data.projects.map((project) => {
         const totalPoints = project.ratings?.reduce((a, b) => a + b.percentagePoints, 0) || 0
-        const numberOfRatings = project.ratings?.length || 1 // Avoid division by zero
+        const numberOfRatings = project.ratings?.length || 1
         const averagePercentage = totalPoints / numberOfRatings
         return {
           ...project,
-          percentage: Math.min(Math.max(Math.round(averagePercentage), 0), 100), // Ensure within 0-100%
+          percentage: Math.min(Math.max(Math.round(averagePercentage), 0), 100),
         }
       }).filter(p => p.name)
-      console.log(projects.value.filter(p => p.name === 'ETHBerlin'))
+
       const projectCategories = projects.value.map(p => p.categories).flat()
       categories.value = data.categories.filter(c => projectCategories.includes(c.id))
       usecases.value = data.usecases
