@@ -72,7 +72,6 @@ export const useData = defineStore('data', () => {
       assets.value = data.assets
       features.value = data.features
       ranks.value = data.ranks
-
       projectPhase.value = data.phases?.map(p => ({ id: p.id.toLowerCase(), name: p.name }))
       assetCustody.value = data.custodys.map(a => ({ id: a.id.toLowerCase(), name: a.name }))
       signInRequirments.value = data.requirements.map(s => ({ id: s.id.toLowerCase(), name: s.name }))
@@ -173,9 +172,6 @@ export const useData = defineStore('data', () => {
           case 'live-on-mainnet':
             return project.project_phase === 'mainnet'
         }
-        // const features = project.technology?.features?.map(f => f.toLowerCase()) || []
-        // if (!features.includes(selectedFeature))
-        //   return false
       }
 
       return true
@@ -191,7 +187,7 @@ export const useData = defineStore('data', () => {
     if (!projects.value) return []
 
     const query = filter.query.toLowerCase()
-    const sortDirection = filter.sortDirection === 'asc' ? 1 : -1
+    const sortDirection = filter.sortDirection === 'desc' ? 1 : -1
     const sortBy = filter.sortby
 
     const filteredShallowProjects = getProjectsByFilters({ shallow: true })
@@ -200,10 +196,11 @@ export const useData = defineStore('data', () => {
       })
       .sort((a, b) => {
         if (sortBy === 'score') {
-          return sortDirection * (a.percentage - b.percentage)
+          return sortDirection * (b.percentage - a.percentage)
         }
 
         if (sortBy === 'title') {
+          // sortDirection is reversed because the default sort is descending
           return sortDirection * a.title1.toLowerCase().localeCompare(b.title1.toLowerCase())
         }
 
@@ -248,10 +245,16 @@ export const useData = defineStore('data', () => {
     const projectRatings: ProjectRating[] = ranks.value?.map((rank) => {
       let rankPoints = 0
       let maxPoints = 0
+      const ratingStats: ProjectRatingItem[] = []
 
-      const ratingStats: ProjectRatingItem[] = rank.references?.map((ref) => {
+      rank.references?.forEach((ref) => {
         let isValid = false
         const field = ref.field.includes('.') ? getNestedField(project, ref.field) : project[ref.field]
+
+        // adds only one valid social link
+        if (ref.label.positive === 'Link' && ref.label.name !== 'Documentation')
+          if (ratingStats.some(r => r.positive === 'Link' && r.label !== 'Documentation' && r.value) || !field)
+            return
 
         let value
         let positive
@@ -285,14 +288,15 @@ export const useData = defineStore('data', () => {
         rankPoints += isValid ? ref.points : 0
         maxPoints += ref.points
 
-        return {
+        ratingStats.push({
           isValid,
           label: ref.label.name,
           positive: positive ? positive : ref.label.positive,
           negative: negative ? negative : ref.label.negative,
           value,
-        } as ProjectRatingItem
+        } as ProjectRatingItem)
       })
+
       return {
         type: rank.id,
         name: rank.name,
