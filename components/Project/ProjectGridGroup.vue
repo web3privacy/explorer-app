@@ -46,7 +46,18 @@ const shownProjects = computed(() => props.group.projects.slice(0, shownProjects
         @click="groupCollapsed = !groupCollapsed"
       />
     </div>
-    <ProjectGridGroupSort v-if="!groupCollapsed" />
+    <ClientOnly>
+      <ProjectGridGroupSort
+        v-if="!groupCollapsed"
+        :hidden-columns="group.title === 'Social & Communications' ? ['technology'] : []"
+      />
+      <template #fallback>
+        <div
+          h-48px
+          w-full
+        />
+      </template>
+    </ClientOnly>
     <div
       v-if="!groupCollapsed"
       grid
@@ -61,6 +72,7 @@ const shownProjects = computed(() => props.group.projects.slice(0, shownProjects
         <Card
           v-for="project in group.projects.slice(0, shownProjectsCount)"
           :key="project.id"
+          :hidden-columns="group.title === 'Social & Communications' ? ['technology'] : []"
           :project="project"
         />
 
@@ -79,9 +91,11 @@ const shownProjects = computed(() => props.group.projects.slice(0, shownProjects
         text="12px lg:14px"
         leading="24px lg:32px"
         font-bold
-        pt-16px
-        pb-24px
+        mt-24px
+        px-16px
+        py-4px
         text-app-text-grey
+        border="2px white/50"
         @click="shownProjectsCount += 15"
       >
         LOAD MORE
