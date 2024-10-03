@@ -30,19 +30,13 @@ const props = defineProps<{
           v-for="member in members"
           :key="member.name"
         >
-          <div
+          <NuxtLink
+            :to="member.link"
+            target="_blank"
             flex
             items-center
             gap-12px
           >
-            <!-- <template v-if="member.link">
-              <NuxtImg
-                :src="member.link"
-                width="48"
-                height="48"
-                :alt="member.name"
-              />
-            </template> -->
             <div
               flex
               items-center
@@ -67,7 +61,7 @@ const props = defineProps<{
                 font-700
               >{{ member.name }}</span>
             </div>
-          </div>
+          </NuxtLink>
         </template>
       </template>
       <template v-else>
