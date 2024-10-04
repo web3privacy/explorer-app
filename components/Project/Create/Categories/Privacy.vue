@@ -27,6 +27,7 @@ function save() {
     tracebility: {
       kyc: kyc.value,
       tracked_data: trackedData.value,
+      sign_in_type_requirments: signRequirements.value,
     },
     default_privacy: defaultPrivacy.value,
   })
