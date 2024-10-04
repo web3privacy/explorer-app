@@ -82,7 +82,7 @@ const isProjectDetailRoute = computed(() => {
         justify-center
       >
         <NuxtLink
-          to="https://web3privacy.info/"
+          to="https://web3privacy.info/about/"
           py-2
           px-4
           cursor-pointer
@@ -105,7 +105,7 @@ const isProjectDetailRoute = computed(() => {
           underline-offset-1
           text-14px
           font-400
-          to="/"
+          to="https://mirror.xyz/0x0f1F3DAf416B74DB3DE55Eb4D7513a80F4841073/s9flkE6tMaJ4f2tzWu-FmDy7Zx_TRPe3jdXr2iYmYH0"
         >
           Scoring
         </NuxtLink>
