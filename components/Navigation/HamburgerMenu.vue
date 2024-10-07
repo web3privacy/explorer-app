@@ -9,7 +9,7 @@
     items-center
   >
     <NuxtLink
-      to="https://web3privacy.info/"
+      to="https://web3privacy.info/about/"
       bg-black
       hover:bg-white
       w-full
@@ -28,7 +28,7 @@
       About
     </NuxtLink>
     <NuxtLink
-      to="https://web3privacy.info/"
+      to="https://mirror.xyz/0x0f1F3DAf416B74DB3DE55Eb4D7513a80F4841073/s9flkE6tMaJ4f2tzWu-FmDy7Zx_TRPe3jdXr2iYmYH0"
       bg-black
       hover:bg-white
       w-full
