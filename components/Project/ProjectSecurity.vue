@@ -17,7 +17,7 @@ defineProps<{
     />
   </ProjectDetailCategoryDivider>
   <ProjectDetailContainer>
-    <div v-if="project.audits">
+    <div v-if="project.audits?.length">
       <h2
         text-18px
         text-app-text-grey

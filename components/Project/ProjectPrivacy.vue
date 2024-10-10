@@ -71,7 +71,7 @@ defineProps<{
         bold
         title="Sign-in requirements"
       >
-        {{ project.tracebility?.sign_in_type_requirments }}
+        {{ project.tracebility?.sign_in_type_requirments?.length ? project.tracebility?.sign_in_type_requirments : 'N/A' }}
       </ProjectInfoItem>
       <ProjectInfoItem
         :check-undefined="project.tracebility?.tracked_data"
