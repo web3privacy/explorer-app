@@ -4,8 +4,6 @@ import type { Project } from '~/types'
 defineProps<{
   project: Project
 }>()
-
-const { projectPhase } = storeToRefs(useData())
 </script>
 
 <template>
@@ -62,12 +60,12 @@ const { projectPhase } = storeToRefs(useData())
             h-10px
             w-10px
             rounded-full
-            :class=" project.project_phase ? 'bg-green' : 'bg-red'"
+            :class=" project.project_status?.version ? 'bg-green' : 'bg-red'"
           /><p
-            :class="project.project_phase ? 'text-white' : 'text-app-text-grey'"
+            :class="project.project_status?.version ? 'text-white' : 'text-app-text-grey'"
             leading="20px lg:24px"
           >
-            {{ projectPhase.find(p => p.id === project.project_phase)?.name || 'N/A' }}
+            {{ project.project_status?.version ? `${project.project_status?.version?.charAt(0).toUpperCase()}${project.project_status?.version?.slice(1)}` : 'N/A' }}
           </p>
         </div>
       </div>
@@ -113,7 +111,7 @@ const { projectPhase } = storeToRefs(useData())
           leading="20px lg:24px"
           :class=" project.product_launch_day ? '' : 'opacity-50'"
         >
-          {{ project.product_launch_day || 'N/A' }}
+          {{ project.product_launch_day ? new Intl.DateTimeFormat('en-UK').format(new Date(project.product_launch_day)) : 'N/A' }}
         </p>
       </div>
     </div>

@@ -5,7 +5,7 @@ const props = defineProps<{
   project?: Partial<Project>
 }>()
 
-const version = ref(props.project?.project_phase?.toLowerCase() || undefined)
+const version = ref(props.project?.project_phase ? props.project?.project_phase?.toLowerCase() : props.project?.project_status?.version ? props.project?.project_status?.version.toLowerCase() : undefined)
 const openSource = ref(props.project?.blockchain_features?.opensource || false)
 const upgradability = ref(props.project?.blockchain_features?.upgradability?.enabled || false)
 const assetType = ref(props.project?.blockchain_features?.asset_custody_type?.toLowerCase() || '')
@@ -19,6 +19,12 @@ const { saveProject } = useProject()
 function save() {
   saveProject({
     project_phase: version.value,
+    project_status: {
+      live_status: version.value ? true : false,
+      mainnet: version.value === 'mainnet' ? true : false,
+      testnet: version.value === 'testnet' ? true : false,
+      version: version.value,
+    },
     blockchain_features: {
       opensource: openSource.value,
       upgradability: {
