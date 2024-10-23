@@ -175,7 +175,7 @@ const visibleColumnsCount = computed(() => {
           <NuxtImg
             v-for="ecosystem of projectItem.label"
             :key="ecosystem"
-            :src="ecosystem"
+            :src="ecosystem || '/no-image-1-1.svg'"
             w-24px
             h-24px
             rounded-full
