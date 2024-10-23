@@ -10,6 +10,7 @@ export const useProject = defineStore('project', () => {
   function setProject(id: string) {
     project.value = getProjectById(id, { shallow: false }) as Project
     delete project.value.ratings
+    delete project.value.percentage
   }
 
   function clearProject() {
