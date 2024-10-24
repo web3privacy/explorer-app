@@ -58,7 +58,7 @@ watch([day, month, year], () => {
   if (!yearValue || !monthValue || !dayValue) {
     return null
   }
-  newAudit.time = new Date(yearValue, monthValue - 1, dayValue).toString()
+  newAudit.time = new Date(yearValue, monthValue - 1, dayValue).toISOString()
 })
 
 function formatDate(date: string) {
