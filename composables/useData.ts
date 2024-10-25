@@ -226,7 +226,7 @@ export const useData = defineStore('data', () => {
   const groupedProjectsPerCategory = computed(() => {
     const groupedProjects = categories.value.map((category) => {
       const projectsInCategory = filteredProjects.value.filter(project =>
-        project.categories.includes(category.id),
+        project.categories?.includes(category.id),
       )
 
       return {
