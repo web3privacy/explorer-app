@@ -78,12 +78,13 @@ export const useProjectForm = defineStore('useProjectForm', () => {
     saveName()
     currentComponent.value?.save()
 
-    await publishProject()
+    const prUrl = await publishProject()
     isPublishing.value = false
+
     if (isNew)
-      navigateTo('/')
+      navigateTo(`/?status=success&pr=${prUrl}`)
     else
-      navigateTo(`/project/${project.value?.id || project.value?.name?.toLowerCase().replace(/\s+/g, '-')}`)
+      navigateTo(`/project/${project.value?.id || project.value?.name?.toLowerCase().replace(/\s+/g, '-')}?status=success&pr=${prUrl}`)
   }
 
   function initForm() {

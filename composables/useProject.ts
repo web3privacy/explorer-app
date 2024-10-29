@@ -42,7 +42,7 @@ export const useProject = defineStore('project', () => {
         }
       }
 
-      await $fetch(`/api/data`, {
+      const url = await $fetch(`/api/data`, {
         method: 'POST',
         body: {
           project: project.value,
@@ -52,6 +52,8 @@ export const useProject = defineStore('project', () => {
           },
         },
       })
+
+      return url
     }
     catch (e) {
       console.error(e)
