@@ -235,6 +235,8 @@ export default defineEventHandler(async (event) => {
       `${body.project.id ? `Updating the project: ${body.project.id}` : `Initiating the creation of project: ${body.project.name}`}`,
     )
     console.log('Pull request created:', pullRequestData)
+
+    return pullRequestData.html_url
   }
   catch (error) {
     console.error('Error during GitHub operations:', error)
