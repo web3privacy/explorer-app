@@ -61,7 +61,7 @@ watch([day, month, year], () => {
   if (!yearValue || !monthValue || !dayValue) {
     return null
   }
-  newEvent.time = new Date(yearValue, monthValue - 1, dayValue).toString()
+  newEvent.time = new Date(yearValue, monthValue - 1, dayValue).toISOString()
 })
 
 function formatDate(date: string) {

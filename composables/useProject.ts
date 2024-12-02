@@ -10,6 +10,7 @@ export const useProject = defineStore('project', () => {
   function setProject(id: string) {
     project.value = getProjectById(id, { shallow: false }) as Project
     delete project.value.ratings
+    delete project.value.percentage
   }
 
   function clearProject() {
@@ -41,7 +42,7 @@ export const useProject = defineStore('project', () => {
         }
       }
 
-      await $fetch(`/api/data`, {
+      const url = await $fetch(`/api/data`, {
         method: 'POST',
         body: {
           project: project.value,
@@ -51,6 +52,8 @@ export const useProject = defineStore('project', () => {
           },
         },
       })
+
+      return url
     }
     catch (e) {
       console.error(e)

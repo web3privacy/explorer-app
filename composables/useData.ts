@@ -72,7 +72,6 @@ export const useData = defineStore('data', () => {
           percentage: Math.min(Math.max(Math.round(averagePercentage), 0), 100),
         }
       }).filter(p => p.name)
-
       const projectCategories = projects.value.map(p => p.categories).flat()
       categories.value = data.categories.filter(c => projectCategories.includes(c.id))
       usecases.value = data.usecases
@@ -178,7 +177,7 @@ export const useData = defineStore('data', () => {
           case 'opensource':
             return project.blockchain_features?.opensource
           case 'live-on-mainnet':
-            return project.project_phase === 'mainnet'
+            return project.project_status?.mainnet || project.project_status?.version?.toLowerCase() === 'mainnet'
         }
       }
 
@@ -227,7 +226,7 @@ export const useData = defineStore('data', () => {
   const groupedProjectsPerCategory = computed(() => {
     const groupedProjects = categories.value.map((category) => {
       const projectsInCategory = filteredProjects.value.filter(project =>
-        project.categories.includes(category.id),
+        project.categories?.includes(category.id),
       )
 
       return {

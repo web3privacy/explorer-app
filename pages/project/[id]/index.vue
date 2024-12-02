@@ -28,10 +28,24 @@ useSeoMeta({
   ogDescription: project.value.description,
   ogImage: project.value?.logos?.at(0)?.url ?? '',
 })
+
+const isOpen = ref(false)
+
+onMounted(() => {
+  if (route.query.status === 'success')
+    isOpen.value = true
+})
 </script>
 
 <template>
   <div v-if="project">
+    <Dialog
+      v-model="isOpen"
+      heading="Pull Request Submitted for Approval"
+      desc="Your pull request has been submitted! It will need to be manually reviewed and approved by a team member before merging. You can track its status on GitHub."
+      cta="View on GitHub"
+      :to="route.query.pr as string"
+    />
     <div
       app-container
     >
