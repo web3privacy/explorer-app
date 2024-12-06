@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ContactDialog from '~/components/Project/Create/Components/ContactDialog.vue'
+
 definePageMeta({
   layout: 'create',
 })
@@ -37,6 +39,12 @@ watch(isEditingName, () => {
 })
 
 const transitionDone = ref(false)
+
+const isOpen = ref(false)
+
+const handleDialog = () => {
+  isOpen.value = true
+}
 
 onBeforeMount(() => {
   clearProject()
@@ -240,6 +248,7 @@ onBeforeMount(() => {
         </ClientOnly>
       </div>
     </div>
+    <ContactDialog v-model="isOpen" />
     <Transition
       name="fade"
       mode="out-in"
@@ -302,6 +311,14 @@ onBeforeMount(() => {
               v-else
               px-24px
             >PUBLISH</span>
+          </Button>
+          <Button
+            w-full
+            lg="w-fit"
+            inverted-color
+            @click="handleDialog()"
+          >
+            TEST DIALOG
           </Button>
         </div>
       </div>
