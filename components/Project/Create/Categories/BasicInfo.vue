@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import * as yup from 'yup'
+import ContactDialog from '../Components/ContactDialog.vue'
 import type { Project } from '~/types'
 
 const props = defineProps<{
@@ -29,12 +30,17 @@ const month = ref(new Date(props.project?.product_launch_day || '').getMonth())
 const year = ref(new Date(props.project?.product_launch_day || '').getFullYear())
 const isDead = ref(props.project?.sunset || false)
 
+const addNickname = ref(false)
+const isOpen = ref(false)
+const nickname = ref('')
+
 resetForm({
   values: {
     categories: Array.isArray(props.project?.categories) ? props.project?.categories?.map(c => c.toLowerCase()) : [],
     usecases: Array.isArray(props.project?.usecases) ? props.project?.usecases?.map(u => u.toLowerCase()) : [],
     ecosystems: Array.isArray(props.project?.ecosystem) ? props.project?.ecosystem?.map(e => e.toLowerCase()) : [],
     description: props.project?.description || '',
+    nickname: props.project?.nickname || '',
   },
 })
 
@@ -56,6 +62,7 @@ function save() {
     ecosystem: ecosystems.value,
     description: description.value,
     product_launch_day: (year.value && month.value && day.value) ? new Date(year.value, month.value, day.value).toISOString() : undefined,
+    nickname: nickname.value || undefined,
     sunset: isDead.value,
   })
 }
@@ -121,6 +128,21 @@ and why should user use your project."
       lg="text-16px"
     >Other Information
     </span>
+    <div class="mt-4 flex items-center gap-2">
+      <input
+        v-model="addNickname"
+        type="checkbox"
+        class="w-6 h-6 border-2 border-app-bg-dark_grey accent-black cursor-pointer"
+        @change="isOpen = addNickname"
+      >
+      <label class="text-white text-sm">Add nickname (We collect this to track and reward our contributors in the future)</label>
+    </div>
+
+    <ContactDialog
+      v-model="isOpen"
+      @confirm="nickname = $event"
+    />
+
     <ProjectCreateComponentsToggle
       v-model="isDead"
       label="Sunset (project is dead)"

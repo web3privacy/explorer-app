@@ -7,24 +7,37 @@ import {
   DialogTitle,
 } from '@headlessui/vue'
 
-const isOpen = defineModel<boolean>()
+const { modelValue } = defineProps<{
+  modelValue: boolean
+}>()
+
+const emit = defineEmits<{
+  (e: 'update:modelValue', value: boolean): void
+  (e: 'confirm', nickname: string): void
+}>()
 
 const userInput = ref('')
+
+const closeDialog = () => {
+  emit('update:modelValue', false)
+}
+
 const handleConfirm = () => {
-  // Perform actions with userInput.value
-  isOpen.value = false
+  emit('confirm', userInput.value)
+  closeDialog()
 }
 </script>
 
 <template>
   <TransitionRoot
     appear
-    :show="isOpen"
+    :show="modelValue"
     as="template"
   >
     <Dialog
       as="div"
       class="relative z-10"
+      @close="closeDialog"
     >
       <TransitionChild
         as="template"
@@ -85,7 +98,7 @@ const handleConfirm = () => {
                     uppercase
                     w-full
                     border
-                    @click="isOpen = false"
+                    @click="closeDialog"
                   >
                     <span>cancel</span>
                   </Button>

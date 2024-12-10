@@ -28,6 +28,7 @@ export interface Project {
   product_launch_day?: string
   project_phase?: string
   sunset: boolean
+  nickname?: string
   technology?: {
     type: string
     name?: string
