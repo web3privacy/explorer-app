@@ -82,7 +82,7 @@ const isProjectDetailRoute = computed(() => {
         justify-center
       >
         <NuxtLink
-          to="https://web3privacy.info/about/"
+          to="https://hackmd.io/@7veHo9V5QuuMVFc_R7KTGA/HJZ3aZSekl"
           py-2
           px-4
           cursor-pointer
