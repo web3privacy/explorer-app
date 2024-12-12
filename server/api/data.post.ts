@@ -1,3 +1,6 @@
+import { readFile } from 'fs/promises'
+import { join } from 'path'
+
 import { App } from 'octokit'
 import yaml from 'yaml'
 import type { Project } from '~/types'
@@ -5,6 +8,8 @@ import type { Project } from '~/types'
 export default defineEventHandler(async (event) => {
   const body = await readBody<{ project: Project, image?: { type: string, data: string } }>(event)
   const { appId, privateKey, installationId, baseBranch, owner, repo } = useRuntimeConfig().app.github
+
+  const localPrivateKey = await readFile(join(process.cwd(), 'private-key.pem'), 'utf8')
 
   const id = (body.project.id && body.project.id.toLowerCase() === body.project.name.toLowerCase().replace(/\s+/g, '-'))
     ? body.project.id
@@ -17,7 +22,7 @@ export default defineEventHandler(async (event) => {
 
   const app = new App({
     appId,
-    privateKey,
+    privateKey: privateKey || localPrivateKey,
   })
   await app.octokit.rest.apps.getAuthenticated()
   const octokit = await app.getInstallationOctokit(installationId)
