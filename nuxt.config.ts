@@ -56,9 +56,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     app: {
       github: {
-        appId: 995628,
+        appId: 0,
         privateKey: '',
-        installationId: 55212914,
+        installationId: 0,
         owner: 'web3privacy',
         baseBranch: 'main',
         repo: 'test-repo',
