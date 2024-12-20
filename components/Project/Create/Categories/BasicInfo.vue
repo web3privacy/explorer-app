@@ -15,6 +15,7 @@ const validationSchema = yup.object().shape({
   usecases: yup.array().of(yup.string()).required().min(1),
   ecosystems: yup.array().of(yup.string()).required().min(1),
   description: yup.string().required(),
+  nickname: yup.string().optional(),
 })
 
 const { validate, meta, resetForm } = useForm({
