@@ -199,7 +199,11 @@ export const useData = defineStore('data', () => {
 
     const filteredShallowProjects = getProjectsByFilters({ shallow: true })
       .filter((project) => {
-        return project?.title1?.toLowerCase().includes(query)
+        const includesTitle = project.title1.toLowerCase().includes(query)
+        const includesDescription = project.description.toLowerCase().includes(query)
+        const includesUsecase = project.usecases?.some(u => u.toLowerCase().includes(query))
+
+        return includesTitle || includesDescription || includesUsecase
       })
       .sort((a, b) => {
         if (sortBy === 'score') {
