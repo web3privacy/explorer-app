@@ -132,7 +132,7 @@ const isHovered = ref(false)
       mb-16px
     >
       <NuxtLink
-        to="https://docs.web3privacy.info/manifesto"
+        to="https://docs.web3privacy.info/about-us/manifesto"
         opacity-50
         hover:underline
       >
