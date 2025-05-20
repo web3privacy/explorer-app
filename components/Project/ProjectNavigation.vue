@@ -25,12 +25,12 @@ const route = useRoute()
       <span
         block
         md:hidden
-      >{{ 'BACK' }}</span>
+      >{{ "BACK" }}</span>
       <span
         hidden
         whitespace-nowrap
         md:block
-      >{{ 'BACK TO LIST' }}</span>
+      >{{ "BACK TO LIST" }}</span>
     </NavigationButton>
     <div
       flex
@@ -43,21 +43,21 @@ const route = useRoute()
         @click="$router.push('/project/' + route.params.id + '/edit')"
       >
         <span
-          text-16px
+          text-20px
           whitespace-nowrap
-          font-400
+          font-700
           leading-24px
           hidden
           md:block
-        >{{ 'EDIT RESEARCH' }}</span>
+        >{{ "EDIT RESEARCH" }}</span>
         <span
-          text-16px
+          text-20px
           whitespace-nowrap
-          font-400
+          font-700
           leading-24px
           block
           md:hidden
-        >{{ 'EDIT' }}</span>
+        >{{ "EDIT" }}</span>
       </EditButton>
       <!-- <ShareButton>
         <span text-16px font-400 hidden md:block>{{ 'SHARE' }}</span>
