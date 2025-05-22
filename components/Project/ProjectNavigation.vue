@@ -43,17 +43,17 @@ const route = useRoute()
         @click="$router.push('/project/' + route.params.id + '/edit')"
       >
         <span
-          text-16px
+          text-20px
           whitespace-nowrap
-          font-400
+          font-700
           leading-24px
           hidden
           md:block
         >{{ 'EDIT RESEARCH' }}</span>
         <span
-          text-16px
+          text-20px
           whitespace-nowrap
-          font-400
+          font-700
           leading-24px
           block
           md:hidden
