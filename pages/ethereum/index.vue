@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ProjectGrid :projects="[{ title: 'Ethereum Projects', projects: ethereumProjects }]" />
+    <ProjectGrid :projects="groupedProjects" />
   </div>
 </template>
 
@@ -12,13 +12,13 @@ definePageMeta({
 })
 
 const dataStore = useData()
-const { selectedEcosystemId } = storeToRefs(dataStore)
+const { selectedEcosystemId, groupedProjectsPerCategory } = storeToRefs(dataStore)
 
 // Set Ethereum as the selected ecosystem
 selectedEcosystemId.value = 'ethereum'
 
-// Use the store's filtered projects
-const ethereumProjects = computed(() => dataStore.filteredProjects)
+// Use the store's grouped projects
+const groupedProjects = computed(() => groupedProjectsPerCategory.value)
 </script>
 
 <style scoped>
