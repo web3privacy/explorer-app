@@ -9,7 +9,7 @@
     items-center
   >
     <NuxtLink
-      to="https://hackmd.io/@7veHo9V5QuuMVFc_R7KTGA/HJZ3aZSekl/"
+      to="https://web3privacy.info/about/"
       bg-black
       hover:bg-white
       w-full
