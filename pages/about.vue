@@ -125,5 +125,7 @@
 </template>
 
 <script setup lang="ts">
-// This is a static content page — no interactivity needed
+definePageMeta({
+  layout: 'clean',
+})
 </script>
