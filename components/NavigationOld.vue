@@ -6,7 +6,7 @@ const isProjectRoute = computed(() => {
 })
 
 const showMenu = ref(false)
-const { showBar, showText } = storeToRefs(useNavigaiton())
+const { showBar, showText } = storeToRefs(useNavigation())
 const { width } = useWindowSize()
 const { y } = useWindowScroll()
 
