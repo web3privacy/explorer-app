@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-const { showBar } = storeToRefs(useNavigaiton())
+const { showBar } = storeToRefs(useNavigation())
 const swipeEl = ref()
 const { y } = useWindowScroll()
 
