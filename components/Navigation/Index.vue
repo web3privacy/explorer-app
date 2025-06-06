@@ -71,7 +71,7 @@ const isProjectDetailRoute = computed(() => {
           lg="max-w-full"
           src="/explorer.webp"
           cursor-pointer
-          @click="navigateTo('/')"
+          @click="navigateTo('/home')"
         />
       </div>
       <div
