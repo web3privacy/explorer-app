@@ -18,7 +18,7 @@ const ecosystemOptions = ref<InputOption[]>(ecosystems.value ? [{ label: 'Ecosys
 const assetOptions = ref<InputOption[]>(assets.value ? [{ label: 'Asset used', value: 'all' }, ...assets.value.map(a => ({ label: `${a.id.toUpperCase()} (${a.name})`, value: a.id }))] : [])
 const featureOptions = ref<InputOption[]>(features.value ? [{ label: 'Feature', value: 'all' }, ...features.value.map(f => ({ label: f.name, value: f.id }))] : [])
 
-const { showBar } = storeToRefs(useNavigation())
+const { showBar } = storeToRefs(useNavigaiton())
 const swipeEl = ref()
 const { y } = useWindowScroll()
 const scrollEl = ref()
