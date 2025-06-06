@@ -1,4 +1,4 @@
-export const useNavigaiton = defineStore('navigation', () => {
+export const useNavigation = defineStore('navigation', () => {
   const showBar = ref(true)
   const showText = ref(true)
 
