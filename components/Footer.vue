@@ -214,7 +214,7 @@ const isHovered = ref(false)
         text-14px
         leading-24px
         font-400
-      >{{ 'All rights not reserved,  Creative commons 2024 - Web3Privacy z.s.' }}</a>
+      >{{ 'All rights not reserved,  Creative commons 2025 - Web3Privacy z.s.' }}</a>
       <div
         w-full
         sm:w-fit

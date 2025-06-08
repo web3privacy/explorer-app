@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { ref } from 'vue'
+
 const { showBar } = storeToRefs(useNavigation())
 const swipeEl = ref()
 const { y } = useWindowScroll()
@@ -20,10 +22,8 @@ watch(y, (newY, oldY) => {
     h-full
     w-full
   >
-    <Navigation />
     <div
       app-container
-      mt-32px
       relative
     >
       <slot />
