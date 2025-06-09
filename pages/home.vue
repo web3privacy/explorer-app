@@ -69,43 +69,49 @@
       w-full
       bg-black
     >
-      <img
-        src="/public/explorer-hero.png"
-        absolute
-        inset-0
-        w-full
-        h-full
-        object-cover
-        opacity-50
+      <a
+        href="https://explorer.web3privacy.info/"
+        style="display:block;height:100%"
       >
-      <div
-        absolute
-        inset-0
-        bg="gradient-to-b from-transparent to-black/90"
-      >
-        <div
-          container
-          mx-auto
-          px-4
-          py-20
+        <img
+          src="/public/explorer-hero.png"
+          absolute
+          inset-0
+          w-full
+          h-full
+          object-cover
+          opacity-50
+          style="cursor:pointer"
         >
-          <h1
-            text="5xl md:6xl"
-            font-bold
-            max-w-3xl
-            mb-6
+        <div
+          absolute
+          inset-0
+          bg="gradient-to-b from-transparent to-black/90"
+        >
+          <div
+            container
+            mx-auto
+            px-4
+            py-20
           >
-            Dashboard for the privacy ecosystem in web3
-          </h1>
-          <h2
-            text="3xl md:4xl"
-            font-medium
-            mb-8
-          >
-            Discover 600+ Projects
-          </h2>
+            <h1
+              text="5xl md:6xl"
+              font-bold
+              max-w-3xl
+              mb-6
+            >
+              Dashboard for the privacy ecosystem in web3
+            </h1>
+            <h2
+              text="3xl md:4xl"
+              font-medium
+              mb-8
+            >
+              Discover 600+ Projects
+            </h2>
+          </div>
         </div>
-      </div>
+      </a>
     </section>
 
     <!-- Highlights Section -->
