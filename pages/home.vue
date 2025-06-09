@@ -39,6 +39,11 @@
             ]"
           >
             <li class="mb-2">
+              <NuxtLink to="https://explorer.web3privacy.info/">
+                Explorer
+              </NuxtLink>
+            </li>
+            <li class="mb-2">
               <NuxtLink to="/about">
                 About
               </NuxtLink>
