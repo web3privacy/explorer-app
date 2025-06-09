@@ -132,112 +132,136 @@
         gap-6
       >
         <!-- First Card -->
-        <div
-          bg-black-50
-          rounded-lg
-          p-6
-          border="1 gray-700"
+        <NuxtLink
+          to="https://explorer.web3privacy.info/project/railgun"
+          class="no-underline"
         >
           <div
-            flex
-            items-center
-            gap-4
-            mb-4
+            bg-black-50
+            rounded-lg
+            p-6
+            border="1 gray-700"
+            hover:bg-gray-800
+            transition-colors
+            cursor-pointer
           >
-            <img
-              src="/public/logo-railgun.png"
-              alt="Railgun Logo"
-              w-12
-              h-12
+            <div
+              flex
+              items-center
+              gap-4
+              mb-4
             >
-            <div>
-              <h4 font-bold>
-                Railgun
-              </h4>
-              <p text-gray-400>
-                Applications
-              </p>
+              <img
+                src="/public/logo-railgun.png"
+                alt="Railgun Logo"
+                w-12
+                h-12
+              >
+              <div>
+                <h4 font-bold>
+                  Railgun
+                </h4>
+                <p text-gray-400>
+                  Applications
+                </p>
+              </div>
             </div>
+            <p
+              text-sm
+              text-gray-400
+            >
+              A privacy-focused smart contract platform that enables private transactions on Ethereum and other blockchains.
+            </p>
           </div>
-          <p
-            text-sm
-            text-gray-400
-          >
-            A privacy-focused smart contract platform that enables private transactions on Ethereum and other blockchains.
-          </p>
-        </div>
+        </NuxtLink>
 
         <!-- Second Card -->
-        <div
-          bg-black-50
-          rounded-lg
-          p-6
-          border="1 gray-700"
+        <NuxtLink
+          to="https://explorer.web3privacy.info/project/aztec"
+          class="no-underline"
         >
           <div
-            flex
-            items-center
-            gap-4
-            mb-4
+            bg-black-50
+            rounded-lg
+            p-6
+            border="1 gray-700"
+            hover:bg-gray-800
+            transition-colors
+            cursor-pointer
           >
-            <img
-              src="/public/logo-aztec.png"
-              alt="Aztec Logo"
-              w-12
-              h-12
+            <div
+              flex
+              items-center
+              gap-4
+              mb-4
             >
-            <div>
-              <h4 font-bold>
-                Aztec
-              </h4>
-              <p text-gray-400>
-                Infrastructure
-              </p>
+              <img
+                src="/public/logo-aztec.png"
+                alt="Aztec Logo"
+                w-12
+                h-12
+              >
+              <div>
+                <h4 font-bold>
+                  Aztec
+                </h4>
+                <p text-gray-400>
+                  Infrastructure
+                </p>
+              </div>
             </div>
+            <p
+              text-sm
+              text-gray-400
+            >
+              A privacy-first L2 on Ethereum that has a hybrid privacy model.
+            </p>
           </div>
-          <p
-            text-sm
-            text-gray-400
-          >
-            A privacy-first L2 on Ethereum that has a hybrid privacy model.
-          </p>
-        </div>
+        </NuxtLink>
 
         <!-- Third Card -->
-        <div
-          bg-black-50
-          rounded-lg
-          p-6
-          border="1 gray-700"
+        <NuxtLink
+          to="https://explorer.web3privacy.info/project/cake-wallet"
+          class="no-underline"
         >
           <div
-            flex
-            items-center
-            gap-4
-            mb-4
+            bg-black-50
+            rounded-lg
+            p-6
+            border="1 gray-700"
+            hover:bg-gray-800
+            transition-colors
+            cursor-pointer
           >
-            <img
-              src="/public/logo-cake.png"
-              alt="Cake Wallet Logo"
-              w-12
-              h-12
+            <div
+              flex
+              items-center
+              gap-4
+              mb-4
             >
-            <div>
-              <h4 font-bold>
-                Cake Wallet
-              </h4>
-              <p text-gray-400>
-                Applications
-              </p>
+              <img
+                src="/public/logo-cake.png"
+                alt="Cake Wallet Logo"
+                w-12
+                h-12
+              >
+              <div>
+                <h4 font-bold>
+                  Cake Wallet
+                </h4>
+                <p text-gray-400>
+                  Applications
+                </p>
+              </div>
             </div>
+            <p
+              text-sm
+              text-gray-400
+            >
+              A secure and private wallet for Monero and other cryptocurrencies, focusing on user privacy.
+            </p>
           </div>
-          <p
-            text-sm
-            text-gray-400
-          >
-            A secure and private wallet for Monero and other cryptocurrencies, focusing on user privacy.
-          </p>
-        </div>
+        </NuxtLink>
       </div>
     </section>
   </div>
