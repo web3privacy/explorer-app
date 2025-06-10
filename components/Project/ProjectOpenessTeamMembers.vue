@@ -5,6 +5,7 @@ const props = defineProps<{
     role?: string
     link?: string
   }[] | undefined
+  anonymous?: boolean
 }>()
 </script>
 
@@ -25,7 +26,13 @@ const props = defineProps<{
       md:grid-cols-3
       lg:grid-cols-4
     >
-      <template v-if="props.members?.length">
+      <template v-if="props.anonymous">
+        <span
+          text-14px
+          opacity-50
+        >{{ 'Anonymous team' }}</span>
+      </template>
+      <template v-else-if="props.members?.length">
         <template
           v-for="member in members"
           :key="member.name"
