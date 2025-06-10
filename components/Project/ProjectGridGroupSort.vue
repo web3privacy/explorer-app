@@ -30,7 +30,7 @@ const cardTitles = ref< { label: string, sortKey: string, togglable?: boolean }[
   { label: 'Privacy', sortKey: 'privacy', togglable: true },
   { label: 'Ecosystem', sortKey: 'ecosystem' },
   { label: 'Links', sortKey: 'links' },
-  { label: 'W3PN Score', sortKey: 'score', togglable: true },
+  { label: 'Score', sortKey: 'score', togglable: true },
 ])
 
 const { width } = useWindowSize()

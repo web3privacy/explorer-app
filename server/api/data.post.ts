@@ -20,18 +20,9 @@ export default defineEventHandler(async (event) => {
     // Intentionally ignore the error
   }
 
-  const id = (
-    body.project.id
-    && body.project.name
-    && body.project.id.toLowerCase() === body.project.name.toLowerCase().replace(/\s+/g, '-')
-  )
-    ? body.project.id
-    : (body.project.name ? body.project.name.toLowerCase().replace(/\s+/g, '-') : '')
-
-  const yamlProject = yaml.stringify({
-    ...body.project,
-    id,
-  })
+  const sanitizedName = body.project.name
+    ? body.project.name.toLowerCase().replace(/\s+/g, '-')
+    : ''
 
   const app = new App({
     appId,
@@ -39,6 +30,37 @@ export default defineEventHandler(async (event) => {
   })
   await app.octokit.rest.apps.getAuthenticated()
   const octokit = await app.getInstallationOctokit(installationId)
+
+  async function pathExists(path: string) {
+    try {
+      await octokit.rest.repos.getContent({ owner, repo, path, ref: baseBranch })
+      return true
+    }
+    catch (error: any) {
+      if (error.status === 404)
+        return false
+      throw error
+    }
+  }
+
+  let id: string
+  if (body.project.id && body.project.id.toLowerCase() === sanitizedName) {
+    id = body.project.id
+  }
+  else {
+    id = sanitizedName
+    let uniqueId = id
+    let counter = 1
+    while (await pathExists(`src/projects/${uniqueId}`)) {
+      uniqueId = `${id}-${counter++}`
+    }
+    id = uniqueId
+  }
+
+  const yamlProject = yaml.stringify({
+    ...body.project,
+    id,
+  })
 
   const newBranchName = `${id}-project-update-${Date.now()}`
   const commitMessage = `${body.project.id
@@ -234,16 +256,14 @@ export default defineEventHandler(async (event) => {
     console.log(`Branch ${newBranchName} created successfully!`)
 
     const deletedFiles = []
-    if (
-      body.project.id
-      && body.project.name
-      && body.project.id.toLowerCase() !== body.project.name.toLowerCase().replace(/\s+/g, '-')
-    ) {
+    if (body.project.id && body.project.id.toLowerCase() !== sanitizedName) {
       const oldId = body.project.id
       const oldFolderPath = `src/projects/${oldId}`
-      await deleteOldProjectFolder(octokit, owner, repo, newBranchName, oldFolderPath)
-      console.log(`Old project folder ${oldFolderPath} deleted successfully!`)
-      deletedFiles.push(oldFolderPath)
+      if (await pathExists(oldFolderPath)) {
+        await deleteOldProjectFolder(octokit, owner, repo, newBranchName, oldFolderPath)
+        console.log(`Old project folder ${oldFolderPath} deleted successfully!`)
+        deletedFiles.push(oldFolderPath)
+      }
     }
 
     await commitChangesToNewBranch(octokit, owner, repo, newBranchName, commitMessage, files, deletedFiles)
