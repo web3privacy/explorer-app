@@ -60,6 +60,19 @@ After which you go back to your terminal:
 
 Which will allow you to run both the data and the front end.
 
+### Environment variables
+Copy `.env.example` to `.env` and fill in your GitHub app credentials so the application can create pull requests:
+
+```
+GITHUB_APP_ID=<your app id>
+GITHUB_APP_PRIVATE_KEY=<contents of the pem file>
+GITHUB_INSTALLATION_ID=<installation id>
+GITHUB_OWNER=<org or user>
+GITHUB_BASE_BRANCH=main
+GITHUB_REPO=<repository>
+```
+
+
 
 ## Specifications
 
