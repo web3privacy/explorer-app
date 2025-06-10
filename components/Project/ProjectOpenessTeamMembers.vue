@@ -5,7 +5,14 @@ const props = defineProps<{
     role?: string
     link?: string
   }[] | undefined
+  anonymous?: boolean
 }>()
+
+function sanitizeLink(link?: string): string {
+  if (!link)
+    return ''
+  return /^https?:\/\//.test(link) ? link : `https://${link}`
+}
 </script>
 
 <template>
@@ -25,13 +32,19 @@ const props = defineProps<{
       md:grid-cols-3
       lg:grid-cols-4
     >
-      <template v-if="props.members?.length">
+      <template v-if="props.anonymous">
+        <span
+          text-14px
+          opacity-50
+        >{{ 'Anonymous team' }}</span>
+      </template>
+      <template v-else-if="props.members?.length">
         <template
           v-for="member in members"
           :key="member.name"
         >
           <NuxtLink
-            :to="member.link"
+            :to="sanitizeLink(member.link)"
             target="_blank"
             flex
             items-center
