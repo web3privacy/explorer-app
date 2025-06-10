@@ -1,7 +1,7 @@
-import moment from 'moment'
+import { format } from 'date-fns'
 
 export function formatDate(date: Date | string) {
-  return moment(date).format('MM / YYYY')
+  return format(new Date(date), 'MM / yyyy')
 }
 
 export function capitalize(word: string): string {
