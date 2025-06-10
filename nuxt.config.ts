@@ -54,6 +54,7 @@ export default defineNuxtConfig({
     prefix: '_',
   },
   runtimeConfig: {
+    localDataPath: process.env.LOCAL_DATA_PATH,
     app: {
       github: {
         appId: 995628,
