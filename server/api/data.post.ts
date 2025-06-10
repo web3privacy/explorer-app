@@ -2,6 +2,7 @@ import { readFile } from 'fs/promises'
 import { join } from 'path'
 
 import { App } from 'octokit'
+import type { Octokit } from 'octokit'
 import yaml from 'yaml'
 import type { Project } from '~/types'
 import logger from '~/utils/logger'
@@ -62,7 +63,7 @@ export default defineEventHandler(async (event) => {
     )
   }
 
-  async function createBranch(owner: string, repo: string, newBranchName: string, baseBranch: string) {
+  async function createBranch(octokit: Octokit, owner: string, repo: string, newBranchName: string, baseBranch: string) {
     const { data: baseBranchData } = await octokit.rest.git.getRef({
       owner,
       repo,
@@ -77,7 +78,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  async function deleteOldProjectFolder(owner: string, repo: string, branch: string, oldFolderPath: string) {
+  async function deleteOldProjectFolder(octokit: Octokit, owner: string, repo: string, branch: string, oldFolderPath: string) {
     const { data: latestCommit } = await octokit.rest.repos.getCommit({
       owner,
       repo,
@@ -141,6 +142,7 @@ export default defineEventHandler(async (event) => {
   }
 
   async function commitChangesToNewBranch(
+    octokit: Octokit,
     owner: string,
     repo: string,
     newBranch: string,
@@ -210,7 +212,7 @@ export default defineEventHandler(async (event) => {
     }
   }
 
-  async function createPullRequest(owner: string, repo: string, head: string, base: string, title: string, body: string) {
+  async function createPullRequest(octokit: Octokit, owner: string, repo: string, head: string, base: string, title: string, body: string) {
     const { data: pullRequest } = await octokit.rest.pulls.create({
       owner,
       repo,
@@ -224,22 +226,23 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    await createBranch(owner, repo, newBranchName, baseBranch)
-    logger.info(`Branch ${newBranchName} created successfully!`)
+    await createBranch(octokit, owner, repo, newBranchName, baseBranch)
+    console.log(`Branch ${newBranchName} created successfully!`)
 
     const deletedFiles = []
     if (body.project.id && body.project.id.toLowerCase() !== body.project.name.toLowerCase().replace(/\s+/g, '-')) {
       const oldId = body.project.id
       const oldFolderPath = `src/projects/${oldId}`
-      await deleteOldProjectFolder(owner, repo, newBranchName, oldFolderPath)
-      logger.info(`Old project folder ${oldFolderPath} deleted successfully!`)
+      await deleteOldProjectFolder(octokit, owner, repo, newBranchName, oldFolderPath)
+      console.log(`Old project folder ${oldFolderPath} deleted successfully!`)
       deletedFiles.push(oldFolderPath)
     }
 
-    await commitChangesToNewBranch(owner, repo, newBranchName, commitMessage, files, deletedFiles)
-    logger.info(`Changes committed to branch ${newBranchName} successfully!`)
+    await commitChangesToNewBranch(octokit, owner, repo, newBranchName, commitMessage, files, deletedFiles)
+    console.log(`Changes committed to branch ${newBranchName} successfully!`)
 
     const pullRequestData = await createPullRequest(
+      octokit,
       owner,
       repo,
       newBranchName,
