@@ -20,9 +20,13 @@ export default defineEventHandler(async (event) => {
     // Intentionally ignore the error
   }
 
-  const id = (body.project.id && body.project.id.toLowerCase() === body.project.name.toLowerCase().replace(/\s+/g, '-'))
+  const id = (
+    body.project.id
+    && body.project.name
+    && body.project.id.toLowerCase() === body.project.name.toLowerCase().replace(/\s+/g, '-')
+  )
     ? body.project.id
-    : body.project.name.toLowerCase().replace(/\s+/g, '-')
+    : (body.project.name ? body.project.name.toLowerCase().replace(/\s+/g, '-') : '')
 
   const yamlProject = yaml.stringify({
     ...body.project,
@@ -230,7 +234,11 @@ export default defineEventHandler(async (event) => {
     console.log(`Branch ${newBranchName} created successfully!`)
 
     const deletedFiles = []
-    if (body.project.id && body.project.id.toLowerCase() !== body.project.name.toLowerCase().replace(/\s+/g, '-')) {
+    if (
+      body.project.id
+      && body.project.name
+      && body.project.id.toLowerCase() !== body.project.name.toLowerCase().replace(/\s+/g, '-')
+    ) {
       const oldId = body.project.id
       const oldFolderPath = `src/projects/${oldId}`
       await deleteOldProjectFolder(octokit, owner, repo, newBranchName, oldFolderPath)
