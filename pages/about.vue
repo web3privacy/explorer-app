@@ -9,7 +9,13 @@
     </p>
 
     <p class="text-base sm:text-lg leading-relaxed mb-4">
-      As a neutral platform, we prioritize transparency. All changes are committed to our GitHub repository and are open to all.
+      As a neutral platform, we prioritize transparency. All changes are committed to our
+      <a
+        href="https://github.com/web3privacy/explorer-app"
+        class="text-blue-400 hover:underline"
+        target="_blank"
+      >GitHub repository</a>
+      and are open to all.
     </p>
 
     <h2 class="text-2xl sm:text-3xl font-semibold mt-10 mb-4">
@@ -83,6 +89,20 @@
           class="text-blue-400 hover:underline"
           target="_blank"
         >Learn how to edit an existing project</a>
+      </li>
+      <li>
+        <a
+          href="https://docs.web3privacy.info/get-involved"
+          class="text-blue-400 hover:underline"
+          target="_blank"
+        >Contribution guidelines</a>
+      </li>
+      <li>
+        <a
+          href="https://docs.web3privacy.info/projects/privacy-explorer/"
+          class="text-blue-400 hover:underline"
+          target="_blank"
+        >Explorer documentation</a>
       </li>
     </ul>
     <p class="text-base sm:text-lg leading-relaxed mt-4">
