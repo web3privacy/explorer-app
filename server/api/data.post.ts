@@ -8,7 +8,7 @@ import type { Project } from '~/types'
 import logger from '~/utils/logger'
 
 export default defineEventHandler(async (event) => {
-  const body = await readBody<{ project: Project, image?: { type: string, data: string } }>(event)
+  const body = await readBody<{ project: Partial<Project>, image?: { type: string, data: string } }>(event)
   const { appId, privateKey, installationId, baseBranch, owner, repo } = useRuntimeConfig().app.github
 
   let localPrivateKey
