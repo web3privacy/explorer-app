@@ -313,8 +313,9 @@ defineProps<{
       </div>
     </div>
     <ProjectOpenessTeamMembers
-      v-if="project?.team?.teammembers"
+      v-if="project?.team?.anonymous || project?.team?.teammembers"
       :members="project.team?.teammembers"
+      :anonymous="project.team?.anonymous"
       mt-24px
     />
     <div mt-32px>
