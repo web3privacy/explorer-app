@@ -7,6 +7,12 @@ const props = defineProps<{
   }[] | undefined
   anonymous?: boolean
 }>()
+
+function sanitizeLink(link?: string): string {
+  if (!link)
+    return ''
+  return /^https?:\/\//.test(link) ? link : `https://${link}`
+}
 </script>
 
 <template>
@@ -38,7 +44,7 @@ const props = defineProps<{
           :key="member.name"
         >
           <NuxtLink
-            :to="member.link"
+            :to="sanitizeLink(member.link)"
             target="_blank"
             flex
             items-center
