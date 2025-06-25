@@ -94,11 +94,11 @@ watch([scrollY, top, y], (newValues, oldValues) => {
               'absolute right-0 top-16 bg-gray-700 rounded shadow-lg p-4 z-50 min-w-[180px] text-center',
             ]"
           >
-            <li class="mb-2">
+            <!-- <li class="mb-2">
               <NuxtLink to="https://explorer.web3privacy.info/">
                 Explorer
               </NuxtLink>
-            </li>
+            </li> -->
             <li class="mb-2">
               <NuxtLink to="/about">
                 About
