@@ -58,12 +58,6 @@ watch([scrollY, top, y], (newValues, oldValues) => {
         >
       </a>
 
-      <SearchBox
-        class="!hidden md:!block w-full lg:max-w-1/3 md:flex md:flex-1"
-        placeholder:text-app-text-grey
-        :placeholder="`Search in ${filteredProjectsCount} Projects`"
-      />
-
       <div class="flex items-center gap-2">
         <button
           class="p-2"
@@ -335,7 +329,8 @@ watch([scrollY, top, y], (newValues, oldValues) => {
       mt-32px
       relative
     >
-      <div
+      <divMore
+        actions
         md:hidden
         block
         absolute
@@ -364,11 +359,16 @@ watch([scrollY, top, y], (newValues, oldValues) => {
             md:items-center
             gap-16px
           >
+            <SearchBox
+              flex-1
+              class="w-full lg:max-w-1/3"
+              placeholder:text-app-text-grey
+              :placeholder="`Search in ${filteredProjectsCount} Projects`"
+            />
             <div
               md:flex-2
               flex
               items-center
-              justify-between
               gap-16px
               relative
               overflow-x-auto
