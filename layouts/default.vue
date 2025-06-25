@@ -50,11 +50,13 @@ watch([scrollY, top, y], (newValues, oldValues) => {
   >
     <!-- Hamburger and Menu -->
     <div class="relative w-full flex items-center justify-between px-4 py-2 bg-gray-700 rounded-lg">
-      <img
-        src="/public/logo.svg"
-        alt="Logo"
-        class="h-10"
-      >
+      <a href="https://web3privacy.info/">
+        <img
+          src="/public/logo.svg"
+          alt="Logo"
+          class="h-10"
+        >
+      </a>
 
       <SearchBox
         class="!hidden md:!block w-full lg:max-w-1/3 md:flex md:flex-1"
