@@ -37,6 +37,28 @@ watch([scrollY, top, y], (newValues, oldValues) => {
   if (top.value <= 32)
     scrollY.value += newValues[2] - oldValues[2]
 })
+
+const handleCategorySelection = async (value: string) => {
+  // Store current scroll position
+  const currentScrollY = window.scrollY
+
+  try {
+    if (value === 'all') {
+      await navigateTo('/')
+    }
+    else {
+      await navigateTo(`/category/${value}`)
+    }
+
+    // Restore scroll position after navigation
+    setTimeout(() => {
+      window.scrollTo(0, currentScrollY)
+    }, 100)
+  }
+  catch (error) {
+    console.error('Navigation error:', error)
+  }
+}
 </script>
 
 <template>
@@ -57,12 +79,6 @@ watch([scrollY, top, y], (newValues, oldValues) => {
           class="h-10"
         >
       </a>
-
-      <SearchBox
-        class="!hidden md:!block w-full lg:max-w-1/3 md:flex md:flex-1"
-        placeholder:text-app-text-grey
-        :placeholder="`Search in ${filteredProjectsCount} Projects`"
-      />
 
       <div class="flex items-center gap-2">
         <button
@@ -335,7 +351,8 @@ watch([scrollY, top, y], (newValues, oldValues) => {
       mt-32px
       relative
     >
-      <div
+      <divMore
+        actions
         md:hidden
         block
         absolute
@@ -364,11 +381,16 @@ watch([scrollY, top, y], (newValues, oldValues) => {
             md:items-center
             gap-16px
           >
+            <SearchBox
+              flex-1
+              class="w-full lg:max-w-1/3"
+              placeholder:text-app-text-grey
+              :placeholder="`Search in ${filteredProjectsCount} Projects`"
+            />
             <div
               md:flex-2
               flex
               items-center
-              justify-between
               gap-16px
               relative
               overflow-x-auto
@@ -382,7 +404,7 @@ watch([scrollY, top, y], (newValues, oldValues) => {
                 :options="categoryOptions"
                 name="categorySelect"
                 w-full
-                @selected="selectedCategoryId === 'all' ? navigateTo(`/`) : navigateTo(`/category/${selectedCategoryId}`)"
+                @selected="handleCategorySelection"
               />
               <CategorySelectBox
                 v-if="usecases?.length"
