@@ -182,7 +182,7 @@ const handleCategorySelection = async (value: string) => {
             font-medium
             mb-8
           >
-            Discover 600+ Projects
+            Discover 700+ Projects
           </h2>
         </div>
       </div>
