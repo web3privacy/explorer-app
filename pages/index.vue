@@ -7,7 +7,13 @@ useSeoMeta({
   ogDescription: 'There are challenges in finding crucial technical details and comparing various privacy-focused projects.',
   ogImage: '/web3privacy_eye.webp',
 })
-const { groupedProjectsPerCategory } = storeToRefs(useData())
+import { format } from 'date-fns'
+const { groupedProjectsPerCategory, lastUpdated } = storeToRefs(useData())
+const formattedLastUpdated = computed(() =>
+  lastUpdated.value
+    ? format(new Date(lastUpdated.value), 'PPpp')
+    : '',
+)
 
 const isOpen = ref(false)
 const route = useRoute()
@@ -27,6 +33,9 @@ onMounted(() => {
       cta="View on GitHub"
       :to="route.query.pr as string"
     />
+    <div v-if="formattedLastUpdated" class="text-right text-xs opacity-70 mb-4">
+      Last Updated: {{ formattedLastUpdated }}
+    </div>
     <ProjectGrid :projects="groupedProjectsPerCategory" />
   </div>
 </template>

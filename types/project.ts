@@ -22,7 +22,7 @@ export interface Project {
     token_link?: string
     [k: string]: unknown
   }[]
-  percentage: number
+  percentage?: number
   description?: string
   project_type?: string
   product_launch_day?: string
@@ -136,7 +136,7 @@ export interface ProjectShallow {
   image: string
   title1: string
   description: string
-  percentage: number
+  percentage?: number
   forum?: string
   github?: string
   website?: string

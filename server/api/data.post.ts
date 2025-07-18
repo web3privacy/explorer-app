@@ -2,11 +2,13 @@ import { readFile } from 'fs/promises'
 import { join } from 'path'
 
 import { App } from 'octokit'
+import type { Octokit } from 'octokit'
 import yaml from 'yaml'
 import type { Project } from '~/types'
+import logger from '~/utils/logger'
 
 export default defineEventHandler(async (event) => {
-  const body = await readBody<{ project: Project, image?: { type: string, data: string } }>(event)
+  const body = await readBody<{ project: Partial<Project>, image?: { type: string, data: string } }>(event)
   const { appId, privateKey, installationId, baseBranch, owner, repo } = useRuntimeConfig().app.github
 
   let localPrivateKey
@@ -18,14 +20,9 @@ export default defineEventHandler(async (event) => {
     // Intentionally ignore the error
   }
 
-  const id = (body.project.id && body.project.id.toLowerCase() === body.project.name.toLowerCase().replace(/\s+/g, '-'))
-    ? body.project.id
-    : body.project.name.toLowerCase().replace(/\s+/g, '-')
-
-  const yamlProject = yaml.stringify({
-    ...body.project,
-    id,
-  })
+  const sanitizedName = body.project.name
+    ? body.project.name.toLowerCase().replace(/\s+/g, '-')
+    : ''
 
   const app = new App({
     appId,
@@ -33,6 +30,37 @@ export default defineEventHandler(async (event) => {
   })
   await app.octokit.rest.apps.getAuthenticated()
   const octokit = await app.getInstallationOctokit(installationId)
+
+  async function pathExists(path: string) {
+    try {
+      await octokit.rest.repos.getContent({ owner, repo, path, ref: baseBranch })
+      return true
+    }
+    catch (error: any) {
+      if (error.status === 404)
+        return false
+      throw error
+    }
+  }
+
+  let id: string
+  if (body.project.id && body.project.id.toLowerCase() === sanitizedName) {
+    id = body.project.id
+  }
+  else {
+    id = sanitizedName
+    let uniqueId = id
+    let counter = 1
+    while (await pathExists(`src/projects/${uniqueId}`)) {
+      uniqueId = `${id}-${counter++}`
+    }
+    id = uniqueId
+  }
+
+  const yamlProject = yaml.stringify({
+    ...body.project,
+    id,
+  })
 
   const newBranchName = `${id}-project-update-${Date.now()}`
   const commitMessage = `${body.project.id
@@ -61,7 +89,7 @@ export default defineEventHandler(async (event) => {
     )
   }
 
-  async function createBranch(owner: string, repo: string, newBranchName: string, baseBranch: string) {
+  async function createBranch(octokit: Octokit, owner: string, repo: string, newBranchName: string, baseBranch: string) {
     const { data: baseBranchData } = await octokit.rest.git.getRef({
       owner,
       repo,
@@ -76,7 +104,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  async function deleteOldProjectFolder(owner: string, repo: string, branch: string, oldFolderPath: string) {
+  async function deleteOldProjectFolder(octokit: Octokit, owner: string, repo: string, branch: string, oldFolderPath: string) {
     const { data: latestCommit } = await octokit.rest.repos.getCommit({
       owner,
       repo,
@@ -91,14 +119,14 @@ export default defineEventHandler(async (event) => {
     })
 
     // Log to verify the tree structure
-    console.log('Base Tree:', baseTree.tree.map(item => item.path))
+    logger.info('Base Tree:', baseTree.tree.map(item => item.path))
 
     // Filter out the old folder from the tree
     const newTreeItems = baseTree.tree.filter(item => !item.path?.startsWith(oldFolderPath))
-    console.log('New Tree Items (after filtering):', newTreeItems.map(item => item.path))
+    logger.info('New Tree Items (after filtering):', newTreeItems.map(item => item.path))
 
     if (newTreeItems.length === baseTree.tree.length) {
-      console.log(`No items found to delete in the folder: ${oldFolderPath}`)
+      logger.info(`No items found to delete in the folder: ${oldFolderPath}`)
       return
     }
 
@@ -117,7 +145,7 @@ export default defineEventHandler(async (event) => {
       base_tree: baseTree.sha,
     })
 
-    console.log('New Tree SHA:', newTree.sha)
+    logger.info('New Tree SHA:', newTree.sha)
 
     // Create a new commit with the new tree
     const { data: newCommit } = await octokit.rest.git.createCommit({
@@ -128,7 +156,7 @@ export default defineEventHandler(async (event) => {
       parents: [latestCommit.sha],
     })
 
-    console.log('New Commit SHA:', newCommit.sha)
+    logger.info('New Commit SHA:', newCommit.sha)
 
     // Update the reference to point to the new commit
     await octokit.rest.git.updateRef({
@@ -140,6 +168,7 @@ export default defineEventHandler(async (event) => {
   }
 
   async function commitChangesToNewBranch(
+    octokit: Octokit,
     owner: string,
     repo: string,
     newBranch: string,
@@ -205,11 +234,11 @@ export default defineEventHandler(async (event) => {
       })
     }
     catch (error) {
-      console.error('Error during commit operation:', error)
+      logger.error('Error during commit operation:', error)
     }
   }
 
-  async function createPullRequest(owner: string, repo: string, head: string, base: string, title: string, body: string) {
+  async function createPullRequest(octokit: Octokit, owner: string, repo: string, head: string, base: string, title: string, body: string) {
     const { data: pullRequest } = await octokit.rest.pulls.create({
       owner,
       repo,
@@ -223,22 +252,25 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    await createBranch(owner, repo, newBranchName, baseBranch)
+    await createBranch(octokit, owner, repo, newBranchName, baseBranch)
     console.log(`Branch ${newBranchName} created successfully!`)
 
     const deletedFiles = []
-    if (body.project.id && body.project.id.toLowerCase() !== body.project.name.toLowerCase().replace(/\s+/g, '-')) {
+    if (body.project.id && body.project.id.toLowerCase() !== sanitizedName) {
       const oldId = body.project.id
       const oldFolderPath = `src/projects/${oldId}`
-      await deleteOldProjectFolder(owner, repo, newBranchName, oldFolderPath)
-      console.log(`Old project folder ${oldFolderPath} deleted successfully!`)
-      deletedFiles.push(oldFolderPath)
+      if (await pathExists(oldFolderPath)) {
+        await deleteOldProjectFolder(octokit, owner, repo, newBranchName, oldFolderPath)
+        console.log(`Old project folder ${oldFolderPath} deleted successfully!`)
+        deletedFiles.push(oldFolderPath)
+      }
     }
 
-    await commitChangesToNewBranch(owner, repo, newBranchName, commitMessage, files, deletedFiles)
+    await commitChangesToNewBranch(octokit, owner, repo, newBranchName, commitMessage, files, deletedFiles)
     console.log(`Changes committed to branch ${newBranchName} successfully!`)
 
     const pullRequestData = await createPullRequest(
+      octokit,
       owner,
       repo,
       newBranchName,
@@ -246,11 +278,11 @@ export default defineEventHandler(async (event) => {
       `${body.project.id ? `Update project: ${body.project.id}` : `Create project: ${body.project.name}`}`,
       `${body.project.id ? `Updating the project: ${body.project.id}` : `Initiating the creation of project: ${body.project.name}`}`,
     )
-    console.log('Pull request created:', pullRequestData)
+    logger.info('Pull request created:', pullRequestData)
 
     return pullRequestData.html_url
   }
   catch (error) {
-    console.error('Error during GitHub operations:', error)
+    logger.error('Error during GitHub operations:', error)
   }
 })

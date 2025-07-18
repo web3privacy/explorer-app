@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+const props = defineProps<{ anonymous?: boolean }>()
 </script>
 
 <template>
@@ -41,18 +41,26 @@
         />
       </defs>
     </svg>
-    <div
-      flex
-      flex-col
-    >
-      <span
-        text-16px
-        font-700
-      >{{ 'Allan Scott' }}</span>
-      <span
-        text="16px app-text-grey"
-        font-400
-      >{{ 'Researcher' }}</span>
-    </div>
+      <div
+        flex
+        flex-col
+      >
+        <template v-if="props.anonymous">
+          <span
+            text-16px
+            font-700
+          >{{ 'Anonymous member' }}</span>
+        </template>
+        <template v-else>
+          <span
+            text-16px
+            font-700
+          >{{ 'Allan Scott' }}</span>
+          <span
+            text="16px app-text-grey"
+            font-400
+          >{{ 'Researcher' }}</span>
+        </template>
+      </div>
   </div>
 </template>

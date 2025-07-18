@@ -17,6 +17,7 @@ export const useData = defineStore('data', () => {
   const ecosystems = useState<Ecosystem[]>('ecosystems')
   const projects = useState<Project[]>('projects')
   const ranks = useState<Rank[]>('ranks')
+  const lastUpdated = useState<string | undefined>('lastUpdated')
 
   const selectedCategoryId = useState(() => 'all')
   const selectedUsecaseId = useState(() => 'all')
@@ -59,7 +60,18 @@ export const useData = defineStore('data', () => {
         assets: Asset[]
         features: Feature[]
         ranks: Rank[]
+        lastUpdated?: string
+        updated_at?: string
+        updatedAt?: string
+        timestamp?: string
+        updated?: string
       }>('/api/data')
+      lastUpdated.value =
+        (data as any).updated_at
+        ?? (data as any).updatedAt
+        ?? (data as any).lastUpdated
+        ?? (data as any).timestamp
+        ?? (data as any).updated
       data.projects.forEach(project => project.ratings = generateProjectRating(project))
 
       // Percentage calculation
@@ -337,6 +349,7 @@ export const useData = defineStore('data', () => {
     ecosystems,
     assets,
     projects,
+    lastUpdated,
     shallowProjects,
     groupedProjectsPerCategory,
     filteredProjectsCount,

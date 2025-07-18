@@ -18,33 +18,28 @@ const fulfilled = (value: any): boolean => {
 }
 
 export const calculateScore = (project: ProjectIndexable | ProjectShallow | Project) => {
-  const criterias: { value: keyof ProjectIndexable, key: keyof ProjectIndexable | '' }[] = [
-    { value: 'product_readiness', key: '' },
-    { value: 'github', key: 'links' },
-    { value: 'docs', key: 'links' },
-    { value: 'team', key: '' },
-    { value: 'audits', key: '' },
+  const criterias: { value: keyof ProjectIndexable, key: keyof ProjectIndexable | '', weight: number }[] = [
+    { value: 'github', key: 'links', weight: 0.3 },
+    { value: 'docs', key: 'links', weight: 0.3 },
+    { value: 'team', key: '', weight: 0.2 },
+    { value: 'audits', key: '', weight: 0.2 },
   ]
 
-  let matched = 0
-  for (let i = 0; i < criterias.length; i++) {
+  let score = 0
+  for (const criteria of criterias) {
     let value
-    // value = ((criterias[i].key ?? props.project[criterias[i].value as keyof typeof props.project]) ?? null === null) ? null : (props.project as ProjectIndexable)[criterias[i].key][criterias[i].value]
-
     const indexableProject = project as ProjectIndexable
-    if (criterias[i].key !== '')
-      value = (indexableProject[criterias[i].key] as any)?.[criterias[i].value]
+    if (criteria.key !== '')
+      value = (indexableProject[criteria.key] as any)?.[criteria.value]
     else
-      value = indexableProject?.[criterias[i].value]
+      value = indexableProject?.[criteria.value]
 
-    // console.log(props.project?.links?.github);
-    // console.log(Object.keys(props.indexableProject["team"]).length);
     if (value === null || value === undefined)
       continue
 
     if (fulfilled(value))
-      matched++
+      score += criteria.weight
   }
 
-  return 100 / criterias.length * matched
+  return Math.round(score * 100)
 }

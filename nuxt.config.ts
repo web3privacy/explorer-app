@@ -54,14 +54,15 @@ export default defineNuxtConfig({
     prefix: '_',
   },
   runtimeConfig: {
+    localDataPath: process.env.LOCAL_DATA_PATH,
     app: {
       github: {
-        appId: 995628,
-        privateKey: '',
-        installationId: 55212914,
-        owner: 'web3privacy',
-        baseBranch: 'main',
-        repo: 'test-repo',
+        appId: process.env.GITHUB_APP_ID,
+        privateKey: process.env.GITHUB_APP_PRIVATE_KEY,
+        installationId: process.env.GITHUB_INSTALLATION_ID,
+        owner: process.env.GITHUB_OWNER,
+        baseBranch: process.env.GITHUB_BASE_BRANCH || 'main',
+        repo: process.env.GITHUB_REPO,
       },
     },
   },
